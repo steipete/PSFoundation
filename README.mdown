@@ -25,11 +25,13 @@ Okay, what's in the box?
 * MCRelease, MCReleaseNil, custom assert macros, IsEmpty...
 
 TableView-Helper:
+
 * PSTableViewController (like UITableViewController, just with subview support)
 * PSGenericView/PSGenericView - for super fast drawRect-cells
 * GradientView / ShadowedTableView / UACellBackgroundView - more visual awesomeness!
 
 Core Data:
+
 * activerecord-for-coredata (a fork of https://github.com/magicalpanda/activerecord-fetching-for-core-data)
 * SafeFetchedResultsController (the NSFetchedResultsController subclass you wished you found earlier!)
 
