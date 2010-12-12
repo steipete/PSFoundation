@@ -153,7 +153,7 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 }
 
 - (void)dealloc {
-  RELEASE(backgroundImage);
+  MCRelease(backgroundImage);
   [super dealloc];
 }
 

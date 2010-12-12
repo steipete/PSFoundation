@@ -34,7 +34,7 @@
 }
 
 - (void)dealloc {
-  RELEASE(dateFormatter);
+  MCRelease(dateFormatter);
   [super dealloc];
 }
 
