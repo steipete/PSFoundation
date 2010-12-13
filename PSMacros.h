@@ -2,10 +2,8 @@
 //  PSMacros.h
 //
 //  Created by Peter Steinberger on 03.05.10.
+//  Contains stuff from Dirk Holtwick - thanks for sharing!
 //
-
-#import "Macros/SynthesizeSingleton.h"
-#import "Lumberjack/DDLog.h"
 
 // compiler help
 #define INVALIDATE_TIMER(__TIMER) { [__TIMER invalidate]; __TIMER = nil; }
@@ -21,20 +19,19 @@ static inline BOOL IsEmpty(id thing) {
 
 // CGRect
 #define PSRectClearCoords(_CGRECT) CGRectMake(0, 0, _CGRECT.size.width, _CGRECT.size.height)
-#define CGRectClearCoords(_CGRECT) PSRectClearCoords(_CGRECT) // for compability reasons
-
-#define $false ((NSNumber*)kCFBooleanFalse)
-#define $true  ((NSNumber*)kCFBooleanTrue)
+#define CGRectClearCoords(_CGRECT) PSRectClearCoords(_CGRECT) // legacy
 
 // color
 #define SETTINGS_TEXT_COLOR	RGB(57, 85, 135
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define XHEXCOLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0]
+#define XHEXCOLOR_ALPHA(c, a) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:a]
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
-#define UIApp [UIApplication sharedApplication].delegate
 
 // Short hand NSLocalizedString, doesn't need 2 parameters
 #define LocalizedString(s) NSLocalizedString(s,s)
+
 // LocalizedString with an additionl parameter for formatting
 #define LocalizedStringWithFormat(s,...) [NSString stringWithFormat:NSLocalizedString(s,s),##__VA_ARGS__]
 
@@ -65,7 +62,7 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #define PSAssertReturnNO(condition)  do { if(condition) { DDLogWarn(@"PSAssertReturnNil: Condition is true!"); PSAssert(YES); return NO; }} while (0)
 #define PSAssertReturn(condition)  do { if(condition) { DDLogWarn(@"PSAssertReturnNil: Condition is true!"); PSAssert(YES); return; }} while (0)
 
-// block asserts for non-debug builds
+// block asserts for non-debug builds ("the ugly tree")
 #ifndef DEBUG
   // block classic assert()
   #ifndef NDEBUG
@@ -84,6 +81,87 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   #endif
 #endif
 
-// survives when NS_BLOCK_ASSERTIONS is set and simply mutates
-// http://vgable.com/blog/2008/12/04/nsassert-considered-harmful/
-#define ZAssert(condition, ...) do { if (!(condition)) { AssertLog(__VA_ARGS__); }} while(0)
+
+// performance measurement
+// #define PERF 1
+#if PERF
+#  define TSTART { NSTimeInterval __tStart = CFAbsoluteTimeGetCurrent();
+#  define TSTOP NSLog(@"%s: %f secs", __PRETTY_FUNCTION__, CFAbsoluteTimeGetCurrent() - __tStart); }
+#  define TSTOPLOG(fmt, ...) NSLog((@"%s\n\n    %.8f secs: " fmt @"\n\n"), __PRETTY_FUNCTION__, (CFAbsoluteTimeGetCurrent() - __tStart), ##__VA_ARGS__); }
+#else
+#  define TSTART
+#  define TSTOP
+#  define TSTOPLOG
+#endif
+
+// app shortcuts
+#define XNavigationController [[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)]
+#define XAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+#define UIApp [UIApplication sharedApplication].delegate // deprectated
+#define tsPushAnimated(vc) [[[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)] pushViewController:vc animated:YES];
+
+// filepaths
+#define XFILPATH4DOCUMENT(_value) [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:_value]
+#define XFILEPATH4BUNDLE(_value) [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:_value]
+#define XURL4FILEPATH(_value) [NSURL fileURLWithPath:_value]
+#define XURL4DOCUMENT(_value) [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:_value]]
+#define XURL4BUNDLE(_value) [NSURL fileURLWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:_value]]
+
+// array sorting & fetching
+#define XSORTED(arr,by,asc) [arr sortedArrayUsingDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:by ascending:asc] autorelease]]]
+#define XSORT(arr,by,asc) [arr sortUsingDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:by ascending:asc] autorelease]]];
+#define XRX(v) ([v isKindOfClass:[NSPredicate class]] ? v : [NSPredicate predicateWithFormat:@"SELF MATCHES %@", v])
+
+// value or nil
+#define XINT(value) (value ? [NSNumber numberWithInt:value] : [NSNumber numberWithInt:0])
+#define XFLOAT(value) (value ? [NSNumber numberWithDouble:(double)value] : [NSNumber numberWithDouble:(double)0.0])
+#define XBOOL(value) (value ? [NSNumber numberWithBool:value] : [NSNumber numberWithBool:NO])
+#define XNULL [NSNull null]
+#define $false ((NSNumber*)kCFBooleanFalse)
+#define $true  ((NSNumber*)kCFBooleanTrue)
+
+// collection shortcuts
+#define XDEFAULT(_value, _default) ([[NSNull null] isEqual:(_value)] ? (_default) : (_value))
+#define XFMT(...) [NSString stringWithFormat: __VA_ARGS__]
+#define XARRAY(...) [NSArray arrayWithObjects: __VA_ARGS__, nil]
+#define XDICT(...) [NSDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
+#define XMARRAY(...) [NSMutableArray arrayWithObjects: __VA_ARGS__, nil]
+#define XMDICT(...) [NSMutableDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
+
+#define XMCOPY(_obj) [[_obj mutableCopy] autorelease]
+#define xcopy(_obj) [[_obj copy] autorelease]
+
+// sorting
+#define XLT(a,b) ([a compare:b] == NSOrderedAscending)
+#define XGT(a,b) ([a compare:b] == NSOrderedDescending)
+#define XEQ(a,b) ([a compare:b] == NSOrderedSame)
+
+// notification center
+#define XNC [NSNotificationCenter defaultCenter]
+#define XNCADD(n,sel) [[NSNotificationCenter defaultCenter] addObserver:self selector:sel name:n object:nil];
+#define XNCREMOVE [[NSNotificationCenter defaultCenter] removeObserver:self];
+#define XNCPOST(name) [[NSNotificationCenter defaultCenter] postNotificationName:name object:self];
+
+// selector apply
+#define XAPPLY(target, sel)  if([(id)target respondsToSelector:@selector(sel)]) { [(id)target performSelector:@selector(sel)]; }
+#define XAPPLY1(target, sel, obj)  if([(id)target respondsToSelector:@selector(sel:)]) { [(id)target performSelector:@selector(sel:) withObject:obj]; }
+
+#define XAPPLYSEL(target, sel)  if([target respondsToSelector:sel]) { [(id)target performSelector:sel]; }
+#define XAPPLYSEL1(target, sel, obj)  if([target respondsToSelector:sel]) { [(id)target performSelector:sel withObject:obj]; }
+
+#define XDATA2UTF8STRING(data) [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]
+#define XUTF8STRING2DATA(s) [s dataUsingEncoding:NSUTF8StringEncoding]
+
+// user defaults
+#define XDEL_OBJECT(k) [[NSUserDefaults standardUserDefaults] removeObjectForKey:k];
+#define XGET_OBJECT(v) [[NSUserDefaults standardUserDefaults] objectForKey:v]
+#define XSET_OBJECT(k,v) [[NSUserDefaults standardUserDefaults] setObject:v forKey:k];
+#define XGET_STRING(v) [[NSUserDefaults standardUserDefaults] stringForKey:v]
+#define XSET_STRING(k,v) [[NSUserDefaults standardUserDefaults] setObject:v forKey:k];
+#define XGET_FLOAT(v) [[NSUserDefaults standardUserDefaults] floatForKey:v]
+#define XSET_FLOAT(k,v) [[NSUserDefaults standardUserDefaults] setFloat:v forKey:k];
+#define XGET_BOOL(v) [[NSUserDefaults standardUserDefaults] boolForKey:v]
+#define XSET_BOOL(k,v) [[NSUserDefaults standardUserDefaults] setBool:v forKey:k];
+#define XGET_INT(v) [[NSUserDefaults standardUserDefaults] integerForKey:v]
+#define XSET_INT(k,v) [[NSUserDefaults standardUserDefaults] setInteger:v forKey:k];
+#define XSYNC [[NSUserDefaults standardUserDefaults] synchronize];

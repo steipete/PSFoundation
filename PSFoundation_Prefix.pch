@@ -21,4 +21,5 @@
 // http://code.google.com/p/cocoalumberjack/wiki/GettingStarted
 #import "DDLog.h"
 
+#import "Macros/SynthesizeSingleton.h"
 #import "PSMacros.h"

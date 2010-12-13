@@ -5,6 +5,8 @@
 
 //  includes all headers from PSFoundation
 
+#import "Macros/SynthesizeSingleton.h"
+#import "Lumberjack/DDLog.h"
 #import "PSMacros.h"
 #import "Categories/PSCategories.h"
 
