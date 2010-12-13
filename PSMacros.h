@@ -81,7 +81,6 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
   #endif
 #endif
 
-
 // performance measurement
 // #define PERF 1
 #if PERF
@@ -99,6 +98,9 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #define XAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 #define UIApp [UIApplication sharedApplication].delegate // deprectated
 #define tsPushAnimated(vc) [[[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)] pushViewController:vc animated:YES];
+
+// defines
+#define XAPPVERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
 
 // filepaths
 #define XFILPATH4DOCUMENT(_value) [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:_value]
