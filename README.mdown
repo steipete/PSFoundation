@@ -1,4 +1,5 @@
 I'm releasing my dearest framework, PSFoundation, as a christmas gift. It's more or less a second Foundation, with great tools aiding development of iOS apps. This framework is fast-moving, so expect some stuff to break.
+Best thing: it's AppStore-safe, no private API in there. All my own apps use this framework, so it's proved.
 
 Okay, what's in the box?
 

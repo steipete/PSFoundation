@@ -46,6 +46,8 @@
 		784ADCE21275809B00D41EE4 /* PSSettingsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 784ADCE01275809B00D41EE4 /* PSSettingsUtil.m */; };
 		7854938B1295F0750047D926 /* PSNonEdiableTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 785493891295F0750047D926 /* PSNonEdiableTextView.h */; };
 		7854938C1295F0750047D926 /* PSNonEdiableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7854938A1295F0750047D926 /* PSNonEdiableTextView.m */; };
+		78552DD312B6547500EFDE10 /* JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 78552DD112B6547500EFDE10 /* JRSwizzle.h */; };
+		78552DD412B6547500EFDE10 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 78552DD212B6547500EFDE10 /* JRSwizzle.m */; };
 		7856A32612B43AA30025424F /* PSFoundation_CoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = 7856A32512B43AA30025424F /* PSFoundation_CoreData.h */; };
 		7856A32812B43AAB0025424F /* PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7856A32712B43AAB0025424F /* PSFoundation.h */; };
 		7856A32A12B43AB40025424F /* PSFoundation_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 7856A32912B43AB40025424F /* PSFoundation_Prefix.pch */; };
@@ -278,6 +280,8 @@
 		784ADCE01275809B00D41EE4 /* PSSettingsUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSettingsUtil.m; sourceTree = "<group>"; };
 		785493891295F0750047D926 /* PSNonEdiableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNonEdiableTextView.h; sourceTree = "<group>"; };
 		7854938A1295F0750047D926 /* PSNonEdiableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNonEdiableTextView.m; sourceTree = "<group>"; };
+		78552DD112B6547500EFDE10 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
+		78552DD212B6547500EFDE10 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		7856A32512B43AA30025424F /* PSFoundation_CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation_CoreData.h; sourceTree = "<group>"; };
 		7856A32712B43AAB0025424F /* PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation.h; sourceTree = "<group>"; };
 		7856A32912B43AB40025424F /* PSFoundation_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation_Prefix.pch; sourceTree = "<group>"; };
@@ -887,6 +891,8 @@
 		78E53190126E03EB00A89047 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
+				78552DD112B6547500EFDE10 /* JRSwizzle.h */,
+				78552DD212B6547500EFDE10 /* JRSwizzle.m */,
 				78E53191126E03EB00A89047 /* NSObject+AutoDescription.h */,
 				78E53192126E03EB00A89047 /* NSObject+AutoDescription.m */,
 				78E53193126E03EB00A89047 /* NSObject+BlockObservation.h */,
@@ -1251,6 +1257,7 @@
 				7856A32A12B43AB40025424F /* PSFoundation_Prefix.pch in Headers */,
 				78BCB9BE12B5275B0093AE0C /* NSObject+Utilities.h in Headers */,
 				78BCB9E112B528AD0093AE0C /* NSURL+PSFoundation.h in Headers */,
+				78552DD312B6547500EFDE10 /* JRSwizzle.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1442,6 +1449,7 @@
 				782E2A6012AC5AD400F2CFC9 /* NSMutableArray+SCQueue.m in Sources */,
 				78BCB9BF12B5275B0093AE0C /* NSObject+Utilities.m in Sources */,
 				78BCB9E212B528AD0093AE0C /* NSURL+PSFoundation.m in Sources */,
+				78552DD412B6547500EFDE10 /* JRSwizzle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
