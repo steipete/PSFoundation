@@ -93,4 +93,8 @@
   [self release];
 }
 
+- (NSUInteger)buttonCount {
+  return [blocks_ count];
+}
+
 @end
