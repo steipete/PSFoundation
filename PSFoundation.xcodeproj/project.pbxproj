@@ -53,6 +53,8 @@
 		7856A32A12B43AB40025424F /* PSFoundation_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 7856A32912B43AB40025424F /* PSFoundation_Prefix.pch */; };
 		7867A4FB126C99EA0012E520 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7867A4FA126C99EA0012E520 /* CoreData.framework */; };
 		7867A50B126C9B340012E520 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786922B4126B45A3000259AC /* UIKit.framework */; };
+		7875132012BE992700BC60D0 /* MACollectionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875131E12BE992700BC60D0 /* MACollectionUtilities.h */; };
+		7875132112BE992700BC60D0 /* MACollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875131F12BE992700BC60D0 /* MACollectionUtilities.m */; };
 		7883CB6D127AE07F001036C0 /* HOLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 7883CB6B127AE07F001036C0 /* HOLog.h */; };
 		7883CB6E127AE07F001036C0 /* HOLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7883CB6C127AE07F001036C0 /* HOLog.m */; };
 		788DCBF1129F005500E061C3 /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 788DCBEF129F005500E061C3 /* ISO8601DateFormatter.h */; };
@@ -328,6 +330,8 @@
 		78692296126B4487000259AC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		786922A4126B450C000259AC /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
 		786922B4126B45A3000259AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7875131E12BE992700BC60D0 /* MACollectionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACollectionUtilities.h; sourceTree = "<group>"; };
+		7875131F12BE992700BC60D0 /* MACollectionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACollectionUtilities.m; sourceTree = "<group>"; };
 		7883CB6B127AE07F001036C0 /* HOLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOLog.h; sourceTree = "<group>"; };
 		7883CB6C127AE07F001036C0 /* HOLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOLog.m; sourceTree = "<group>"; };
 		788DCBEF129F005500E061C3 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
@@ -794,6 +798,8 @@
 		78E53166126E03EB00A89047 /* NSArray */ = {
 			isa = PBXGroup;
 			children = (
+				7875131E12BE992700BC60D0 /* MACollectionUtilities.h */,
+				7875131F12BE992700BC60D0 /* MACollectionUtilities.m */,
 				782E2A5D12AC5AD400F2CFC9 /* NSMutableArray+SCQueue.h */,
 				782E2A5E12AC5AD400F2CFC9 /* NSMutableArray+SCQueue.m */,
 				78E53167126E03EB00A89047 /* NSArray+blocks.h */,
@@ -1258,6 +1264,7 @@
 				78BCB9BE12B5275B0093AE0C /* NSObject+Utilities.h in Headers */,
 				78BCB9E112B528AD0093AE0C /* NSURL+PSFoundation.h in Headers */,
 				78552DD312B6547500EFDE10 /* JRSwizzle.h in Headers */,
+				7875132012BE992700BC60D0 /* MACollectionUtilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1450,6 +1457,7 @@
 				78BCB9BF12B5275B0093AE0C /* NSObject+Utilities.m in Sources */,
 				78BCB9E212B528AD0093AE0C /* NSURL+PSFoundation.m in Sources */,
 				78552DD412B6547500EFDE10 /* JRSwizzle.m in Sources */,
+				7875132112BE992700BC60D0 /* MACollectionUtilities.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
