@@ -54,6 +54,14 @@ static const int ddLogLevel = LOG_LEVEL_INFO;
 static const int ddLogLevel = LOG_LEVEL_WARN;
 #endif
 
+// wrap to have non-retaining self pointers in blocks: safeSelf(dispatch_async(myQ, ^{[self doSomething];});
+// use with care! can lead to crashes if self suddelny vanishes...
+#define safeSelf(...) do {              \
+__typeof__(self) __x = self;            \
+__block __typeof__(self) self = __x;    \
+__VA_ARGS__;                            \
+} while (0)
+
 // http://www.cimgf.com/2010/05/02/my-current-prefix-pch-file/
 // use like PSAssert(anAsset != nil, @"Asset cannot be nil");
 #define PSAssertM(condition, message) do { if(condition) { DDLogWarn(@"asserted with %@", message); assert(condition && message); }} while(0)

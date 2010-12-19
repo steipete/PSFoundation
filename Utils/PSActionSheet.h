@@ -28,4 +28,6 @@
 
 - (void)showInView:(UIView *)view;
 
+- (NSUInteger)buttonCount;
+
 @end
