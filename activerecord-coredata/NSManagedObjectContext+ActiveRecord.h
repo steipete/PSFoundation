@@ -26,4 +26,7 @@
 + (NSManagedObjectContext *) contextThatNotifiesDefaultContextOnMainThread;
 + (NSManagedObjectContext *) contextWithStoreCoordinator:(NSPersistentStoreCoordinator *)coordinator;
 
+- (void)logDetailedError:(NSError *)error from:(id)caller selector:(SEL)selector;
+- (void)logContextChanges;
+
 @end

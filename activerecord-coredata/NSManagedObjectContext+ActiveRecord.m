@@ -169,4 +169,77 @@ static NSManagedObjectContext *defaultManageObjectContext = nil;
   return context;
 }
 
+- (void)logDetailedError:(NSError *)error from:(id)caller selector:(SEL)selector
+{
+#if DEBUG
+	DDLogInfo(@"*** CORE DATA ERROR: a data store operation failed");
+	DDLogInfo(@"*** Caller was: %@ %p %@", [caller class], caller, NSStringFromSelector(selector));
+	DDLogInfo(@"*** Error: %@", [error localizedDescription]);
+	NSArray* detailedErrors = [[error userInfo] objectForKey:NSDetailedErrorsKey];
+	if ([detailedErrors count] > 0)
+	{
+		for(NSError* detailedError in detailedErrors)
+			DDLogInfo(@">  DetailedError: %@", [detailedError userInfo]);
+	}
+	else
+	{
+		DDLogInfo(@"  %@", [error userInfo]);
+	}
+#endif
+}
+
+- (void)logContextChanges
+{
+#if DEBUG
+	// Log the current changes for the context
+	if (![self hasChanges])
+		return;
+
+	DDLogInfo(@"***************************************************");
+	DDLogInfo(@"* CHANGES TO %@ %p", [self class], self);
+	DDLogInfo(@"***************************************************");
+	NSSet *updated = [self updatedObjects];
+	NSSet *inserted = [self insertedObjects];
+	NSSet *deleted = [self deletedObjects];
+	if ([updated count])
+	{
+		DDLogInfo(@"* UPDATED OBJECTS:");
+		for (NSManagedObject *anObject in [self updatedObjects])
+		{
+			DDLogInfo(@"* %@ %p has the following changes:", [anObject class], anObject);
+			NSDictionary *changedValues = [anObject changedValues];
+			NSArray *keys = [changedValues allKeys];
+			NSDictionary *oldValues = [anObject committedValuesForKeys:keys];
+			for (NSString *key in keys)
+				DDLogInfo(@"  Attribute '%@' was {%@} is now {%@}", key, [oldValues objectForKey:key], [changedValues objectForKey:key]);
+			DDLogInfo(@"*");
+		}
+	}
+	if ([inserted count])
+	{
+		if ([updated count])
+			DDLogInfo(@"***************************************************");
+		DDLogInfo(@"* INSERTED OBJECTS:");
+		for (NSManagedObject *anObject in [self insertedObjects])
+		{
+			DDLogInfo(@"* %@", anObject);
+			DDLogInfo(@"*");
+		}
+	}
+	if ([deleted count])
+	{
+		if ([updated count] || [inserted count])
+			DDLogInfo(@"***************************************************");
+		DDLogInfo(@"* DELETED OBJECTS:");
+		for (NSManagedObject *anObject in [self deletedObjects])
+		{
+			DDLogInfo(@"* %@", anObject);
+			DDLogInfo(@"*");
+		}
+	}
+	DDLogInfo(@"***************************************************");
+#endif
+}
+
+
 @end

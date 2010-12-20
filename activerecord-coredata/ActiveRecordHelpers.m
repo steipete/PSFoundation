@@ -50,7 +50,7 @@
 			}
 		}
 		DDLogError(@"Error Domain: %@", [error domain]);
-		DDLogError(@"Recovery Suggestion: %@", [error localizedRecoverySuggestion]);	
+		DDLogError(@"Recovery Suggestion: %@", [error localizedRecoverySuggestion]);
 	}
 }
 
@@ -74,7 +74,7 @@
 {
 	NSPersistentStoreCoordinator *coordinator = [NSPersistentStoreCoordinator coordinatorWithSqliteStoreNamed:storeName];
 	[NSPersistentStoreCoordinator setDefaultStoreCoordinator:coordinator];
-	
+
 	NSManagedObjectContext *context = [NSManagedObjectContext contextWithStoreCoordinator:coordinator];
 	[NSManagedObjectContext setDefaultContext:context];
 }
@@ -83,7 +83,7 @@
 {
     NSPersistentStoreCoordinator *coordinator = [NSPersistentStoreCoordinator coordinatorWithAutoMigratingSqliteStoreNamed:storeName];
     [NSPersistentStoreCoordinator setDefaultStoreCoordinator:coordinator];
-    
+
     NSManagedObjectContext *context = [NSManagedObjectContext contextWithStoreCoordinator:coordinator];
     [NSManagedObjectContext setDefaultContext:context];
 }
@@ -92,7 +92,7 @@
 {
 	NSPersistentStoreCoordinator *coordinator = [NSPersistentStoreCoordinator coordinatorWithInMemoryStore];
 	[NSPersistentStoreCoordinator setDefaultStoreCoordinator:coordinator];
-	
+
 	NSManagedObjectContext *context = [NSManagedObjectContext contextWithStoreCoordinator:coordinator];
 	[NSManagedObjectContext setDefaultContext:context];
 }
@@ -100,17 +100,17 @@
 #ifdef NS_BLOCKS_AVAILABLE
 
 + (void) performSaveDataOperationWithBlock:(CoreDataBlock)block
-{    
+{
     NSManagedObjectContext *localContext = [NSManagedObjectContext contextThatNotifiesDefaultContextOnMainThread];
     [localContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
-    
+
     block(localContext);
-    
-    if ([localContext hasChanges]) 
+
+    if ([localContext hasChanges])
     {
         [localContext save];
     }
-    [[NSManagedObjectContext defaultContext] stopObservingContext:localContext];    
+    [[NSManagedObjectContext defaultContext] stopObservingContext:localContext];
 }
 
 + (void) performSaveDataOperationInBackgroundWithBlock:(CoreDataBlock)block
@@ -118,9 +118,9 @@
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-        
+
         [self performSaveDataOperationWithBlock:block];
-        
+
         [pool drain];
     });
 }
