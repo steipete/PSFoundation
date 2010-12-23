@@ -24,6 +24,8 @@
 		39EE957E12C3B44200AD953B /* MTUniversalHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE957C12C3B44200AD953B /* MTUniversalHelper.m */; };
 		39EE95C512C3B66300AD953B /* NSMutableArray+MTShuffle.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE95C312C3B66300AD953B /* NSMutableArray+MTShuffle.h */; };
 		39EE95C612C3B66300AD953B /* NSMutableArray+MTShuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE95C412C3B66300AD953B /* NSMutableArray+MTShuffle.m */; };
+		39EE95F912C3B83400AD953B /* ColorLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE95F712C3B83400AD953B /* ColorLog.h */; };
+		39EE95FA12C3B83400AD953B /* ColorLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE95F812C3B83400AD953B /* ColorLog.m */; };
 		780076F21276FDCC00B77C86 /* DDNSLoggerLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */; };
 		780076F31276FDCC00B77C86 /* DDNSLoggerLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */; };
 		780076FB1276FF2900B77C86 /* LoggerClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076F81276FF2900B77C86 /* LoggerClient.h */; };
@@ -275,6 +277,8 @@
 		39EE957C12C3B44200AD953B /* MTUniversalHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUniversalHelper.m; sourceTree = "<group>"; };
 		39EE95C312C3B66300AD953B /* NSMutableArray+MTShuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+MTShuffle.h"; sourceTree = "<group>"; };
 		39EE95C412C3B66300AD953B /* NSMutableArray+MTShuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MTShuffle.m"; sourceTree = "<group>"; };
+		39EE95F712C3B83400AD953B /* ColorLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorLog.h; sourceTree = "<group>"; };
+		39EE95F812C3B83400AD953B /* ColorLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorLog.m; sourceTree = "<group>"; };
 		780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNSLoggerLogger.h; sourceTree = "<group>"; };
 		780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNSLoggerLogger.m; sourceTree = "<group>"; };
 		780076F81276FF2900B77C86 /* LoggerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerClient.h; sourceTree = "<group>"; };
@@ -723,6 +727,8 @@
 				7869213D126B4195000259AC /* VTPG_Common.m */,
 				780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */,
 				780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */,
+				39EE95F712C3B83400AD953B /* ColorLog.h */,
+				39EE95F812C3B83400AD953B /* ColorLog.m */,
 			);
 			path = Lumberjack;
 			sourceTree = "<group>";
@@ -1343,6 +1349,7 @@
 				39EE957012C3B36900AD953B /* UIImage+MTUniversalAdditions.h in Headers */,
 				39EE957D12C3B44200AD953B /* MTUniversalHelper.h in Headers */,
 				39EE95C512C3B66300AD953B /* NSMutableArray+MTShuffle.h in Headers */,
+				39EE95F912C3B83400AD953B /* ColorLog.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1542,6 +1549,7 @@
 				39EE957112C3B36900AD953B /* UIImage+MTUniversalAdditions.m in Sources */,
 				39EE957E12C3B44200AD953B /* MTUniversalHelper.m in Sources */,
 				39EE95C612C3B66300AD953B /* NSMutableArray+MTShuffle.m in Sources */,
+				39EE95FA12C3B83400AD953B /* ColorLog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

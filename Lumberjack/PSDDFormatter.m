@@ -4,6 +4,7 @@
 //
 
 #import "PSDDFormatter.h"
+#import "ColorLog.h"
 
 
 @implementation PSDDFormatter
@@ -20,12 +21,32 @@
 
 - (NSString *)formatLogMessage:(DDLogMessage *)logMessage {
   NSString *logLevel;
-  switch (logMessage->logFlag) {
-    case LOG_FLAG_ERROR : logLevel = @"Err!"; break;
-    case LOG_FLAG_WARN  : logLevel = @"Warn"; break;
-    case LOG_FLAG_INFO  : logLevel = @"    "; break;
-    default             : logLevel = @"Verb"; break;
-  }
+
+	switch (logMessage->logFlag) {
+		case LOG_FLAG_ERROR:
+			if (IsXcodeColorsEnabled()) {
+				logLevel = LCL_RED @"Err!";
+			} else {
+				logLevel = @"Err!";
+			}
+			break;
+
+		case LOG_FLAG_WARN:
+			if (IsXcodeColorsEnabled()) {
+				logLevel = LCL_MAGENTA @"Warn";
+			} else {
+				logLevel = @"Warn";
+			}
+			break;
+
+		case LOG_FLAG_INFO:
+			logLevel = @"    ";
+			break;
+
+		default:
+			logLevel = @"Verb";
+			break;
+	}
 
   NSString *dateAndTime = [dateFormatter stringFromDate:(logMessage->timestamp)];
   NSString *logMsg = logMessage->logMsg;

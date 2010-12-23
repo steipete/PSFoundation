@@ -20,6 +20,9 @@ NSString * VTPG_DDToStringFromTypeAndValue(const char * typeCode, void * value);
 		DDLogInfo(@"Unknown _TYPE_CODE_: %s for expression %s in function %s, file %s, line %d", _TYPE_CODE_, #_X_, __func__, __FILE__, __LINE__);\
 }while(0)
 
+// compatibility
+#define MTLog(_X_) Log(_X_)
+
 #define LOG_NS(...) NSLog(__VA_ARGS__)
 #define LOG_FUNCTION()	NSLog(@"%s", __func__)
 
