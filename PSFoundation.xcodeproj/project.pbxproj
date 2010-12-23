@@ -16,6 +16,8 @@
 		39EE950412C3ADC900AD953B /* UIView+CWNibLocalizations.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE950012C3ADC900AD953B /* UIView+CWNibLocalizations.m */; };
 		39EE950712C3B02200AD953B /* UIView+MTUIAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE950512C3B02200AD953B /* UIView+MTUIAdditions.h */; };
 		39EE950812C3B02200AD953B /* UIView+MTUIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE950612C3B02200AD953B /* UIView+MTUIAdditions.m */; };
+		39EE951012C3B09400AD953B /* UIScrollView+MTUIAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE950E12C3B09400AD953B /* UIScrollView+MTUIAdditions.h */; };
+		39EE951112C3B09400AD953B /* UIScrollView+MTUIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE950F12C3B09400AD953B /* UIScrollView+MTUIAdditions.m */; };
 		780076F21276FDCC00B77C86 /* DDNSLoggerLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */; };
 		780076F31276FDCC00B77C86 /* DDNSLoggerLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */; };
 		780076FB1276FF2900B77C86 /* LoggerClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076F81276FF2900B77C86 /* LoggerClient.h */; };
@@ -259,6 +261,8 @@
 		39EE950012C3ADC900AD953B /* UIView+CWNibLocalizations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CWNibLocalizations.m"; sourceTree = "<group>"; };
 		39EE950512C3B02200AD953B /* UIView+MTUIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MTUIAdditions.h"; sourceTree = "<group>"; };
 		39EE950612C3B02200AD953B /* UIView+MTUIAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MTUIAdditions.m"; sourceTree = "<group>"; };
+		39EE950E12C3B09400AD953B /* UIScrollView+MTUIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MTUIAdditions.h"; sourceTree = "<group>"; };
+		39EE950F12C3B09400AD953B /* UIScrollView+MTUIAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MTUIAdditions.m"; sourceTree = "<group>"; };
 		780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNSLoggerLogger.h; sourceTree = "<group>"; };
 		780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNSLoggerLogger.m; sourceTree = "<group>"; };
 		780076F81276FF2900B77C86 /* LoggerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerClient.h; sourceTree = "<group>"; };
@@ -601,6 +605,15 @@
 			path = InterfaceBuilder;
 			sourceTree = "<group>";
 		};
+		39EE950D12C3B09400AD953B /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				39EE950E12C3B09400AD953B /* UIScrollView+MTUIAdditions.h */,
+				39EE950F12C3B09400AD953B /* UIScrollView+MTUIAdditions.m */,
+			);
+			path = UIScrollView;
+			sourceTree = "<group>";
+		};
 		780076F71276FF2900B77C86 /* NSLogger */ = {
 			isa = PBXGroup;
 			children = (
@@ -818,6 +831,7 @@
 				78E531D4126E03EB00A89047 /* UIImageView */,
 				78E531D7126E03EB00A89047 /* UILabel */,
 				78E531DA126E03EB00A89047 /* UINavigationBar */,
+				39EE950D12C3B09400AD953B /* UIScrollView */,
 				78E531DD126E03EB00A89047 /* UIToolBar */,
 				78E531E0126E03EB00A89047 /* UIView */,
 				78993B7912AA85F600DA480C /* UIScreen */,
@@ -1299,6 +1313,7 @@
 				39EE950112C3ADC900AD953B /* BSUIViewRearranger.h in Headers */,
 				39EE950312C3ADC900AD953B /* UIView+CWNibLocalizations.h in Headers */,
 				39EE950712C3B02200AD953B /* UIView+MTUIAdditions.h in Headers */,
+				39EE951012C3B09400AD953B /* UIScrollView+MTUIAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1494,6 +1509,7 @@
 				39EE950212C3ADC900AD953B /* BSUIViewRearranger.m in Sources */,
 				39EE950412C3ADC900AD953B /* UIView+CWNibLocalizations.m in Sources */,
 				39EE950812C3B02200AD953B /* UIView+MTUIAdditions.m in Sources */,
+				39EE951112C3B09400AD953B /* UIScrollView+MTUIAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
