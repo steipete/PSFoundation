@@ -30,6 +30,17 @@ static inline BOOL IsEmpty(id thing) {
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
 #define radianToDegrees(x) (M_PI * 180.0 / (x))
 
+// Time Macros
+#define MTTimeIntervalMilliseconds(x) x / 1000.
+#define MTTimeIntervalSeconds(x) x
+#define MTTimeIntervalMinutes(x) x * 60.
+#define MTTimeIntervalHours(x) x * 3600.
+#define MTTimeIntervalDays(x) x * 3600. * 24.
+
+// Resource Path used with Folder References
+#define MTGetFullPath(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
+
+
 // Short hand NSLocalizedString, doesn't need 2 parameters
 #define LocalizedString(s) NSLocalizedString(s,s)
 
@@ -97,6 +108,8 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 // app shortcuts
 #define XNavigationController [[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)]
 #define XAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+// compatibility
+#define MTApplicationDelegate ((AppDelegate*)[[UIApplication sharedApplication] delegate])
 #define UIApp [UIApplication sharedApplication].delegate // deprectated
 #define tsPushAnimated(vc) [[[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)] pushViewController:vc animated:YES];
 
