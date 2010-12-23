@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39BAA3BC12C3A87D00A0350D /* ATMHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BA12C3A87D00A0350D /* ATMHud.h */; };
+		39BAA3BD12C3A87D00A0350D /* ATMHudDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */; };
+		39BAA3BF12C3A88E00A0350D /* libAtomHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */; };
 		780076F21276FDCC00B77C86 /* DDNSLoggerLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */; };
 		780076F31276FDCC00B77C86 /* DDNSLoggerLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */; };
 		780076FB1276FF2900B77C86 /* LoggerClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076F81276FF2900B77C86 /* LoggerClient.h */; };
@@ -241,6 +244,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39BAA3BA12C3A87D00A0350D /* ATMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHud.h; sourceTree = "<group>"; };
+		39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHudDelegate.h; sourceTree = "<group>"; };
+		39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAtomHUD.a; path = HUD/libAtomHUD.a; sourceTree = "<group>"; };
 		780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNSLoggerLogger.h; sourceTree = "<group>"; };
 		780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNSLoggerLogger.m; sourceTree = "<group>"; };
 		780076F81276FF2900B77C86 /* LoggerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerClient.h; sourceTree = "<group>"; };
@@ -496,6 +502,7 @@
 				788E1F31126C95B1009801E5 /* CoreGraphics.framework in Frameworks */,
 				788E1F32126C95B1009801E5 /* libxml2.2.7.3.dylib in Frameworks */,
 				788E1F33126C95B1009801E5 /* UIKit.framework in Frameworks */,
+				39BAA3BF12C3A88E00A0350D /* libAtomHUD.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +533,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */,
 				7867A4FA126C99EA0012E520 /* CoreData.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 				78692296126B4487000259AC /* CoreGraphics.framework */,
@@ -617,6 +625,8 @@
 		7869211E126B4195000259AC /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				39BAA3BA12C3A87D00A0350D /* ATMHud.h */,
+				39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */,
 				7869211F126B4195000259AC /* DSActivityView.h */,
 				78692120126B4195000259AC /* DSActivityView.m */,
 				78692121126B4195000259AC /* MBProgressHUD.h */,
@@ -1258,6 +1268,8 @@
 				78BCB9BE12B5275B0093AE0C /* NSObject+Utilities.h in Headers */,
 				78BCB9E112B528AD0093AE0C /* NSURL+PSFoundation.h in Headers */,
 				78552DD312B6547500EFDE10 /* JRSwizzle.h in Headers */,
+				39BAA3BC12C3A87D00A0350D /* ATMHud.h in Headers */,
+				39BAA3BD12C3A87D00A0350D /* ATMHudDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1526,6 +1538,10 @@
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/HUD\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PSFoundation;
 			};
@@ -1586,6 +1602,10 @@
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/HUD\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PSFoundation;
 			};
@@ -1602,6 +1622,10 @@
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/HUD\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PSFoundation;
 			};
@@ -1618,6 +1642,10 @@
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/HUD\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = PSFoundation;
 			};
