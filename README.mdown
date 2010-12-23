@@ -5,7 +5,7 @@ Okay, what's in the box?
 
 * Categories that extend most Foundation and UIKit classes, with function you always wished you had, really.
 * Helper for automatic archiving/unarchiving (TPAutoArchiver)
-* HUD classes (MBProgressHUD, DSActivityView)
+* HUD classes (MBProgressHUD, DSActivityView, AtomHUD)
 * Invocation Helper (DDInvocationGrabber, NSInvocation+blocks)
 * Keychain Helper (SFHFKeychainUtils)
 * Logger (a fork of cocoa-lumberjack + NSLogger-Integration, HOLog, Log (for easy printing))

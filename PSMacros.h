@@ -22,12 +22,24 @@ static inline BOOL IsEmpty(id thing) {
 #define CGRectClearCoords(_CGRECT) PSRectClearCoords(_CGRECT) // legacy
 
 // color
-#define SETTINGS_TEXT_COLOR	RGB(57, 85, 135
+#define SETTINGS_TEXT_COLOR	RGBCOLOR(57, 85, 135)
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 #define XHEXCOLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0]
 #define XHEXCOLOR_ALPHA(c, a) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:a]
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
+#define radianToDegrees(x) (M_PI * 180.0 / (x))
+
+// Time Macros
+#define MTTimeIntervalMilliseconds(x) x / 1000.
+#define MTTimeIntervalSeconds(x) x
+#define MTTimeIntervalMinutes(x) x * 60.
+#define MTTimeIntervalHours(x) x * 3600.
+#define MTTimeIntervalDays(x) x * 3600. * 24.
+
+// Resource Path used with Folder References
+#define MTGetFullPath(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
+
 
 // Short hand NSLocalizedString, doesn't need 2 parameters
 #define LocalizedString(s) NSLocalizedString(s,s)
@@ -104,6 +116,8 @@ __VA_ARGS__;                            \
 // app shortcuts
 #define XNavigationController [[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)]
 #define XAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+// compatibility
+#define MTApplicationDelegate XAppDelegate
 #define UIApp [UIApplication sharedApplication].delegate // deprectated
 #define tsPushAnimated(vc) [[[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)] pushViewController:vc animated:YES];
 

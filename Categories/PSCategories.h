@@ -8,6 +8,7 @@
 #import "NSArray+blocks.h"
 #import "NSArray+Linq.h"
 #import "NSMutableArray+SCQueue.h"
+#import "NSMutableArray+MTShuffle.h"
 
 // arrayBySortingStrings, firstObject, uniqueMembers, map, collect, reject, removeFirstObject, reverse,
 // scramble, Stack-Tools like pop, pull, objectUsingPredicate
@@ -120,10 +121,13 @@
 // + (UILabel *)labelWithText:(NSString *)text;
 #import "UILabel+PSLib.h"                                   // own
 
+#import "UIScrollView+MTUIAdditions.h"
+
 #import "UIToolBar+PSLib.h"
 
 #import "UIView+Sizes.h"
 #import "UIView+PSAdditions.m"
+#import "UIView+MTUIAdditions.h"
 
 #import "UIScreen+PSAdditions.h"
 
@@ -158,6 +162,8 @@
 #import "UIImage+Cache.h"
 #import "UIImage+Tint.h"
 #import "UIImage+ProportionalFill.h"
+
+#import "UIImage+MTUniversalAdditions.h"
 
 
 #import "NSError+SCMethods.h"

@@ -28,6 +28,15 @@
 // HUD
 #import "DSActivityView.h"
 #import "MBProgressHUD.h" // deprecated
+#import "ATMHud.h"
+#import "ATMHudDelegate.h"
+
+// InterfaceBuilder
+#import "BSUIViewRearranger.h"
+#import "UIView+CWNibLocalizations.h"
+
+// Universal
+#import "MTUniversalHelper.h"
 
 // invocations & proxies
 #import "DDInvocationGrabber.h"
