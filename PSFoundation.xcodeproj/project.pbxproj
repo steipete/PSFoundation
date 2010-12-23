@@ -10,6 +10,10 @@
 		39BAA3BC12C3A87D00A0350D /* ATMHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BA12C3A87D00A0350D /* ATMHud.h */; };
 		39BAA3BD12C3A87D00A0350D /* ATMHudDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */; };
 		39BAA3BF12C3A88E00A0350D /* libAtomHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */; };
+		39EE950112C3ADC900AD953B /* BSUIViewRearranger.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */; };
+		39EE950212C3ADC900AD953B /* BSUIViewRearranger.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE94FE12C3ADC800AD953B /* BSUIViewRearranger.m */; };
+		39EE950312C3ADC900AD953B /* UIView+CWNibLocalizations.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE94FF12C3ADC900AD953B /* UIView+CWNibLocalizations.h */; };
+		39EE950412C3ADC900AD953B /* UIView+CWNibLocalizations.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE950012C3ADC900AD953B /* UIView+CWNibLocalizations.m */; };
 		780076F21276FDCC00B77C86 /* DDNSLoggerLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */; };
 		780076F31276FDCC00B77C86 /* DDNSLoggerLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */; };
 		780076FB1276FF2900B77C86 /* LoggerClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076F81276FF2900B77C86 /* LoggerClient.h */; };
@@ -247,6 +251,10 @@
 		39BAA3BA12C3A87D00A0350D /* ATMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHud.h; sourceTree = "<group>"; };
 		39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHudDelegate.h; sourceTree = "<group>"; };
 		39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAtomHUD.a; path = HUD/libAtomHUD.a; sourceTree = "<group>"; };
+		39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSUIViewRearranger.h; sourceTree = "<group>"; };
+		39EE94FE12C3ADC800AD953B /* BSUIViewRearranger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSUIViewRearranger.m; sourceTree = "<group>"; };
+		39EE94FF12C3ADC900AD953B /* UIView+CWNibLocalizations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CWNibLocalizations.h"; sourceTree = "<group>"; };
+		39EE950012C3ADC900AD953B /* UIView+CWNibLocalizations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CWNibLocalizations.m"; sourceTree = "<group>"; };
 		780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNSLoggerLogger.h; sourceTree = "<group>"; };
 		780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNSLoggerLogger.m; sourceTree = "<group>"; };
 		780076F81276FF2900B77C86 /* LoggerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerClient.h; sourceTree = "<group>"; };
@@ -548,6 +556,7 @@
 			children = (
 				78E53161126E03EB00A89047 /* Categories */,
 				78E531E4126E03EB00A89047 /* Invocation */,
+				39EE94FC12C3ADC800AD953B /* InterfaceBuilder */,
 				78E531EB126E03EB00A89047 /* Utils */,
 				78692098126B4195000259AC /* Archiving */,
 				7869211E126B4195000259AC /* HUD */,
@@ -575,6 +584,17 @@
 				7856A32912B43AB40025424F /* PSFoundation_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		39EE94FC12C3ADC800AD953B /* InterfaceBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */,
+				39EE94FE12C3ADC800AD953B /* BSUIViewRearranger.m */,
+				39EE94FF12C3ADC900AD953B /* UIView+CWNibLocalizations.h */,
+				39EE950012C3ADC900AD953B /* UIView+CWNibLocalizations.m */,
+			);
+			path = InterfaceBuilder;
 			sourceTree = "<group>";
 		};
 		780076F71276FF2900B77C86 /* NSLogger */ = {
@@ -1270,6 +1290,8 @@
 				78552DD312B6547500EFDE10 /* JRSwizzle.h in Headers */,
 				39BAA3BC12C3A87D00A0350D /* ATMHud.h in Headers */,
 				39BAA3BD12C3A87D00A0350D /* ATMHudDelegate.h in Headers */,
+				39EE950112C3ADC900AD953B /* BSUIViewRearranger.h in Headers */,
+				39EE950312C3ADC900AD953B /* UIView+CWNibLocalizations.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1462,6 +1484,8 @@
 				78BCB9BF12B5275B0093AE0C /* NSObject+Utilities.m in Sources */,
 				78BCB9E212B528AD0093AE0C /* NSURL+PSFoundation.m in Sources */,
 				78552DD412B6547500EFDE10 /* JRSwizzle.m in Sources */,
+				39EE950212C3ADC900AD953B /* BSUIViewRearranger.m in Sources */,
+				39EE950412C3ADC900AD953B /* UIView+CWNibLocalizations.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
