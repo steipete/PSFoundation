@@ -28,6 +28,7 @@ static inline BOOL IsEmpty(id thing) {
 #define XHEXCOLOR_ALPHA(c, a) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:a]
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
+#define radianToDegrees(x) (M_PI * 180.0 / (x))
 
 // Short hand NSLocalizedString, doesn't need 2 parameters
 #define LocalizedString(s) NSLocalizedString(s,s)
