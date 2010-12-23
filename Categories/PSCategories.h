@@ -8,6 +8,7 @@
 #import "NSArray+blocks.h"
 #import "NSArray+Linq.h"
 #import "NSMutableArray+SCQueue.h"
+#import "NSMutableArray+MTShuffle.h"
 
 // arrayBySortingStrings, firstObject, uniqueMembers, map, collect, reject, removeFirstObject, reverse,
 // scramble, Stack-Tools like pop, pull, objectUsingPredicate
