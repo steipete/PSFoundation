@@ -35,6 +35,9 @@
 #import "BSUIViewRearranger.h"
 #import "UIView+CWNibLocalizations.h"
 
+// Universal
+#import "MTUniversalHelper.h"
+
 // invocations & proxies
 #import "DDInvocationGrabber.h"
 #import "NSObject+DDExtensions.h"

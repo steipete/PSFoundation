@@ -160,6 +160,8 @@
 #import "UIImage+Tint.h"
 #import "UIImage+ProportionalFill.h"
 
+#import "UIImage+MTUniversalAdditions.h"
+
 
 #import "NSError+SCMethods.h"
 
