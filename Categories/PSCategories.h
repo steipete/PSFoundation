@@ -118,10 +118,13 @@
 // + (UILabel *)labelWithText:(NSString *)text;
 #import "UILabel+PSLib.h"                                   // own
 
+#import "UIScrollView+MTUIAdditions.h"
+
 #import "UIToolBar+PSLib.h"
 
 #import "UIView+Sizes.h"
 #import "UIView+PSAdditions.m"
+#import "UIView+MTUIAdditions.h"
 
 #import "UIScreen+PSAdditions.h"
 
