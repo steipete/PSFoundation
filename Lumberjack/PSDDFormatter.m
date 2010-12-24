@@ -51,7 +51,7 @@
   NSString *dateAndTime = [dateFormatter stringFromDate:(logMessage->timestamp)];
   NSString *logMsg = logMessage->logMsg;
 
-  return [NSString stringWithFormat:@"%@(%@) %@ %@ <%d>", dateAndTime, [logMessage threadID], logLevel, logMsg, logMessage->lineNumber];
+  return [NSString stringWithFormat:@"%@(%@) %@ %@ <%d>%@", dateAndTime, [logMessage threadID], logLevel, logMsg, logMessage->lineNumber,IsXcodeColorsEnabled() ? LCL_RESET : @""];
 }
 
 - (void)dealloc {
