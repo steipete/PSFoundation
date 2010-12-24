@@ -31,6 +31,9 @@
 #import "ATMHud.h"
 #import "ATMHudDelegate.h"
 
+// Status Bar
+#import "MTStatusBarOverlay.h"
+
 // InterfaceBuilder
 #import "BSUIViewRearranger.h"
 #import "UIView+CWNibLocalizations.h"
