@@ -58,6 +58,7 @@
 #import "DDFileLogger.h"
 #import "DDNSLoggerLogger.h" // network logging!
 #import "PSDDFormatter.h"
+#import "ColorLog.h"
 
 // first class tableview cells!
 #import "PSGenericCell.h"
