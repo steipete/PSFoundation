@@ -27,6 +27,11 @@
 #pragma mark Customize Section
 //===========================================================
 
+// Text that is displayed in the finished-Label when the finish was successful
+#define kFinishedText @"✔"
+// Text that is displayed when an error occured
+#define kErrorText    @"x"
+
 // Text color for UIStatusBarStyleDefault
 #define kStatusBarStyleDefaultTextColor [UIColor blackColor]
 // Activity Indicator Style for UIStatusBarStyleDefault
@@ -207,11 +212,13 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 @property (nonatomic, retain) UILabel *statusLabel1;
 @property (nonatomic, retain) UILabel *statusLabel2;
 @property (nonatomic, assign) UILabel *hiddenStatusLabel;
-@property (nonatomic, retain) UILabel *finishedLabel;
 @property (nonatomic, assign) CGRect oldBackgroundViewFrame;
-@property (nonatomic, assign, getter=isHideInProgress) BOOL hideInProgress;
+// overwrite property for read-write-access
+@property (assign, getter=isHideInProgress) BOOL hideInProgress;
 // read out hidden-state using alpha-value and hidden-property
 @property (nonatomic, readonly, getter=isReallyHidden) BOOL reallyHidden;
+@property (nonatomic, retain) NSMutableArray *queuedMessages;
+@property (nonatomic, retain) NSTimer *queueTimer;
 
 
 // is called when the user touches the statusbar
@@ -250,6 +257,8 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 @synthesize oldBackgroundViewFrame = oldBackgroundViewFrame_;
 @synthesize animation = animation_;
 @synthesize hideInProgress = hideInProgress_;
+@synthesize queuedMessages = queuedMessages_;
+@synthesize queueTimer = queueTimer_;
 
 //===========================================================
 #pragma mark -
@@ -314,7 +323,7 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 		finishedLabel_ = [[UILabel alloc] initWithFrame:CGRectMake(8,0,self.frame.size.height, self.frame.size.height)];
 		finishedLabel_.backgroundColor = [UIColor clearColor];
 		finishedLabel_.hidden = YES;
-		finishedLabel_.text = @"✔";
+		finishedLabel_.text = kFinishedText;
 		finishedLabel_.font = [UIFont boldSystemFontOfSize:14.f];
 		[self addSubviewToBackgroundView:finishedLabel_];
 
@@ -338,6 +347,8 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 
 		// the hidden status label at the beggining
 		hiddenStatusLabel_ = statusLabel2_;
+
+		queuedMessages_ = [[NSMutableArray alloc] init];
 
         [self addSubview:backgroundView_];
 
@@ -364,6 +375,8 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	[finishedLabel_ release], finishedLabel_ = nil;
 	[grayStatusBarImage_ release], grayStatusBarImage_ = nil;
 	[grayStatusBarImageSmall_ release], grayStatusBarImageSmall_ = nil;
+	[queuedMessages_ release], queuedMessages_ = nil;
+	[queueTimer_ release], queueTimer_ = nil;
 
 	[super dealloc];
 }
@@ -483,6 +496,8 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	}
 
 	self.finishedLabel.hidden = YES;
+	// Kill any queued messages
+	[self.queueTimer invalidate];
 
 	// update status bar background
 	UIStatusBarStyle statusBarStyle = [UIApplication sharedApplication].statusBarStyle;
@@ -508,10 +523,70 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	}
 }
 
+- (void)queueMessage:(NSString *)message forInterval:(NSTimeInterval)interval animated:(BOOL)animated {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:message, @"message",
+						  [NSNumber numberWithDouble:interval], @"interval",
+						  [NSNumber numberWithBool:animated], @"animated",
+						  [NSNumber numberWithBool:NO], @"final", nil];
+
+	[self.queuedMessages insertObject:dict atIndex:0];
+
+	if(self.queuedMessages.count == 1) {
+		[self setMessage:message animated:animated];
+
+		self.queueTimer = [NSTimer timerWithTimeInterval:interval target:self selector:@selector(queuedMessageDidExpire:) userInfo:nil repeats:NO];
+		[[NSRunLoop mainRunLoop] addTimer:self.queueTimer forMode:NSDefaultRunLoopMode];
+	}
+}
+
+- (void)queueFinalMessage:(NSString *)message forInterval:(NSTimeInterval)interval animated:(BOOL)animated {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:message, @"message",
+						  [NSNumber numberWithDouble:interval], @"interval", [NSNumber numberWithBool:animated],
+						  @"animated", [NSNumber numberWithBool:YES], @"final", nil];
+
+	[self.queuedMessages insertObject:dict atIndex:0];
+
+	if(self.queuedMessages.count == 1) {
+		[self finishWithMessage:message duration:interval];
+	}
+}
+
+- (void)queuedMessageDidExpire:(NSTimer *)theTimer {
+	[self.queuedMessages removeLastObject];
+
+	if(self.queuedMessages.count == 0) {
+		[self hide];
+	} else {
+		NSDictionary *nextDict = [self.queuedMessages lastObject];
+
+		if([[nextDict valueForKey:@"final"] boolValue]) {
+			[self finishWithMessage:[nextDict valueForKey:@"message"] duration:[[nextDict valueForKey:@"interval"] doubleValue]];
+		} else {
+			[self setMessage:[nextDict valueForKey:@"message"] animated:[[nextDict valueForKey:@"animated"] boolValue]];
+
+			self.queueTimer = [NSTimer timerWithTimeInterval:[[nextDict valueForKey:@"interval"] doubleValue] target:self selector:@selector(queuedMessageDidExpire:) userInfo:nil repeats:NO];
+			[[NSRunLoop mainRunLoop] addTimer:self.queueTimer forMode:NSDefaultRunLoopMode];
+		}
+	}
+}
+
 - (void)finishWithMessage:(NSString *)message duration:(NSTimeInterval)duration {
 	[self showWithMessage:message];
 
 	self.activityIndicator.hidden = YES;
+	self.finishedLabel.text = kFinishedText;
+	self.finishedLabel.hidden = NO;
+
+	self.hideInProgress = YES;
+	[self performSelector:@selector(hide) withObject:nil afterDelay:duration];
+}
+
+
+- (void)finishWithErrorMessage:(NSString *)message duration:(NSTimeInterval)duration {
+	[self showWithMessage:message];
+
+	self.activityIndicator.hidden = YES;
+	self.finishedLabel.text = kErrorText;
 	self.finishedLabel.hidden = NO;
 
 	self.hideInProgress = YES;
@@ -571,8 +646,8 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	// make visible after given time
 	[UIView animateWithDuration:[UIApplication sharedApplication].statusBarOrientationAnimationDuration+kStatusBarOrientationAppearTimeDelta
 					 animations:^{
-		[self setHidden:NO useAlpha:YES];
-	}];
+						 [self setHidden:NO useAlpha:YES];
+					 }];
 }
 
 //===========================================================
@@ -586,7 +661,7 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 
 - (BOOL)isDetailViewVisible {
 	return self.detailView.hidden == NO && self.detailView.alpha > 0.0 &&
-		   self.detailView.frame.origin.y + self.detailView.frame.size.height >= kStatusBarHeight;
+	self.detailView.frame.origin.y + self.detailView.frame.size.height >= kStatusBarHeight;
 }
 
 //===========================================================

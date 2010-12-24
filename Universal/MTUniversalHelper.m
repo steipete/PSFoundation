@@ -11,7 +11,7 @@
 #import "MTUniversalHelper.h"
 #import "PSCompatibility.h"
 
-#define kIPadAppendix			@"-@iPad"
+#define kIPadAppendix			@"@iPad"
 #define kIPadLandscapeAppendix  @"-L"
 
 
