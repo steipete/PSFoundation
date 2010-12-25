@@ -1,7 +1,7 @@
 /*
  * LoggerClient.h
  *
- * version 1.0b7 2010-12-09
+ * version 1.0b9 2010-12-17
  *
  * Part of NSLogger (client side)
  *
@@ -91,12 +91,14 @@ typedef struct
 	
 	pthread_t workerThread;							// The worker thread responsible for Bonjour resolution, connection and logs transmission
 	CFRunLoopSourceRef messagePushedSource;			// A message source that fires on the worker thread when messages are available for send
-	
+	CFRunLoopSourceRef bufferFileChangedSource;		// A message source that fires on the worker thread when the buffer file configuration changes
+
 	CFWriteStreamRef logStream;						// The connected stream we're writing to
 	CFWriteStreamRef bufferWriteStream;				// If bufferFile not NULL and we're not connected, points to a stream for writing log data
 	CFReadStreamRef bufferReadStream;				// If bufferFile not NULL, points to a read stream that will be emptied prior to sending the rest of in-memory messages
 	
 	SCNetworkReachabilityRef reachability;			// The reachability object we use to determine when the target host becomes reachable
+	CFRunLoopTimerRef checkHostTimer;				// A timer to regularly check connection to the defined host, along with reachability for added reliability
 
 	uint8_t *sendBuffer;							// data waiting to be sent
 	NSUInteger sendBufferSize;

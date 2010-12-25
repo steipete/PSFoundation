@@ -1,7 +1,7 @@
 /*
  * LoggerCommon.h
  *
- * version 1.0b7 2010-12-09
+ * version 1.0b9 2010-12-17
  *
  * Definitions common to NSLogger and NSLoggerClient for the binary messages format
  *
@@ -32,8 +32,6 @@
  * SOFTWARE,   EVEN  IF   ADVISED  OF   THE  POSSIBILITY   OF  SUCH   DAMAGE.
  * 
  */
-
-#define LOGGER_USES_SSL		1			// Set to 0 if you don't want SSL connections for direct TCP/IP
 
 /* NSLogger native binary message format:
  * Each message is a dictionary encoded in a compact format. All values are stored
