@@ -27,41 +27,89 @@
 #pragma mark Customize Section
 //===========================================================
 
-// Text that is displayed in the finished-Label when the finish was successful
-#define kFinishedText @"✔"
-// Text that is displayed when an error occured
-#define kErrorText    @"x"
+///////////////////////////////////////////////////////
+// Light Theme (for UIStatusBarStyleDefault)
+///////////////////////////////////////////////////////
 
-// Text color for UIStatusBarStyleDefault
-#define kStatusBarStyleDefaultTextColor [UIColor blackColor]
-// Activity Indicator Style for UIStatusBarStyleDefault
-#define kStatusBarStyleDefaultActivityIndicatorViewStyle UIActivityIndicatorViewStyleGray
-// Text color for UIStatusBarStyleBlackOpaque
-#define kStatusBarStyleBlackTextColor [UIColor colorWithRed:0.749 green:0.749 blue:0.749 alpha:1.0]
-// Activity Indicator Style for UIStatusBarStyleBlackOpaque
-#define kStatusBarStyleBlackActivityIndicatorViewStyle UIActivityIndicatorViewStyleWhite
+#define kLightThemeTextColor						[UIColor blackColor]
+#define kLightThemeActivityIndicatorViewStyle		UIActivityIndicatorViewStyleGray
+#define kLightThemeDetailViewBackgroundColor		[UIColor blackColor]
+#define kLightThemeDetailViewBorderColor			[UIColor darkGrayColor]
+#define kLightThemeHistoryTextColor					[UIColor colorWithRed:0.749 green:0.749 blue:0.749 alpha:1.0]
+
+
+///////////////////////////////////////////////////////
+// Dark Theme (for UIStatusBarStyleBlackOpaque)
+///////////////////////////////////////////////////////
+
+#define kDarkThemeTextColor							[UIColor colorWithRed:0.749 green:0.749 blue:0.749 alpha:1.0]
+#define kDarkThemeActivityIndicatorViewStyle		UIActivityIndicatorViewStyleWhite
+#define kDarkThemeDetailViewBackgroundColor			[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1.0]
+#define kDarkThemeDetailViewBorderColor				[UIColor whiteColor]
+#define kDarkThemeHistoryTextColor					[UIColor whiteColor]
+
+
+///////////////////////////////////////////////////////
+// Animations
+///////////////////////////////////////////////////////
 
 // duration of the animation to show next status message in seconds
 #define kNextStatusAnimationDuration			0.8
+
 // duration the statusBarOverlay takes to appear when it was hidden
 #define kAppearAnimationDuration				0.5
 
 // animation duration of animation mode shrink
 #define kAnimationDurationShrink				0.3
-// animation duration of animation mode fallDown
-#define kAnimationDurationFallDown				0.5
 
-// value that is added to [UIApplication sharedApplication].statusBarOrientationAnimationDuration to
-// make delay appearance of StatusBarOverlay after rotation
-#define kStatusBarOrientationAppearTimeDelta	0.2
+// animation duration of animation mode fallDown
+#define kAnimationDurationFallDown				0.4
+
+// duration of appearance of StatusBarOverlay after rotation
+#define kRotationAppearDuration					[UIApplication sharedApplication].statusBarOrientationAnimationDuration + 0.2
+
+
+///////////////////////////////////////////////////////
+// Text
+///////////////////////////////////////////////////////
+
+// Text that is displayed in the finished-Label when the finish was successful
+#define kFinishedText		@"✔"
+#define kFinishedFontSize	22.f
+
+// Text that is displayed when an error occured
+#define kErrorText			@"✗"
+#define kErrorFontSize		19.f
+
+
+///////////////////////////////////////////////////////
+// Detail View
+///////////////////////////////////////////////////////
+
+#define kHistoryTableRowHeight 25
+#define kDetailViewAlpha	   0.9
+
+// default frame of detail view when it is hidden
+#define kDefaultDetailViewFrame CGRectMake(kStatusBarHeight, - kHistoryTableRowHeight * 6 - kStatusBarHeight, 280, \
+kHistoryTableRowHeight * 6 + kStatusBarHeight)
+
+
+
+///////////////////////////////////////////////////////
+// Size
+///////////////////////////////////////////////////////
+
+// Size of the text in the status labels
+#define kStatusLabelSize 12.f
 
 // x-offset of the child-views of the background when status bar is in small mode
 #define kSmallXOffset					50
 // default-width of the small-mode
 #define kWidthSmall						80
 
-// default frame of detail view when it is hidden
-#define kDefaultDetailViewFrame CGRectMake(20, -150, 280, 150)
+
+
+
 
 //===========================================================
 #pragma mark -
@@ -219,6 +267,9 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 @property (nonatomic, readonly, getter=isReallyHidden) BOOL reallyHidden;
 @property (nonatomic, retain) NSMutableArray *queuedMessages;
 @property (nonatomic, retain) NSTimer *queueTimer;
+// overwrite property for read-write-access
+@property (nonatomic, retain) NSMutableArray *messageHistory;
+@property (nonatomic, retain) UITableView *historyTableView;
 
 
 // is called when the user touches the statusbar
@@ -226,12 +277,16 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 // updates the current status bar background image for the given size and style
 - (void)setStatusBarBackgroundForSize:(CGRect)size statusBarStyle:(UIStatusBarStyle)style;
 // updates the text-colors of the labels for the given style
-- (void)setLabelUIForStatusBarStyle:(UIStatusBarStyle)style;
+- (void)setColorSchemeForStatusBarStyle:(UIStatusBarStyle)style;
 // tries to retrieve the current visible view controller of the app and returns it, used for rotation
 - (UIViewController *)currentVisibleViewController;
 
 // set hidden-state using alpha-value instead of hidden-property
 - (void)setHidden:(BOOL)hidden useAlpha:(BOOL)animated;
+
+// History-tracking
+- (void)addMessageToHistory:(NSString *)message;
+- (void)clearHistory;
 
 @end
 
@@ -259,6 +314,9 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 @synthesize hideInProgress = hideInProgress_;
 @synthesize queuedMessages = queuedMessages_;
 @synthesize queueTimer = queueTimer_;
+@synthesize historyEnabled = historyEnabled_;
+@synthesize messageHistory = messageHistory_;
+@synthesize historyTableView = historyTableView_;
 
 //===========================================================
 #pragma mark -
@@ -282,17 +340,33 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 		// the detail view that is shown when the user touches the status bar in animation mode "FallDown"
 		detailView_ = [[UIControl alloc] initWithFrame:kDefaultDetailViewFrame];
 		detailView_.backgroundColor = [UIColor blackColor];
-		detailView_.alpha = 0.7;
+		detailView_.alpha = kDetailViewAlpha;
 		detailView_.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 
 		// add rounded corners to detail-view
-		CALayer *l = [detailView_ layer];
-		l.masksToBounds = YES;
-		l.cornerRadius = 10.0;
-		l.borderWidth = 1.0;
-		l.borderColor = [[UIColor darkGrayColor] CGColor];
+		detailView_.layer.masksToBounds = YES;
+		detailView_.layer.cornerRadius = 10.0;
+		detailView_.layer.borderWidth = 2.5;
 
+		// Message History
+		historyEnabled_ = NO;
+		messageHistory_ = [[NSMutableArray alloc] init];
+
+		historyTableView_ = [[UITableView alloc] initWithFrame:CGRectMake(0, kStatusBarHeight,
+																		  kDefaultDetailViewFrame.size.width, kDefaultDetailViewFrame.size.height - kStatusBarHeight)];
+		historyTableView_.dataSource = self;
+		historyTableView_.delegate = nil;
+		historyTableView_.rowHeight = kHistoryTableRowHeight;
+		historyTableView_.separatorStyle = UITableViewCellSeparatorStyleNone;
+		// make table view-background transparent
+		historyTableView_.backgroundColor = [UIColor clearColor];
+		historyTableView_.opaque = NO;
+		historyTableView_.hidden = !historyEnabled_;
+		historyTableView_.backgroundView = nil;
+
+		[detailView_ addSubview:historyTableView_];
 		[self addSubview:detailView_];
+
 
         // Create view that stores all the content
         backgroundView_ = [[UIControl alloc] initWithFrame:self.frame];
@@ -320,18 +394,20 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 		[self addSubviewToBackgroundView:activityIndicator_];
 
 		// Finished-Label
-		finishedLabel_ = [[UILabel alloc] initWithFrame:CGRectMake(8,0,self.frame.size.height, self.frame.size.height)];
+		finishedLabel_ = [[UILabel alloc] initWithFrame:CGRectMake(8,1,self.frame.size.height, self.frame.size.height-1)];
 		finishedLabel_.backgroundColor = [UIColor clearColor];
 		finishedLabel_.hidden = YES;
 		finishedLabel_.text = kFinishedText;
-		finishedLabel_.font = [UIFont boldSystemFontOfSize:14.f];
+		finishedLabel_.textAlignment = UITextAlignmentCenter;
+		finishedLabel_.font = [UIFont boldSystemFontOfSize:kFinishedFontSize];
 		[self addSubviewToBackgroundView:finishedLabel_];
 
 		// Status Label 1 is first visible
 		statusLabel1_ = [[UILabel alloc] initWithFrame:CGRectMake(30.0f, 0.0f, self.frame.size.width - 60.0f, self.frame.size.height-1)];
 		statusLabel1_.backgroundColor = [UIColor clearColor];
-		statusLabel1_.font = [UIFont boldSystemFontOfSize:12.0f];
+		statusLabel1_.font = [UIFont boldSystemFontOfSize:kStatusLabelSize];
 		statusLabel1_.textAlignment = UITextAlignmentCenter;
+		statusLabel1_.numberOfLines = 1;
 		statusLabel1_.lineBreakMode = UILineBreakModeTailTruncation;
 		statusLabel1_.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		[self addSubviewToBackgroundView:statusLabel1_];
@@ -339,8 +415,9 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 		// Status Label 2 is hidden
 		statusLabel2_ = [[UILabel alloc] initWithFrame:CGRectMake(30.0f, self.frame.size.height,self.frame.size.width - 60.0f , self.frame.size.height-1)];
 		statusLabel2_.backgroundColor = [UIColor clearColor];
-		statusLabel2_.font = [UIFont boldSystemFontOfSize:12.0f];
+		statusLabel2_.font = [UIFont boldSystemFontOfSize:kStatusLabelSize];
 		statusLabel2_.textAlignment = UITextAlignmentCenter;
+		statusLabel2_.numberOfLines = 1;
 		statusLabel2_.lineBreakMode = UILineBreakModeTailTruncation;
 		statusLabel2_.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		[self addSubviewToBackgroundView:statusLabel2_];
@@ -377,6 +454,7 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	[grayStatusBarImageSmall_ release], grayStatusBarImageSmall_ = nil;
 	[queuedMessages_ release], queuedMessages_ = nil;
 	[queueTimer_ release], queueTimer_ = nil;
+	[messageHistory_ release], messageHistory_ = nil;
 
 	[super dealloc];
 }
@@ -408,23 +486,35 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 
 - (void)hide {
 	[self.activityIndicator stopAnimating];
+	self.statusLabel1.text = @"";
+	self.statusLabel2.text = @"";
 
 	// hide status bar overlay with animation
 	[UIView animateWithDuration:kAppearAnimationDuration animations:^{
 		[self setHidden:YES useAlpha:YES];
 	} completion:^(BOOL finished) {
 		self.hideInProgress = NO;
+
+		// hide detailView
+		self.detailView.frame = CGRectMake(self.detailView.frame.origin.x, - self.detailView.frame.size.height,
+										   self.detailView.frame.size.width, self.detailView.frame.size.height);
 	}];
 }
 
 - (void)setMessage:(NSString *)message animated:(BOOL)animated {
+	NSString *oldMessage = nil;
+
 	// don't show if status bar is hidden
 	if ([UIApplication sharedApplication].statusBarHidden) {
 		return;
 	}
 
 	self.hideInProgress = NO;
+
+	// cancel previous hide- and clear requests
 	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hide) object:nil];
+	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(clearHistory) object:nil];
+
 	self.finishedLabel.hidden = YES;
 	self.activityIndicator.hidden = NO;
 
@@ -437,6 +527,7 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	if (animated) {
 		// set text of currently not visible label to new text
 		if (self.hiddenStatusLabel == self.statusLabel1) {
+			oldMessage = self.statusLabel2.text;
 			self.statusLabel1.text = message;
 
 			// position under visible status label
@@ -445,6 +536,7 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 												 self.statusLabel1.frame.size.width,
 												 self.statusLabel1.frame.size.height);
 		} else {
+			oldMessage = self.statusLabel1.text;
 			self.statusLabel2.text = message;
 
 			// position under visible status label
@@ -482,11 +574,16 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	// w/o animation
 	else {
 		if (self.hiddenStatusLabel == self.statusLabel1) {
+			oldMessage = self.statusLabel2.text;
 			self.statusLabel2.text = message;
 		} else {
+			oldMessage = self.statusLabel1.text;
 			self.statusLabel1.text = message;
 		}
 	}
+
+	// add old message to history
+	[self addMessageToHistory:oldMessage];
 }
 
 - (void)showWithMessage:(NSString *)message {
@@ -503,17 +600,23 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	UIStatusBarStyle statusBarStyle = [UIApplication sharedApplication].statusBarStyle;
 	[self setStatusBarBackgroundForSize:self.backgroundView.frame statusBarStyle:statusBarStyle];
 	// update label-UI depending on status bar style
-	[self setLabelUIForStatusBarStyle:statusBarStyle];
+	[self setColorSchemeForStatusBarStyle:statusBarStyle];
 
 	// if status bar is currently hidden, show it
 	if (self.reallyHidden) {
+		NSString *oldMessage = nil;
+
 		// set text of visible status label
 		if (self.statusLabel2 == self.hiddenStatusLabel) {
+			oldMessage = self.statusLabel2.text;
 			self.statusLabel1.text = message;
 		} else {
+			oldMessage = self.statusLabel1.text;
 			self.statusLabel2.text = message;
 		}
 
+		// add old message to history
+		[self addMessageToHistory:oldMessage];
 		[self show];
 	}
 
@@ -574,11 +677,16 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	[self showWithMessage:message];
 
 	self.activityIndicator.hidden = YES;
+	self.finishedLabel.font = [UIFont boldSystemFontOfSize:kFinishedFontSize];
 	self.finishedLabel.text = kFinishedText;
 	self.finishedLabel.hidden = NO;
 
 	self.hideInProgress = YES;
+
+	// hide after duration
 	[self performSelector:@selector(hide) withObject:nil afterDelay:duration];
+	// clear history after duration
+	[self performSelector:@selector(clearHistory) withObject:nil afterDelay:duration];
 }
 
 
@@ -586,11 +694,15 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	[self showWithMessage:message];
 
 	self.activityIndicator.hidden = YES;
+	self.finishedLabel.font = [UIFont boldSystemFontOfSize:kErrorFontSize];
 	self.finishedLabel.text = kErrorText;
 	self.finishedLabel.hidden = NO;
 
 	self.hideInProgress = YES;
+
 	[self performSelector:@selector(hide) withObject:nil afterDelay:duration];
+	// clear history after duration
+	[self performSelector:@selector(clearHistory) withObject:nil afterDelay:duration];
 }
 
 //===========================================================
@@ -598,7 +710,7 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 #pragma mark Rotation Notification
 //===========================================================
 
-- (void) didRotate:(NSNotification *)notification {
+- (void)didRotate:(NSNotification *)notification {
 	// current device orientation
 	UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
 	// current visible view controller
@@ -615,7 +727,7 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	[self setHidden:YES useAlpha:YES];
 
 	// store a flag, if the StatusBar is currently shrinked
-	BOOL currentlyShrinked = self.shrinked;
+	BOOL shrinkedBeforeTransformation = self.shrinked;
 
 	if (orientation == UIDeviceOrientationPortrait) {
 		self.transform = CGAffineTransformIdentity;
@@ -636,7 +748,7 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	}
 
 	// if the statusBar is currently shrinked, update the frames for the new rotation state
-	if (currentlyShrinked) {
+	if (shrinkedBeforeTransformation) {
 		// the oldBackgroundViewFrame is the frame of the whole StatusBar
 		self.oldBackgroundViewFrame = CGRectMake(0,0,UIInterfaceOrientationIsPortrait(orientation) ? kScreenWidth : kScreenHeight,kStatusBarHeight);
 		// the backgroundView gets the newly computed smallFrame
@@ -644,7 +756,7 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	}
 
 	// make visible after given time
-	[UIView animateWithDuration:[UIApplication sharedApplication].statusBarOrientationAnimationDuration+kStatusBarOrientationAppearTimeDelta
+	[UIView animateWithDuration:kRotationAppearDuration
 					 animations:^{
 						 [self setHidden:NO useAlpha:YES];
 					 }];
@@ -663,6 +775,41 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	return self.detailView.hidden == NO && self.detailView.alpha > 0.0 &&
 	self.detailView.frame.origin.y + self.detailView.frame.size.height >= kStatusBarHeight;
 }
+
+//===========================================================
+#pragma mark -
+#pragma mark Table View Data Source
+//===========================================================
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return self.messageHistory.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	static NSString *cellID = @"HistoryCellID";
+	UITableViewCell *cell = nil;
+
+	// step 1: is there a reusable cell?
+	cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+
+	// step 2: no? -> create new cell
+	if (cell == nil) {
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID] autorelease];
+
+		cell.textLabel.font = [UIFont boldSystemFontOfSize:10];
+		cell.textLabel.textColor = [UIApplication sharedApplication].statusBarStyle == UIStatusBarStyleDefault ? kLightThemeHistoryTextColor : kDarkThemeHistoryTextColor;
+
+		cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:12];
+		cell.detailTextLabel.textColor = [UIApplication sharedApplication].statusBarStyle == UIStatusBarStyleDefault ? kLightThemeHistoryTextColor : kDarkThemeHistoryTextColor;
+	}
+
+	// step 3: set up cell value
+	cell.textLabel.text = [self.messageHistory objectAtIndex:indexPath.row];
+	cell.detailTextLabel.text = kFinishedText;
+
+    return cell;
+}
+
 
 //===========================================================
 #pragma mark -
@@ -710,17 +857,22 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 
 		case MTStatusBarOverlayAnimationFallDown:
 			if (self.detailViewVisible) {
-				[UIView animateWithDuration:kAnimationDurationFallDown animations:^{
-					self.detailView.frame = CGRectMake(self.detailView.frame.origin.x, - self.detailView.frame.size.height,
-													   self.detailView.frame.size.width, self.detailView.frame.size.height);
-				}];
+				[UIView animateWithDuration:kAnimationDurationFallDown
+									  delay:0
+									options:UIViewAnimationOptionCurveEaseOut
+								 animations: ^{
+									 self.detailView.frame = CGRectMake(self.detailView.frame.origin.x, - self.detailView.frame.size.height,
+																		self.detailView.frame.size.width, self.detailView.frame.size.height);
+								 }
+								 completion:NULL];
 			} else {
 				[UIView animateWithDuration:kAnimationDurationFallDown
 									  delay:0
-									options:UIViewAnimationOptionCurveEaseInOut
-								 animations:^{
+									options:UIViewAnimationOptionCurveEaseIn
+								 animations: ^{
 									 self.detailView.frame = CGRectMake(self.detailView.frame.origin.x, 0,
-																		self.detailView.frame.size.width, self.detailView.frame.size.height);								 }
+																		self.detailView.frame.size.width, self.detailView.frame.size.height);
+								 }
 								 completion:NULL];
 			}
 
@@ -749,19 +901,25 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	}
 }
 
-- (void)setLabelUIForStatusBarStyle:(UIStatusBarStyle)style {
+- (void)setColorSchemeForStatusBarStyle:(UIStatusBarStyle)style {
 	// gray status bar?
 	// on iPad the Default Status Bar Style is black too
 	if (style == UIStatusBarStyleDefault && !IsIPad) {
-		self.statusLabel1.textColor = kStatusBarStyleDefaultTextColor;
-		self.statusLabel2.textColor = kStatusBarStyleDefaultTextColor;
-		self.finishedLabel.textColor = kStatusBarStyleDefaultTextColor;
-		self.activityIndicator.activityIndicatorViewStyle = kStatusBarStyleDefaultActivityIndicatorViewStyle;
+		self.statusLabel1.textColor = kLightThemeTextColor;
+		self.statusLabel2.textColor = kLightThemeTextColor;
+		self.finishedLabel.textColor = kLightThemeTextColor;
+		self.activityIndicator.activityIndicatorViewStyle = kLightThemeActivityIndicatorViewStyle;
+		self.detailView.backgroundColor = kLightThemeDetailViewBackgroundColor;
+		self.detailView.layer.borderColor = [kLightThemeDetailViewBorderColor CGColor];
+		self.historyTableView.separatorColor = kLightThemeDetailViewBorderColor;
 	} else {
-		self.statusLabel1.textColor = kStatusBarStyleBlackTextColor;
-		self.statusLabel2.textColor = kStatusBarStyleBlackTextColor;
-		self.finishedLabel.textColor = kStatusBarStyleBlackTextColor;
-		self.activityIndicator.activityIndicatorViewStyle = kStatusBarStyleBlackActivityIndicatorViewStyle;
+		self.statusLabel1.textColor = kDarkThemeTextColor;
+		self.statusLabel2.textColor = kDarkThemeTextColor;
+		self.finishedLabel.textColor = kDarkThemeTextColor;
+		self.activityIndicator.activityIndicatorViewStyle = kDarkThemeActivityIndicatorViewStyle;
+		self.detailView.backgroundColor = kDarkThemeDetailViewBackgroundColor;
+		self.detailView.layer.borderColor = [kDarkThemeDetailViewBorderColor CGColor];
+		self.historyTableView.separatorColor = kDarkThemeDetailViewBorderColor;
 	}
 }
 
@@ -787,9 +945,34 @@ unsigned int statusBarBackgroundGreySmall_png_len = 1015;
 	if ([nextResponder isKindOfClass:[UIViewController class]]) {
 		return nextResponder;
 	} else {
-		NSLog(@"MTStatusBarOverlay: Could not find a root view controller, will not rotate!");
+		NSLog(@"Warning MTStatusBarOverlay: Could not find a root view controller - will not rotate!");
 		return nil;
 	}
+}
+
+//===========================================================
+#pragma mark -
+#pragma mark History Tracking
+//===========================================================
+
+- (void)setHistoryEnabled:(BOOL)historyEnabled {
+	historyEnabled_ = historyEnabled;
+	self.historyTableView.hidden = !historyEnabled;
+}
+
+- (void)addMessageToHistory:(NSString *)message {
+	if (self.historyEnabled	&& message != nil
+		&& [message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length > 0) {
+		[self.messageHistory addObject:message];
+		[self.historyTableView reloadData];
+		[self.historyTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messageHistory.count-1 inSection:0]
+									 atScrollPosition:UITableViewScrollPositionTop animated:YES];
+	}
+}
+
+- (void)clearHistory {
+	[self.messageHistory removeAllObjects];
+	[self.historyTableView reloadData];
 }
 
 //===========================================================
