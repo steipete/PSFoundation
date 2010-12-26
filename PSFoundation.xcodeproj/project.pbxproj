@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3936595A12C7F3AE001D4D53 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595912C7F3AE001D4D53 /* AudioToolbox.framework */; };
+		3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595B12C7F3AE001D4D53 /* QuartzCore.framework */; };
 		39BAA3BC12C3A87D00A0350D /* ATMHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BA12C3A87D00A0350D /* ATMHud.h */; };
 		39BAA3BD12C3A87D00A0350D /* ATMHudDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */; };
 		39BAA3BF12C3A88E00A0350D /* libAtomHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */; };
@@ -262,6 +264,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3936595912C7F3AE001D4D53 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3936595B12C7F3AE001D4D53 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		39BAA3BA12C3A87D00A0350D /* ATMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHud.h; sourceTree = "<group>"; };
 		39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHudDelegate.h; sourceTree = "<group>"; };
 		39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAtomHUD.a; path = HUD/libAtomHUD.a; sourceTree = "<group>"; };
@@ -539,6 +543,8 @@
 				788E1F32126C95B1009801E5 /* libxml2.2.7.3.dylib in Frameworks */,
 				788E1F33126C95B1009801E5 /* UIKit.framework in Frameworks */,
 				39BAA3BF12C3A88E00A0350D /* libAtomHUD.a in Frameworks */,
+				3936595A12C7F3AE001D4D53 /* AudioToolbox.framework in Frameworks */,
+				3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +581,8 @@
 				78692296126B4487000259AC /* CoreGraphics.framework */,
 				786922A4126B450C000259AC /* libxml2.2.7.3.dylib */,
 				786922B4126B45A3000259AC /* UIKit.framework */,
+				3936595912C7F3AE001D4D53 /* AudioToolbox.framework */,
+				3936595B12C7F3AE001D4D53 /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
