@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390BAB3112C943D000C39661 /* NSData+MTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 390BAB2F12C943D000C39661 /* NSData+MTAdditions.h */; };
+		390BAB3212C943D000C39661 /* NSData+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 390BAB3012C943D000C39661 /* NSData+MTAdditions.m */; };
+		390BAB3512C9447700C39661 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 390BAB3412C9447700C39661 /* ImageIO.framework */; };
+		390BAB3812C9447D00C39661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786922B4126B45A3000259AC /* UIKit.framework */; };
+		390BAB3A12C9448500C39661 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 390BAB3912C9448500C39661 /* CoreLocation.framework */; };
 		3936595A12C7F3AE001D4D53 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595912C7F3AE001D4D53 /* AudioToolbox.framework */; };
 		3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595B12C7F3AE001D4D53 /* QuartzCore.framework */; };
 		3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948220E12C8AA9700763012 /* TDBadgedCell.h */; };
@@ -297,6 +302,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		390BAB2712C9438B00C39661 /* libPSFoundation_CoreLocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation_CoreLocation.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		390BAB2F12C943D000C39661 /* NSData+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MTAdditions.h"; sourceTree = "<group>"; };
+		390BAB3012C943D000C39661 /* NSData+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MTAdditions.m"; sourceTree = "<group>"; };
+		390BAB3412C9447700C39661 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		390BAB3912C9448500C39661 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3936595912C7F3AE001D4D53 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3936595B12C7F3AE001D4D53 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3948220E12C8AA9700763012 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
@@ -592,6 +602,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		390BAB2512C9438B00C39661 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				390BAB3512C9447700C39661 /* ImageIO.framework in Frameworks */,
+				390BAB3812C9447D00C39661 /* UIKit.framework in Frameworks */,
+				390BAB3A12C9448500C39661 /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7867A4E3126C98C70012E520 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -623,6 +643,7 @@
 			children = (
 				788E1F38126C95B1009801E5 /* libPSFoundation.a */,
 				7867A4E5126C98C70012E520 /* libPSFoundation_CoreData.a */,
+				390BAB2712C9438B00C39661 /* libPSFoundation_CoreLocation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -642,6 +663,8 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				390BAB3412C9447700C39661 /* ImageIO.framework */,
+				390BAB3912C9448500C39661 /* CoreLocation.framework */,
 				39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */,
 				7867A4FA126C99EA0012E520 /* CoreData.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
@@ -1087,6 +1110,8 @@
 				78E5316F126E03EB00A89047 /* GTMNSData+zlib.m */,
 				78E53170126E03EB00A89047 /* NSData+CommonCrypto.h */,
 				78E53171126E03EB00A89047 /* NSData+CommonCrypto.m */,
+				390BAB2F12C943D000C39661 /* NSData+MTAdditions.h */,
+				390BAB3012C943D000C39661 /* NSData+MTAdditions.m */,
 			);
 			path = NSData;
 			sourceTree = "<group>";
@@ -1409,6 +1434,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		390BAB2312C9438B00C39661 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				390BAB3112C943D000C39661 /* NSData+MTAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7867A4E1126C98C70012E520 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -1570,6 +1603,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		390BAB2612C9438B00C39661 /* PSFoundation_CoreLocation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 390BAB3312C943D000C39661 /* Build configuration list for PBXNativeTarget "PSFoundation_CoreLocation" */;
+			buildPhases = (
+				390BAB2312C9438B00C39661 /* Headers */,
+				390BAB2412C9438B00C39661 /* Sources */,
+				390BAB2512C9438B00C39661 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PSFoundation_CoreLocation;
+			productName = PSFoundation_CoreLocation;
+			productReference = 390BAB2712C9438B00C39661 /* libPSFoundation_CoreLocation.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		7867A4E4126C98C70012E520 /* PSFoundation_CoreData */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7867A4EE126C99060012E520 /* Build configuration list for PBXNativeTarget "PSFoundation_CoreData" */;
@@ -1631,11 +1681,20 @@
 			targets = (
 				7867A4E4126C98C70012E520 /* PSFoundation_CoreData */,
 				788E1E6D126C95B1009801E5 /* PSFoundation */,
+				390BAB2612C9438B00C39661 /* PSFoundation_CoreLocation */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		390BAB2412C9438B00C39661 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				390BAB3212C943D000C39661 /* NSData+MTAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7867A4E2126C98C70012E520 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1819,6 +1878,53 @@
 			};
 			name = Release;
 		};
+		390BAB2812C9438C00C39661 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PREBINDING = NO;
+				PRODUCT_NAME = PSFoundation_CoreLocation;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		390BAB2912C9438C00C39661 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = PSFoundation_CoreLocation;
+				SDKROOT = iphoneos;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		390BAB2A12C9438C00C39661 /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = PSFoundation_CoreLocation;
+				SDKROOT = iphoneos;
+			};
+			name = Distribution;
+		};
+		390BAB2B12C9438C00C39661 /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = PSFoundation_CoreLocation;
+				SDKROOT = iphoneos;
+			};
+			name = AppStore;
+		};
 		786274B41292DBB8002D08A6 /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1996,6 +2102,17 @@
 				1DEB922408733DC00010E9CD /* Release */,
 				78A45B76126BB68900327105 /* Distribution */,
 				786274B41292DBB8002D08A6 /* AppStore */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		390BAB3312C943D000C39661 /* Build configuration list for PBXNativeTarget "PSFoundation_CoreLocation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				390BAB2812C9438C00C39661 /* Debug */,
+				390BAB2912C9438C00C39661 /* Release */,
+				390BAB2A12C9438C00C39661 /* Distribution */,
+				390BAB2B12C9438C00C39661 /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
