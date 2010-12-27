@@ -31,11 +31,11 @@ static inline BOOL IsEmpty(id thing) {
 #define radianToDegrees(x) (M_PI * 180.0 / (x))
 
 // Time Macros
-#define MTTimeIntervalMilliseconds(x) x / 1000.
-#define MTTimeIntervalSeconds(x) x
-#define MTTimeIntervalMinutes(x) x * 60.
-#define MTTimeIntervalHours(x) x * 3600.
-#define MTTimeIntervalDays(x) x * 3600. * 24.
+#define MTTimeIntervalMilliseconds(x) (NSTimeInterval)(x / 1000.)
+#define MTTimeIntervalSeconds(x) (NSTimeInterval)x
+#define MTTimeIntervalMinutes(x) (NSTimeInterval)(x * 60.)
+#define MTTimeIntervalHours(x) (NSTimeInterval)(x * 3600.)
+#define MTTimeIntervalDays(x) (NSTimeInterval)(x * 3600. * 24.)
 
 // Resource Path used with Folder References
 #define MTGetFullPath(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
@@ -143,6 +143,12 @@ __VA_ARGS__;                            \
 #define XNULL [NSNull null]
 #define $false ((NSNumber*)kCFBooleanFalse)
 #define $true  ((NSNumber*)kCFBooleanTrue)
+
+// even shorter versions
+#define $I(value) XINT(value)
+#define $F(value) XFLOAT(value)
+#define $B(value) XBOOL(value)
+#define $S(...)   [NSString stringWithFormat: __VA_ARGS__]
 
 // collection shortcuts
 #define XDEFAULT(_value, _default) ([[NSNull null] isEqual:(_value)] ? (_default) : (_value))

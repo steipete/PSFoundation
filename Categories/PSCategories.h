@@ -9,6 +9,7 @@
 #import "NSArray+Linq.h"
 #import "NSMutableArray+SCQueue.h"
 #import "NSMutableArray+MTShuffle.h"
+#import "NSArrayHelper.h"
 
 // arrayBySortingStrings, firstObject, uniqueMembers, map, collect, reject, removeFirstObject, reverse,
 // scramble, Stack-Tools like pop, pull, objectUsingPredicate
@@ -64,6 +65,11 @@
 
 // numberWithString
 #import "NSNumberAdditions.h"                               // own
+
+// NSURL ///////////////////////////////////////////////////////////////////////////////////////
+
+#import "NSURLHelper.h"
+#import "NSURL+PSFoundation.h"
 
 
 // NSObject ///////////////////////////////////////////////////////////////////////////////////////
@@ -128,6 +134,9 @@
 #import "UIView+Sizes.h"
 #import "UIView+PSAdditions.m"
 #import "UIView+MTUIAdditions.h"
+#import "UIViewHelper.h"
+
+#import "UIViewControllerHelper.h"
 
 #import "UIScreen+PSAdditions.h"
 

@@ -43,4 +43,11 @@
 
 - (void)setCornerRadius:(CGFloat)cornerRadius borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
 
+//===========================================================
+#pragma mark -
+#pragma mark Gradient Background
+//===========================================================
+
+- (void)setGradientBackgroundWithStartColor:(UIColor *)startColor endColor:(UIColor *)endColor;
+
 @end

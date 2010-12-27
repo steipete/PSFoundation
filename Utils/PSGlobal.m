@@ -14,3 +14,8 @@ CGFloat PSAppWidth() {
     return [UIScreen mainScreen].bounds.size.height;
   }
 }
+
+inline NSString *MTDocumentsDirectory() {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return [paths objectAtIndex:0];
+}

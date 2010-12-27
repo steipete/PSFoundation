@@ -6,3 +6,7 @@
 
 // helper that returns width for current orientation mode
 CGFloat PSAppWidth();
+
+// returns name of documents directory
+NSString *MTDocumentsDirectory();
+

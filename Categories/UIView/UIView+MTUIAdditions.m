@@ -121,4 +121,18 @@
 }
 
 
+//===========================================================
+#pragma mark -
+#pragma mark Gradient Background
+//===========================================================
+
+- (void)setGradientBackgroundWithStartColor:(UIColor *)startColor endColor:(UIColor *)endColor {
+	CAGradientLayer *gradient = [CAGradientLayer layer];
+
+	gradient.frame = self.bounds;
+	gradient.colors = [NSArray arrayWithObjects:(id)[startColor CGColor], (id)[endColor CGColor], nil];
+
+	[self.layer insertSublayer:gradient atIndex:0];
+}
+
 @end
