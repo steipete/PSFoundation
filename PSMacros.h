@@ -136,6 +136,12 @@ static const int ddLogLevel = LOG_LEVEL_WARN;
 #define $false ((NSNumber*)kCFBooleanFalse)
 #define $true  ((NSNumber*)kCFBooleanTrue)
 
+// even shorter versions
+#define $I(value) XINT(value)
+#define $F(value) XFLOAT(value)
+#define $B(value) XBOOL(value)
+#define $S(...)   [NSString stringWithFormat: __VA_ARGS__]
+
 // collection shortcuts
 #define XDEFAULT(_value, _default) ([[NSNull null] isEqual:(_value)] ? (_default) : (_value))
 #define XFMT(...) [NSString stringWithFormat: __VA_ARGS__]
