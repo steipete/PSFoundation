@@ -30,6 +30,14 @@
 		3948224812C8AB8C00763012 /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948223512C8AB8C00763012 /* TDSemiModalViewController.m */; };
 		3948224912C8AB8C00763012 /* UIViewController+TDSemiModalExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948223612C8AB8C00763012 /* UIViewController+TDSemiModalExtension.h */; };
 		3948224A12C8AB8C00763012 /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948223712C8AB8C00763012 /* UIViewController+TDSemiModalExtension.m */; };
+		3994624812C9241A005574A6 /* NSArrayHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994624612C9241A005574A6 /* NSArrayHelper.h */; };
+		3994624912C9241A005574A6 /* NSArrayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994624712C9241A005574A6 /* NSArrayHelper.m */; };
+		3994625312C9250A005574A6 /* NSURLHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994625112C9250A005574A6 /* NSURLHelper.h */; };
+		3994625412C9250A005574A6 /* NSURLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994625212C9250A005574A6 /* NSURLHelper.m */; };
+		3994625712C925B3005574A6 /* UIViewHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994625512C925B3005574A6 /* UIViewHelper.h */; };
+		3994625812C925B3005574A6 /* UIViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994625612C925B3005574A6 /* UIViewHelper.m */; };
+		3994626012C925F5005574A6 /* UIViewControllerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994625E12C925F5005574A6 /* UIViewControllerHelper.h */; };
+		3994626112C925F5005574A6 /* UIViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994625F12C925F5005574A6 /* UIViewControllerHelper.m */; };
 		39BAA3BC12C3A87D00A0350D /* ATMHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BA12C3A87D00A0350D /* ATMHud.h */; };
 		39BAA3BD12C3A87D00A0350D /* ATMHudDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */; };
 		39BAA3BF12C3A88E00A0350D /* libAtomHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */; };
@@ -309,6 +317,14 @@
 		3948223512C8AB8C00763012 /* TDSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSemiModalViewController.m; sourceTree = "<group>"; };
 		3948223612C8AB8C00763012 /* UIViewController+TDSemiModalExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TDSemiModalExtension.h"; sourceTree = "<group>"; };
 		3948223712C8AB8C00763012 /* UIViewController+TDSemiModalExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TDSemiModalExtension.m"; sourceTree = "<group>"; };
+		3994624612C9241A005574A6 /* NSArrayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayHelper.h; sourceTree = "<group>"; };
+		3994624712C9241A005574A6 /* NSArrayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayHelper.m; sourceTree = "<group>"; };
+		3994625112C9250A005574A6 /* NSURLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLHelper.h; path = NSURL/NSURLHelper.h; sourceTree = "<group>"; };
+		3994625212C9250A005574A6 /* NSURLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSURLHelper.m; path = NSURL/NSURLHelper.m; sourceTree = "<group>"; };
+		3994625512C925B3005574A6 /* UIViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewHelper.h; sourceTree = "<group>"; };
+		3994625612C925B3005574A6 /* UIViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewHelper.m; sourceTree = "<group>"; };
+		3994625E12C925F5005574A6 /* UIViewControllerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerHelper.h; sourceTree = "<group>"; };
+		3994625F12C925F5005574A6 /* UIViewControllerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerHelper.m; sourceTree = "<group>"; };
 		39BAA3BA12C3A87D00A0350D /* ATMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHud.h; sourceTree = "<group>"; };
 		39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHudDelegate.h; sourceTree = "<group>"; };
 		39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAtomHUD.a; path = HUD/libAtomHUD.a; sourceTree = "<group>"; };
@@ -743,6 +759,15 @@
 			path = TDSemiModal;
 			sourceTree = "<group>";
 		};
+		3994625D12C925F5005574A6 /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3994625E12C925F5005574A6 /* UIViewControllerHelper.h */,
+				3994625F12C925F5005574A6 /* UIViewControllerHelper.m */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
 		39EE94FC12C3ADC800AD953B /* InterfaceBuilder */ = {
 			isa = PBXGroup;
 			children = (
@@ -944,6 +969,8 @@
 		78BCB9C212B528730093AE0C /* NSURL */ = {
 			isa = PBXGroup;
 			children = (
+				3994625112C9250A005574A6 /* NSURLHelper.h */,
+				3994625212C9250A005574A6 /* NSURLHelper.m */,
 				78BCB9DF12B528AD0093AE0C /* NSURL+PSFoundation.h */,
 				78BCB9E012B528AD0093AE0C /* NSURL+PSFoundation.m */,
 			);
@@ -1005,6 +1032,7 @@
 				39EE950D12C3B09400AD953B /* UIScrollView */,
 				78E531DD126E03EB00A89047 /* UIToolBar */,
 				78E531E0126E03EB00A89047 /* UIView */,
+				3994625D12C925F5005574A6 /* UIViewController */,
 				78993B7912AA85F600DA480C /* UIScreen */,
 			);
 			path = Categories;
@@ -1013,6 +1041,8 @@
 		78E53166126E03EB00A89047 /* NSArray */ = {
 			isa = PBXGroup;
 			children = (
+				3994624612C9241A005574A6 /* NSArrayHelper.h */,
+				3994624712C9241A005574A6 /* NSArrayHelper.m */,
 				39EE95C312C3B66300AD953B /* NSMutableArray+MTShuffle.h */,
 				39EE95C412C3B66300AD953B /* NSMutableArray+MTShuffle.m */,
 				782E2A5D12AC5AD400F2CFC9 /* NSMutableArray+SCQueue.h */,
@@ -1292,6 +1322,8 @@
 		78E531E0126E03EB00A89047 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				3994625512C925B3005574A6 /* UIViewHelper.h */,
+				3994625612C925B3005574A6 /* UIViewHelper.m */,
 				39EE950512C3B02200AD953B /* UIView+MTUIAdditions.h */,
 				39EE950612C3B02200AD953B /* UIView+MTUIAdditions.m */,
 				78E531E1126E03EB00A89047 /* UIView+Sizes.h */,
@@ -1505,6 +1537,10 @@
 				3948224612C8AB8C00763012 /* TDSemiModal.h in Headers */,
 				3948224712C8AB8C00763012 /* TDSemiModalViewController.h in Headers */,
 				3948224912C8AB8C00763012 /* UIViewController+TDSemiModalExtension.h in Headers */,
+				3994624812C9241A005574A6 /* NSArrayHelper.h in Headers */,
+				3994625312C9250A005574A6 /* NSURLHelper.h in Headers */,
+				3994625712C925B3005574A6 /* UIViewHelper.h in Headers */,
+				3994626012C925F5005574A6 /* UIViewControllerHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1716,6 +1752,10 @@
 				3948224512C8AB8C00763012 /* TDDatePickerController.m in Sources */,
 				3948224812C8AB8C00763012 /* TDSemiModalViewController.m in Sources */,
 				3948224A12C8AB8C00763012 /* UIViewController+TDSemiModalExtension.m in Sources */,
+				3994624912C9241A005574A6 /* NSArrayHelper.m in Sources */,
+				3994625412C9250A005574A6 /* NSURLHelper.m in Sources */,
+				3994625812C925B3005574A6 /* UIViewHelper.m in Sources */,
+				3994626112C925F5005574A6 /* UIViewControllerHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
