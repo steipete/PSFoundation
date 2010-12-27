@@ -31,11 +31,11 @@ static inline BOOL IsEmpty(id thing) {
 #define radianToDegrees(x) (M_PI * 180.0 / (x))
 
 // Time Macros
-#define MTTimeIntervalMilliseconds(x) x / 1000.
-#define MTTimeIntervalSeconds(x) x
-#define MTTimeIntervalMinutes(x) x * 60.
-#define MTTimeIntervalHours(x) x * 3600.
-#define MTTimeIntervalDays(x) x * 3600. * 24.
+#define MTTimeIntervalMilliseconds(x) (NSTimeInterval)(x / 1000.)
+#define MTTimeIntervalSeconds(x) (NSTimeInterval)x
+#define MTTimeIntervalMinutes(x) (NSTimeInterval)(x * 60.)
+#define MTTimeIntervalHours(x) (NSTimeInterval)(x * 3600.)
+#define MTTimeIntervalDays(x) (NSTimeInterval)(x * 3600. * 24.)
 
 // Resource Path used with Folder References
 #define MTGetFullPath(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
