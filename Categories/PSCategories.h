@@ -64,6 +64,11 @@
 // numberWithString
 #import "NSNumberAdditions.h"                               // own
 
+// NSURL ///////////////////////////////////////////////////////////////////////////////////////
+
+#import "NSURLHelper.h"
+#import "NSURL+PSFoundation.h"
+
 
 // NSObject ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -127,6 +132,9 @@
 #import "UIView+Sizes.h"
 #import "UIView+PSAdditions.m"
 #import "UIView+MTUIAdditions.h"
+#import "UIViewHelper.h"
+
+#import "UIViewControllerHelper.h"
 
 #import "UIScreen+PSAdditions.h"
 
