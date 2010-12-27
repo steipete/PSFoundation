@@ -48,6 +48,6 @@
 #pragma mark Gradient Background
 //===========================================================
 
-- (void)setGradientBackgroundWithStartColor:(UIColor *)startColor endColor:(UIColor *)endColor
+- (void)setGradientBackgroundWithStartColor:(UIColor *)startColor endColor:(UIColor *)endColor;
 
 @end

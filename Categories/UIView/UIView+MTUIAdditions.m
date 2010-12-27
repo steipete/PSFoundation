@@ -121,7 +121,12 @@
 }
 
 
-- (void)setGradientWithStartColor:(UIColor *)startColor endColor:(UIColor *)endColor {
+//===========================================================
+#pragma mark -
+#pragma mark Gradient Background
+//===========================================================
+
+- (void)setGradientBackgroundWithStartColor:(UIColor *)startColor endColor:(UIColor *)endColor {
 	CAGradientLayer *gradient = [CAGradientLayer layer];
 
 	gradient.frame = self.bounds;
