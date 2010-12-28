@@ -13,7 +13,7 @@
 
 - (void)enableDebugBorder {
   DDLogInfo(@"enable debug for view %@", self);
-  self.layer.borderColor = [[UIColor redColor] CGColor];
+  self.layer.borderColor = [[UIColor orangeColor] CGColor];
   self.layer.borderWidth = 2.0;
 }
 
