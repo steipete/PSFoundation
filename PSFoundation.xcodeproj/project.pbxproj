@@ -12,6 +12,7 @@
 		390BAB3512C9447700C39661 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 390BAB3412C9447700C39661 /* ImageIO.framework */; };
 		390BAB3812C9447D00C39661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786922B4126B45A3000259AC /* UIKit.framework */; };
 		390BAB3A12C9448500C39661 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 390BAB3912C9448500C39661 /* CoreLocation.framework */; };
+		390BAB8512C9EF7F00C39661 /* PSFoundation_CoreLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 390BAB8412C9EF7F00C39661 /* PSFoundation_CoreLocation.h */; };
 		3936595A12C7F3AE001D4D53 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595912C7F3AE001D4D53 /* AudioToolbox.framework */; };
 		3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595B12C7F3AE001D4D53 /* QuartzCore.framework */; };
 		3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948220E12C8AA9700763012 /* TDBadgedCell.h */; };
@@ -307,6 +308,7 @@
 		390BAB3012C943D000C39661 /* NSData+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MTAdditions.m"; sourceTree = "<group>"; };
 		390BAB3412C9447700C39661 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		390BAB3912C9448500C39661 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		390BAB8412C9EF7F00C39661 /* PSFoundation_CoreLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation_CoreLocation.h; sourceTree = "<group>"; };
 		3936595912C7F3AE001D4D53 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3936595B12C7F3AE001D4D53 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3948220E12C8AA9700763012 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
@@ -703,6 +705,7 @@
 				786921A7126B4195000259AC /* PSMacros.h */,
 				7856A32712B43AAB0025424F /* PSFoundation.h */,
 				7856A32512B43AA30025424F /* PSFoundation_CoreData.h */,
+				390BAB8412C9EF7F00C39661 /* PSFoundation_CoreLocation.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1439,6 +1442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				390BAB3112C943D000C39661 /* NSData+MTAdditions.h in Headers */,
+				390BAB8512C9EF7F00C39661 /* PSFoundation_CoreLocation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
