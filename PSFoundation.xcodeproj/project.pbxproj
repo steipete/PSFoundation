@@ -698,7 +698,7 @@
 				39EE961312C3B91C00AD953B /* StatusBar */,
 				78692149126B4195000259AC /* TableView */,
 				39EE957A12C3B44200AD953B /* Universal */,
-				78DF3BD2126CC484008F05B9 /* activerecord-coredata */,
+				78DF3BD2126CC484008F05B9 /* ActiveRecord-CoreData */,
 				782AC0AF1281864800806121 /* ZeroWeakReferences */,
 				786921A4126B4195000259AC /* PSCompatibility.h */,
 				786921A5126B4195000259AC /* PSCompatibility.m */,
@@ -716,6 +716,30 @@
 				7856A32912B43AB40025424F /* PSFoundation_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		390BAB9112C9F20100C39661 /* Lumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				78692138126B4195000259AC /* DDTTYLogger.h */,
+				78692139126B4195000259AC /* DDTTYLogger.m */,
+				78692132126B4195000259AC /* DDASLLogger.h */,
+				78692133126B4195000259AC /* DDASLLogger.m */,
+				78692134126B4195000259AC /* DDFileLogger.h */,
+				78692135126B4195000259AC /* DDFileLogger.m */,
+				78692136126B4195000259AC /* DDLog.h */,
+				78692137126B4195000259AC /* DDLog.m */,
+			);
+			name = Lumberjack;
+			sourceTree = "<group>";
+		};
+		390BAB9212C9F21A00C39661 /* XcodeColors */ = {
+			isa = PBXGroup;
+			children = (
+				39EE95F712C3B83400AD953B /* ColorLog.h */,
+				39EE95F812C3B83400AD953B /* ColorLog.m */,
+			);
+			name = XcodeColors;
 			sourceTree = "<group>";
 		};
 		3948221D12C8AB8C00763012 /* ExternalFrameworks */ = {
@@ -920,25 +944,17 @@
 		78692131126B4195000259AC /* Logging */ = {
 			isa = PBXGroup;
 			children = (
+				390BAB9112C9F20100C39661 /* Lumberjack */,
 				780076F71276FF2900B77C86 /* NSLogger */,
-				78692132126B4195000259AC /* DDASLLogger.h */,
-				78692133126B4195000259AC /* DDASLLogger.m */,
-				78692134126B4195000259AC /* DDFileLogger.h */,
-				78692135126B4195000259AC /* DDFileLogger.m */,
-				78692136126B4195000259AC /* DDLog.h */,
-				78692137126B4195000259AC /* DDLog.m */,
+				390BAB9212C9F21A00C39661 /* XcodeColors */,
 				7883CB6B127AE07F001036C0 /* HOLog.h */,
 				7883CB6C127AE07F001036C0 /* HOLog.m */,
-				78692138126B4195000259AC /* DDTTYLogger.h */,
-				78692139126B4195000259AC /* DDTTYLogger.m */,
 				7869213A126B4195000259AC /* PSDDFormatter.h */,
 				7869213B126B4195000259AC /* PSDDFormatter.m */,
 				7869213C126B4195000259AC /* VTPG_Common.h */,
 				7869213D126B4195000259AC /* VTPG_Common.m */,
 				780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */,
 				780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */,
-				39EE95F712C3B83400AD953B /* ColorLog.h */,
-				39EE95F812C3B83400AD953B /* ColorLog.m */,
 			);
 			name = Logging;
 			path = Lumberjack;
@@ -1022,7 +1038,7 @@
 			name = NSURL;
 			sourceTree = "<group>";
 		};
-		78DF3BD2126CC484008F05B9 /* activerecord-coredata */ = {
+		78DF3BD2126CC484008F05B9 /* ActiveRecord-CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				78DF3BD3126CC484008F05B9 /* ActiveRecordHelpers.h */,
@@ -1039,6 +1055,7 @@
 				78DF3BDF126CC484008F05B9 /* NSPersistentStoreCoordinator+ActiveRecord.h */,
 				78DF3BE0126CC484008F05B9 /* NSPersistentStoreCoordinator+ActiveRecord.m */,
 			);
+			name = "ActiveRecord-CoreData";
 			path = "activerecord-coredata";
 			sourceTree = "<group>";
 		};
