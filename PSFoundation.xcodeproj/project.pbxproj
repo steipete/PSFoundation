@@ -690,7 +690,7 @@
 				78692098126B4195000259AC /* Archiving */,
 				7869211E126B4195000259AC /* HUD */,
 				78692128126B4195000259AC /* Keychain */,
-				78692131126B4195000259AC /* Lumberjack */,
+				78692131126B4195000259AC /* Logging */,
 				7869213E126B4195000259AC /* Macros */,
 				78692140126B4195000259AC /* Network */,
 				78692143126B4195000259AC /* Reachability */,
@@ -917,7 +917,7 @@
 			path = Keychain;
 			sourceTree = "<group>";
 		};
-		78692131126B4195000259AC /* Lumberjack */ = {
+		78692131126B4195000259AC /* Logging */ = {
 			isa = PBXGroup;
 			children = (
 				780076F71276FF2900B77C86 /* NSLogger */,
@@ -940,6 +940,7 @@
 				39EE95F712C3B83400AD953B /* ColorLog.h */,
 				39EE95F812C3B83400AD953B /* ColorLog.m */,
 			);
+			name = Logging;
 			path = Lumberjack;
 			sourceTree = "<group>";
 		};
