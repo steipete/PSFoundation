@@ -18,27 +18,23 @@ void (*__ColorLog_NSLog)(NSString * fmt,...) = NSLog;// to prevent false warning
 
 BOOL IsXcodeColorsEnabled()
 {
-  #if TARGET_IPHONE_SIMULATOR
 	char* xcEnv = getenv("XcodeColors");
 	return (xcEnv && !strcmp(xcEnv, "YES"));
-  #else
-  return NO;
-  #endif
 }
 
 NSString* StripXcodeColors(NSString* str,...)
 {
 	if (!str)
 		return nil;
-
+	
 	NSRange range;
 	range = [str rangeOfString:@"\033[0"];
-
+	
 	if (range.location == NSNotFound)
 		return str;
-
+	
 	NSMutableString * res = [NSMutableString stringWithString:str];
-
+	
 	do {
 		NSRange end = range;
 		end.location += range.length;
@@ -51,7 +47,7 @@ NSString* StripXcodeColors(NSString* str,...)
 		[res replaceCharactersInRange:NSMakeRange(range.location, end.location - range.location + end.length) withString:@""];
 		range = [res rangeOfString:@"\033[0"];
 	} while(range.location != NSNotFound);
-
+	
 	return res;
 }
 
