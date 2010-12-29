@@ -63,7 +63,7 @@
 	
 	1)
 	
-	To prevent Xcode crash, we don't delete special \033[..m (ESC-sequences) from the console text internal storage,
+	To prevent Xcode crash, we don't delete special \033[..m (ESC-sequences, or NBSP for iOS) from the console text internal storage,
 	however we replace all of them to \035 - logical group marker instead, that does nothing and invisible.
 	So, you actually don't see special characters on colored output but you may invisble-touch them while copy-paste to TextEdit.
 
@@ -90,30 +90,36 @@
 
 // You can use simple NSLogColor (as NSLog replacement) to automatically strip color specific sequences from the format string if it needs
 
+#if TARGET_OS_IPHONE
+#define LC_ESC @"\xC2\xA0"
+#else
+#define LC_ESC @"\033"
+#endif
+
 // Only restricted ANSI colors set available now:
 
 // Foreground
-#define LCL_BLACK				@"\033[0;30m"
-#define LCL_RED						@"\033[0;31m"
-#define LCL_GREEN				@"\033[0;32m"
-#define LCL_YELLOW			@"\033[0;33m"
-#define LCL_BLUE					@"\033[0;34m"
-#define LCL_MAGENTA		@"\033[0;35m"
-#define LCL_CYAN					@"\033[0;36m"
-#define LCL_WHITE				@"\033[0;37m"
+#define LCL_BLACK				LC_ESC @"[0;30m"
+#define LCL_RED						LC_ESC @"[0;31m"
+#define LCL_GREEN				LC_ESC @"[0;32m"
+#define LCL_YELLOW			LC_ESC @"[0;33m"
+#define LCL_BLUE					LC_ESC @"[0;34m"
+#define LCL_MAGENTA		LC_ESC @"[0;35m"
+#define LCL_CYAN					LC_ESC @"[0;36m"
+#define LCL_WHITE				LC_ESC @"[0;37m"
 
 // Background
-#define LBCL_BLACK			@"\033[0;40m"
-#define LBCL_RED					@"\033[0;41m"
-#define LBCL_GREEN			@"\033[0;42m"
-#define LBCL_YELLOW		@"\033[0;43m"
-#define LBCL_BLUE				@"\033[0;44m"
-#define LBCL_MAGENTA	@"\033[0;45m"
-#define LBCL_CYAN				@"\033[0;46m"
-#define LBCL_WHITE			@"\033[0;47m"
+#define LBCL_BLACK			LC_ESC @"[0;40m"
+#define LBCL_RED					LC_ESC @"[0;41m"
+#define LBCL_GREEN			LC_ESC @"[0;42m"
+#define LBCL_YELLOW		LC_ESC @"[0;43m"
+#define LBCL_BLUE				LC_ESC @"[0;44m"
+#define LBCL_MAGENTA	LC_ESC @"[0;45m"
+#define LBCL_CYAN				LC_ESC @"[0;46m"
+#define LBCL_WHITE			LC_ESC @"[0;47m"
 
 // Reset colors
-#define LCL_RESET				@"\033[0m"
+#define LCL_RESET				LC_ESC @"[0m"
 
 /* To adjust colors
 	

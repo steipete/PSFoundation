@@ -31,4 +31,5 @@ NSString * VTPG_DDToStringFromTypeAndValue(const char * typeCode, void * value);
 #define Log(_X_)
 #define LOG_NS(...)
 #define LOG_FUNCTION()
+#define MTLog(_X_)
 #endif /* NO_LOG_MACROS */
