@@ -26,7 +26,6 @@
 
 /**
 	Called before the HUD appears.
-	This is the place where you can call setCenter: to prevent the HUD from being centered within its superview.
 	@param _hud The hud which will appear.
  */
 - (void)hudWillAppear:(ATMHud *)_hud;

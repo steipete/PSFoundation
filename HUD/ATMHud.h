@@ -91,7 +91,14 @@ typedef enum {
 		Default is 3.
 	 */
 	CGFloat progressBarInset;
-
+	
+	/**
+		Sets the center of the HUD.
+		Default is CGPointZero.
+		The property is reset on every hide.
+		If the value is equal to CGPointZero, the HUD is auto-centered in its superview.
+	 */
+	CGPoint center;
 	
 	/**
 		Enables or disables the shadow.
@@ -121,6 +128,14 @@ typedef enum {
 		@see ATMHud#addToQueueWithCaptions:images:accessoryPositions:showActivities:
 	 */
 	BOOL useSameSizeInQueue;
+	
+	/**
+		If set to YES, the user interaction for the superview is blocked when the HUD is shown.
+		Important: If the value is set to NO, the HUD will not respond to touches via userDidTapHud: anymore.
+		You can either interact with the superview OR with the HUD.
+		Default is YES.
+	 */
+	BOOL blockUserInteraction;
 
 	
 	/**
@@ -155,7 +170,6 @@ typedef enum {
 		Please note that the progressbar only works in the ATMHudAccessoryPositionTop and ATMHudAccessoryPositionBottom modes.
 	 */
 	ATMHudAccessoryPosition accessoryPosition;
-
 	
 	@private
 	ATMHudView *hudView;
@@ -174,10 +188,12 @@ typedef enum {
 @property (nonatomic, assign) CGFloat progressBorderWidth;
 @property (nonatomic, assign) CGFloat progressBarRadius;
 @property (nonatomic, assign) CGFloat progressBarInset;
+@property (nonatomic, assign) CGPoint center;
 @property (nonatomic, assign) BOOL shadowEnabled;
 @property (nonatomic, assign) BOOL blockTouches;
 @property (nonatomic, assign) BOOL maximizeTouchArea;
 @property (nonatomic, assign) BOOL useSameSizeInQueue;
+@property (nonatomic, assign) BOOL blockUserInteraction;
 @property (nonatomic, retain) NSString *showSound;
 @property (nonatomic, retain) NSString *updateSound;
 @property (nonatomic, retain) NSString *hideSound;
@@ -227,6 +243,14 @@ typedef enum {
 	@param flag A boolean value, either YES or NO.
  */
 - (void)setActivity:(BOOL)flag;
+
+/**
+	Sets the style for the activity indicator.
+	Default is UIActivityIndicatorViewStyleWhite.
+	The value is reset on every hide.
+	@param style The designated style.
+ */
+- (void)setActivityStyle:(UIActivityIndicatorViewStyle)style;
 
 /**
 	Sets a fixed size the HUD should have. The HUD will auto-expand to the minimum required size if necessary.
@@ -324,16 +348,6 @@ typedef enum {
 	@param index The index of the designated display.
  */
 - (void)showQueueAtIndex:(NSInteger)index;
-
-
-/**
-	Sets the center of the HUD.
-	Should be called within hudWillAppear: using the ATMHudDelegate protocol.
-	Useful for cases where the HUD should not be centered, e.g. when a keyboard is shown.
-	@param center The designated center.
-	@see ATMHudDelegate#hudWillAppear
- */
-- (void)setCenter:(CGPoint)center;
 
 /**
 	Plays a sound.
