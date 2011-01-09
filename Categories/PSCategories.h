@@ -86,6 +86,8 @@
 // http://petersteinberger.com/2010/10/how-to-mock-asihttprequest-with-ocmock-and-blocks/
 #import "NSObject+Blocks.h"
 
+#import "NSObject+AssociatedObjects.h"
+
 
 // NSOperationQueue ///////////////////////////////////////////////////////////////////////////////
 

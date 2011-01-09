@@ -17,25 +17,6 @@
 		3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595B12C7F3AE001D4D53 /* QuartzCore.framework */; };
 		3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948220E12C8AA9700763012 /* TDBadgedCell.h */; };
 		3948221112C8AA9700763012 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948220F12C8AA9700763012 /* TDBadgedCell.m */; };
-		3948223812C8AB8C00763012 /* Appirater.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948221F12C8AB8C00763012 /* Appirater.h */; };
-		3948223912C8AB8C00763012 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948222012C8AB8C00763012 /* Appirater.m */; };
-		3948223A12C8AB8C00763012 /* EGOCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948222212C8AB8C00763012 /* EGOCache.h */; };
-		3948223B12C8AB8C00763012 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948222312C8AB8C00763012 /* EGOCache.m */; };
-		3948223C12C8AB8C00763012 /* EGOImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948222512C8AB8C00763012 /* EGOImageButton.h */; };
-		3948223D12C8AB8C00763012 /* EGOImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948222612C8AB8C00763012 /* EGOImageButton.m */; };
-		3948223E12C8AB8C00763012 /* EGOImageLoadConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948222812C8AB8C00763012 /* EGOImageLoadConnection.h */; };
-		3948223F12C8AB8C00763012 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948222912C8AB8C00763012 /* EGOImageLoadConnection.m */; };
-		3948224012C8AB8C00763012 /* EGOImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948222A12C8AB8C00763012 /* EGOImageLoader.h */; };
-		3948224112C8AB8C00763012 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948222B12C8AB8C00763012 /* EGOImageLoader.m */; };
-		3948224212C8AB8C00763012 /* EGOImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948222D12C8AB8C00763012 /* EGOImageView.h */; };
-		3948224312C8AB8C00763012 /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948222E12C8AB8C00763012 /* EGOImageView.m */; };
-		3948224412C8AB8C00763012 /* TDDatePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948223012C8AB8C00763012 /* TDDatePickerController.h */; };
-		3948224512C8AB8C00763012 /* TDDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948223112C8AB8C00763012 /* TDDatePickerController.m */; };
-		3948224612C8AB8C00763012 /* TDSemiModal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948223312C8AB8C00763012 /* TDSemiModal.h */; };
-		3948224712C8AB8C00763012 /* TDSemiModalViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948223412C8AB8C00763012 /* TDSemiModalViewController.h */; };
-		3948224812C8AB8C00763012 /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948223512C8AB8C00763012 /* TDSemiModalViewController.m */; };
-		3948224912C8AB8C00763012 /* UIViewController+TDSemiModalExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948223612C8AB8C00763012 /* UIViewController+TDSemiModalExtension.h */; };
-		3948224A12C8AB8C00763012 /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948223712C8AB8C00763012 /* UIViewController+TDSemiModalExtension.m */; };
 		3994624812C9241A005574A6 /* NSArrayHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994624612C9241A005574A6 /* NSArrayHelper.h */; };
 		3994624912C9241A005574A6 /* NSArrayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994624712C9241A005574A6 /* NSArrayHelper.m */; };
 		3994625312C9250A005574A6 /* NSURLHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994625112C9250A005574A6 /* NSURLHelper.h */; };
@@ -100,6 +81,8 @@
 		782E2A6012AC5AD400F2CFC9 /* NSMutableArray+SCQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 782E2A5E12AC5AD400F2CFC9 /* NSMutableArray+SCQueue.m */; };
 		7833EAB912897C940025D418 /* PSShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7833EAB712897C940025D418 /* PSShadowView.h */; };
 		7833EABA12897C940025D418 /* PSShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7833EAB812897C940025D418 /* PSShadowView.m */; };
+		7837D43012DA749D00BE3C22 /* NSObject+AssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 7837D42E12DA749D00BE3C22 /* NSObject+AssociatedObjects.h */; };
+		7837D43112DA749D00BE3C22 /* NSObject+AssociatedObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 7837D42F12DA749D00BE3C22 /* NSObject+AssociatedObjects.m */; };
 		7837DCDC12A09381005CC81B /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */ = {isa = PBXBuildFile; fileRef = 7837DCDA12A09381005CC81B /* NSManagedObjectContext+FetchedObjectFromURI.h */; };
 		7837DCDD12A09381005CC81B /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 7837DCDB12A09381005CC81B /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		784ADCE11275809B00D41EE4 /* PSSettingsUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 784ADCDF1275809B00D41EE4 /* PSSettingsUtil.h */; };
@@ -313,26 +296,6 @@
 		3936595B12C7F3AE001D4D53 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3948220E12C8AA9700763012 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
 		3948220F12C8AA9700763012 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
-		3948221F12C8AB8C00763012 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
-		3948222012C8AB8C00763012 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
-		3948222212C8AB8C00763012 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
-		3948222312C8AB8C00763012 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
-		3948222512C8AB8C00763012 /* EGOImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageButton.h; sourceTree = "<group>"; };
-		3948222612C8AB8C00763012 /* EGOImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageButton.m; sourceTree = "<group>"; };
-		3948222812C8AB8C00763012 /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
-		3948222912C8AB8C00763012 /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
-		3948222A12C8AB8C00763012 /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
-		3948222B12C8AB8C00763012 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
-		3948222D12C8AB8C00763012 /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
-		3948222E12C8AB8C00763012 /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
-		3948223012C8AB8C00763012 /* TDDatePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDatePickerController.h; sourceTree = "<group>"; };
-		3948223112C8AB8C00763012 /* TDDatePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDatePickerController.m; sourceTree = "<group>"; };
-		3948223212C8AB8C00763012 /* TDDatePickerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TDDatePickerController.xib; sourceTree = "<group>"; };
-		3948223312C8AB8C00763012 /* TDSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSemiModal.h; sourceTree = "<group>"; };
-		3948223412C8AB8C00763012 /* TDSemiModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSemiModalViewController.h; sourceTree = "<group>"; };
-		3948223512C8AB8C00763012 /* TDSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSemiModalViewController.m; sourceTree = "<group>"; };
-		3948223612C8AB8C00763012 /* UIViewController+TDSemiModalExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+TDSemiModalExtension.h"; sourceTree = "<group>"; };
-		3948223712C8AB8C00763012 /* UIViewController+TDSemiModalExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+TDSemiModalExtension.m"; sourceTree = "<group>"; };
 		3994624612C9241A005574A6 /* NSArrayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayHelper.h; sourceTree = "<group>"; };
 		3994624712C9241A005574A6 /* NSArrayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayHelper.m; sourceTree = "<group>"; };
 		3994625112C9250A005574A6 /* NSURLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLHelper.h; path = NSURL/NSURLHelper.h; sourceTree = "<group>"; };
@@ -397,6 +360,8 @@
 		782E2A5E12AC5AD400F2CFC9 /* NSMutableArray+SCQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SCQueue.m"; sourceTree = "<group>"; };
 		7833EAB712897C940025D418 /* PSShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSShadowView.h; sourceTree = "<group>"; };
 		7833EAB812897C940025D418 /* PSShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSShadowView.m; sourceTree = "<group>"; };
+		7837D42E12DA749D00BE3C22 /* NSObject+AssociatedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AssociatedObjects.h"; sourceTree = "<group>"; };
+		7837D42F12DA749D00BE3C22 /* NSObject+AssociatedObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AssociatedObjects.m"; sourceTree = "<group>"; };
 		7837DCDA12A09381005CC81B /* NSManagedObjectContext+FetchedObjectFromURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FetchedObjectFromURI.h"; sourceTree = "<group>"; };
 		7837DCDB12A09381005CC81B /* NSManagedObjectContext+FetchedObjectFromURI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+FetchedObjectFromURI.m"; sourceTree = "<group>"; };
 		784ADCDF1275809B00D41EE4 /* PSSettingsUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSettingsUtil.h; sourceTree = "<group>"; };
@@ -683,7 +648,6 @@
 			isa = PBXGroup;
 			children = (
 				78E53161126E03EB00A89047 /* Categories */,
-				3948221D12C8AB8C00763012 /* ExternalFrameworks */,
 				78E531E4126E03EB00A89047 /* Invocation */,
 				39EE94FC12C3ADC800AD953B /* InterfaceBuilder */,
 				78E531EB126E03EB00A89047 /* Utils */,
@@ -740,81 +704,6 @@
 				39EE95F812C3B83400AD953B /* ColorLog.m */,
 			);
 			name = XcodeColors;
-			sourceTree = "<group>";
-		};
-		3948221D12C8AB8C00763012 /* ExternalFrameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3948221E12C8AB8C00763012 /* Appirater */,
-				3948222112C8AB8C00763012 /* EGOImageLoader */,
-				3948222F12C8AB8C00763012 /* TDSemiModal */,
-			);
-			path = ExternalFrameworks;
-			sourceTree = "<group>";
-		};
-		3948221E12C8AB8C00763012 /* Appirater */ = {
-			isa = PBXGroup;
-			children = (
-				3948221F12C8AB8C00763012 /* Appirater.h */,
-				3948222012C8AB8C00763012 /* Appirater.m */,
-			);
-			path = Appirater;
-			sourceTree = "<group>";
-		};
-		3948222112C8AB8C00763012 /* EGOImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				3948222212C8AB8C00763012 /* EGOCache.h */,
-				3948222312C8AB8C00763012 /* EGOCache.m */,
-				3948222412C8AB8C00763012 /* EGOImageButton */,
-				3948222712C8AB8C00763012 /* EGOImageLoader */,
-				3948222C12C8AB8C00763012 /* EGOImageView */,
-			);
-			path = EGOImageLoader;
-			sourceTree = "<group>";
-		};
-		3948222412C8AB8C00763012 /* EGOImageButton */ = {
-			isa = PBXGroup;
-			children = (
-				3948222512C8AB8C00763012 /* EGOImageButton.h */,
-				3948222612C8AB8C00763012 /* EGOImageButton.m */,
-			);
-			path = EGOImageButton;
-			sourceTree = "<group>";
-		};
-		3948222712C8AB8C00763012 /* EGOImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				3948222812C8AB8C00763012 /* EGOImageLoadConnection.h */,
-				3948222912C8AB8C00763012 /* EGOImageLoadConnection.m */,
-				3948222A12C8AB8C00763012 /* EGOImageLoader.h */,
-				3948222B12C8AB8C00763012 /* EGOImageLoader.m */,
-			);
-			path = EGOImageLoader;
-			sourceTree = "<group>";
-		};
-		3948222C12C8AB8C00763012 /* EGOImageView */ = {
-			isa = PBXGroup;
-			children = (
-				3948222D12C8AB8C00763012 /* EGOImageView.h */,
-				3948222E12C8AB8C00763012 /* EGOImageView.m */,
-			);
-			path = EGOImageView;
-			sourceTree = "<group>";
-		};
-		3948222F12C8AB8C00763012 /* TDSemiModal */ = {
-			isa = PBXGroup;
-			children = (
-				3948223012C8AB8C00763012 /* TDDatePickerController.h */,
-				3948223112C8AB8C00763012 /* TDDatePickerController.m */,
-				3948223212C8AB8C00763012 /* TDDatePickerController.xib */,
-				3948223312C8AB8C00763012 /* TDSemiModal.h */,
-				3948223412C8AB8C00763012 /* TDSemiModalViewController.h */,
-				3948223512C8AB8C00763012 /* TDSemiModalViewController.m */,
-				3948223612C8AB8C00763012 /* UIViewController+TDSemiModalExtension.h */,
-				3948223712C8AB8C00763012 /* UIViewController+TDSemiModalExtension.m */,
-			);
-			path = TDSemiModal;
 			sourceTree = "<group>";
 		};
 		3994625D12C925F5005574A6 /* UIViewController */ = {
@@ -1211,6 +1100,8 @@
 			children = (
 				78552DD112B6547500EFDE10 /* JRSwizzle.h */,
 				78552DD212B6547500EFDE10 /* JRSwizzle.m */,
+				7837D42E12DA749D00BE3C22 /* NSObject+AssociatedObjects.h */,
+				7837D42F12DA749D00BE3C22 /* NSObject+AssociatedObjects.m */,
 				78E53191126E03EB00A89047 /* NSObject+AutoDescription.h */,
 				78E53192126E03EB00A89047 /* NSObject+AutoDescription.m */,
 				78E53193126E03EB00A89047 /* NSObject+BlockObservation.h */,
@@ -1604,21 +1495,12 @@
 				39EE95F912C3B83400AD953B /* ColorLog.h in Headers */,
 				39EE961612C3B91C00AD953B /* MTStatusBarOverlay.h in Headers */,
 				3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */,
-				3948223812C8AB8C00763012 /* Appirater.h in Headers */,
-				3948223A12C8AB8C00763012 /* EGOCache.h in Headers */,
-				3948223C12C8AB8C00763012 /* EGOImageButton.h in Headers */,
-				3948223E12C8AB8C00763012 /* EGOImageLoadConnection.h in Headers */,
-				3948224012C8AB8C00763012 /* EGOImageLoader.h in Headers */,
-				3948224212C8AB8C00763012 /* EGOImageView.h in Headers */,
-				3948224412C8AB8C00763012 /* TDDatePickerController.h in Headers */,
-				3948224612C8AB8C00763012 /* TDSemiModal.h in Headers */,
-				3948224712C8AB8C00763012 /* TDSemiModalViewController.h in Headers */,
-				3948224912C8AB8C00763012 /* UIViewController+TDSemiModalExtension.h in Headers */,
 				3994624812C9241A005574A6 /* NSArrayHelper.h in Headers */,
 				3994625312C9250A005574A6 /* NSURLHelper.h in Headers */,
 				3994625712C925B3005574A6 /* UIViewHelper.h in Headers */,
 				3994626012C925F5005574A6 /* UIViewControllerHelper.h in Headers */,
 				3994628712C928B8005574A6 /* UITextView+MTUIAdditions.h in Headers */,
+				7837D43012DA749D00BE3C22 /* NSObject+AssociatedObjects.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1848,20 +1730,12 @@
 				39EE95FA12C3B83400AD953B /* ColorLog.m in Sources */,
 				39EE961712C3B91C00AD953B /* MTStatusBarOverlay.m in Sources */,
 				3948221112C8AA9700763012 /* TDBadgedCell.m in Sources */,
-				3948223912C8AB8C00763012 /* Appirater.m in Sources */,
-				3948223B12C8AB8C00763012 /* EGOCache.m in Sources */,
-				3948223D12C8AB8C00763012 /* EGOImageButton.m in Sources */,
-				3948223F12C8AB8C00763012 /* EGOImageLoadConnection.m in Sources */,
-				3948224112C8AB8C00763012 /* EGOImageLoader.m in Sources */,
-				3948224312C8AB8C00763012 /* EGOImageView.m in Sources */,
-				3948224512C8AB8C00763012 /* TDDatePickerController.m in Sources */,
-				3948224812C8AB8C00763012 /* TDSemiModalViewController.m in Sources */,
-				3948224A12C8AB8C00763012 /* UIViewController+TDSemiModalExtension.m in Sources */,
 				3994624912C9241A005574A6 /* NSArrayHelper.m in Sources */,
 				3994625412C9250A005574A6 /* NSURLHelper.m in Sources */,
 				3994625812C925B3005574A6 /* UIViewHelper.m in Sources */,
 				3994626112C925F5005574A6 /* UIViewControllerHelper.m in Sources */,
 				3994628812C928B8005574A6 /* UITextView+MTUIAdditions.m in Sources */,
+				7837D43112DA749D00BE3C22 /* NSObject+AssociatedObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
