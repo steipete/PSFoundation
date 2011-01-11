@@ -30,9 +30,8 @@
 @end
 
 @implementation NSArray (NilCategories)
-- (id) objectOrNilAtIndex:(NSUInteger)i;
-{
-	if(i >= [self count] || i < 0)
+- (id) objectOrNilAtIndex:(NSUInteger)i {
+	if(i >= [self count])
 		return nil;
 	return [self objectAtIndex:i];
 }

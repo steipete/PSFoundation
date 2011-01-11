@@ -29,7 +29,7 @@
 
 - (id) initWithFrame:(CGRect)frame
 {
-	if (self = [super initWithFrame:frame])
+	if ((self = [super initWithFrame:frame]))
 	{
 		font = [[UIFont boldSystemFontOfSize: 14] retain];
 		
@@ -104,7 +104,7 @@
 @synthesize badgeString, badge, badgeColor, badgeColorHighlighted;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+    if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
         // Initialization code
 		badge = [[TDBadgeView alloc] initWithFrame:CGRectZero];
 		badge.parent = self;

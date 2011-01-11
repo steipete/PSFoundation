@@ -26,7 +26,7 @@
 		
 		id secondObject;
 		
-		while (secondObject = [enumerator nextObject]) {
+		while ((secondObject = [enumerator nextObject])) {
 		
 			result = block(result, secondObject);
 		}
