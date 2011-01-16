@@ -30,6 +30,8 @@
 		39BAA3BC12C3A87D00A0350D /* ATMHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BA12C3A87D00A0350D /* ATMHud.h */; };
 		39BAA3BD12C3A87D00A0350D /* ATMHudDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */; };
 		39BAA3BF12C3A88E00A0350D /* libAtomHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */; };
+		39D8262F12E364530079B785 /* UIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 39D8262D12E364530079B785 /* UIView+Hierarchy.h */; };
+		39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D8262E12E364530079B785 /* UIView+Hierarchy.m */; };
 		39EE950112C3ADC900AD953B /* BSUIViewRearranger.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */; };
 		39EE950212C3ADC900AD953B /* BSUIViewRearranger.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE94FE12C3ADC800AD953B /* BSUIViewRearranger.m */; };
 		39EE950312C3ADC900AD953B /* UIView+CWNibLocalizations.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE94FF12C3ADC900AD953B /* UIView+CWNibLocalizations.h */; };
@@ -309,6 +311,8 @@
 		39BAA3BA12C3A87D00A0350D /* ATMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHud.h; sourceTree = "<group>"; };
 		39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHudDelegate.h; sourceTree = "<group>"; };
 		39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAtomHUD.a; path = HUD/libAtomHUD.a; sourceTree = "<group>"; };
+		39D8262D12E364530079B785 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierarchy.h"; sourceTree = "<group>"; };
+		39D8262E12E364530079B785 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
 		39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSUIViewRearranger.h; sourceTree = "<group>"; };
 		39EE94FE12C3ADC800AD953B /* BSUIViewRearranger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSUIViewRearranger.m; sourceTree = "<group>"; };
 		39EE94FF12C3ADC900AD953B /* UIView+CWNibLocalizations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CWNibLocalizations.h"; sourceTree = "<group>"; };
@@ -1289,6 +1293,8 @@
 				78E531E3126E03EB00A89047 /* UIViewExtras.m */,
 				78C0B3DC12A9B8A0000EC465 /* UIView+PSAdditions.h */,
 				78C0B3DD12A9B8A0000EC465 /* UIView+PSAdditions.m */,
+				39D8262D12E364530079B785 /* UIView+Hierarchy.h */,
+				39D8262E12E364530079B785 /* UIView+Hierarchy.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1501,6 +1507,7 @@
 				3994626012C925F5005574A6 /* UIViewControllerHelper.h in Headers */,
 				3994628712C928B8005574A6 /* UITextView+MTUIAdditions.h in Headers */,
 				7837D43012DA749D00BE3C22 /* NSObject+AssociatedObjects.h in Headers */,
+				39D8262F12E364530079B785 /* UIView+Hierarchy.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1736,6 +1743,7 @@
 				3994626112C925F5005574A6 /* UIViewControllerHelper.m in Sources */,
 				3994628812C928B8005574A6 /* UITextView+MTUIAdditions.m in Sources */,
 				7837D43112DA749D00BE3C22 /* NSObject+AssociatedObjects.m in Sources */,
+				39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

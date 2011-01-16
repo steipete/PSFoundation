@@ -136,6 +136,7 @@
 #import "UIView+Sizes.h"
 #import "UIView+PSAdditions.m"
 #import "UIView+MTUIAdditions.h"
+#import "UIView+Hierarchy.h"
 #import "UIViewHelper.h"
 
 #import "UIViewControllerHelper.h"
