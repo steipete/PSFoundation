@@ -21,15 +21,49 @@
 
 #import <Foundation/Foundation.h>
 
+
+//===========================================================
+#pragma mark -
+#pragma mark Definitions and Types
+//===========================================================
+
 // Animation that happens, when the user touches the status bar overlay
 typedef enum MTStatusBarOverlayAnimation {
-	// nothing happens
-	MTStatusBarOverlayAnimationNone,
-	// the status bar shrinks to the right side and only shows the activity indicator
-	MTStatusBarOverlayAnimationShrink,
-	// the status bar falls down and displays more information
-	MTStatusBarOverlayAnimationFallDown
+	MTStatusBarOverlayAnimationNone,	// nothing happens
+	MTStatusBarOverlayAnimationShrink,  // the status bar shrinks to the right side and only shows the activity indicator
+	MTStatusBarOverlayAnimationFallDown	// the status bar falls down and displays more information
 } MTStatusBarOverlayAnimation;
+
+
+// Mode of the detail view
+typedef enum MTDetailViewMode {
+	MTDetailViewModeHistory,			// History of messages is recorded and displayed in detailView
+	MTDetailViewModeDetailText,			// a text can be displayed easily
+	MTDetailViewModeCustom				// the detailView can be customized in the way the developer wants
+} MTDetailViewMode;
+
+// indicates the type of a message
+typedef enum MTMessageType {
+	MTMessageTypeActivity,				// shows actvity indicator
+	MTMessageTypeFinish,				// shows checkmark
+	MTMessageTypeError					// shows error-mark
+} MTMessageType;
+
+
+// forward-declaration of delegate-protocol
+@protocol MTStatusBarOverlayDelegate;
+
+
+#define kMTStatusBarOverlayMessageKey			@"MessageText"
+#define kMTStatusBarOverlayMessageTypeKey		@"MessageType"
+#define kMTStatusBarOverlayDurationKey			@"MessageDuration"
+#define kMTStatusBarOverlayAnimationKey			@"MessageAnimation"
+
+
+//===========================================================
+#pragma mark -
+#pragma mark MTStatusBarOverlay Interface
+//===========================================================
 
 
 // This class provides an overlay over the iOS Status Bar that can display information
@@ -70,12 +104,19 @@ typedef enum MTStatusBarOverlayAnimation {
 	BOOL active_;
 
 	// Queue stuff
-	NSMutableArray *queuedMessages_;
+	NSMutableArray *messageQueue_;
+
+	// Detail View
+	MTDetailViewMode detailViewMode_;
+	NSString *detailText_;
+	UITextView *detailTextView_;
 
 	// Message history (is reset when finish is called)
-	BOOL historyEnabled_;
 	NSMutableArray *messageHistory_;
 	UITableView *historyTableView_;
+
+	// the delegate
+	id<MTStatusBarOverlayDelegate> delegate_;
 }
 
 //===========================================================
@@ -94,12 +135,18 @@ typedef enum MTStatusBarOverlayAnimation {
 @property (nonatomic, retain) UILabel *finishedLabel;
 // detect if status bar is currently shrinked
 @property (nonatomic, readonly, getter=isShrinked) BOOL shrinked;
-// detect if detailView is currently shown
-@property (nonatomic, readonly, getter=isDetailViewVisible) BOOL detailViewVisible;
+// detect if detailView is currently hidden
+@property (nonatomic, readonly, getter=isDetailViewHidden) BOOL detailViewHidden;
 // all messages that were displayed since the last finish-call
 @property (nonatomic, retain, readonly) NSMutableArray *messageHistory;
-// enable/disable history-tracking of messages
+// DEPRECATED: enable/disable history-tracking of messages
 @property (nonatomic, assign, getter=isHistoryEnabled) BOOL historyEnabled;
+// the mode of the detailView
+@property (nonatomic, assign) MTDetailViewMode detailViewMode;
+// the text displayed in the detailView (alternative to history)
+@property (nonatomic, copy) NSString *detailText;
+// the delegate of the overlay
+@property (nonatomic, assign) id<MTStatusBarOverlayDelegate> delegate;
 
 
 //===========================================================
@@ -121,16 +168,41 @@ typedef enum MTStatusBarOverlayAnimation {
 // shows an activity indicator and the given message
 - (void)postMessage:(NSString *)message;
 - (void)postMessage:(NSString *)message animated:(BOOL)animated;
+// clears the message queue and shows this message instantly
+- (void)postImmediateMessage:(NSString *)message animated:(BOOL)animated;
 
 // shows a checkmark instead of the activity indicator and hides the status bar after the specified duration
 - (void)postFinishMessage:(NSString *)message duration:(NSTimeInterval)duration;
 - (void)postFinishMessage:(NSString *)message duration:(NSTimeInterval)duration animated:(BOOL)animated;
+// clears the message queue and shows this message instantly
+- (void)postImmediateFinishMessage:(NSString *)message duration:(NSTimeInterval)duration animated:(BOOL)animated;
 
 // shows a error-sign instead of the activity indicator and hides the status bar after the specified duration
 - (void)postErrorMessage:(NSString *)message duration:(NSTimeInterval)duration;
 - (void)postErrorMessage:(NSString *)message duration:(NSTimeInterval)duration animated:(BOOL)animated;
+// clears the message queue and shows this message instantly
+- (void)postImmediateErrorMessage:(NSString *)message duration:(NSTimeInterval)duration animated:(BOOL)animated;
 
 // hides the status bar overlay
 - (void)hide;
 
+@end
+
+
+
+
+//===========================================================
+#pragma mark -
+#pragma mark Delegate Protocol
+//===========================================================
+
+@protocol MTStatusBarOverlayDelegate <NSObject>
+@optional
+// is called when the status bar overlay gets hidden
+- (void)statusBarOverlayDidHide;
+// is called, when the status bar overlay changed it's displayed message from one message to another
+- (void)statusBarOverlayDidSwitchFromOldMessage:(NSString *)oldMessage toNewMessage:(NSString *)newMessage;
+// is called when an immediate message gets posted and therefore messages in the queue get lost
+// it tells the delegate the lost messages and the delegate can then enqueue the messages again
+- (void)statusBarOverlayDidClearMessageQueue:(NSArray *)messageQueue;
 @end
