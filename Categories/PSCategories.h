@@ -183,3 +183,5 @@
 #import "NilCategories.h"
 
 #import "NSObject+BlockObservation.h"
+
+#import "NSTimer+Blocks.h"
