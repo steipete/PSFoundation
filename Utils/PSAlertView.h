@@ -22,4 +22,6 @@
 - (void)show;
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
 
+@property (nonatomic, retain) UIAlertView *alertView;
+
 @end
