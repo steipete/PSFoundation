@@ -100,6 +100,8 @@
 		7867A50B126C9B340012E520 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786922B4126B45A3000259AC /* UIKit.framework */; };
 		7875132012BE992700BC60D0 /* MACollectionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875131E12BE992700BC60D0 /* MACollectionUtilities.h */; };
 		7875132112BE992700BC60D0 /* MACollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875131F12BE992700BC60D0 /* MACollectionUtilities.m */; };
+		7881282912E6EBE300623BCB /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 7881282712E6EBE300623BCB /* NSTimer+Blocks.h */; };
+		7881282A12E6EBE300623BCB /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881282812E6EBE300623BCB /* NSTimer+Blocks.m */; };
 		7883CB6D127AE07F001036C0 /* HOLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 7883CB6B127AE07F001036C0 /* HOLog.h */; };
 		7883CB6E127AE07F001036C0 /* HOLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7883CB6C127AE07F001036C0 /* HOLog.m */; };
 		788DCBF1129F005500E061C3 /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 788DCBEF129F005500E061C3 /* ISO8601DateFormatter.h */; };
@@ -422,6 +424,8 @@
 		786922B4126B45A3000259AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7875131E12BE992700BC60D0 /* MACollectionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACollectionUtilities.h; sourceTree = "<group>"; };
 		7875131F12BE992700BC60D0 /* MACollectionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACollectionUtilities.m; sourceTree = "<group>"; };
+		7881282712E6EBE300623BCB /* NSTimer+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Blocks.h"; sourceTree = "<group>"; };
+		7881282812E6EBE300623BCB /* NSTimer+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Blocks.m"; sourceTree = "<group>"; };
 		7883CB6B127AE07F001036C0 /* HOLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOLog.h; sourceTree = "<group>"; };
 		7883CB6C127AE07F001036C0 /* HOLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOLog.m; sourceTree = "<group>"; };
 		788DCBEF129F005500E061C3 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
@@ -911,6 +915,15 @@
 			path = TableView;
 			sourceTree = "<group>";
 		};
+		7881282612E6EBE300623BCB /* NSTimer */ = {
+			isa = PBXGroup;
+			children = (
+				7881282712E6EBE300623BCB /* NSTimer+Blocks.h */,
+				7881282812E6EBE300623BCB /* NSTimer+Blocks.m */,
+			);
+			path = NSTimer;
+			sourceTree = "<group>";
+		};
 		78993B7912AA85F600DA480C /* UIScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -973,6 +986,7 @@
 				78E5319C126E03EB00A89047 /* NSSet */,
 				782E2A4A12AC596E00F2CFC9 /* NSError */,
 				78E5319F126E03EB00A89047 /* NSString */,
+				7881282612E6EBE300623BCB /* NSTimer */,
 				78E531AD126E03EB00A89047 /* SKProduct */,
 				78E531B0126E03EB00A89047 /* UIActionSheet */,
 				78E531B3126E03EB00A89047 /* UIAlertView */,
@@ -1508,6 +1522,7 @@
 				3994628712C928B8005574A6 /* UITextView+MTUIAdditions.h in Headers */,
 				7837D43012DA749D00BE3C22 /* NSObject+AssociatedObjects.h in Headers */,
 				39D8262F12E364530079B785 /* UIView+Hierarchy.h in Headers */,
+				7881282912E6EBE300623BCB /* NSTimer+Blocks.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1744,6 +1759,7 @@
 				3994628812C928B8005574A6 /* UITextView+MTUIAdditions.m in Sources */,
 				7837D43112DA749D00BE3C22 /* NSObject+AssociatedObjects.m in Sources */,
 				39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */,
+				7881282A12E6EBE300623BCB /* NSTimer+Blocks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

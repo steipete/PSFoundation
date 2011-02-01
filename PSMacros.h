@@ -43,6 +43,7 @@ static inline BOOL IsEmpty(id thing) {
 
 // Short hand NSLocalizedString, doesn't need 2 parameters
 #define LocalizedString(s) NSLocalizedString(s,s)
+#define _(s) NSLocalizedString(s,s)
 
 // LocalizedString with an additionl parameter for formatting
 #define LocalizedStringWithFormat(s,...) [NSString stringWithFormat:NSLocalizedString(s,s),##__VA_ARGS__]
