@@ -20,7 +20,7 @@ static NSUInteger random_below(NSUInteger n) {
     NSUInteger ret;
 	
     do {
-        ret = random() % m;
+        ret = arc4random() % m;
     } while(ret >= n);
 	
     return ret;
