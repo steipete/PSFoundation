@@ -2,7 +2,7 @@
 //  MTStatusBarOverlay.m
 //
 //  Created by Matthias Tretter on 27.09.10.
-//  Copyright (c) 2009-2010  Matthias Tretter, @myell0w. All rights reserved.
+//  Copyright (c) 2009-2011  Matthias Tretter, @myell0w. All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),
 // to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
@@ -58,6 +58,7 @@ typedef enum MTMessageType {
 #define kMTStatusBarOverlayMessageTypeKey		@"MessageType"
 #define kMTStatusBarOverlayDurationKey			@"MessageDuration"
 #define kMTStatusBarOverlayAnimationKey			@"MessageAnimation"
+#define kMTStatusBarOverlayImmediateKey			@"MessageImmediate"
 
 
 //===========================================================
@@ -86,10 +87,12 @@ typedef enum MTMessageType {
 	// for displaying activity indication
 	UIActivityIndicatorView *activityIndicator_;
 	UILabel *finishedLabel_;
+	// if set to YES, neither activityIndicator nor finishedLabel are shown
+	BOOL hidesActivity_;
 
 	// Image of gray Status Bar
-	UIImage *grayStatusBarImage_;
-	UIImage *grayStatusBarImageSmall_;
+	UIImage *defaultStatusBarImage_;
+	UIImage *defaultStatusBarImageShrinked_;
 
 	// Animation-Type
 	MTStatusBarOverlayAnimation animation_;
@@ -105,6 +108,8 @@ typedef enum MTMessageType {
 
 	// Queue stuff
 	NSMutableArray *messageQueue_;
+	// if YES older immediate messages in the queue get removed, when a new one gets posted
+	BOOL canRemoveImmediateMessagesFromQueue_;
 
 	// Detail View
 	MTDetailViewMode detailViewMode_;
@@ -133,6 +138,12 @@ typedef enum MTMessageType {
 @property (nonatomic, assign) MTStatusBarOverlayAnimation animation;
 // the label that holds the finished-indicator (either a checkmark, or a error-sign per default)
 @property (nonatomic, retain) UILabel *finishedLabel;
+// if this flag is set to YES, neither activityIndicator nor finishedLabel are shown
+@property (nonatomic, assign) BOOL hidesActivity;
+// the image used when the Status Bar Style is Default
+@property (nonatomic, retain) UIImage *defaultStatusBarImage;
+// the image used when the Status Bar Style is Default and the Overlay is shrinked
+@property (nonatomic, retain) UIImage *defaultStatusBarImageShrinked;
 // detect if status bar is currently shrinked
 @property (nonatomic, readonly, getter=isShrinked) BOOL shrinked;
 // detect if detailView is currently hidden
@@ -141,6 +152,8 @@ typedef enum MTMessageType {
 @property (nonatomic, retain, readonly) NSMutableArray *messageHistory;
 // DEPRECATED: enable/disable history-tracking of messages
 @property (nonatomic, assign, getter=isHistoryEnabled) BOOL historyEnabled;
+// determines if immediate messages in the queue get removed or stay in the queue, when a new immediate message gets posted
+@property (nonatomic, assign) BOOL canRemoveImmediateMessagesFromQueue;
 // the mode of the detailView
 @property (nonatomic, assign) MTDetailViewMode detailViewMode;
 // the text displayed in the detailView (alternative to history)
@@ -164,6 +177,7 @@ typedef enum MTMessageType {
 
 // for customizing appearance, automatically disabled userInteractionEnabled on view
 - (void)addSubviewToBackgroundView:(UIView *)view;
+- (void)addSubviewToBackgroundView:(UIView *)view atIndex:(NSInteger)index;
 
 // shows an activity indicator and the given message
 - (void)postMessage:(NSString *)message;
