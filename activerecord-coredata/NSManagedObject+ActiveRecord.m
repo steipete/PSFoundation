@@ -497,6 +497,23 @@ static NSNumber *defaultBatchSize = nil;
   return [self findFirstByAttribute:@"uid" withValue:uidNum];
 }
 
++ (id)findFirstByUIDHash:(id)searchValue {
+  return [self findFirstByUID:searchValue inContext:[NSManagedObjectContext defaultContext]]; 
+}
+
++ (id)findFirstByUIDHash:(id)searchValue inContext:(NSManagedObjectContext *)context {
+  NSNumber *uidNum;
+  if ([searchValue isKindOfClass:[NSNumber class]]) {
+    uidNum = searchValue;
+  }else if ([searchValue isKindOfClass:[NSString class]]) {
+    uidNum = [NSNumber numberWithString:searchValue];
+  }else {
+    DDLogWarn(@"Wrong type for searchValue!");
+    return nil;
+  }
+  return [self findFirstByAttribute:@"uidHash" withValue:uidNum];
+}
+
 
 + (id)findFirstInContext:(NSManagedObjectContext *)context
 {

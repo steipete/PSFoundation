@@ -84,6 +84,8 @@
 
 + (id)findFirstByUID:(id)searchValue;
 + (id)findFirstByUID:(id)searchValue inContext:(NSManagedObjectContext *)context;
++ (id)findFirstByUIDHash:(id)searchValue;
++ (id)findFirstByUIDHash:(id)searchValue inContext:(NSManagedObjectContext *)context;
 
 + (id)findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue;
 + (id)findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue inContext:(NSManagedObjectContext *)context;
