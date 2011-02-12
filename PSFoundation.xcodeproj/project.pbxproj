@@ -50,8 +50,6 @@
 		39EE95FA12C3B83400AD953B /* ColorLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE95F812C3B83400AD953B /* ColorLog.m */; };
 		39EE961612C3B91C00AD953B /* MTStatusBarOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE961412C3B91C00AD953B /* MTStatusBarOverlay.h */; };
 		39EE961712C3B91C00AD953B /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE961512C3B91C00AD953B /* MTStatusBarOverlay.m */; };
-		780076F21276FDCC00B77C86 /* DDNSLoggerLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */; };
-		780076F31276FDCC00B77C86 /* DDNSLoggerLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */; };
 		782AC0BA1281864800806121 /* MANotificationCenterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 782AC0B01281864800806121 /* MANotificationCenterAdditions.h */; };
 		782AC0BB1281864800806121 /* MANotificationCenterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AC0B11281864800806121 /* MANotificationCenterAdditions.m */; };
 		782AC0BC1281864800806121 /* MAWeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 782AC0B21281864800806121 /* MAWeakArray.h */; };
@@ -330,8 +328,6 @@
 		39EE95F812C3B83400AD953B /* ColorLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorLog.m; sourceTree = "<group>"; };
 		39EE961412C3B91C00AD953B /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
 		39EE961512C3B91C00AD953B /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
-		780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNSLoggerLogger.h; sourceTree = "<group>"; };
-		780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNSLoggerLogger.m; sourceTree = "<group>"; };
 		782AC0B01281864800806121 /* MANotificationCenterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANotificationCenterAdditions.h; sourceTree = "<group>"; };
 		782AC0B11281864800806121 /* MANotificationCenterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANotificationCenterAdditions.m; sourceTree = "<group>"; };
 		782AC0B21281864800806121 /* MAWeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeakArray.h; sourceTree = "<group>"; };
@@ -833,8 +829,6 @@
 				7869213B126B4195000259AC /* PSDDFormatter.m */,
 				7869213C126B4195000259AC /* VTPG_Common.h */,
 				7869213D126B4195000259AC /* VTPG_Common.m */,
-				780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */,
-				780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */,
 			);
 			name = Logging;
 			path = Lumberjack;
@@ -1456,7 +1450,6 @@
 				782CDE6512737E05003C81AE /* PSGenericView.h in Headers */,
 				782CE02012748D19003C81AE /* NSObject+Blocks.h in Headers */,
 				784ADCE11275809B00D41EE4 /* PSSettingsUtil.h in Headers */,
-				780076F21276FDCC00B77C86 /* DDNSLoggerLogger.h in Headers */,
 				7883CB6D127AE07F001036C0 /* HOLog.h in Headers */,
 				782AC0BA1281864800806121 /* MANotificationCenterAdditions.h in Headers */,
 				782AC0BC1281864800806121 /* MAWeakArray.h in Headers */,
@@ -1696,7 +1689,6 @@
 				782CDE6612737E05003C81AE /* PSGenericView.m in Sources */,
 				782CE02112748D19003C81AE /* NSObject+Blocks.m in Sources */,
 				784ADCE21275809B00D41EE4 /* PSSettingsUtil.m in Sources */,
-				780076F31276FDCC00B77C86 /* DDNSLoggerLogger.m in Sources */,
 				7883CB6E127AE07F001036C0 /* HOLog.m in Sources */,
 				782AC0BB1281864800806121 /* MANotificationCenterAdditions.m in Sources */,
 				782AC0BD1281864800806121 /* MAWeakArray.m in Sources */,
