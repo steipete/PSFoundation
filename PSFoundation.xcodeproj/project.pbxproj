@@ -52,9 +52,6 @@
 		39EE961712C3B91C00AD953B /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE961512C3B91C00AD953B /* MTStatusBarOverlay.m */; };
 		780076F21276FDCC00B77C86 /* DDNSLoggerLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */; };
 		780076F31276FDCC00B77C86 /* DDNSLoggerLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */; };
-		780076FB1276FF2900B77C86 /* LoggerClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076F81276FF2900B77C86 /* LoggerClient.h */; };
-		780076FC1276FF2900B77C86 /* LoggerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 780076F91276FF2900B77C86 /* LoggerClient.m */; };
-		780076FD1276FF2900B77C86 /* LoggerCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 780076FA1276FF2900B77C86 /* LoggerCommon.h */; };
 		782AC0BA1281864800806121 /* MANotificationCenterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 782AC0B01281864800806121 /* MANotificationCenterAdditions.h */; };
 		782AC0BB1281864800806121 /* MANotificationCenterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AC0B11281864800806121 /* MANotificationCenterAdditions.m */; };
 		782AC0BC1281864800806121 /* MAWeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 782AC0B21281864800806121 /* MAWeakArray.h */; };
@@ -335,9 +332,6 @@
 		39EE961512C3B91C00AD953B /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
 		780076F01276FDCC00B77C86 /* DDNSLoggerLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDNSLoggerLogger.h; sourceTree = "<group>"; };
 		780076F11276FDCC00B77C86 /* DDNSLoggerLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNSLoggerLogger.m; sourceTree = "<group>"; };
-		780076F81276FF2900B77C86 /* LoggerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerClient.h; sourceTree = "<group>"; };
-		780076F91276FF2900B77C86 /* LoggerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggerClient.m; sourceTree = "<group>"; };
-		780076FA1276FF2900B77C86 /* LoggerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerCommon.h; sourceTree = "<group>"; };
 		782AC0B01281864800806121 /* MANotificationCenterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANotificationCenterAdditions.h; sourceTree = "<group>"; };
 		782AC0B11281864800806121 /* MANotificationCenterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANotificationCenterAdditions.m; sourceTree = "<group>"; };
 		782AC0B21281864800806121 /* MAWeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeakArray.h; sourceTree = "<group>"; };
@@ -771,16 +765,6 @@
 			path = StatusBar;
 			sourceTree = "<group>";
 		};
-		780076F71276FF2900B77C86 /* NSLogger */ = {
-			isa = PBXGroup;
-			children = (
-				780076F81276FF2900B77C86 /* LoggerClient.h */,
-				780076F91276FF2900B77C86 /* LoggerClient.m */,
-				780076FA1276FF2900B77C86 /* LoggerCommon.h */,
-			);
-			path = NSLogger;
-			sourceTree = "<group>";
-		};
 		782AC0AF1281864800806121 /* ZeroWeakReferences */ = {
 			isa = PBXGroup;
 			children = (
@@ -842,7 +826,6 @@
 			isa = PBXGroup;
 			children = (
 				390BAB9112C9F20100C39661 /* Lumberjack */,
-				780076F71276FF2900B77C86 /* NSLogger */,
 				390BAB9212C9F21A00C39661 /* XcodeColors */,
 				7883CB6B127AE07F001036C0 /* HOLog.h */,
 				7883CB6C127AE07F001036C0 /* HOLog.m */,
@@ -1474,8 +1457,6 @@
 				782CE02012748D19003C81AE /* NSObject+Blocks.h in Headers */,
 				784ADCE11275809B00D41EE4 /* PSSettingsUtil.h in Headers */,
 				780076F21276FDCC00B77C86 /* DDNSLoggerLogger.h in Headers */,
-				780076FB1276FF2900B77C86 /* LoggerClient.h in Headers */,
-				780076FD1276FF2900B77C86 /* LoggerCommon.h in Headers */,
 				7883CB6D127AE07F001036C0 /* HOLog.h in Headers */,
 				782AC0BA1281864800806121 /* MANotificationCenterAdditions.h in Headers */,
 				782AC0BC1281864800806121 /* MAWeakArray.h in Headers */,
@@ -1716,7 +1697,6 @@
 				782CE02112748D19003C81AE /* NSObject+Blocks.m in Sources */,
 				784ADCE21275809B00D41EE4 /* PSSettingsUtil.m in Sources */,
 				780076F31276FDCC00B77C86 /* DDNSLoggerLogger.m in Sources */,
-				780076FC1276FF2900B77C86 /* LoggerClient.m in Sources */,
 				7883CB6E127AE07F001036C0 /* HOLog.m in Sources */,
 				782AC0BB1281864800806121 /* MANotificationCenterAdditions.m in Sources */,
 				782AC0BD1281864800806121 /* MAWeakArray.m in Sources */,
