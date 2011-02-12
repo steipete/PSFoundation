@@ -1,14 +1,15 @@
 /*
  * LoggerClient.m
  *
- * version 1.0b9 2010-12-17
+ * version 1.0b10 2011-02-01
  *
  * Main implementation of the NSLogger client side code
  * Part of NSLogger (client side)
+ * https://github.com/fpillet/NSLogger
  *
  * BSD license follows (http://www.opensource.org/licenses/bsd-license.php)
  * 
- * Copyright (c) 2010 Florent Pillet <fpillet@gmail.com> All Rights Reserved.
+ * Copyright (c) 2010-2011 Florent Pillet All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
@@ -34,10 +35,12 @@
  * 
  */
 #import <sys/time.h>
-#if TARGET_OS_MAC
-#import <sys/types.h>
-#import <sys/sysctl.h>
-#import <dlfcn.h>
+#if !TARGET_OS_IPHONE
+	#import <sys/types.h>
+	#import <sys/sysctl.h>
+	#import <dlfcn.h>
+#elif ALLOW_COCOA_USE
+	#import <UIKit/UIKit.h>
 #endif
 #import <fcntl.h>
 
@@ -140,7 +143,7 @@ static void LoggerCreateBufferWriteStream(Logger *logger);
 static void LoggerCreateBufferReadStream(Logger *logger);
 static void LoggerEmptyBufferFile(Logger *logger);
 static void LoggerFileBufferingOptionsChanged(Logger *logger);
-static void LoggerFlushQueueToBufferStream(Logger *logger);
+static void LoggerFlushQueueToBufferStream(Logger *logger, BOOL firstEntryIsClientInfo);
 
 // Encoding functions
 static void	LoggerPushClientInfoToFrontOfQueue(Logger *logger);
@@ -404,11 +407,13 @@ static void *LoggerWorkerThread(Logger *logger)
 {
 	LOGGERDBG(CFSTR("Start LoggerWorkerThread"));
 
+#if !TARGET_OS_IPHONE
 	// Register thread with Garbage Collector on Mac OS X if we're running an OS version that has GC
     void (*registerThreadWithCollector_fn)(void);
     registerThreadWithCollector_fn = (void(*)(void)) dlsym(RTLD_NEXT, "objc_registerThreadWithCollector");
     if (registerThreadWithCollector_fn)
         (*registerThreadWithCollector_fn)();
+#endif
 
 	// Create and get the runLoop for this thread
 	CFRunLoopRef runLoop = CFRunLoopGetCurrent();
@@ -546,10 +551,10 @@ static CFStringRef LoggerCreateStringRepresentationFromBinaryData(CFDataRef data
 		CFStringAppendFormat(s, NULL, CFSTR("Raw data, %u bytes:\n"), dataLen);
 	while (dataLen)
 	{
-		int i, b = sprintf(buffer," %04x: ", offset);
+		int i, j, b = sprintf(buffer," %04x: ", offset);
 		for (i=0; i < 16 && i < dataLen; i++)
 			sprintf(&buffer[b+3*i], "%02x ", (int)q[i]);
-		for (int j=i; j < 16; j++)
+		for (j=i; j < 16; j++)
 			strcat(buffer, "   ");
 		
 		b = strlen(buffer);
@@ -561,7 +566,7 @@ static CFStringRef LoggerCreateStringRepresentationFromBinaryData(CFDataRef data
 			else
 				buffer[b++] = ' ';
 		}
-		for (int j=i; j < 16; j++)
+		for (j=i; j < 16; j++)
 			buffer[b++] = ' ';
 		buffer[b++] = '\'';
 		buffer[b++] = '\n';
@@ -753,7 +758,7 @@ static void LoggerWriteMoreData(Logger *logger)
 		}
 		else if (logger->bufferWriteStream != NULL)
 		{
-			LoggerFlushQueueToBufferStream(logger);
+			LoggerFlushQueueToBufferStream(logger, NO);
 		}
 		return;
 	}
@@ -900,7 +905,7 @@ static void LoggerCreateBufferWriteStream(Logger *logger)
 			{
 				// Write client info and flush the queue contents to buffer file
 				LoggerPushClientInfoToFrontOfQueue(logger);
-				LoggerFlushQueueToBufferStream(logger);
+				LoggerFlushQueueToBufferStream(logger, YES);
 			}
 		}
 	}
@@ -967,11 +972,24 @@ static void LoggerFileBufferingOptionsChanged(Logger *logger)
 		LoggerCreateBufferWriteStream(logger);
 }
 
-static void LoggerFlushQueueToBufferStream(Logger *logger)
+static void LoggerFlushQueueToBufferStream(Logger *logger, BOOL firstEntryIsClientInfo)
 {
 	LOGGERDBG(CFSTR("LoggerFlushQueueToBufferStream"));
 	pthread_mutex_lock(&logger->logQueueMutex);
+	if (logger->incompleteSendOfFirstItem)
+	{
+		// drop anything being sent
+		logger->sendBufferUsed = 0;
+		logger->sendBufferOffset = 0;
+	}
 	logger->incompleteSendOfFirstItem = NO;
+
+	// Write outstanding messages to the buffer file (streams don't detect disconnection
+	// until the next write, where we could lose one or more messages)
+	if (!firstEntryIsClientInfo && logger->sendBufferUsed)
+		CFWriteStreamWrite(logger->bufferWriteStream, logger->sendBuffer + logger->sendBufferOffset, logger->sendBufferUsed - logger->sendBufferOffset);
+	
+	int n = 0;
 	while (CFArrayGetCount(logger->logQueue))
 	{
 		CFDataRef data = CFArrayGetValueAtIndex(logger->logQueue, 0);
@@ -985,7 +1003,15 @@ static void LoggerFlushQueueToBufferStream(Logger *logger)
 			break;
 		}
 		CFArrayRemoveValueAtIndex(logger->logQueue, 0);
+		if (n == 0 && firstEntryIsClientInfo && logger->sendBufferUsed)
+		{
+			// try hard: write any outstanding messages to the buffer file, after the client info
+			CFWriteStreamWrite(logger->bufferWriteStream, logger->sendBuffer + logger->sendBufferOffset, logger->sendBufferUsed - logger->sendBufferOffset);
+		}
+		n++;
 	}
+	logger->sendBufferUsed = 0;
+	logger->sendBufferOffset = 0;
 	pthread_mutex_unlock(&logger->logQueueMutex);	
 }
 
@@ -1041,7 +1067,8 @@ static void LoggerStopBonjourBrowsing(Logger *logger)
 	}
 	
 	// stop browsing for services
-	for (CFIndex idx = 0; idx < CFArrayGetCount(logger->bonjourServiceBrowsers); idx++)
+	CFIndex idx;
+	for (idx = 0; idx < CFArrayGetCount(logger->bonjourServiceBrowsers); idx++)
 	{
 		CFNetServiceBrowserRef browser = (CFNetServiceBrowserRef)CFArrayGetValueAtIndex(logger->bonjourServiceBrowsers, idx);
 		CFNetServiceBrowserStopSearch(browser, NULL);
@@ -1106,7 +1133,8 @@ static void LoggerServiceBrowserCallBack (CFNetServiceBrowserRef browser,
 		if (!(flags & kCFNetServiceFlagIsDomain))
 		{
 			CFNetServiceRef service = (CFNetServiceRef)domainOrService;
-			for (CFIndex idx = 0; idx < CFArrayGetCount(logger->bonjourServices); idx++)
+			CFIndex idx;
+			for (idx = 0; idx < CFArrayGetCount(logger->bonjourServices); idx++)
 			{
 				if (CFArrayGetValueAtIndex(logger->bonjourServices, idx) == service)
 				{
@@ -1442,9 +1470,6 @@ static void LoggerWriteStreamCallback(CFWriteStreamRef ws, CFStreamEventType eve
 			CFRelease(logger->logStream);
 			logger->logStream = NULL;
 
-			logger->sendBufferUsed = 0;
-			logger->sendBufferOffset = 0;
-
 			if (logger->bufferReadStream != NULL)
 			{
 				// In the case the connection drops before we have flushed the
@@ -1600,8 +1625,8 @@ static void LoggerMessageAddCString(CFMutableDataRef data, const char *aString, 
 	uint8_t *buf = malloc(2 * len);
 	if (buf != NULL)
 	{
-		int n = 0;
-		for (int i = 0; i < len; i++)
+		int i, n = 0;
+		for (i = 0; i < len; i++)
 		{
 			uint8_t c = (uint8_t)(*aString++);
 			if (c < 0x80)
