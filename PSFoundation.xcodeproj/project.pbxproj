@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3900165F130C28D8006F7477 /* CoreGraphicsHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3900165E130C28D8006F7477 /* CoreGraphicsHelper.h */; };
 		390BAB3112C943D000C39661 /* NSData+MTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 390BAB2F12C943D000C39661 /* NSData+MTAdditions.h */; };
 		390BAB3212C943D000C39661 /* NSData+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 390BAB3012C943D000C39661 /* NSData+MTAdditions.m */; };
 		390BAB3512C9447700C39661 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 390BAB3412C9447700C39661 /* ImageIO.framework */; };
@@ -285,6 +286,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3900165E130C28D8006F7477 /* CoreGraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreGraphicsHelper.h; sourceTree = "<group>"; };
 		390BAB2712C9438B00C39661 /* libPSFoundation_CoreLocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation_CoreLocation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		390BAB2F12C943D000C39661 /* NSData+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MTAdditions.h"; sourceTree = "<group>"; };
 		390BAB3012C943D000C39661 /* NSData+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MTAdditions.m"; sourceTree = "<group>"; };
@@ -645,12 +647,13 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				78DF3BD2126CC484008F05B9 /* ActiveRecord-CoreData */,
+				78692098126B4195000259AC /* Archiving */,
 				78E53161126E03EB00A89047 /* Categories */,
+				7869211E126B4195000259AC /* HUD */,
 				78E531E4126E03EB00A89047 /* Invocation */,
 				39EE94FC12C3ADC800AD953B /* InterfaceBuilder */,
-				78E531EB126E03EB00A89047 /* Utils */,
-				78692098126B4195000259AC /* Archiving */,
-				7869211E126B4195000259AC /* HUD */,
+				3900165D130C2872006F7477 /* Graphics */,
 				78692128126B4195000259AC /* Keychain */,
 				78692131126B4195000259AC /* Logging */,
 				7869213E126B4195000259AC /* Macros */,
@@ -660,7 +663,7 @@
 				39EE961312C3B91C00AD953B /* StatusBar */,
 				78692149126B4195000259AC /* TableView */,
 				39EE957A12C3B44200AD953B /* Universal */,
-				78DF3BD2126CC484008F05B9 /* ActiveRecord-CoreData */,
+				78E531EB126E03EB00A89047 /* Utils */,
 				782AC0AF1281864800806121 /* ZeroWeakReferences */,
 				786921A4126B4195000259AC /* PSCompatibility.h */,
 				786921A5126B4195000259AC /* PSCompatibility.m */,
@@ -678,6 +681,14 @@
 				7856A32912B43AB40025424F /* PSFoundation_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		3900165D130C2872006F7477 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				3900165E130C28D8006F7477 /* CoreGraphicsHelper.h */,
+			);
+			name = Graphics;
 			sourceTree = "<group>";
 		};
 		390BAB9112C9F20100C39661 /* Lumberjack */ = {
@@ -1497,6 +1508,7 @@
 				7837D43012DA749D00BE3C22 /* NSObject+AssociatedObjects.h in Headers */,
 				39D8262F12E364530079B785 /* UIView+Hierarchy.h in Headers */,
 				7881282912E6EBE300623BCB /* NSTimer+Blocks.h in Headers */,
+				3900165F130C28D8006F7477 /* CoreGraphicsHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
