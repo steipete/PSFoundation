@@ -17,6 +17,10 @@
 
 
 - (NSMutableString *)appendParameter:(id)paramter name:(NSString *)name {
+  if (!paramter) {
+    DDLogWarn(@"Parameter is empty, not adding.");
+    return self;
+  }
   BOOL needsQMark = [self rangeOfString:@"?" options:0].location == NSNotFound;
   if (needsQMark) {
     [self appendString:@"?"];
