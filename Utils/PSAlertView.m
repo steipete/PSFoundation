@@ -10,7 +10,7 @@
 
 @implementation PSAlertView
 
-@synthesize alertView = _view;
+@synthesize alertView = view_;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -78,7 +78,7 @@
 
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated {
   [view_ dismissWithClickedButtonIndex:buttonIndex animated:animated];
-  // TODO: does this call the delegate? (it should)
+  [self alertView:view_ clickedButtonAtIndex:buttonIndex];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

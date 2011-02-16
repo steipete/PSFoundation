@@ -15,8 +15,8 @@
 // Credits go to:
 // -------------------------------
 // http://stackoverflow.com/questions/2833724/adding-view-on-statusbar-in-iphone
-// http://cocoabyss.com/2010/ios-custom-status-bar/
-// @reederapp
+// http://www.cocoabyss.com/uikit/custom-status-bar-ios/
+// @reederapp for inspiration
 // -------------------------------
 
 #import <Foundation/Foundation.h>
@@ -74,9 +74,9 @@ typedef enum MTMessageType {
 // messages for free by setting historyEnabled to YES
 @interface MTStatusBarOverlay : UIWindow <UITableViewDataSource> {
 	// holds all subviews, is touchable to change size of Status Bar
-	UIControl *backgroundView_;
+	UIView *backgroundView_;
 	// the view that is shown in animation mode "FallDown" when the user touches the status bar
-	UIControl *detailView_;
+	UIView *detailView_;
 
 	// background of Status Bar Black or gray
 	UIImageView *statusBarBackgroundImageView_;
@@ -129,9 +129,9 @@ typedef enum MTMessageType {
 #pragma mark Properties
 //===========================================================
 // the view that holds all the components of the overlay (except for the detailView)
-@property (nonatomic, retain) UIControl *backgroundView;
+@property (nonatomic, retain) UIView *backgroundView;
 // the detailView is shown when animation is set to "FallDown"
-@property (nonatomic, retain) UIControl *detailView;
+@property (nonatomic, retain) UIView *detailView;
 // the frame of the status bar when animation is set to "Shrink" and it is shrinked
 @property (nonatomic, assign) CGRect smallFrame;
 // the current active animation
@@ -212,6 +212,8 @@ typedef enum MTMessageType {
 
 @protocol MTStatusBarOverlayDelegate <NSObject>
 @optional
+// is called, when a gesture on the overlay is recognized
+- (void)statusBarOverlayDidRecognizeGesture:(UIGestureRecognizer *)gestureRecognizer;
 // is called when the status bar overlay gets hidden
 - (void)statusBarOverlayDidHide;
 // is called, when the status bar overlay changed it's displayed message from one message to another

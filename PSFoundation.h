@@ -41,6 +41,9 @@
 // Universal
 #import "MTUniversalHelper.h"
 
+// Core Graphics
+#import "CoreGraphicsHelper.h"
+
 // invocations & proxies
 #import "DDInvocationGrabber.h"
 #import "NSObject+DDExtensions.h"
