@@ -78,4 +78,7 @@ enum {
 // added by PS
 - (NSString *)stringByReplacingString:(NSString *)searchString withString:(NSString *)newString;
 
+- (NSString *)URLEncodedString;
+- (NSString *)URLDecodedString;
+
 @end
