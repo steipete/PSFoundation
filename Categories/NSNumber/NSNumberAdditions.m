@@ -12,7 +12,7 @@ static NSNumberFormatter *numberFormatter = nil;
 
 + (NSNumber *)numberWithString:(NSString *)string {
   if(numberFormatter == nil) {
-    numberFormatter =[[NSNumberFormatter alloc] init];
+    numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];    
   }
   
