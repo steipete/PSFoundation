@@ -16,7 +16,6 @@ Okay, what's in the box?
 * GradientButtons
 * Block-Based AlertView, ActionSheet
 * A StatusBar-Saver
-* ISO8601DateFormatter
 * XPathQuery-Tools
 * Color-Macros & Utilities (like HexToFloats, RGBColor(), HEXCOLOR()...)
 * MAZeroWeakReferences for safe delegates
