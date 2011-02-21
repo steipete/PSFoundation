@@ -100,8 +100,6 @@
 		7881282A12E6EBE300623BCB /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881282812E6EBE300623BCB /* NSTimer+Blocks.m */; };
 		7883CB6D127AE07F001036C0 /* HOLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 7883CB6B127AE07F001036C0 /* HOLog.h */; };
 		7883CB6E127AE07F001036C0 /* HOLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7883CB6C127AE07F001036C0 /* HOLog.m */; };
-		788DCBF1129F005500E061C3 /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 788DCBEF129F005500E061C3 /* ISO8601DateFormatter.h */; };
-		788DCBF2129F005500E061C3 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 788DCBF0129F005500E061C3 /* ISO8601DateFormatter.m */; };
 		788E1E70126C95B1009801E5 /* TPAutoArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 78692099126B4195000259AC /* TPAutoArchiver.h */; };
 		788E1EA5126C95B1009801E5 /* DSActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7869211F126B4195000259AC /* DSActivityView.h */; };
 		788E1EA6126C95B1009801E5 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 78692121126B4195000259AC /* MBProgressHUD.h */; };
@@ -420,8 +418,6 @@
 		7881282812E6EBE300623BCB /* NSTimer+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Blocks.m"; sourceTree = "<group>"; };
 		7883CB6B127AE07F001036C0 /* HOLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOLog.h; sourceTree = "<group>"; };
 		7883CB6C127AE07F001036C0 /* HOLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOLog.m; sourceTree = "<group>"; };
-		788DCBEF129F005500E061C3 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
-		788DCBF0129F005500E061C3 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		788E1F38126C95B1009801E5 /* libPSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		78993B7A12AA860F00DA480C /* UIScreen+PSAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScreen+PSAdditions.h"; path = "UIScreen/UIScreen+PSAdditions.h"; sourceTree = "<group>"; };
 		78993B7B12AA860F00DA480C /* UIScreen+PSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScreen+PSAdditions.m"; path = "UIScreen/UIScreen+PSAdditions.m"; sourceTree = "<group>"; };
@@ -1345,8 +1341,6 @@
 				7854938A1295F0750047D926 /* PSNonEdiableTextView.m */,
 				78DE35ED12997DA90081B6C9 /* PSStatusBarSaver.h */,
 				78DE35EE12997DA90081B6C9 /* PSStatusBarSaver.m */,
-				788DCBEF129F005500E061C3 /* ISO8601DateFormatter.h */,
-				788DCBF0129F005500E061C3 /* ISO8601DateFormatter.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1473,7 +1467,6 @@
 				78DE35EF12997DA90081B6C9 /* PSStatusBarSaver.h in Headers */,
 				789FFE5E129A7E3C003C3AC7 /* NSString+InflectionSupport.h in Headers */,
 				789FFE62129A7F14003C3AC7 /* NSString+GSub.h in Headers */,
-				788DCBF1129F005500E061C3 /* ISO8601DateFormatter.h in Headers */,
 				DC3E94B8129F14F600022ED8 /* UIButton+Presets.h in Headers */,
 				78C0B3DE12A9B8A0000EC465 /* UIView+PSAdditions.h in Headers */,
 				78993B7C12AA860F00DA480C /* UIScreen+PSAdditions.h in Headers */,
@@ -1713,7 +1706,6 @@
 				78DE35F012997DA90081B6C9 /* PSStatusBarSaver.m in Sources */,
 				789FFE5F129A7E3C003C3AC7 /* NSString+InflectionSupport.m in Sources */,
 				789FFE63129A7F14003C3AC7 /* NSString+GSub.m in Sources */,
-				788DCBF2129F005500E061C3 /* ISO8601DateFormatter.m in Sources */,
 				DC3E94B9129F14F600022ED8 /* UIButton+Presets.m in Sources */,
 				78C0B3DF12A9B8A0000EC465 /* UIView+PSAdditions.m in Sources */,
 				78993B7D12AA860F00DA480C /* UIScreen+PSAdditions.m in Sources */,
