@@ -6,7 +6,7 @@
 
 @interface NSString (NilCategories)
 - (NSURL*) convertToURL;
-- (NSURL*) convertToURLRelitiveToURL:(NSURL*)baseURL;
+- (NSURL*) convertToURLRelativeToURL:(NSURL*)baseURL;
 @end
 
 @interface NSArray (NilCategories)

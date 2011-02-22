@@ -10,8 +10,7 @@
 @implementation NSString (NilCategories)
 //builds a URL from the string
 //
-- (NSURL*)convertToURL;
-{
+- (NSURL*)convertToURL {
   if (self) {
     return [NSURL URLWithString:self];
   }else {
@@ -20,8 +19,7 @@
 }
 
 //+[NSURL URLWithString:relativeToURL:] throws an exception
-- (NSURL*) convertToURLRelitiveToURL:(NSURL*)baseURL;
-{
+- (NSURL*)convertToURLRelativeToURL:(NSURL*)baseURL {
 	if(!baseURL)
 		return nil;
 	return [NSURL URLWithString:self relativeToURL:baseURL];
@@ -30,7 +28,7 @@
 @end
 
 @implementation NSArray (NilCategories)
-- (id) objectOrNilAtIndex:(NSUInteger)i {
+- (id)objectOrNilAtIndex:(NSUInteger)i {
 	if(i >= [self count])
 		return nil;
 	return [self objectAtIndex:i];
