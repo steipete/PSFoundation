@@ -105,6 +105,7 @@
 
 // various string representations
 #import "NSString+Cat.h"                                    // -
+#import "NSString+Truncation.h"
 
 // [kPSCommonLibXML] flattenHTML, removeWhitespace, removeAllWhitespaces, replaceAllWhitespacesWithSpace
 #import "NSString+FlattenHTML.h"                            // -

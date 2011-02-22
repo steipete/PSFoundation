@@ -33,6 +33,8 @@
 		39BAA3BF12C3A88E00A0350D /* libAtomHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */; };
 		39C27BD613146056000C0C94 /* UIView+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C27BD413146056000C0C94 /* UIView+Animation.h */; };
 		39C27BD713146056000C0C94 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C27BD513146056000C0C94 /* UIView+Animation.m */; };
+		39C27C0F131469A1000C0C94 /* NSString+Truncation.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C27C0D131469A1000C0C94 /* NSString+Truncation.h */; };
+		39C27C10131469A1000C0C94 /* NSString+Truncation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C27C0E131469A1000C0C94 /* NSString+Truncation.m */; };
 		39D8262F12E364530079B785 /* UIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 39D8262D12E364530079B785 /* UIView+Hierarchy.h */; };
 		39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D8262E12E364530079B785 /* UIView+Hierarchy.m */; };
 		39EE950112C3ADC900AD953B /* BSUIViewRearranger.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */; };
@@ -312,6 +314,8 @@
 		39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAtomHUD.a; path = HUD/libAtomHUD.a; sourceTree = "<group>"; };
 		39C27BD413146056000C0C94 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
 		39C27BD513146056000C0C94 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
+		39C27C0D131469A1000C0C94 /* NSString+Truncation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Truncation.h"; sourceTree = "<group>"; };
+		39C27C0E131469A1000C0C94 /* NSString+Truncation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Truncation.m"; sourceTree = "<group>"; };
 		39D8262D12E364530079B785 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierarchy.h"; sourceTree = "<group>"; };
 		39D8262E12E364530079B785 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
 		39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSUIViewRearranger.h; sourceTree = "<group>"; };
@@ -1157,6 +1161,8 @@
 				78E531A9126E03EB00A89047 /* NSStringHelper.m */,
 				78E531AA126E03EB00A89047 /* StringUtil.h */,
 				78E531AB126E03EB00A89047 /* StringUtil.m */,
+				39C27C0D131469A1000C0C94 /* NSString+Truncation.h */,
+				39C27C0E131469A1000C0C94 /* NSString+Truncation.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -1509,6 +1515,7 @@
 				7881282912E6EBE300623BCB /* NSTimer+Blocks.h in Headers */,
 				3900165F130C28D8006F7477 /* CoreGraphicsHelper.h in Headers */,
 				39C27BD613146056000C0C94 /* UIView+Animation.h in Headers */,
+				39C27C0F131469A1000C0C94 /* NSString+Truncation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1744,6 +1751,7 @@
 				39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */,
 				7881282A12E6EBE300623BCB /* NSTimer+Blocks.m in Sources */,
 				39C27BD713146056000C0C94 /* UIView+Animation.m in Sources */,
+				39C27C10131469A1000C0C94 /* NSString+Truncation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
