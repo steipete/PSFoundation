@@ -134,6 +134,7 @@
 #import "UIToolBar+PSLib.h"
 
 #import "UIView+Sizes.h"
+#import "UIView+Animation.h"
 #import "UIView+PSAdditions.m"
 #import "UIView+MTUIAdditions.h"
 #import "UIView+Hierarchy.h"
