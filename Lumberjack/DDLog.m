@@ -491,7 +491,7 @@ functionStr:(NSString *)functionStr
 		va_start(args, format);
 
 		NSString *logMsg = [[NSString alloc] initWithFormat:format arguments:args];
-    NSString *logMsgComplete = [[NSString alloc] initWithFormat:@"%@ %@", functionStr, logMsg];
+        NSString *logMsgComplete = [[NSString alloc] initWithFormat:@"%@ %@", functionStr, logMsg];
 		DDLogMessage *logMessage = [[DDLogMessage alloc] initWithLogMsg:logMsgComplete
 		                                                          level:level
 		                                                           flag:flag
@@ -504,6 +504,7 @@ functionStr:(NSString *)functionStr
 
 		[logMessage release];
 		[logMsg release];
+        [logMsgComplete release];
 
 		va_end(args);
 	}
