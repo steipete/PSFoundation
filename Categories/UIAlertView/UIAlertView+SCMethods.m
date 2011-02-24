@@ -14,13 +14,13 @@
 @implementation UIAlertView (SCMethods)
 
 + (UIAlertView *)alertViewFromError:(NSError *)error {
-
-	UIAlertView *result = [[[UIAlertView alloc] initWithTitle:[error localizedFailureReason]
-													  message:[error localizedDescription]
-													 delegate:nil
-											cancelButtonTitle:NSLocalizedString(@"OK", @"")
-											otherButtonTitles:nil] autorelease];
-	return result;
+  
+  UIAlertView *result = [[[UIAlertView alloc] initWithTitle:[error localizedFailureReason]
+                                                    message:[error localizedDescription]
+                                                   delegate:nil
+                                          cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                                          otherButtonTitles:nil] autorelease];
+  return result;
 }
 
 + (void)showWithError:(NSError *)error {
@@ -32,17 +32,26 @@
 }
 
 + (void)showWithMessage:(NSString *)message {
+  
+  [[[[UIAlertView alloc] initWithTitle:nil
+                               message:message
+                              delegate:nil
+                     cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                     otherButtonTitles:nil] autorelease] show];
+}
 
-	[[[[UIAlertView alloc] initWithTitle:nil
-								 message:message
-								delegate:nil
-					   cancelButtonTitle:NSLocalizedString(@"OK", @"")
-					   otherButtonTitles:nil] autorelease] show];
++ (void)showWithTitle:(NSString *)title {
+  
+  [[[[UIAlertView alloc] initWithTitle:title
+                               message:nil
+                              delegate:nil
+                     cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                     otherButtonTitles:nil] autorelease] show];
 }
 
 + (void)showWithTitle:(NSString *)title message:(NSString *)message {
-
-	[[[[UIAlertView alloc] initWithTitle:title
+  
+  [[[[UIAlertView alloc] initWithTitle:title
                                message:message
                               delegate:nil
                      cancelButtonTitle:NSLocalizedString(@"OK", @"")

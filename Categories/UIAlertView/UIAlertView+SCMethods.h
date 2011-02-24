@@ -35,6 +35,7 @@
   */
 + (void)showWithMessage:(NSString *)message;
 + (void)showWithError:(NSError *)error;
++ (void)showWithTitle:(NSString *)title;
 + (void)showWithTitle:(NSString *)title message:(NSString *)message;
 + (void)showWithTitle:(NSString *)title message:(NSString *)message error:(NSError *)error;
 
