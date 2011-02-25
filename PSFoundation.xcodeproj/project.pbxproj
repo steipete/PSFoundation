@@ -18,6 +18,8 @@
 		3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595B12C7F3AE001D4D53 /* QuartzCore.framework */; };
 		3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948220E12C8AA9700763012 /* TDBadgedCell.h */; };
 		3948221112C8AA9700763012 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948220F12C8AA9700763012 /* TDBadgedCell.m */; };
+		3975C0841317BFC400F1D336 /* NSDate+MTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */; };
+		3975C0851317BFC400F1D336 /* NSDate+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */; };
 		3994624812C9241A005574A6 /* NSArrayHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994624612C9241A005574A6 /* NSArrayHelper.h */; };
 		3994624912C9241A005574A6 /* NSArrayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994624712C9241A005574A6 /* NSArrayHelper.m */; };
 		3994625312C9250A005574A6 /* NSURLHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994625112C9250A005574A6 /* NSURLHelper.h */; };
@@ -297,6 +299,8 @@
 		3936595B12C7F3AE001D4D53 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3948220E12C8AA9700763012 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
 		3948220F12C8AA9700763012 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
+		3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MTAdditions.h"; sourceTree = "<group>"; };
+		3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MTAdditions.m"; sourceTree = "<group>"; };
 		3994624612C9241A005574A6 /* NSArrayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayHelper.h; sourceTree = "<group>"; };
 		3994624712C9241A005574A6 /* NSArrayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayHelper.m; sourceTree = "<group>"; };
 		3994625112C9250A005574A6 /* NSURLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLHelper.h; path = NSURL/NSURLHelper.h; sourceTree = "<group>"; };
@@ -1031,6 +1035,8 @@
 				78E53176126E03EB00A89047 /* NSDate-Utilities.m */,
 				78E53177126E03EB00A89047 /* TimeFormatters.h */,
 				78E53178126E03EB00A89047 /* TimeFormatters.m */,
+				3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */,
+				3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */,
 			);
 			path = NSDate;
 			sourceTree = "<group>";
@@ -1501,6 +1507,7 @@
 				3900165F130C28D8006F7477 /* CoreGraphicsHelper.h in Headers */,
 				39C27BD613146056000C0C94 /* UIView+Animation.h in Headers */,
 				39C27C0F131469A1000C0C94 /* NSString+Truncation.h in Headers */,
+				3975C0841317BFC400F1D336 /* NSDate+MTAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1736,6 +1743,7 @@
 				7881282A12E6EBE300623BCB /* NSTimer+Blocks.m in Sources */,
 				39C27BD713146056000C0C94 /* UIView+Animation.m in Sources */,
 				39C27C10131469A1000C0C94 /* NSString+Truncation.m in Sources */,
+				3975C0851317BFC400F1D336 /* NSDate+MTAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

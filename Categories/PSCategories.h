@@ -34,6 +34,7 @@
 
 // prettyDate, prettyDateWithReference, ps_yesterday, ps_tomorrow, ...
 #import "NSDate+PSFoundation.h"                                    // own
+#import "NSDate+MTAdditions.h"
 
 // isToday, isTomorrow, isThisYear
 #import "NSDate-Utilities.h"                                // http://github.com/erica/NSDate-Extensions
