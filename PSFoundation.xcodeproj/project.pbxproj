@@ -53,8 +53,6 @@
 		39EE95C612C3B66300AD953B /* NSMutableArray+MTShuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE95C412C3B66300AD953B /* NSMutableArray+MTShuffle.m */; };
 		39EE95F912C3B83400AD953B /* ColorLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE95F712C3B83400AD953B /* ColorLog.h */; };
 		39EE95FA12C3B83400AD953B /* ColorLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE95F812C3B83400AD953B /* ColorLog.m */; };
-		39EE961612C3B91C00AD953B /* MTStatusBarOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE961412C3B91C00AD953B /* MTStatusBarOverlay.h */; };
-		39EE961712C3B91C00AD953B /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE961512C3B91C00AD953B /* MTStatusBarOverlay.m */; };
 		782AC0BA1281864800806121 /* MANotificationCenterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 782AC0B01281864800806121 /* MANotificationCenterAdditions.h */; };
 		782AC0BB1281864800806121 /* MANotificationCenterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AC0B11281864800806121 /* MANotificationCenterAdditions.m */; };
 		782AC0BC1281864800806121 /* MAWeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 782AC0B21281864800806121 /* MAWeakArray.h */; };
@@ -334,8 +332,6 @@
 		39EE95C412C3B66300AD953B /* NSMutableArray+MTShuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MTShuffle.m"; sourceTree = "<group>"; };
 		39EE95F712C3B83400AD953B /* ColorLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorLog.h; sourceTree = "<group>"; };
 		39EE95F812C3B83400AD953B /* ColorLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorLog.m; sourceTree = "<group>"; };
-		39EE961412C3B91C00AD953B /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
-		39EE961512C3B91C00AD953B /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
 		782AC0B01281864800806121 /* MANotificationCenterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANotificationCenterAdditions.h; sourceTree = "<group>"; };
 		782AC0B11281864800806121 /* MANotificationCenterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANotificationCenterAdditions.m; sourceTree = "<group>"; };
 		782AC0B21281864800806121 /* MAWeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeakArray.h; sourceTree = "<group>"; };
@@ -664,7 +660,6 @@
 				78692140126B4195000259AC /* Network */,
 				78692143126B4195000259AC /* Reachability */,
 				78692146126B4195000259AC /* Sound */,
-				39EE961312C3B91C00AD953B /* StatusBar */,
 				78692149126B4195000259AC /* TableView */,
 				39EE957A12C3B44200AD953B /* Universal */,
 				78E531EB126E03EB00A89047 /* Utils */,
@@ -765,15 +760,6 @@
 				39EE957C12C3B44200AD953B /* MTUniversalHelper.m */,
 			);
 			path = Universal;
-			sourceTree = "<group>";
-		};
-		39EE961312C3B91C00AD953B /* StatusBar */ = {
-			isa = PBXGroup;
-			children = (
-				39EE961412C3B91C00AD953B /* MTStatusBarOverlay.h */,
-				39EE961512C3B91C00AD953B /* MTStatusBarOverlay.m */,
-			);
-			path = StatusBar;
 			sourceTree = "<group>";
 		};
 		782AC0AF1281864800806121 /* ZeroWeakReferences */ = {
@@ -1503,7 +1489,6 @@
 				39EE957D12C3B44200AD953B /* MTUniversalHelper.h in Headers */,
 				39EE95C512C3B66300AD953B /* NSMutableArray+MTShuffle.h in Headers */,
 				39EE95F912C3B83400AD953B /* ColorLog.h in Headers */,
-				39EE961612C3B91C00AD953B /* MTStatusBarOverlay.h in Headers */,
 				3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */,
 				3994624812C9241A005574A6 /* NSArrayHelper.h in Headers */,
 				3994625312C9250A005574A6 /* NSURLHelper.h in Headers */,
@@ -1740,7 +1725,6 @@
 				39EE957E12C3B44200AD953B /* MTUniversalHelper.m in Sources */,
 				39EE95C612C3B66300AD953B /* NSMutableArray+MTShuffle.m in Sources */,
 				39EE95FA12C3B83400AD953B /* ColorLog.m in Sources */,
-				39EE961712C3B91C00AD953B /* MTStatusBarOverlay.m in Sources */,
 				3948221112C8AA9700763012 /* TDBadgedCell.m in Sources */,
 				3994624912C9241A005574A6 /* NSArrayHelper.m in Sources */,
 				3994625412C9250A005574A6 /* NSURLHelper.m in Sources */,
