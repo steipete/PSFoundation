@@ -34,6 +34,7 @@
 
 // prettyDate, prettyDateWithReference, ps_yesterday, ps_tomorrow, ...
 #import "NSDate+PSFoundation.h"                                    // own
+#import "NSDate+MTAdditions.h"
 
 // isToday, isTomorrow, isThisYear
 #import "NSDate-Utilities.h"                                // http://github.com/erica/NSDate-Extensions
@@ -105,6 +106,7 @@
 
 // various string representations
 #import "NSString+Cat.h"                                    // -
+#import "NSString+Truncation.h"
 
 // [kPSCommonLibXML] flattenHTML, removeWhitespace, removeAllWhitespaces, replaceAllWhitespacesWithSpace
 #import "NSString+FlattenHTML.h"                            // -
@@ -134,6 +136,7 @@
 #import "UIToolBar+PSLib.h"
 
 #import "UIView+Sizes.h"
+#import "UIView+Animation.h"
 #import "UIView+PSAdditions.m"
 #import "UIView+MTUIAdditions.h"
 #import "UIView+Hierarchy.h"

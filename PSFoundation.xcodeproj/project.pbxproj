@@ -18,6 +18,8 @@
 		3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595B12C7F3AE001D4D53 /* QuartzCore.framework */; };
 		3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948220E12C8AA9700763012 /* TDBadgedCell.h */; };
 		3948221112C8AA9700763012 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948220F12C8AA9700763012 /* TDBadgedCell.m */; };
+		3975C0841317BFC400F1D336 /* NSDate+MTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */; };
+		3975C0851317BFC400F1D336 /* NSDate+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */; };
 		3994624812C9241A005574A6 /* NSArrayHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994624612C9241A005574A6 /* NSArrayHelper.h */; };
 		3994624912C9241A005574A6 /* NSArrayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994624712C9241A005574A6 /* NSArrayHelper.m */; };
 		3994625312C9250A005574A6 /* NSURLHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994625112C9250A005574A6 /* NSURLHelper.h */; };
@@ -31,6 +33,10 @@
 		39BAA3BC12C3A87D00A0350D /* ATMHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BA12C3A87D00A0350D /* ATMHud.h */; };
 		39BAA3BD12C3A87D00A0350D /* ATMHudDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */; };
 		39BAA3BF12C3A88E00A0350D /* libAtomHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */; };
+		39C27BD613146056000C0C94 /* UIView+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C27BD413146056000C0C94 /* UIView+Animation.h */; };
+		39C27BD713146056000C0C94 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C27BD513146056000C0C94 /* UIView+Animation.m */; };
+		39C27C0F131469A1000C0C94 /* NSString+Truncation.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C27C0D131469A1000C0C94 /* NSString+Truncation.h */; };
+		39C27C10131469A1000C0C94 /* NSString+Truncation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C27C0E131469A1000C0C94 /* NSString+Truncation.m */; };
 		39D8262F12E364530079B785 /* UIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 39D8262D12E364530079B785 /* UIView+Hierarchy.h */; };
 		39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D8262E12E364530079B785 /* UIView+Hierarchy.m */; };
 		39EE950112C3ADC900AD953B /* BSUIViewRearranger.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */; };
@@ -49,8 +55,6 @@
 		39EE95C612C3B66300AD953B /* NSMutableArray+MTShuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE95C412C3B66300AD953B /* NSMutableArray+MTShuffle.m */; };
 		39EE95F912C3B83400AD953B /* ColorLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE95F712C3B83400AD953B /* ColorLog.h */; };
 		39EE95FA12C3B83400AD953B /* ColorLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE95F812C3B83400AD953B /* ColorLog.m */; };
-		39EE961612C3B91C00AD953B /* MTStatusBarOverlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE961412C3B91C00AD953B /* MTStatusBarOverlay.h */; };
-		39EE961712C3B91C00AD953B /* MTStatusBarOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE961512C3B91C00AD953B /* MTStatusBarOverlay.m */; };
 		782AC0BA1281864800806121 /* MANotificationCenterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 782AC0B01281864800806121 /* MANotificationCenterAdditions.h */; };
 		782AC0BB1281864800806121 /* MANotificationCenterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AC0B11281864800806121 /* MANotificationCenterAdditions.m */; };
 		782AC0BC1281864800806121 /* MAWeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 782AC0B21281864800806121 /* MAWeakArray.h */; };
@@ -295,6 +299,8 @@
 		3936595B12C7F3AE001D4D53 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3948220E12C8AA9700763012 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
 		3948220F12C8AA9700763012 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
+		3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MTAdditions.h"; sourceTree = "<group>"; };
+		3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MTAdditions.m"; sourceTree = "<group>"; };
 		3994624612C9241A005574A6 /* NSArrayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayHelper.h; sourceTree = "<group>"; };
 		3994624712C9241A005574A6 /* NSArrayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayHelper.m; sourceTree = "<group>"; };
 		3994625112C9250A005574A6 /* NSURLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSURLHelper.h; path = NSURL/NSURLHelper.h; sourceTree = "<group>"; };
@@ -308,6 +314,10 @@
 		39BAA3BA12C3A87D00A0350D /* ATMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHud.h; sourceTree = "<group>"; };
 		39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATMHudDelegate.h; sourceTree = "<group>"; };
 		39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAtomHUD.a; path = HUD/libAtomHUD.a; sourceTree = "<group>"; };
+		39C27BD413146056000C0C94 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
+		39C27BD513146056000C0C94 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
+		39C27C0D131469A1000C0C94 /* NSString+Truncation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Truncation.h"; sourceTree = "<group>"; };
+		39C27C0E131469A1000C0C94 /* NSString+Truncation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Truncation.m"; sourceTree = "<group>"; };
 		39D8262D12E364530079B785 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Hierarchy.h"; sourceTree = "<group>"; };
 		39D8262E12E364530079B785 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Hierarchy.m"; sourceTree = "<group>"; };
 		39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSUIViewRearranger.h; sourceTree = "<group>"; };
@@ -326,8 +336,6 @@
 		39EE95C412C3B66300AD953B /* NSMutableArray+MTShuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MTShuffle.m"; sourceTree = "<group>"; };
 		39EE95F712C3B83400AD953B /* ColorLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorLog.h; sourceTree = "<group>"; };
 		39EE95F812C3B83400AD953B /* ColorLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorLog.m; sourceTree = "<group>"; };
-		39EE961412C3B91C00AD953B /* MTStatusBarOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTStatusBarOverlay.h; sourceTree = "<group>"; };
-		39EE961512C3B91C00AD953B /* MTStatusBarOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTStatusBarOverlay.m; sourceTree = "<group>"; };
 		782AC0B01281864800806121 /* MANotificationCenterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANotificationCenterAdditions.h; sourceTree = "<group>"; };
 		782AC0B11281864800806121 /* MANotificationCenterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANotificationCenterAdditions.m; sourceTree = "<group>"; };
 		782AC0B21281864800806121 /* MAWeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeakArray.h; sourceTree = "<group>"; };
@@ -656,7 +664,6 @@
 				78692140126B4195000259AC /* Network */,
 				78692143126B4195000259AC /* Reachability */,
 				78692146126B4195000259AC /* Sound */,
-				39EE961312C3B91C00AD953B /* StatusBar */,
 				78692149126B4195000259AC /* TableView */,
 				39EE957A12C3B44200AD953B /* Universal */,
 				78E531EB126E03EB00A89047 /* Utils */,
@@ -757,15 +764,6 @@
 				39EE957C12C3B44200AD953B /* MTUniversalHelper.m */,
 			);
 			path = Universal;
-			sourceTree = "<group>";
-		};
-		39EE961312C3B91C00AD953B /* StatusBar */ = {
-			isa = PBXGroup;
-			children = (
-				39EE961412C3B91C00AD953B /* MTStatusBarOverlay.h */,
-				39EE961512C3B91C00AD953B /* MTStatusBarOverlay.m */,
-			);
-			path = StatusBar;
 			sourceTree = "<group>";
 		};
 		782AC0AF1281864800806121 /* ZeroWeakReferences */ = {
@@ -1037,6 +1035,8 @@
 				78E53176126E03EB00A89047 /* NSDate-Utilities.m */,
 				78E53177126E03EB00A89047 /* TimeFormatters.h */,
 				78E53178126E03EB00A89047 /* TimeFormatters.m */,
+				3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */,
+				3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */,
 			);
 			path = NSDate;
 			sourceTree = "<group>";
@@ -1153,6 +1153,8 @@
 				78E531A9126E03EB00A89047 /* NSStringHelper.m */,
 				78E531AA126E03EB00A89047 /* StringUtil.h */,
 				78E531AB126E03EB00A89047 /* StringUtil.m */,
+				39C27C0D131469A1000C0C94 /* NSString+Truncation.h */,
+				39C27C0E131469A1000C0C94 /* NSString+Truncation.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -1293,6 +1295,8 @@
 				78C0B3DD12A9B8A0000EC465 /* UIView+PSAdditions.m */,
 				39D8262D12E364530079B785 /* UIView+Hierarchy.h */,
 				39D8262E12E364530079B785 /* UIView+Hierarchy.m */,
+				39C27BD413146056000C0C94 /* UIView+Animation.h */,
+				39C27BD513146056000C0C94 /* UIView+Animation.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1491,7 +1495,6 @@
 				39EE957D12C3B44200AD953B /* MTUniversalHelper.h in Headers */,
 				39EE95C512C3B66300AD953B /* NSMutableArray+MTShuffle.h in Headers */,
 				39EE95F912C3B83400AD953B /* ColorLog.h in Headers */,
-				39EE961612C3B91C00AD953B /* MTStatusBarOverlay.h in Headers */,
 				3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */,
 				3994624812C9241A005574A6 /* NSArrayHelper.h in Headers */,
 				3994625312C9250A005574A6 /* NSURLHelper.h in Headers */,
@@ -1502,6 +1505,9 @@
 				39D8262F12E364530079B785 /* UIView+Hierarchy.h in Headers */,
 				7881282912E6EBE300623BCB /* NSTimer+Blocks.h in Headers */,
 				3900165F130C28D8006F7477 /* CoreGraphicsHelper.h in Headers */,
+				39C27BD613146056000C0C94 /* UIView+Animation.h in Headers */,
+				39C27C0F131469A1000C0C94 /* NSString+Truncation.h in Headers */,
+				3975C0841317BFC400F1D336 /* NSDate+MTAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1726,7 +1732,6 @@
 				39EE957E12C3B44200AD953B /* MTUniversalHelper.m in Sources */,
 				39EE95C612C3B66300AD953B /* NSMutableArray+MTShuffle.m in Sources */,
 				39EE95FA12C3B83400AD953B /* ColorLog.m in Sources */,
-				39EE961712C3B91C00AD953B /* MTStatusBarOverlay.m in Sources */,
 				3948221112C8AA9700763012 /* TDBadgedCell.m in Sources */,
 				3994624912C9241A005574A6 /* NSArrayHelper.m in Sources */,
 				3994625412C9250A005574A6 /* NSURLHelper.m in Sources */,
@@ -1736,6 +1741,9 @@
 				7837D43112DA749D00BE3C22 /* NSObject+AssociatedObjects.m in Sources */,
 				39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */,
 				7881282A12E6EBE300623BCB /* NSTimer+Blocks.m in Sources */,
+				39C27BD713146056000C0C94 /* UIView+Animation.m in Sources */,
+				39C27C10131469A1000C0C94 /* NSString+Truncation.m in Sources */,
+				3975C0851317BFC400F1D336 /* NSDate+MTAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 
 
+typedef enum {
+	MTUIViewAlignmentUnchanged,
+	MTUIViewAlignmentLeftAligned,
+	MTUIViewAlignmentRightAligned,
+	MTUIViewAlignmentCenter
+} MTUIViewAlignment;
+
+
 @interface UIView (MTUIAdditions)
 
 //===========================================================
@@ -31,9 +39,19 @@
 #pragma mark Position Views
 //===========================================================
 
+// positions current view directly under the given view
 - (void)positionUnderView:(UIView *)view;
-- (void)positionUnderView:(UIView *)view withPadding:(CGFloat)padding;
+// positions current view under a given view with a specified y-padding
+- (void)positionUnderView:(UIView *)view padding:(CGFloat)padding;
+
+// positions current view directly under the given view and aligns horizontally
+- (void)positionUnderView:(UIView *)view alignment:(MTUIViewAlignment)alignment;
+// positions current view under a given view with a specified y-padding and aligns horizontally
+- (void)positionUnderView:(UIView *)view padding:(CGFloat)padding alignment:(MTUIViewAlignment)alignment;
+
+// adds the subview as a subview of the current view and centers it
 - (void)addCenteredSubview:(UIView *)subview;
+// moves the current view to the center of it's superview
 - (void)moveToCenterOfSuperview;
 
 //===========================================================
