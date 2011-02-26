@@ -480,6 +480,21 @@ static NSNumber *defaultBatchSize = nil;
 							inContext:[NSManagedObjectContext defaultContext]];
 }
 
++ (NSArray *)findAllWithPredicateNotFaulted:(NSPredicate *)searchTerm {
+  NSFetchRequest *request = [self createFetchRequestInContext:[NSManagedObjectContext defaultContext]];
+  [request setPredicate:searchTerm];
+  [request setReturnsObjectsAsFaults:NO];
+  return [self executeFetchRequest:request inContext:[NSManagedObjectContext defaultContext]];
+}
+
++ (NSArray *)findAllWithPredicate:(NSPredicate *)searchTerm withBlock:(void (^)(NSFetchRequest *))block {
+  NSFetchRequest *request = [self createFetchRequestInContext:[NSManagedObjectContext defaultContext]];
+  [request setPredicate:searchTerm];
+  block(request);
+  return [self executeFetchRequest:request inContext:[NSManagedObjectContext defaultContext]];
+}
+
+
 + (id)findFirstByUID:(id)searchValue {
   return [self findFirstByUID:searchValue inContext:[NSManagedObjectContext defaultContext]]; 
 }
@@ -514,29 +529,25 @@ static NSNumber *defaultBatchSize = nil;
   return [self findFirstByAttribute:@"uidHash" withValue:uidNum];
 }
 
-
-+ (id)findFirstInContext:(NSManagedObjectContext *)context
-{
++ (id)findFirstInContext:(NSManagedObjectContext *)context {
 	NSFetchRequest *request = [self createFetchRequestInContext:context];
 
 	return [self executeFetchRequestAndReturnFirstObject:request inContext:context];
 }
 
-+ (id)findFirst
-{
++ (id)findFirst {
 	return [self findFirstInContext:[NSManagedObjectContext defaultContext]];
 }
 
-+ (id)findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue inContext:(NSManagedObjectContext *)context
-{
++ (id)findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue inContext:(NSManagedObjectContext *)context {
 	NSFetchRequest *request = [self requestFirstByAttribute:attribute withValue:searchValue inContext:context];
     [request setPropertiesToFetch:[NSArray arrayWithObject:attribute]];
+    [request setReturnsObjectsAsFaults:NO];
 
 	return [self executeFetchRequestAndReturnFirstObject:request inContext:context];
 }
 
-+ (id)findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue
-{
++ (id)findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue {
 	return [self findFirstByAttribute:attribute
 							withValue:searchValue
 							inContext:[NSManagedObjectContext defaultContext]];
