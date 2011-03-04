@@ -11,15 +11,9 @@
 
 #import "PSCompatibility.h"
 
-// extracted from three20
-#import "UIView+Sizes.h"
-
-// awesomeness at logging!
-#import "VTPG_Common.h"
-
 // should replace PSLogManager in the long term!
 // http://code.google.com/p/cocoalumberjack/wiki/GettingStarted
-#import "DDLog.h"
+#import "Lumberjack/DDLog.h"
 
 #import "Macros/SynthesizeSingleton.h"
 #import "PSMacros.h"
