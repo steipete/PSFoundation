@@ -131,6 +131,7 @@
 // + (UILabel *)labelWithText:(NSString *)text;
 #import "UILabel+PSLib.h"                                   // own
 
+#import "UIImage+MTCache.h"
 #import "UIScrollView+MTUIAdditions.h"
 
 #import "UIToolBar+PSLib.h"

@@ -18,6 +18,8 @@
 		3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595B12C7F3AE001D4D53 /* QuartzCore.framework */; };
 		3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948220E12C8AA9700763012 /* TDBadgedCell.h */; };
 		3948221112C8AA9700763012 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948220F12C8AA9700763012 /* TDBadgedCell.m */; };
+		3953E6091320FF2D001B9C2B /* UIImage+MTCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 3953E6071320FF2D001B9C2B /* UIImage+MTCache.h */; };
+		3953E60A1320FF2D001B9C2B /* UIImage+MTCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3953E6081320FF2D001B9C2B /* UIImage+MTCache.m */; };
 		3975C0841317BFC400F1D336 /* NSDate+MTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */; };
 		3975C0851317BFC400F1D336 /* NSDate+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */; };
 		3994624812C9241A005574A6 /* NSArrayHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994624612C9241A005574A6 /* NSArrayHelper.h */; };
@@ -299,6 +301,8 @@
 		3936595B12C7F3AE001D4D53 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3948220E12C8AA9700763012 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
 		3948220F12C8AA9700763012 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
+		3953E6071320FF2D001B9C2B /* UIImage+MTCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MTCache.h"; sourceTree = "<group>"; };
+		3953E6081320FF2D001B9C2B /* UIImage+MTCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MTCache.m"; sourceTree = "<group>"; };
 		3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MTAdditions.h"; sourceTree = "<group>"; };
 		3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MTAdditions.m"; sourceTree = "<group>"; };
 		3994624612C9241A005574A6 /* NSArrayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayHelper.h; sourceTree = "<group>"; };
@@ -1241,6 +1245,8 @@
 				78E531D1126E03EB00A89047 /* UIImage+Tint.m */,
 				78E531D2126E03EB00A89047 /* UIImageHelper.h */,
 				78E531D3126E03EB00A89047 /* UIImageHelper.m */,
+				3953E6071320FF2D001B9C2B /* UIImage+MTCache.h */,
+				3953E6081320FF2D001B9C2B /* UIImage+MTCache.m */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -1508,6 +1514,7 @@
 				39C27BD613146056000C0C94 /* UIView+Animation.h in Headers */,
 				39C27C0F131469A1000C0C94 /* NSString+Truncation.h in Headers */,
 				3975C0841317BFC400F1D336 /* NSDate+MTAdditions.h in Headers */,
+				3953E6091320FF2D001B9C2B /* UIImage+MTCache.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1744,6 +1751,7 @@
 				39C27BD713146056000C0C94 /* UIView+Animation.m in Sources */,
 				39C27C10131469A1000C0C94 /* NSString+Truncation.m in Sources */,
 				3975C0851317BFC400F1D336 /* NSDate+MTAdditions.m in Sources */,
+				3953E60A1320FF2D001B9C2B /* UIImage+MTCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
