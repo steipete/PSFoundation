@@ -29,6 +29,8 @@
 
 @interface NSURL (Helper)
 
++ (NSURL *)URLWithStringOrNil:(NSString *)URLString;
+
 /*
  * Returns a string of the base of the URL, will contain a trailing slash
  *

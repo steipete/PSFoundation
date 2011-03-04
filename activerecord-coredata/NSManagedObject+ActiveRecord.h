@@ -62,6 +62,8 @@
 + (NSFetchRequest *) requestAllSortedBy:(NSString *)sortTerm ascending:(BOOL)ascending withPredicate:(NSPredicate *)searchTerm inContext:(NSManagedObjectContext *)context;
 
 + (NSArray *)findAllWithPredicate:(NSPredicate *)searchTerm;
++ (NSArray *)findAllWithPredicateNotFaulted:(NSPredicate *)searchTerm;
++ (NSArray *)findAllWithPredicate:(NSPredicate *)searchTerm withBlock:(void (^)(NSFetchRequest *))block;
 + (NSArray *)findAllWithPredicate:(NSPredicate *)searchTerm inContext:(NSManagedObjectContext *)context;
 
 - (id) objectWithMinValueFor:(NSString *)property;

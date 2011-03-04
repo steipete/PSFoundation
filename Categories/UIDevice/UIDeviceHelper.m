@@ -35,7 +35,7 @@
 + (NSString *)debugInfo {
   NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
   NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-  NSString *appShortVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];  
+  NSString *appShortVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]; 
 #ifndef APPSTORE
   // adds this special string for better bug mail filtering
   appVersion = [NSString stringWithFormat:@"%@ AdHoc", appVersion];
@@ -47,7 +47,7 @@
   }
   NSString *deviceUUID = [[UIDevice currentDevice] uniqueIdentifier];
   NSString *deviceLang = [[NSLocale preferredLanguages] objectAtIndex:0];
-  return [NSString stringWithFormat:@"%@ %@ %@\niOS: %@\nDevice: %@\nUUID: %@\nLang: %@", appName, appVersion, appShortVersion, iphoneOSVersion, deviceType, deviceUUID, deviceLang];
+  return [NSString stringWithFormat:@"%@ %@ %@\niOS: %@\nDevice: %@\nUUID: %@\nLang: %@", appName, appVersion, (appShortVersion ? appShortVersion : @""), iphoneOSVersion, deviceType, deviceUUID, deviceLang];
 }
 
 // http://blog.zachwaugh.com/post/309927273/programmatically-retrieving-ip-address-of-iphone
