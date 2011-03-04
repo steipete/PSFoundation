@@ -7,6 +7,7 @@
 //
 
 #import "UIView+MTUIAdditions.h"
+#include "UIView+Sizes.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation UIView (MTUIAdditions)

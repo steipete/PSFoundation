@@ -4,6 +4,8 @@
 //  Created by Peter Steinberger on 31.03.10.
 //
 
+#include "UIView+Sizes.h"
+
 @implementation UIToolbar (PSLib)
 
 #define kToolBarHeight 44
