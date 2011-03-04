@@ -32,9 +32,9 @@
 + (PSShadowView *)viewWithSubview:(UIView *)view {
   PSShadowView *shadowView = [[[[self class] alloc] init] autorelease];
   shadowView.topShadow = YES;
+  shadowView.bounds = view.bounds;
   shadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
   [shadowView addSubview:view];
-  shadowView.frame = CGRectClearCoords(view.frame);
   return shadowView;
 }
 
