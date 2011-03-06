@@ -61,6 +61,8 @@ static inline BOOL IsEmpty(id thing) {
 #endif
 // always nil out for viewDidUnload!
 #define MCReleaseNil(x) [x release], x = nil
+#define MCReleaseViewNil(x) do { [x removeFromSuperview], [x release], x = nil; } while (0)
+
 
 // http://code.google.com/p/cocoalumberjack/wiki/XcodeTricks - compiles most log messages out of the release build, but not all!
 #ifdef DEBUG
