@@ -7,7 +7,6 @@
 //  Public domain because I love you. Let me know how you use it.
 //
 // http://www.mikeash.com/pyblog/key-value-observing-done-right.html
-// http://toxicsoftware.com/kvoblocks/
 // http://blog.andymatuschak.org/private/1070660478/tumblr_l8acac1Dlg1qzk3gw
 // https://gist.github.com/153676/4eecf9d6dd54cc44f4932b97352554717a5c3547
 
