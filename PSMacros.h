@@ -246,3 +246,4 @@ NSObject* __UKHELPERMACRO_OLDTARG = (NSObject*)(targ);\
 [__UKHELPERMACRO_OLDTARG release];\
 } while(0)
 
+#define PS_NOT_IMPLEMENTED DDLogError(@"Not yet implemented: %@", _cmd);
