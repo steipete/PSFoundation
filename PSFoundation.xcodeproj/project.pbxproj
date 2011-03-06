@@ -99,6 +99,8 @@
 		7875132112BE992700BC60D0 /* MACollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875131F12BE992700BC60D0 /* MACollectionUtilities.m */; };
 		7881282912E6EBE300623BCB /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 7881282712E6EBE300623BCB /* NSTimer+Blocks.h */; };
 		7881282A12E6EBE300623BCB /* NSTimer+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 7881282812E6EBE300623BCB /* NSTimer+Blocks.m */; };
+		7882D5341323262A00BE7370 /* SMModelObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 7882D5321323262A00BE7370 /* SMModelObject.h */; };
+		7882D5351323262A00BE7370 /* SMModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7882D5331323262A00BE7370 /* SMModelObject.m */; };
 		7883CB6D127AE07F001036C0 /* HOLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 7883CB6B127AE07F001036C0 /* HOLog.h */; };
 		7883CB6E127AE07F001036C0 /* HOLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7883CB6C127AE07F001036C0 /* HOLog.m */; };
 		788E1E70126C95B1009801E5 /* TPAutoArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 78692099126B4195000259AC /* TPAutoArchiver.h */; };
@@ -420,6 +422,8 @@
 		7875131F12BE992700BC60D0 /* MACollectionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MACollectionUtilities.m; path = Categories/NSArray/MACollectionUtilities.m; sourceTree = SOURCE_ROOT; };
 		7881282712E6EBE300623BCB /* NSTimer+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSTimer+Blocks.h"; path = "Categories/NSTimer/NSTimer+Blocks.h"; sourceTree = SOURCE_ROOT; };
 		7881282812E6EBE300623BCB /* NSTimer+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+Blocks.m"; path = "Categories/NSTimer/NSTimer+Blocks.m"; sourceTree = SOURCE_ROOT; };
+		7882D5321323262A00BE7370 /* SMModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMModelObject.h; sourceTree = "<group>"; };
+		7882D5331323262A00BE7370 /* SMModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMModelObject.m; sourceTree = "<group>"; };
 		7883CB6B127AE07F001036C0 /* HOLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HOLog.h; path = Lumberjack/HOLog.h; sourceTree = SOURCE_ROOT; };
 		7883CB6C127AE07F001036C0 /* HOLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HOLog.m; path = Lumberjack/HOLog.m; sourceTree = SOURCE_ROOT; };
 		788E1F38126C95B1009801E5 /* libPSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1372,6 +1376,8 @@
 				7854938A1295F0750047D926 /* PSNonEdiableTextView.m */,
 				78DE35ED12997DA90081B6C9 /* PSStatusBarSaver.h */,
 				78DE35EE12997DA90081B6C9 /* PSStatusBarSaver.m */,
+				7882D5321323262A00BE7370 /* SMModelObject.h */,
+				7882D5331323262A00BE7370 /* SMModelObject.m */,
 			);
 			path = Utils;
 			sourceTree = SOURCE_ROOT;
@@ -1534,6 +1540,7 @@
 				39C27C0F131469A1000C0C94 /* NSString+Truncation.h in Headers */,
 				3975C0841317BFC400F1D336 /* NSDate+MTAdditions.h in Headers */,
 				78CD2FD813212896006555B7 /* UIImage+MTCache.h in Headers */,
+				7882D5341323262A00BE7370 /* SMModelObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1771,6 +1778,7 @@
 				39C27C10131469A1000C0C94 /* NSString+Truncation.m in Sources */,
 				3975C0851317BFC400F1D336 /* NSDate+MTAdditions.m in Sources */,
 				78CD2FD913212896006555B7 /* UIImage+MTCache.m in Sources */,
+				7882D5351323262A00BE7370 /* SMModelObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

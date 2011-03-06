@@ -72,3 +72,4 @@
 #import "PSStatusBarSaver.h"
 
 #import "TPAutoArchiver.h"
+#import "SMModelObject.h"
