@@ -2,6 +2,7 @@
  Erica Sadun, http://ericasadun.com
  iPhone Developer's Cookbook, 3.0 Edition
  BSD License, Use at your own risk
+ Modified by Peter Steinberger
  */
 
 #import <UIKit/UIKit.h>
@@ -9,7 +10,6 @@
 // Path utilities
 NSString *NSDocumentsFolder();
 NSString *NSLibraryFolder();
-NSString *NSTmpFolder();
 NSString *NSBundleFolder();
 
 @interface NSFileManager (Utilities)
