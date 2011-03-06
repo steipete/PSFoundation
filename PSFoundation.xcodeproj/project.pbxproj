@@ -30,9 +30,6 @@
 		3994626112C925F5005574A6 /* UIViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994625F12C925F5005574A6 /* UIViewControllerHelper.m */; };
 		3994628712C928B8005574A6 /* UITextView+MTUIAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994628512C928B8005574A6 /* UITextView+MTUIAdditions.h */; };
 		3994628812C928B8005574A6 /* UITextView+MTUIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994628612C928B8005574A6 /* UITextView+MTUIAdditions.m */; };
-		39BAA3BC12C3A87D00A0350D /* ATMHud.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BA12C3A87D00A0350D /* ATMHud.h */; };
-		39BAA3BD12C3A87D00A0350D /* ATMHudDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */; };
-		39BAA3BF12C3A88E00A0350D /* libAtomHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */; };
 		39C27BD613146056000C0C94 /* UIView+Animation.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C27BD413146056000C0C94 /* UIView+Animation.h */; };
 		39C27BD713146056000C0C94 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C27BD513146056000C0C94 /* UIView+Animation.m */; };
 		39C27C0F131469A1000C0C94 /* NSString+Truncation.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C27C0D131469A1000C0C94 /* NSString+Truncation.h */; };
@@ -313,9 +310,6 @@
 		3994625F12C925F5005574A6 /* UIViewControllerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewControllerHelper.m; path = Categories/UIViewController/UIViewControllerHelper.m; sourceTree = SOURCE_ROOT; };
 		3994628512C928B8005574A6 /* UITextView+MTUIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextView+MTUIAdditions.h"; path = "Categories/UITextView/UITextView+MTUIAdditions.h"; sourceTree = SOURCE_ROOT; };
 		3994628612C928B8005574A6 /* UITextView+MTUIAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextView+MTUIAdditions.m"; path = "Categories/UITextView/UITextView+MTUIAdditions.m"; sourceTree = SOURCE_ROOT; };
-		39BAA3BA12C3A87D00A0350D /* ATMHud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATMHud.h; path = HUD/ATMHud.h; sourceTree = SOURCE_ROOT; };
-		39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ATMHudDelegate.h; path = HUD/ATMHudDelegate.h; sourceTree = SOURCE_ROOT; };
-		39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAtomHUD.a; path = HUD/libAtomHUD.a; sourceTree = "<group>"; };
 		39C27BD413146056000C0C94 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Animation.h"; path = "Categories/UIView/UIView+Animation.h"; sourceTree = SOURCE_ROOT; };
 		39C27BD513146056000C0C94 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Animation.m"; path = "Categories/UIView/UIView+Animation.m"; sourceTree = SOURCE_ROOT; };
 		39C27C0D131469A1000C0C94 /* NSString+Truncation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Truncation.h"; path = "Categories/NSString/NSString+Truncation.h"; sourceTree = SOURCE_ROOT; };
@@ -604,7 +598,6 @@
 				788E1F31126C95B1009801E5 /* CoreGraphics.framework in Frameworks */,
 				788E1F32126C95B1009801E5 /* libxml2.2.7.3.dylib in Frameworks */,
 				788E1F33126C95B1009801E5 /* UIKit.framework in Frameworks */,
-				39BAA3BF12C3A88E00A0350D /* libAtomHUD.a in Frameworks */,
 				3936595A12C7F3AE001D4D53 /* AudioToolbox.framework in Frameworks */,
 				3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */,
 			);
@@ -640,7 +633,6 @@
 			children = (
 				390BAB3412C9447700C39661 /* ImageIO.framework */,
 				390BAB3912C9448500C39661 /* CoreLocation.framework */,
-				39BAA3BE12C3A88E00A0350D /* libAtomHUD.a */,
 				7867A4FA126C99EA0012E520 /* CoreData.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 				78692296126B4487000259AC /* CoreGraphics.framework */,
@@ -810,8 +802,6 @@
 		7869211E126B4195000259AC /* HUD */ = {
 			isa = PBXGroup;
 			children = (
-				39BAA3BA12C3A87D00A0350D /* ATMHud.h */,
-				39BAA3BB12C3A87D00A0350D /* ATMHudDelegate.h */,
 				7869211F126B4195000259AC /* DSActivityView.h */,
 				78692120126B4195000259AC /* DSActivityView.m */,
 				78692121126B4195000259AC /* MBProgressHUD.h */,
@@ -1522,8 +1512,6 @@
 				78BCB9E112B528AD0093AE0C /* NSURL+PSFoundation.h in Headers */,
 				78552DD312B6547500EFDE10 /* JRSwizzle.h in Headers */,
 				7875132012BE992700BC60D0 /* MACollectionUtilities.h in Headers */,
-				39BAA3BC12C3A87D00A0350D /* ATMHud.h in Headers */,
-				39BAA3BD12C3A87D00A0350D /* ATMHudDelegate.h in Headers */,
 				39EE950112C3ADC900AD953B /* BSUIViewRearranger.h in Headers */,
 				39EE950312C3ADC900AD953B /* UIView+CWNibLocalizations.h in Headers */,
 				39EE950712C3B02200AD953B /* UIView+MTUIAdditions.h in Headers */,

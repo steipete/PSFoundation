@@ -1,11 +1,6 @@
-//
-// Prefix header for all source files of the 'CocoaTouchStaticLibrary' target in the 'CocoaTouchStaticLibrary' project.
-//
-
 #ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-#endif
 
+#import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
 
@@ -17,3 +12,5 @@
 
 #import "Macros/SynthesizeSingleton.h"
 #import "PSMacros.h"
+
+#endif

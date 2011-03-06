@@ -27,9 +27,7 @@
 
 // HUD
 #import "DSActivityView.h"
-#import "MBProgressHUD.h" // deprecated
-#import "ATMHud.h"
-#import "ATMHudDelegate.h"
+#import "MBProgressHUD.h"
 
 // InterfaceBuilder
 #import "BSUIViewRearranger.h"
