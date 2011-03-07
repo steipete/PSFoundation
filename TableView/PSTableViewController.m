@@ -10,12 +10,17 @@
 #import "ShadowedTableView.h"
 
 @interface PSTableViewController ()
+
+@property (nonatomic, retain) NSIndexPath *lastSelectedIndexPath;
+
 @end
 
 // http://cocoawithlove.com/2009/03/recreating-uitableviewcontroller-to.html
 @implementation PSTableViewController
 
-@synthesize tableViewStyle = _tableViewStyle, useShadows;
+@synthesize tableViewStyle = _tableViewStyle;
+@synthesize useShadows;
+@synthesize lastSelectedIndexPath = lastSelectedIndexPath_;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -38,6 +43,7 @@
   [tableView setDelegate:nil];
   [tableView setDataSource:nil];
   MCRelease(tableView);
+  MCRelease(lastSelectedIndexPath_);
 
   [super dealloc];
 }
@@ -78,13 +84,15 @@
   [super viewWillAppear:animated];
 
   [self.tableView reloadData];
-  // how to deselect?
 }
 
 - (void)viewDidAppear:(BOOL)animated {
   [super viewDidAppear:animated];
 
   [self.tableView flashScrollIndicators];
+	// you have to set self.lastSelectedIndexPath in
+	// - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+  [self.tableView deselectRowAtIndexPath:self.lastSelectedIndexPath animated:YES];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

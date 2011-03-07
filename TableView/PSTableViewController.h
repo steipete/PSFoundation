@@ -14,6 +14,7 @@
   BOOL useShadows;
   UITableView *tableView;
   UITableViewStyle _tableViewStyle;
+  NSIndexPath *lastSelectedIndexPath_;
 }
 
 @property (nonatomic, retain) UITableView *tableView;
