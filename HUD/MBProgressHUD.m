@@ -193,6 +193,13 @@
 #pragma mark -
 #pragma mark Class methods
 
++ (MBProgressHUD *)showHUDAddedToWindow:(UIWindow *)window animated:(BOOL)animated {
+  MBProgressHUD *hud = [[MBProgressHUD alloc] initWithWindow:window];
+  [window addSubview:hud];
+  [hud show:animated];
+  return [hud autorelease];
+}
+
 + (MBProgressHUD *)showHUDAddedTo:(UIView *)view animated:(BOOL)animated {
 	MBProgressHUD *hud = [[MBProgressHUD alloc] initWithView:view];
 	[view addSubview:hud];
@@ -590,6 +597,9 @@
 #define RADIANS(degrees) ((degrees * M_PI) / 180.0)
 
 - (void)deviceOrientationDidChange:(NSNotification *)notification { 
+  if (!self.superview) {
+    return;
+  }
 	if ([self.superview isKindOfClass:[UIWindow class]]) {
 		[self setTransformForCurrentOrientation:YES];
 	}
@@ -599,7 +609,7 @@
 }
 
 - (void)setTransformForCurrentOrientation:(BOOL)animated {
-	UIDeviceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+	UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
 	NSInteger degrees = 0;
 	
 	if (UIInterfaceOrientationIsLandscape(orientation)) {
