@@ -10,9 +10,6 @@
 #import "ShadowedTableView.h"
 
 @interface PSTableViewController ()
-
-@property (nonatomic, retain) NSIndexPath *lastSelectedIndexPath;
-
 @end
 
 // http://cocoawithlove.com/2009/03/recreating-uitableviewcontroller-to.html
