@@ -63,6 +63,13 @@ typedef enum {
 
 //===========================================================
 #pragma mark -
+#pragma mark Shadows
+//===========================================================
+
+- (void)setShadowOffset:(CGSize)offset radius:(CGFloat)radius opacity:(CGFloat)opacity;
+
+//===========================================================
+#pragma mark -
 #pragma mark Gradient Background
 //===========================================================
 
