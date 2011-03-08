@@ -136,7 +136,7 @@
 #pragma mark Shadows
 //===========================================================
 
-- (void)setShaowOffset:(CGSize)offset radius:(CGFloat)radius opacity:(CGFloat)opacity {
+- (void)setShadowOffset:(CGSize)offset radius:(CGFloat)radius opacity:(CGFloat)opacity {
 	self.layer.masksToBounds = NO;
 	self.layer.shadowOffset = offset;
 	self.layer.shadowRadius = radius;
