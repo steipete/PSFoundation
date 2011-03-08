@@ -30,6 +30,9 @@
 // [kPSCommonCrypto] crypto stuff like MD5, SHA1, AES256
 #import "NSData+CommonCrypto.h"                             // New BSD
 
+// override description for fun and glory!
+#import "NSData+RSHexDump.h"                                // MIT
+
 // NSDate /////////////////////////////////////////////////////////////////////////////////////////
 
 // prettyDate, prettyDateWithReference, ps_yesterday, ps_tomorrow, ...
