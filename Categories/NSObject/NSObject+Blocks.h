@@ -15,4 +15,7 @@ void RunAfterDelay(NSTimeInterval delay, BasicBlock block);
 
 - (void)ps_callBlock;
 
++ (id)performBlock:(void(^)())aBlock afterDelay:(NSTimeInterval)seconds;
++ (void)cancelPreviousPerformBlock:(id)aWrappingBlockHandle;
+
 @end
