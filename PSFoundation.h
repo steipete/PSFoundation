@@ -63,6 +63,7 @@
 #import "PSGenericView.h"
 #import "PSShadowView.h"
 #import "PSTableViewController.h"
+#import "DTCustomColoredAccessory.h"
 
 // ui components
 #import "PSNonEdiableTextView.h"

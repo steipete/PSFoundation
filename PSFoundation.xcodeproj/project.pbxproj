@@ -14,6 +14,8 @@
 		390BAB3812C9447D00C39661 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786922B4126B45A3000259AC /* UIKit.framework */; };
 		390BAB3A12C9448500C39661 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 390BAB3912C9448500C39661 /* CoreLocation.framework */; };
 		390BAB8512C9EF7F00C39661 /* PSFoundation_CoreLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 390BAB8412C9EF7F00C39661 /* PSFoundation_CoreLocation.h */; };
+		3934261A1328CCE5001427E1 /* DTCustomColoredAccessory.h in Headers */ = {isa = PBXBuildFile; fileRef = 393426181328CCE5001427E1 /* DTCustomColoredAccessory.h */; };
+		3934261B1328CCE5001427E1 /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 393426191328CCE5001427E1 /* DTCustomColoredAccessory.m */; };
 		3936595A12C7F3AE001D4D53 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595912C7F3AE001D4D53 /* AudioToolbox.framework */; };
 		3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595B12C7F3AE001D4D53 /* QuartzCore.framework */; };
 		3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948220E12C8AA9700763012 /* TDBadgedCell.h */; };
@@ -298,6 +300,8 @@
 		390BAB3412C9447700C39661 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		390BAB3912C9448500C39661 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		390BAB8412C9EF7F00C39661 /* PSFoundation_CoreLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation_CoreLocation.h; sourceTree = SOURCE_ROOT; };
+		393426181328CCE5001427E1 /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
+		393426191328CCE5001427E1 /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
 		3936595912C7F3AE001D4D53 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3936595B12C7F3AE001D4D53 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3948220E12C8AA9700763012 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDBadgedCell.h; path = TableView/TDBadgedCell.h; sourceTree = SOURCE_ROOT; };
@@ -897,6 +901,8 @@
 				7833EAB812897C940025D418 /* PSShadowView.m */,
 				3948220E12C8AA9700763012 /* TDBadgedCell.h */,
 				3948220F12C8AA9700763012 /* TDBadgedCell.m */,
+				393426181328CCE5001427E1 /* DTCustomColoredAccessory.h */,
+				393426191328CCE5001427E1 /* DTCustomColoredAccessory.m */,
 			);
 			path = TableView;
 			sourceTree = SOURCE_ROOT;
@@ -1548,6 +1554,7 @@
 				78CD2FD813212896006555B7 /* UIImage+MTCache.h in Headers */,
 				7882D5341323262A00BE7370 /* SMModelObject.h in Headers */,
 				780CBDA51326759100F22032 /* NSData+RSHexDump.h in Headers */,
+				3934261A1328CCE5001427E1 /* DTCustomColoredAccessory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1787,6 +1794,7 @@
 				78CD2FD913212896006555B7 /* UIImage+MTCache.m in Sources */,
 				7882D5351323262A00BE7370 /* SMModelObject.m in Sources */,
 				780CBDA61326759100F22032 /* NSData+RSHexDump.m in Sources */,
+				3934261B1328CCE5001427E1 /* DTCustomColoredAccessory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
