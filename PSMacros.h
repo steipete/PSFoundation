@@ -22,6 +22,16 @@ static inline BOOL IsEmpty(id thing) {
 #define PSRectClearCoords(_CGRECT) CGRectMake(0, 0, _CGRECT.size.width, _CGRECT.size.height)
 #define CGRectClearCoords(_CGRECT) PSRectClearCoords(_CGRECT) // legacy
 
+// portrait/landscape corrected screen bounds
+static inline CGRect PSScreenBounds() {
+  CGRect bounds = [UIScreen mainScreen].bounds;
+  if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+    bounds.size.width = [UIScreen mainScreen].bounds.size.height;
+    bounds.size.height = [UIScreen mainScreen].bounds.size.width;
+  }
+  return bounds;
+}
+
 // color
 #define SETTINGS_TEXT_COLOR	RGBCOLOR(57, 85, 135)
 #ifndef RGBCOLOR
