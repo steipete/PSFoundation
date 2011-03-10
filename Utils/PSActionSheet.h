@@ -27,6 +27,8 @@
 - (void)addButtonWithTitle:(NSString *) title block:(void (^)()) block;
 
 - (void)showInView:(UIView *)view;
+- (void)showFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated;
+- (void)showFromRect:(CGRect)rect inView:(UIView *)view animated:(BOOL)animated;
 
 - (NSUInteger)buttonCount;
 

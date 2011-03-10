@@ -79,6 +79,16 @@
   [self retain];
 }
 
+- (void)showFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated {
+  [sheet_ showFromBarButtonItem:item animated:animated];
+  [self retain];
+}
+
+- (void)showFromRect:(CGRect)rect inView:(UIView *)view animated:(BOOL)animated {
+  [sheet_ showFromRect:rect inView:view animated:animated];
+  [self retain];
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
   // Run the button's block
   if (buttonIndex >= 0 && buttonIndex < [blocks_ count]) {
