@@ -18,12 +18,12 @@ static NSMutableDictionary *UIImageCache;
                         stringByAppendingPathComponent:[NSString stringWithFormat:@"%@@2x.%@",
                                                         [[path lastPathComponent] stringByDeletingPathExtension],
                                                         [path pathExtension]]];
-
+    
     if ( [[NSFileManager defaultManager] fileExistsAtPath:path2x] ) {
       return [self initWithContentsOfFile:path2x];
     }
   }
-
+  
   return [self initWithContentsOfFile:path];
 }
 
@@ -33,22 +33,26 @@ static NSMutableDictionary *UIImageCache;
 
 
 + (id)cachedImageWithContentsOfFile:(NSString *)path {
-  id result;
-  if (!UIImageCache)
-    UIImageCache = [[NSMutableDictionary alloc] init];
-  else {
-    result = [UIImageCache objectForKey:path];
-    if (result)
-      return result;
+  id result = nil;
+  @synchronized(UIImageCache) {
+    if (!UIImageCache)
+      UIImageCache = [[NSMutableDictionary alloc] init];
+    else {
+      result = [UIImageCache objectForKey:path];
+      if (result)
+        return result;
+    }
+    result = [[[UIImage alloc] initWithContentsOfResolutionIndependentFile:path] autorelease];
+    if(result) [UIImageCache setObject:result forKey:path];
   }
-  result = [[[UIImage alloc] initWithContentsOfResolutionIndependentFile:path] autorelease];
-  if(result) [UIImageCache setObject:result forKey:path];
   return result;
 }
 
 
 + (void)clearCache {
-  [UIImageCache removeAllObjects];
+  @synchronized(UIImageCache) {
+    [UIImageCache removeAllObjects];
+  }
 }
 
 @end
