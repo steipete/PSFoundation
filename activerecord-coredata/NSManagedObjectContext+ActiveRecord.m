@@ -15,7 +15,7 @@ static NSManagedObjectContext *defaultManageObjectContext = nil;
 
 + (NSManagedObjectContext *)defaultContext
 {
-  NSAssert([NSThread isMainThread], @"The defaultContext must only be accessed on the **Main Thread**");
+  //NSAssert([NSThread isMainThread], @"The defaultContext must only be accessed on the **Main Thread**");
   @synchronized (self)
   {
     if (defaultManageObjectContext)
@@ -114,9 +114,9 @@ static NSManagedObjectContext *defaultManageObjectContext = nil;
   {
     DDLogWarn(@"Problem saving: %@", (id)[exception userInfo] ?: (id)[exception reason]);
   }
-  
+
   [ActiveRecordHelpers handleErrors:error];
-  
+
   return saved && error == nil;
 }
 
@@ -129,9 +129,9 @@ static NSManagedObjectContext *defaultManageObjectContext = nil;
 
 - (BOOL) saveOnBackgroundThread
 {
-  
+
   [self performSelectorInBackground:@selector(saveWrapper) withObject:nil];
-  
+
   return YES;
 }
 
@@ -141,7 +141,7 @@ static NSManagedObjectContext *defaultManageObjectContext = nil;
   {
     [self performSelectorOnMainThread:@selector(saveWrapper) withObject:nil waitUntilDone:YES];
   }
-  
+
   return YES;
 }
 
@@ -194,7 +194,7 @@ static NSManagedObjectContext *defaultManageObjectContext = nil;
   // Log the current changes for the context
   if (![self hasChanges])
     return;
-  
+
   DDLogInfo(@"***************************************************");
   DDLogInfo(@"* CHANGES TO %@ %p", [self class], self);
   DDLogInfo(@"***************************************************");
