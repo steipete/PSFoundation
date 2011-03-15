@@ -54,6 +54,8 @@
 		39EE95C612C3B66300AD953B /* NSMutableArray+MTShuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE95C412C3B66300AD953B /* NSMutableArray+MTShuffle.m */; };
 		39EE95F912C3B83400AD953B /* ColorLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE95F712C3B83400AD953B /* ColorLog.h */; };
 		39EE95FA12C3B83400AD953B /* ColorLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE95F812C3B83400AD953B /* ColorLog.m */; };
+		39FAFC87132FA7D100F039C4 /* UIImage+MTTiling.h in Headers */ = {isa = PBXBuildFile; fileRef = 39FAFC85132FA7D100F039C4 /* UIImage+MTTiling.h */; };
+		39FAFC88132FA7D100F039C4 /* UIImage+MTTiling.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FAFC86132FA7D100F039C4 /* UIImage+MTTiling.m */; };
 		780CBDA51326759100F22032 /* NSData+RSHexDump.h in Headers */ = {isa = PBXBuildFile; fileRef = 780CBDA31326759100F22032 /* NSData+RSHexDump.h */; };
 		780CBDA61326759100F22032 /* NSData+RSHexDump.m in Sources */ = {isa = PBXBuildFile; fileRef = 780CBDA41326759100F22032 /* NSData+RSHexDump.m */; };
 		782AC0BA1281864800806121 /* MANotificationCenterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 782AC0B01281864800806121 /* MANotificationCenterAdditions.h */; };
@@ -340,6 +342,8 @@
 		39EE95C412C3B66300AD953B /* NSMutableArray+MTShuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+MTShuffle.m"; path = "Categories/NSArray/NSMutableArray+MTShuffle.m"; sourceTree = SOURCE_ROOT; };
 		39EE95F712C3B83400AD953B /* ColorLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorLog.h; path = Lumberjack/ColorLog.h; sourceTree = SOURCE_ROOT; };
 		39EE95F812C3B83400AD953B /* ColorLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorLog.m; path = Lumberjack/ColorLog.m; sourceTree = SOURCE_ROOT; };
+		39FAFC85132FA7D100F039C4 /* UIImage+MTTiling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MTTiling.h"; sourceTree = "<group>"; };
+		39FAFC86132FA7D100F039C4 /* UIImage+MTTiling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MTTiling.m"; sourceTree = "<group>"; };
 		780CBDA31326759100F22032 /* NSData+RSHexDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+RSHexDump.h"; path = "Categories/NSData/NSData+RSHexDump.h"; sourceTree = SOURCE_ROOT; };
 		780CBDA41326759100F22032 /* NSData+RSHexDump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+RSHexDump.m"; path = "Categories/NSData/NSData+RSHexDump.m"; sourceTree = SOURCE_ROOT; };
 		782AC0B01281864800806121 /* MANotificationCenterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MANotificationCenterAdditions.h; path = ZeroWeakReferences/MANotificationCenterAdditions.h; sourceTree = SOURCE_ROOT; };
@@ -1278,6 +1282,8 @@
 				78E531D1126E03EB00A89047 /* UIImage+Tint.m */,
 				78E531D2126E03EB00A89047 /* UIImageHelper.h */,
 				78E531D3126E03EB00A89047 /* UIImageHelper.m */,
+				39FAFC85132FA7D100F039C4 /* UIImage+MTTiling.h */,
+				39FAFC86132FA7D100F039C4 /* UIImage+MTTiling.m */,
 			);
 			name = UIImage;
 			path = Categories/UIImage;
@@ -1555,6 +1561,7 @@
 				7882D5341323262A00BE7370 /* SMModelObject.h in Headers */,
 				780CBDA51326759100F22032 /* NSData+RSHexDump.h in Headers */,
 				3934261A1328CCE5001427E1 /* DTCustomColoredAccessory.h in Headers */,
+				39FAFC87132FA7D100F039C4 /* UIImage+MTTiling.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1795,6 +1802,7 @@
 				7882D5351323262A00BE7370 /* SMModelObject.m in Sources */,
 				780CBDA61326759100F22032 /* NSData+RSHexDump.m in Sources */,
 				3934261B1328CCE5001427E1 /* DTCustomColoredAccessory.m in Sources */,
+				39FAFC88132FA7D100F039C4 /* UIImage+MTTiling.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
