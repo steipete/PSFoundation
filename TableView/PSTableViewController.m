@@ -21,6 +21,44 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
+#pragma mark Private
+
+- (void)keyboardChanged:(NSNotification *)notification up:(BOOL)up {
+  NSDictionary* userInfo = [notification userInfo];
+  
+  // Get animation info from userInfo
+  NSTimeInterval animationDuration;
+  UIViewAnimationCurve animationCurve;  
+  CGRect keyboardEndFrame;
+  
+  [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+  [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+  [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    
+  // Animate up or down
+  [UIView beginAnimations:nil context:nil];
+  [UIView setAnimationDuration:animationDuration];
+  [UIView setAnimationCurve:animationCurve];
+  
+  CGRect newFrame = self.tableView.frame;
+  CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
+  
+  newFrame.size.height -= keyboardFrame.size.height * (up? 1 : -1);
+  self.tableView.frame = newFrame;
+  
+  [UIView commitAnimations];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+  [self keyboardChanged:notification up:YES];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+  [self keyboardChanged:notification up:NO];
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
 #pragma mark NSObject
 
 - (id)init {
@@ -81,6 +119,16 @@
   [super viewWillAppear:animated];
 
   [self.tableView reloadData];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+  [super viewWillDisappear:animated];
+  
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
