@@ -23,9 +23,10 @@ static inline BOOL IsEmpty(id thing) {
 #define CGRectClearCoords(_CGRECT) PSRectClearCoords(_CGRECT) // legacy
 
 // portrait/landscape corrected screen bounds
+#define PSIsLandscape() UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
 static inline CGRect PSScreenBounds() {
   CGRect bounds = [UIScreen mainScreen].bounds;
-  if (UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
+  if (PSIsLandscape()) {
     bounds.size.width = [UIScreen mainScreen].bounds.size.height;
     bounds.size.height = [UIScreen mainScreen].bounds.size.width;
   }
