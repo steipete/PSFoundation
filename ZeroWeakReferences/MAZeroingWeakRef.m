@@ -18,22 +18,40 @@
 /*
  The COREFOUNDATION_HACK_LEVEL macro allows you to control how much horrible CF
  hackery is enabled. The following levels are defined:
-
+ 
  3 - Completely insane hackery allows weak references to CF objects, deallocates
  them asynchronously in another thread to eliminate resurrection-related race
  condition and crash.
-
+ 
  2 - Full hackery allows weak references to CF objects by doing horrible
  things with the private CF class table. Extremely small risk of resurrection-
  related race condition leading to a crash.
-
+ 
  1 - Mild hackery allows foolproof identification of CF objects and will assert
  if trying to make a ZWR to one.
-
+ 
  0 - No hackery, checks for an "NSCF" prefix in the class name to identify CF
  objects and will assert if trying to make a ZWR to one
  */
 #define COREFOUNDATION_HACK_LEVEL 0
+
+/*
+ The KVO_HACK_LEVEL macro allows similar control over the amount of KVO hackery.
+ 
+ 1 - Use the private _isKVOA method to check for a KVO dynamic subclass.
+ 
+ 0 - No hackery, uses the KVO overridden -class to check.
+ */
+#define KVO_HACK_LEVEL 0
+
+#if KVO_HACK_LEVEL >= 1
+@interface NSObject (KVOPrivateMethod)
+
+- (BOOL)_isKVOA;
+
+@end
+#endif
+
 
 @interface MAZeroingWeakRef ()
 
@@ -95,11 +113,11 @@ static NSOperationQueue *gCFDelayedDestructionQueue;
         pthread_mutexattr_settype(&mutexattr, PTHREAD_MUTEX_RECURSIVE);
         pthread_mutex_init(&gMutex, &mutexattr);
         pthread_mutexattr_destroy(&mutexattr);
-
+        
         gObjectWeakRefsMap = CFDictionaryCreateMutable(NULL, 0, NULL, &kCFTypeDictionaryValueCallBacks);
         gCustomSubclasses = [[NSMutableSet alloc] init];
         gCustomSubclassMap = [[NSMutableDictionary alloc] init];
-
+        
 #if COREFOUNDATION_HACK_LEVEL >= 3
         gCFWeakTargets = CFSetCreateMutable(NULL, 0, NULL);
         gCFDelayedDestructionQueue = [[NSOperationQueue alloc] init];
@@ -205,7 +223,7 @@ static Class CustomSubclassClassForCoder(id self, SEL _cmd)
 static void CallCFReleaseLater(CFTypeRef cf)
 {
     mach_port_t thread = mach_thread_self(); // must "release" this
-
+    
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     SEL sel = @selector(releaseLater:fromThread:);
     NSInvocation *inv = [NSInvocation invocationWithMethodSignature: [MAZeroingWeakRef methodSignatureForSelector: sel]];
@@ -213,7 +231,7 @@ static void CallCFReleaseLater(CFTypeRef cf)
     [inv setSelector: sel];
     [inv setArgument: &cf atIndex: 2];
     [inv setArgument: &thread atIndex: 3];
-
+    
     NSInvocationOperation *op = [[NSInvocationOperation alloc] initWithInvocation: inv];
     [gCFDelayedDestructionQueue addOperation: op];
     [op release];
@@ -253,7 +271,7 @@ static const void *GetPC(mach_port_t thread)
 #else
 #error don't know how to get PC for the current architecture!
 #endif
-
+    
     kern_return_t ret = thread_get_state(thread, flavor, (thread_state_t)&state, &count);
     if(ret == KERN_SUCCESS)
         return (void *)state.PC_REGISTER;
@@ -318,7 +336,7 @@ void _CFRelease(CFTypeRef cf);
 + (void)releaseLater: (CFTypeRef)cf fromThread: (mach_port_t)thread
 {
     BOOL retry = YES;
-
+    
     while(retry)
     {
         BLOCK_QUALIFIER const void *pc;
@@ -327,7 +345,7 @@ void _CFRelease(CFTypeRef cf);
         WhileLocked({
             pc = GetPC(thread);
         });
-
+        
         if(pc != kPCError)
         {
             if(pc == kPCThreadExited || pc < (void *)CustomCFFinalize || pc > (void *)IsTollFreeBridged)
@@ -351,25 +369,29 @@ void _CFRelease(CFTypeRef cf);
 
 static BOOL IsKVOSubclass(id obj)
 {
-  return [obj class] == class_getSuperclass(object_getClass(obj));
+#if KVO_HACK_LEVEL >= 1
+    return [obj respondsToSelector: @selector(_isKVOA)] && [obj _isKVOA];
+#else
+    return [obj class] == class_getSuperclass(object_getClass(obj));
+#endif
 }
 
 static Class CreatePlainCustomSubclass(Class class)
 {
     NSString *newName = [NSString stringWithFormat: @"%s_MAZeroingWeakRefSubclass", class_getName(class)];
     const char *newNameC = [newName UTF8String];
-
+    
     Class subclass = objc_allocateClassPair(class, newNameC, 0);
-
+    
     Method release = class_getInstanceMethod(class, @selector(release));
     Method dealloc = class_getInstanceMethod(class, @selector(dealloc));
     Method classForCoder = class_getInstanceMethod(class, @selector(classForCoder));
     class_addMethod(subclass, @selector(release), (IMP)CustomSubclassRelease, method_getTypeEncoding(release));
     class_addMethod(subclass, @selector(dealloc), (IMP)CustomSubclassDealloc, method_getTypeEncoding(dealloc));
     class_addMethod(subclass, @selector(classForCoder), (IMP)CustomSubclassClassForCoder, method_getTypeEncoding(classForCoder));
-
+    
     objc_registerClassPair(subclass);
-
+    
     return subclass;
 }
 
@@ -385,6 +407,12 @@ static void SetSuperclass(Class class, Class newSuper)
 #pragma clang diagnostic pop
 #endif
 
+static void RegisterCustomSubclass(Class subclass, Class superclass)
+{
+    [gCustomSubclassMap setObject: subclass forKey: superclass];
+    [gCustomSubclasses addObject: subclass];
+}
+
 static Class CreateCustomSubclass(Class class, id obj)
 {
     if(IsTollFreeBridged(class, obj))
@@ -392,13 +420,13 @@ static Class CreateCustomSubclass(Class class, id obj)
 #if COREFOUNDATION_HACK_LEVEL >= 2
         CFTypeID typeID = CFGetTypeID(obj);
         CFRuntimeClass *cfclass = _CFRuntimeGetClassWithTypeID(typeID);
-
+        
         if(typeID >= gCFOriginalFinalizesSize)
         {
             gCFOriginalFinalizesSize = typeID + 1;
             gCFOriginalFinalizes = realloc(gCFOriginalFinalizes, gCFOriginalFinalizesSize * sizeof(*gCFOriginalFinalizes));
         }
-
+        
         do {
             gCFOriginalFinalizes[typeID] = cfclass->finalize;
         } while(!OSAtomicCompareAndSwapPtrBarrier(gCFOriginalFinalizes[typeID], CustomCFFinalize, (void *)&cfclass->finalize));
@@ -417,14 +445,26 @@ static Class CreateCustomSubclass(Class class, id obj)
             classToSubclass = class_getSuperclass(class);
             newClass = [gCustomSubclassMap objectForKey: classToSubclass];
         }
-
+        
         if(!newClass)
         {
             newClass = CreatePlainCustomSubclass(classToSubclass);
             if(isKVO)
+            {
                 SetSuperclass(class, newClass); // EVIL EVIL EVIL
+                
+                // if you thought setting the superclass was evil, wait until you get a load of this
+                // for some reason, KVO stores the superclass of the KVO class in the class's indexed ivars
+                // I don't know why they don't just use class_getSuperclass, but there we are
+                // this has to be set as well, otherwise KVO can skip over our dealloc, causing
+                // weak references not to get zeroed, doh!
+                id *kvoSuperclass = object_getIndexedIvars(class);
+                *kvoSuperclass = newClass;
+                
+                RegisterCustomSubclass(newClass, classToSubclass);
+            }
         }
-
+        
         return newClass;
     }
 }
@@ -438,10 +478,9 @@ static void EnsureCustomSubclass(id obj)
         if(!subclass)
         {
             subclass = CreateCustomSubclass(class, obj);
-            [gCustomSubclassMap setObject: subclass forKey: class];
-            [gCustomSubclasses addObject: subclass];
+            RegisterCustomSubclass(subclass, class);
         }
-
+        
         // only set the class if the current one is its superclass
         // otherwise it's possible that it returns something farther up in the hierarchy
         // and so there's no need to set it then
@@ -466,7 +505,7 @@ static void UnregisterRef(MAZeroingWeakRef *ref)
 {
     WhileLocked({
         id target = ref->_target;
-
+        
         if(target)
             RemoveWeakRefFromObject(target, ref);
     });
