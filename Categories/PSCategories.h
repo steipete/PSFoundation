@@ -134,7 +134,6 @@
 // + (UILabel *)labelWithText:(NSString *)text;
 #import "UILabel+PSLib.h"                                   // own
 
-#import "UIImage+MTCache.h"
 #import "UIScrollView+MTUIAdditions.h"
 
 #import "UIToolBar+PSLib.h"
@@ -181,7 +180,8 @@
 #import "UIImage+Cache.h"
 #import "UIImage+Tint.h"
 #import "UIImage+ProportionalFill.h"
-
+#import "UIImage+MTCache.h"
+#import "UIImage+MTTiling.h"
 #import "UIImage+MTUniversalAdditions.h"
 
 
