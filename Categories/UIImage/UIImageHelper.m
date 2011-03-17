@@ -30,16 +30,6 @@
 
 @implementation UIImage (Helper)
 
-+ (UIImage*)imageWithContentsOfURL:(NSURL*)url {
-	NSError* error = nil;
-	NSData* data = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:url] returningResponse:NULL error:NULL];
-	if(error || !data) {
-		return nil;
-	} else {
-		return [UIImage imageWithData:data];
-	}
-}
-
 - (UIImage*)scaleToSize:(CGSize)size {
 	UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
 	

@@ -31,11 +31,6 @@
 @interface UIImage (Helper)
 
 /*
- * Creates an image from the contents of a URL
- */
-+ (UIImage*)imageWithContentsOfURL:(NSURL*)url;
-
-/*
  * Scales the image to the given size
  */
 - (UIImage*)scaleToSize:(CGSize)size;
