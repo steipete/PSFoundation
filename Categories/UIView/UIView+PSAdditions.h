@@ -8,6 +8,7 @@
 
 @interface UIView (PSAdditions)
 
+- (void)enableDebugBorderWithColor:(UIColor *)color;
 - (void)enableDebugBorder;
 
 @end

@@ -11,10 +11,15 @@
 
 @implementation UIView (PSAdditions)
 
+- (void)enableDebugBorderWithColor:(UIColor *)color {
+	DDLogInfo(@"enable debug for view %@", self);
+
+	self.layer.borderColor = color.CGColor;
+	self.layer.borderWidth = 2.0;
+}
+
 - (void)enableDebugBorder {
-  DDLogInfo(@"enable debug for view %@", self);
-  self.layer.borderColor = [[UIColor orangeColor] CGColor];
-  self.layer.borderWidth = 2.0;
+	[self enableDebugBorderWithColor:[UIColor orangeColor]];
 }
 
 @end
