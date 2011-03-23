@@ -27,6 +27,8 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
+#import <UIKit/UIKit.h>
+#import "PSCompatibility.h"
 #import "SFHFKeychainUtils.h"
 #import <Security/Security.h>
 
@@ -47,8 +49,9 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 		*error = nil;
 	}
   
+  IF_IOS(
+
 	// Set up a query dictionary with the base query attributes: item type (generic), username, and service
-	
 	NSArray *keys = [[[NSArray alloc] initWithObjects: (NSString *) kSecClass, kSecAttrAccount, kSecAttrService, nil] autorelease];
 	NSArray *objects = [[[NSArray alloc] initWithObjects: (NSString *) kSecClassGenericPassword, username, serviceName, nil] autorelease];
 	
@@ -124,6 +127,9 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 	}
   
 	return [password autorelease];
+         )
+
+  IF_DESKTOP(return @"UNIMPLEMENTED";);
 }
 
 + (BOOL) storeUsername: (NSString *) username andPassword: (NSString *) password forServiceName: (NSString *) serviceName updateExisting: (BOOL) updateExisting error: (NSError **) error 
@@ -175,6 +181,7 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 	
 	OSStatus status = noErr;
   
+  IF_IOS(
 	if (existingPassword) 
   {
 		// We have an existing, properly entered item with a password.
@@ -224,6 +231,7 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
     
 		status = SecItemAdd((CFDictionaryRef) query, NULL);
 	}
+  )
 	
 	if (error != nil && status != noErr) 
   {
@@ -252,6 +260,7 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 		*error = nil;
 	}
   
+  IF_IOS(
 	NSArray *keys = [[[NSArray alloc] initWithObjects: (NSString *) kSecClass, kSecAttrAccount, kSecAttrService, kSecReturnAttributes, nil] autorelease];
 	NSArray *objects = [[[NSArray alloc] initWithObjects: (NSString *) kSecClassGenericPassword, username, serviceName, kCFBooleanTrue, nil] autorelease];
 	
@@ -265,7 +274,7 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
     
     return NO;
 	}
-  
+  )
   return YES;
 }
 
