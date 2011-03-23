@@ -14,6 +14,16 @@
 @implementation NSError (SCMethods)
 
 + (NSError *)errorWithDomain:(NSString *)domain code:(NSInteger)code
+                 description:(NSString *)description {
+
+	NSError *result = [NSError errorWithDomain:domain code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                                        description, NSLocalizedDescriptionKey,
+                                                                        nil]];
+	return result;
+}
+
+
++ (NSError *)errorWithDomain:(NSString *)domain code:(NSInteger)code
 				 description:(NSString *)description failureReason:(NSString *)failureReason {
 	
 	NSError *result = [NSError errorWithDomain:domain code:code userInfo:[NSDictionary dictionaryWithObjectsAndKeys:
