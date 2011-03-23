@@ -11,7 +11,7 @@
 
 @implementation PSGenericCell
 
-@synthesize cellView;
+@synthesize cellView = _cellView;
 
 // @override
 - (void)updateOverlaySettings {
