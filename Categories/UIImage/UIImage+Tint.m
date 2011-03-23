@@ -25,7 +25,7 @@
 		UIImage *image;
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
 		IF_IOS4_OR_GREATER
-    (
+        (
 			UIGraphicsBeginImageContextWithOptions([self size], NO, 0.0); // 0.0 for scale means "scale for device's main screen".
 		)
 #else
@@ -33,7 +33,8 @@
     (
 		if ([[[UIDevice currentDevice] systemVersion] floatValue] < 4.0) {
 			UIGraphicsBeginImageContext([self size]);
-		)
+        }
+    )
 #endif
 		CGRect rect = CGRectZero;
 		rect.size = [self size];
