@@ -745,8 +745,8 @@
 		7882D5331323262A00BE7370 /* SMModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMModelObject.m; sourceTree = "<group>"; };
 		7883CB6B127AE07F001036C0 /* HOLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HOLog.h; path = Lumberjack/HOLog.h; sourceTree = SOURCE_ROOT; };
 		7883CB6C127AE07F001036C0 /* HOLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HOLog.m; path = Lumberjack/HOLog.m; sourceTree = SOURCE_ROOT; };
-		78858895133B39E700797FF0 /* libPSFoundation copy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPSFoundation copy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		788588B7133B39F000797FF0 /* libPSFoundation_CoreData copy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPSFoundation_CoreData copy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78858895133B39E700797FF0 /* libPSFoundation-OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPSFoundation-OSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		788588B7133B39F000797FF0 /* libPSFoundation_CoreData-OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPSFoundation_CoreData-OSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		788E1F38126C95B1009801E5 /* libPSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		78993B7A12AA860F00DA480C /* UIScreen+PSAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScreen+PSAdditions.h"; path = "Categories/UIScreen/UIScreen+PSAdditions.h"; sourceTree = SOURCE_ROOT; };
 		78993B7B12AA860F00DA480C /* UIScreen+PSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScreen+PSAdditions.m"; path = "Categories/UIScreen/UIScreen+PSAdditions.m"; sourceTree = SOURCE_ROOT; };
@@ -951,8 +951,8 @@
 				788E1F38126C95B1009801E5 /* libPSFoundation.a */,
 				7867A4E5126C98C70012E520 /* libPSFoundation_CoreData.a */,
 				390BAB2712C9438B00C39661 /* libPSFoundation_CoreLocation.a */,
-				78858895133B39E700797FF0 /* libPSFoundation copy.a */,
-				788588B7133B39F000797FF0 /* libPSFoundation_CoreData copy.a */,
+				78858895133B39E700797FF0 /* libPSFoundation-OSX.a */,
+				788588B7133B39F000797FF0 /* libPSFoundation_CoreData-OSX.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2102,7 +2102,7 @@
 			);
 			name = "PSFoundation-OSX";
 			productName = PSCommon;
-			productReference = 78858895133B39E700797FF0 /* libPSFoundation copy.a */;
+			productReference = 78858895133B39E700797FF0 /* libPSFoundation-OSX.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		78858899133B39F000797FF0 /* PSFoundation_CoreData-OSX */ = {
@@ -2120,7 +2120,7 @@
 			);
 			name = "PSFoundation_CoreData-OSX";
 			productName = PSCommon_CoreData;
-			productReference = 788588B7133B39F000797FF0 /* libPSFoundation_CoreData copy.a */;
+			productReference = 788588B7133B39F000797FF0 /* libPSFoundation_CoreData-OSX.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		788E1E6D126C95B1009801E5 /* PSFoundation */ = {
@@ -2704,7 +2704,7 @@
 					"\\\"$(SRCROOT)/HUD\\\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "PSFoundation copy";
+				PRODUCT_NAME = "PSFoundation-OSX";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -2724,7 +2724,7 @@
 					"\\\"$(SRCROOT)/HUD\\\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "PSFoundation copy";
+				PRODUCT_NAME = "PSFoundation-OSX";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -2744,7 +2744,7 @@
 					"\\\"$(SRCROOT)/HUD\\\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "PSFoundation copy";
+				PRODUCT_NAME = "PSFoundation-OSX";
 				SDKROOT = macosx;
 			};
 			name = Distribution;
@@ -2764,7 +2764,7 @@
 					"\\\"$(SRCROOT)/HUD\\\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "PSFoundation copy";
+				PRODUCT_NAME = "PSFoundation-OSX";
 				SDKROOT = macosx;
 			};
 			name = AppStore;
@@ -2780,7 +2780,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
 				PREBINDING = NO;
-				PRODUCT_NAME = "PSFoundation_CoreData copy";
+				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -2796,7 +2796,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
 				PREBINDING = NO;
-				PRODUCT_NAME = "PSFoundation_CoreData copy";
+				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 				ZERO_LINK = NO;
 			};
@@ -2810,7 +2810,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
 				PREBINDING = NO;
-				PRODUCT_NAME = "PSFoundation_CoreData copy";
+				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 			};
 			name = Distribution;
@@ -2823,7 +2823,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
 				PREBINDING = NO;
-				PRODUCT_NAME = "PSFoundation_CoreData copy";
+				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 			};
 			name = AppStore;

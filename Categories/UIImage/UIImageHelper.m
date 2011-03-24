@@ -26,7 +26,6 @@
 
 #if TARGET_OS_IPHONE
 #import "UIImageHelper.h"
-#import <CoreGraphics/CoreGraphics.h>
 
 @implementation UIImage (Helper)
 

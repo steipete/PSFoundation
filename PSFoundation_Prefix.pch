@@ -6,7 +6,7 @@
 #ifndef AVAILABLE_MAC_OS_X_VERSION_10_5_AND_LATER
 #import <CoreGraphics/CoreGraphics.h>
 #else
-#import <Quartz/Quartz.h>
+#import <QuartzCore/QuartzCore.h>
 #endif
 
 #import "PSCompatibility.h"
