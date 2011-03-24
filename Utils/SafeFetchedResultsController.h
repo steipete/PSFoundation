@@ -1,6 +1,7 @@
 @protocol SafeFetchedResultsControllerDelegate;
 
 #import <CoreData/CoreData.h>
+#import <UIKit/UIKit.h>
 
 @interface SafeFetchedResultsController : NSFetchedResultsController <NSFetchedResultsControllerDelegate>
 {
