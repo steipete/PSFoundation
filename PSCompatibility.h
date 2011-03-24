@@ -68,7 +68,7 @@ __VA_ARGS__ \
 }
 
 // special addition for Chameleon support: http://chameleonproject.org/
-#ifdef AVAILABLE_MAC_OS_X_VERSION_10_5_AND_LATER
+#ifdef MAC_OSX_BUILD // needs to be defined in project settings
 #define IF_IOS(...)
 #define IF_DESKTOP(...) do {__VA_ARGS__} while(0);
 #else

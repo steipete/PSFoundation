@@ -587,13 +587,6 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = UIKit;
 		};
-		78CBEC6C133ACC4400E75130 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7806ED0D1339FCD200273BC6 /* UIKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = UIKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -2126,7 +2119,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				78CBEC6D133ACC4400E75130 /* PBXTargetDependency */,
 			);
 			name = PSFoundation;
 			productName = PSCommon;
@@ -2497,11 +2489,6 @@
 			name = UIKit;
 			targetProxy = 7885889B133B39F000797FF0 /* PBXContainerItemProxy */;
 		};
-		78CBEC6D133ACC4400E75130 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = UIKit;
-			targetProxy = 78CBEC6C133ACC4400E75130 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -2684,6 +2671,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					MAC_OSX_BUILD,
+				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				LIBRARY_SEARCH_PATHS = (
