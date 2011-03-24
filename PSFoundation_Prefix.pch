@@ -1,8 +1,13 @@
 #ifdef __OBJC__
 
 #import <Foundation/Foundation.h>
-#import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
+
+#ifndef AVAILABLE_MAC_OS_X_VERSION_10_5_AND_LATER
+#import <CoreGraphics/CoreGraphics.h>
+#else
+#import <Quartz/Quartz.h>
+#endif
 
 #import "PSCompatibility.h"
 
