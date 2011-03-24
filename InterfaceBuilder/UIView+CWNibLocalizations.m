@@ -34,8 +34,8 @@
 {
 	NSString* oldValue = [self valueForKey:key];
     NSString* newValue = [self localizedValue:oldValue];
-   
- if (oldValue != newValue) {
+
+	if (oldValue != newValue) {
 	    [self setValue:newValue forKey:key];
     }
 }
@@ -54,14 +54,45 @@
     }
 }
 
+-(void)localizeSegmentedControl
+{
+    UISegmentedControl* castSC = (UISegmentedControl*) self;
+    for (int index = 0; index < castSC.numberOfSegments; index++)
+    {
+        NSString* title = [castSC titleForSegmentAtIndex:index];
+        [castSC setTitle:[self localizedValue:title] forSegmentAtIndex:index];
+    }
+}
+
+-(void)localizeTabBar
+{
+    UITabBar* tabBar = (UITabBar*) self;
+
+    NSArray* tabBarItems = tabBar.items;
+    for (UITabBarItem* item in tabBarItems)
+    {
+        NSString* title = item.title;
+        [item setTitle:[self localizedValue:title]];
+    }
+
+}
+
 -(void)awakeFromNib
 {
+    //NSLog("Class: %@", self.name);
 	if ([self respondsToSelector:@selector(text)]) {
         [self localizeValueForKey:@"text"];
     } else if ([self respondsToSelector:@selector(title)]) {
         [self localizeValueForKey:@"title"];
     } else if ([self isKindOfClass:[UIButton class]]) {
     	[self localizeButton];
+    }
+    else if ([self isKindOfClass:[UISegmentedControl class]]) {
+        [self localizeSegmentedControl];
+    }
+    else if ([self isKindOfClass:[UITabBar class]])
+    {
+        [self localizeTabBar];
     }
 
     if ([self respondsToSelector:@selector(placeholder)]) {
