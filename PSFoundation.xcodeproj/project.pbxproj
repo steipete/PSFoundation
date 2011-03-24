@@ -573,13 +573,6 @@
 			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = UIKit;
 		};
-		7806ED191339FD7600273BC6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7806ED0D1339FCD200273BC6 /* UIKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = UIKit;
-		};
 		7885878B133B39E700797FF0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7806ED0D1339FCD200273BC6 /* UIKit.xcodeproj */;
@@ -2080,7 +2073,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				7806ED1A1339FD7600273BC6 /* PBXTargetDependency */,
 			);
 			name = PSFoundation_CoreData;
 			productName = PSCommon_CoreData;
@@ -2495,11 +2487,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7806ED1A1339FD7600273BC6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = UIKit;
-			targetProxy = 7806ED191339FD7600273BC6 /* PBXContainerItemProxy */;
-		};
 		7885878A133B39E700797FF0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = UIKit;
