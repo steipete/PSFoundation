@@ -7,18 +7,21 @@
 //
 
 typedef enum  {
-  UACellBackgroundViewPositionSingle = 0,
-  UACellBackgroundViewPositionTop,
-  UACellBackgroundViewPositionBottom,
-  UACellBackgroundViewPositionMiddle
+	UACellBackgroundViewPositionSingle = 0,
+	UACellBackgroundViewPositionTop,
+	UACellBackgroundViewPositionBottom,
+	UACellBackgroundViewPositionMiddle
 } UACellBackgroundViewPosition;
 
 @interface UACellBackgroundView : UIView {
-  UACellBackgroundViewPosition position;
-  UIImage *backgroundImage;
+	UACellBackgroundViewPosition position;
+	UIImage *backgroundImage;
+	CGFloat colorComponents_[8];
 }
 
 @property(nonatomic) UACellBackgroundViewPosition position;
 @property(nonatomic, retain) UIImage *backgroundImage;
+
+- (void)setColorComponents:(CGFloat *)colorComponents;
 
 @end
