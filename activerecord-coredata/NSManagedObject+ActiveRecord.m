@@ -496,7 +496,7 @@ static NSNumber *defaultBatchSize = nil;
 
 
 + (id)findFirstByUID:(id)searchValue {
-  return [self findFirstByUID:searchValue inContext:[NSManagedObjectContext defaultContext]]; 
+  return [self findFirstByUID:searchValue inContext:[NSManagedObjectContext defaultContext]];
 }
 
 + (id)findFirstByUID:(id)searchValue inContext:(NSManagedObjectContext *)context {
@@ -513,7 +513,7 @@ static NSNumber *defaultBatchSize = nil;
 }
 
 + (id)findFirstByUIDHash:(id)searchValue {
-  return [self findFirstByUID:searchValue inContext:[NSManagedObjectContext defaultContext]]; 
+  return [self findFirstByUID:searchValue inContext:[NSManagedObjectContext defaultContext]];
 }
 
 + (id)findFirstByUIDHash:(id)searchValue inContext:(NSManagedObjectContext *)context {
@@ -683,6 +683,23 @@ static NSNumber *defaultBatchSize = nil;
         [obj deleteInContext:context];
     }
     return YES;
+}
+
++ (BOOL) truncateAllMatchingPredicate:(NSPredicate *)searchTerm
+{
+	NSFetchRequest *request = [self requestAllInContext:context];
+	[request setPredicate:searchTerm];
+	[request setIncludesSubentities:NO];
+	[request setIncludesPropertyValues:NO];
+	[request setFetchBatchSize:[self defaultBatchSize]];
+
+	NSArray *objectsToTrucate = [self executeFetchRequest:request];
+
+	for (id objectToTruncate in objectsToTrucate) {
+		[objectsToTrucate deleteEntity];
+	}
+
+	return YES;
 }
 
 + (BOOL) truncateAll

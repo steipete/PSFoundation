@@ -27,6 +27,7 @@
 - (BOOL) deleteInContext:(NSManagedObjectContext *)context;
 
 + (BOOL) truncateAll;
++ (BOOL) truncateAllMatchingPredicate:(NSPredicate *)searchTerm;
 + (BOOL) truncateAllInContext:(NSManagedObjectContext *)context;
 
 + (NSArray *) ascendingSortDescriptors:(id)attributesToSortBy, ...;
