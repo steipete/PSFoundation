@@ -696,7 +696,7 @@ static NSNumber *defaultBatchSize = nil;
 	NSArray *objectsToTrucate = [self executeFetchRequest:request];
 
 	for (id objectToTruncate in objectsToTrucate) {
-		[objectsToTrucate deleteEntity];
+		[objectToTrucate deleteEntity];
 	}
 
 	return YES;
