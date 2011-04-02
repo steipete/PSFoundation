@@ -693,10 +693,10 @@ static NSNumber *defaultBatchSize = nil;
 	[request setIncludesPropertyValues:NO];
 	[request setFetchBatchSize:[self defaultBatchSize]];
 
-	NSArray *objectsToTrucate = [self executeFetchRequest:request];
+	NSArray *objectsToTruncate = [self executeFetchRequest:request];
 
-	for (id objectToTruncate in objectsToTrucate) {
-		[objectToTrucate deleteEntity];
+	for (id objectToTruncate in objectsToTruncate) {
+		[objectToTruncate deleteEntity];
 	}
 
 	return YES;
