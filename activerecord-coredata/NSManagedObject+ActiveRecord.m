@@ -687,7 +687,7 @@ static NSNumber *defaultBatchSize = nil;
 
 + (BOOL) truncateAllMatchingPredicate:(NSPredicate *)searchTerm
 {
-	NSFetchRequest *request = [self requestAllInContext:context];
+	NSFetchRequest *request = [self requestAll];
 	[request setPredicate:searchTerm];
 	[request setIncludesSubentities:NO];
 	[request setIncludesPropertyValues:NO];
