@@ -8,6 +8,15 @@
 
 @implementation NSString (FlattenHTML)
 
+- (NSString *)ps_flattenHTML; {
+    NSMutableString *mutableString = [NSMutableString stringWithString:self];
+    NSRange r;
+    while ((r = [mutableString rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
+        [mutableString replaceCharactersInRange:r withString:@" "];
+
+    return [[mutableString copy] autorelease];
+}
+
 - (NSString *)removeWhitespace {
   return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }

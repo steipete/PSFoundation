@@ -7,6 +7,7 @@
 // http://stackoverflow.com/questions/277055/remove-html-tags-from-an-nsstring-on-the-iphone
 
 @interface NSString(FlattenHTML)
+- (NSString *)ps_flattenHTML;
 - (NSString *)removeWhitespace;
 - (NSString *)removeAllWhitespaces;
 - (NSString *)replaceAllWhitespacesWithSpace;
