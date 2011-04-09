@@ -15,3 +15,5 @@
 #import "NSManagedObject+AutoDescription.h"
 
 #import "CoreData+ActiveRecordFetching.h"
+
+#import "UIViewController+MTAnimatedFetch.h"

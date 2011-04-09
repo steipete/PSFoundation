@@ -36,6 +36,8 @@
 		39C27C10131469A1000C0C94 /* NSString+Truncation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C27C0E131469A1000C0C94 /* NSString+Truncation.m */; };
 		39D8262F12E364530079B785 /* UIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 39D8262D12E364530079B785 /* UIView+Hierarchy.h */; };
 		39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D8262E12E364530079B785 /* UIView+Hierarchy.m */; };
+		39EBAAB113508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */; };
+		39EBAAC91350913C00BBFB4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39EBAAC81350913C00BBFB4B /* UIKit.framework */; };
 		39EE950112C3ADC900AD953B /* BSUIViewRearranger.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */; };
 		39EE950212C3ADC900AD953B /* BSUIViewRearranger.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE94FE12C3ADC800AD953B /* BSUIViewRearranger.m */; };
 		39EE950312C3ADC900AD953B /* UIView+CWNibLocalizations.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE94FF12C3ADC900AD953B /* UIView+CWNibLocalizations.h */; };
@@ -620,6 +622,9 @@
 		39C27C0E131469A1000C0C94 /* NSString+Truncation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Truncation.m"; path = "Categories/NSString/NSString+Truncation.m"; sourceTree = SOURCE_ROOT; };
 		39D8262D12E364530079B785 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Hierarchy.h"; path = "Categories/UIView/UIView+Hierarchy.h"; sourceTree = SOURCE_ROOT; };
 		39D8262E12E364530079B785 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Hierarchy.m"; path = "Categories/UIView/UIView+Hierarchy.m"; sourceTree = SOURCE_ROOT; };
+		39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MTAnimatedFetch.h"; sourceTree = "<group>"; };
+		39EBAAB013508EE100BBFB4B /* UIViewController+MTAnimatedFetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MTAnimatedFetch.m"; sourceTree = "<group>"; };
+		39EBAAC81350913C00BBFB4B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BSUIViewRearranger.h; path = InterfaceBuilder/BSUIViewRearranger.h; sourceTree = SOURCE_ROOT; };
 		39EE94FE12C3ADC800AD953B /* BSUIViewRearranger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BSUIViewRearranger.m; path = InterfaceBuilder/BSUIViewRearranger.m; sourceTree = SOURCE_ROOT; };
 		39EE94FF12C3ADC900AD953B /* UIView+CWNibLocalizations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+CWNibLocalizations.h"; path = "InterfaceBuilder/UIView+CWNibLocalizations.h"; sourceTree = SOURCE_ROOT; };
@@ -895,6 +900,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7867A4FB126C99EA0012E520 /* CoreData.framework in Frameworks */,
+				39EBAAC91350913C00BBFB4B /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -951,6 +957,7 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
+				39EBAAC81350913C00BBFB4B /* UIKit.framework */,
 			);
 			name = PSCommon;
 			sourceTree = "<group>";
@@ -1044,6 +1051,8 @@
 			children = (
 				3994625E12C925F5005574A6 /* UIViewControllerHelper.h */,
 				3994625F12C925F5005574A6 /* UIViewControllerHelper.m */,
+				39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */,
+				39EBAAB013508EE100BBFB4B /* UIViewController+MTAnimatedFetch.m */,
 			);
 			name = UIViewController;
 			path = Categories/UIViewController;
@@ -1743,6 +1752,7 @@
 				78E5327A126E042100A89047 /* SafeFetchedResultsController.h in Headers */,
 				7837DCDC12A09381005CC81B /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */,
 				7856A32612B43AA30025424F /* PSFoundation_CoreData.h in Headers */,
+				39EBAAB113508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
