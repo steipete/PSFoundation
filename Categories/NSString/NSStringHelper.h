@@ -81,4 +81,6 @@ enum {
 - (NSString *)URLEncodedString;
 - (NSString *)URLDecodedString;
 
+- (NSURL *)ps_URL;
+
 @end

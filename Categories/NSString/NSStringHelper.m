@@ -32,26 +32,26 @@ int const GGCharacterIsNotADigit = 10;
 @implementation NSString (Helper)
 
 - (BOOL)isNotEmpty {
-  return [self length] > 0;
+    return [self length] > 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)isWhitespaceAndNewlines {
-  NSCharacterSet* whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-  for (NSInteger i = 0; i < self.length; ++i) {
-    unichar c = [self characterAtIndex:i];
-    if (![whitespace characterIsMember:c]) {
-      return NO;
+    NSCharacterSet* whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    for (NSInteger i = 0; i < self.length; ++i) {
+        unichar c = [self characterAtIndex:i];
+        if (![whitespace characterIsMember:c]) {
+            return NO;
+        }
     }
-  }
-  return YES;
+    return YES;
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (BOOL)isEmptyOrWhitespace {
-  return !self.length ||
-  ![self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length;
+    return !self.length ||
+    ![self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length;
 }
 
 
@@ -123,8 +123,8 @@ int const GGCharacterIsNotADigit = 10;
 	unsigned char result[16];
 	CC_MD5(string, strlen(string), result);
 	NSString * hash = [NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-												result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7],
-												result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]];
+                       result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7],
+                       result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]];
 
 	return [hash lowercaseString];
 }
@@ -188,29 +188,39 @@ int const GGCharacterIsNotADigit = 10;
 
 // replaces string with new string, returns new var
 - (NSString *)stringByReplacingString:(NSString *)searchString withString:(NSString *)newString {
-  NSMutableString *mutable = [NSMutableString stringWithString:self];
-  [mutable replaceOccurrencesOfString:searchString withString:newString options:NSCaseInsensitiveSearch range:NSMakeRange(0, [self length])];
-  return [NSString stringWithString:mutable];
+    NSMutableString *mutable = [NSMutableString stringWithString:self];
+    [mutable replaceOccurrencesOfString:searchString withString:newString options:NSCaseInsensitiveSearch range:NSMakeRange(0, [self length])];
+    return [NSString stringWithString:mutable];
 }
 
 - (NSString *)URLEncodedString {
-  NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                         (CFStringRef)self,
-                                                                         NULL,
-                                                                         CFSTR("!*'();:@&=+$,/?%#[]<>"),
-                                                                         kCFStringEncodingUTF8);
-  [result autorelease];
-  return result;
+    NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                           (CFStringRef)self,
+                                                                           NULL,
+                                                                           CFSTR("!*'();:@&=+$,/?%#[]<>"),
+                                                                           kCFStringEncodingUTF8);
+    [result autorelease];
+    return result;
 }
 
 - (NSString*)URLDecodedString {
-  NSString *result = (NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
-                                                                                         (CFStringRef)self,
-                                                                                         CFSTR(""),
-                                                                                         kCFStringEncodingUTF8);
-  [result autorelease];
-  return result;
+    NSString *result = (NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
+                                                                                           (CFStringRef)self,
+                                                                                           CFSTR(""),
+                                                                                           kCFStringEncodingUTF8);
+    [result autorelease];
+    return result;
 }
 
+- (NSURL *)ps_URL; {
+    NSURL *url = nil;
+    if ([self hasPrefix:@"http"]) {
+        url = [NSURL URLWithString:self];
+    }else if([self length] > 0) {
+        url = [NSURL fileURLWithPath:self];
+    }
+
+    return url;
+}
 
 @end
