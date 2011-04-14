@@ -16,15 +16,20 @@
 - (BOOL) save;
 - (BOOL) saveOnMainThread;
 - (BOOL) saveOnBackgroundThread;
+- (void) setNotifiesMainContextOnSave:(BOOL)enabled;
 
 + (void) resetDefaultContext;
 + (NSManagedObjectContext *) defaultContext;
 + (void) setDefaultContext:(NSManagedObjectContext *)moc;
++ (void) resetContextForCurrentThread;
 + (NSManagedObjectContext *) contextForCurrentThread;
 
 + (NSManagedObjectContext *) context;
 + (NSManagedObjectContext *) contextThatNotifiesDefaultContextOnMainThread;
++ (NSManagedObjectContext *) contextThatNotifiesDefaultContextOnMainThreadWithCoordinator:(NSPersistentStoreCoordinator *)coordinator;
 + (NSManagedObjectContext *) contextWithStoreCoordinator:(NSPersistentStoreCoordinator *)coordinator;
+
+@property (nonatomic, assign) BOOL notifiesMainContextOnSave;
 
 - (void)logDetailedError:(NSError *)error from:(id)caller selector:(SEL)selector;
 - (void)logContextChanges;

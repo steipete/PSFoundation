@@ -14,7 +14,7 @@
 #ifdef NS_BLOCKS_AVAILABLE
 
 @class NSManagedObjectContext;
-typedef void (^CoreDataBlock)(NSManagedObjectContext *);
+typedef void (^CoreDataBlock)(NSManagedObjectContext *context);
 
 #endif
 
@@ -38,6 +38,7 @@ typedef void (^CoreDataBlock)(NSManagedObjectContext *);
 
 + (void) performSaveDataOperationWithBlock:(CoreDataBlock)block;
 + (void) performSaveDataOperationInBackgroundWithBlock:(CoreDataBlock)block;
++ (void) performSaveDataOperationInBackgroundWithBlock:(CoreDataBlock)block completion:(void(^)(void))callback;
 
 #endif
 

@@ -13,6 +13,9 @@
 
 + (void) handleErrors:(NSError *)error;
 
++ (NSUInteger) defaultBatchSize;
++ (void) setDefaultBatchSize:(NSUInteger)newBatchSize;
+
 + (NSArray *) executeFetchRequest:(NSFetchRequest *)request;
 + (NSArray *) executeFetchRequest:(NSFetchRequest *)request inContext:(NSManagedObjectContext *)context;
 + (NSFetchRequest *)createFetchRequest;
@@ -37,6 +40,8 @@
 + (NSNumber *) numberOfEntitiesWithContext:(NSManagedObjectContext *)context;
 + (NSNumber *) numberOfEntitiesWithPredicate:(NSPredicate *)searchTerm;
 + (NSNumber *) numberOfEntitiesWithPredicate:(NSPredicate *)searchTerm inContext:(NSManagedObjectContext *)context;
++ (NSNumber *) numberOfUniqueEntitiesWithPredicate:(NSPredicate *)searchTerm;
++ (NSNumber *) numberOfUniqueEntitiesWithPredicate:(NSPredicate *)searchTerm inContext:(NSManagedObjectContext *)context;
 
 + (BOOL) hasAtLeastOneEntity;
 + (BOOL) hasAtLeastOneEntityInContext:(NSManagedObjectContext *)context;
@@ -96,6 +101,9 @@
 + (NSArray *)findByAttribute:(NSString *)attribute withValue:(id)searchValue inContext:(NSManagedObjectContext *)context;
 + (NSArray *)findByAttribute:(NSString *)attribute withValue:(id)searchValue andOrderBy:(NSString *)sortTerm ascending:(BOOL)ascending;
 + (NSArray *)findByAttribute:(NSString *)attribute withValue:(id)searchValue andOrderBy:(NSString *)sortTerm ascending:(BOOL)ascending inContext:(NSManagedObjectContext *)context;
+
+- (id) inContext:(NSManagedObjectContext*)context;
+- (id) inThreadContext;
 
 #if TARGET_OS_IPHONE
 

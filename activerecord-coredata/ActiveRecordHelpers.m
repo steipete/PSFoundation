@@ -45,8 +45,7 @@
 			}
 			else
 			{
-        NSLog(@"Error: %@", detailedError);
-				//DDLogWarn(@"Error: %@", detailedError);
+                DDLogError(@"Error: %@", detailedError);
 			}
 		}
 		DDLogError(@"Error Domain: %@", [error domain]);
@@ -101,8 +100,15 @@
 
 + (void) performSaveDataOperationWithBlock:(CoreDataBlock)block
 {
-    NSManagedObjectContext *localContext = [NSManagedObjectContext contextThatNotifiesDefaultContextOnMainThread];
-    [localContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
+    NSManagedObjectContext *mainContext  = [NSManagedObjectContext defaultContext];
+    NSManagedObjectContext *localContext = mainContext;
+
+    if (![NSThread isMainThread])
+    {
+        localContext = [NSManagedObjectContext contextThatNotifiesDefaultContextOnMainThread];
+        [mainContext setMergePolicy:NSMergeByPropertyStoreTrumpMergePolicy];
+        [localContext setMergePolicy:NSOverwriteMergePolicy];
+    }
 
     block(localContext);
 
@@ -110,19 +116,37 @@
     {
         [localContext save];
     }
-    [[NSManagedObjectContext defaultContext] stopObservingContext:localContext];
+
+    localContext.notifiesMainContextOnSave = NO;
+    [mainContext setMergePolicy:NSMergeByPropertyObjectTrumpMergePolicy];
 }
 
 + (void) performSaveDataOperationInBackgroundWithBlock:(CoreDataBlock)block
 {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
-        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+        [self performSaveDataOperationWithBlock:block];
+    });
+}
 
++ (void) performSaveDataOperationInBackgroundWithBlock:(CoreDataBlock)block completion:(void(^)(void))callback
+{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
         [self performSaveDataOperationWithBlock:block];
 
-        [pool drain];
+        if (callback)
+        {
+            dispatch_async(dispatch_get_main_queue(), callback);
+        }
     });
+}
+
++ (void) performLookupOperationWithBlock:(CoreDataBlock)block
+{
+    NSManagedObjectContext *context = [NSManagedObjectContext contextForCurrentThread];
+
+    block(context);
 }
 
 #endif

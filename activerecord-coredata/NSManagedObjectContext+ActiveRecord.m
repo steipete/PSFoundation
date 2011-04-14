@@ -8,6 +8,7 @@
 #import "NSManagedObject+ActiveRecord.h"
 #import "NSManagedObjectContext+ActiveRecord.h"
 #import "NSPersistentStoreCoordinator+ActiveRecord.h"
+#import <objc/runtime.h>
 
 static NSManagedObjectContext *defaultManageObjectContext = nil;
 
@@ -56,6 +57,11 @@ static NSManagedObjectContext *defaultManageObjectContext = nil;
     }
     return threadContext;
   }
+}
+
++ (void) resetContextForCurrentThread
+{
+    [[NSManagedObjectContext contextForCurrentThread] reset];
 }
 
 - (void) observeContext:(NSManagedObjectContext *)otherContext
@@ -145,29 +151,55 @@ static NSManagedObjectContext *defaultManageObjectContext = nil;
   return YES;
 }
 
+- (BOOL) notifiesMainContextOnSave
+{
+    NSNumber *notifies = objc_getAssociatedObject(self, @"notifiesMainContext");
+    return notifies ? [notifies boolValue] : NO;
+}
+
+- (void) setNotifiesMainContextOnSave:(BOOL)enabled
+{
+    NSManagedObjectContext *mainContext = [[self class] defaultContext];
+    if (self != mainContext)
+    {
+        SEL selector = enabled ? @selector(observeContextOnMainThread:) : @selector(stopObservingContext:);
+        objc_setAssociatedObject(self, @"notifiesMainContext", [NSNumber numberWithBool:enabled], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [mainContext performSelector:selector withObject:self];
+    }
+}
+
 + (NSManagedObjectContext *) contextWithStoreCoordinator:(NSPersistentStoreCoordinator *)coordinator
 {
-  NSManagedObjectContext *context = nil;
-  if (coordinator != nil)
-  {
-    context = [[NSManagedObjectContext alloc] init];
-    [context setPersistentStoreCoordinator:coordinator];
-    [context setUndoManager:nil];
-  }
-  return [context autorelease];
+	NSManagedObjectContext *context = nil;
+    if (coordinator != nil)
+	{
+        DDLogInfo(@"Creating MOContext %@", [NSThread isMainThread] ? @" *** On Main Thread ***" : @"");
+        context = [[NSManagedObjectContext alloc] init];
+        [context setPersistentStoreCoordinator:coordinator];
+    }
+    return [context autorelease];
+}
+
++ (NSManagedObjectContext *) contextThatNotifiesDefaultContextOnMainThreadWithCoordinator:(NSPersistentStoreCoordinator *)coordinator;
+{
+    NSManagedObjectContext *context = [self contextWithStoreCoordinator:coordinator];
+    //    [[self defaultContext] observeContext:context];
+    context.notifiesMainContextOnSave = YES;
+    return context;
 }
 
 + (NSManagedObjectContext *) context
 {
-  return [self contextWithStoreCoordinator:[NSPersistentStoreCoordinator defaultStoreCoordinator]];
+	return [self contextWithStoreCoordinator:[NSPersistentStoreCoordinator defaultStoreCoordinator]];
 }
 
 + (NSManagedObjectContext *) contextThatNotifiesDefaultContextOnMainThread
 {
-  NSManagedObjectContext *context = [self context];
-  [[self defaultContext] observeContextOnMainThread:context];
-  return context;
+    NSManagedObjectContext *context = [self context];
+    context.notifiesMainContextOnSave = YES;
+    return context;
 }
+
 
 - (void)logDetailedError:(NSError *)error from:(id)caller selector:(SEL)selector
 {
