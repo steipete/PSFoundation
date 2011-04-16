@@ -24,7 +24,11 @@
 #pragma mark Private
 
 - (void)keyboardChanged:(NSNotification *)notification up:(BOOL)up {
-
+    // don't move if search display controller is active
+    if (self.searchDisplayController.active) {
+        return;
+    }
+    
     // if we are in a popover, don't change the size. popover manages this for us
     // http://stackoverflow.com/questions/4191840/determine-if-a-view-is-inside-of-a-popover-view
     // I *guess* this is appstore-safe, we'll see on the next submission
