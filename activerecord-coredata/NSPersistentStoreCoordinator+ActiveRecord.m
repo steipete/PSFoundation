@@ -43,7 +43,7 @@ static NSPersistentStoreCoordinator *defaultCoordinator = nil;
   {
     [ActiveRecordHelpers handleErrors:error];
     if(![[NSFileManager defaultManager] removeItemAtPath:[NSPersistentStore stringForStoreName:storeFileName] error:&error]) {
-      DDLogInfo(@"Deleting the store at url %@ failed: %@", storeFileName, error);
+      DDLogError(@"Deleting the store at url %@ failed: %@", storeFileName, error);
     }else {
       // try once again!
       store = [self addPersistentStoreWithType:NSSQLiteStoreType
@@ -59,6 +59,20 @@ static NSPersistentStoreCoordinator *defaultCoordinator = nil;
   }
   [NSPersistentStore setDetaultPersistentStore:store];
 }
+
++ (NSError *)removeDefaultStoreFile; {
+    return [self removeStoreFile:kActiveRecordDefaultStoreFileName];
+}
+
++ (NSError *)removeStoreFile:(NSString *)storeFileName; {
+    NSError *error = nil;
+    if(![[NSFileManager defaultManager] removeItemAtPath:[NSPersistentStore stringForStoreName:storeFileName] error:&error]) {
+        DDLogError(@"Deleting the store at url %@ failed: %@", storeFileName, error);
+        return error;
+    }
+    return nil;
+}
+
 
 - (void) setupAutoMigratingSqliteStoreNamed:(NSString *) storeFileName
 {

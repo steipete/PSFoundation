@@ -100,6 +100,7 @@
 		7856A32812B43AAB0025424F /* PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7856A32712B43AAB0025424F /* PSFoundation.h */; };
 		7856A32A12B43AB40025424F /* PSFoundation_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 7856A32912B43AB40025424F /* PSFoundation_Prefix.pch */; };
 		7867A4FB126C99EA0012E520 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7867A4FA126C99EA0012E520 /* CoreData.framework */; };
+		7867B87213599669008A7644 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7867B87113599669008A7644 /* UIKit.framework */; };
 		7875132012BE992700BC60D0 /* MACollectionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875131E12BE992700BC60D0 /* MACollectionUtilities.h */; };
 		7875132112BE992700BC60D0 /* MACollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875131F12BE992700BC60D0 /* MACollectionUtilities.m */; };
 		7881282912E6EBE300623BCB /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 7881282712E6EBE300623BCB /* NSTimer+Blocks.h */; };
@@ -689,6 +690,7 @@
 		7856A32912B43AB40025424F /* PSFoundation_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		7867A4E5126C98C70012E520 /* libPSFoundation_CoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation_CoreData.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7867A4FA126C99EA0012E520 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7867B87113599669008A7644 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		78692099126B4195000259AC /* TPAutoArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPAutoArchiver.h; path = Archiving/TPAutoArchiver.h; sourceTree = SOURCE_ROOT; };
 		7869209A126B4195000259AC /* TPAutoArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPAutoArchiver.m; path = Archiving/TPAutoArchiver.m; sourceTree = SOURCE_ROOT; };
 		7869211F126B4195000259AC /* DSActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActivityView.h; path = HUD/DSActivityView.h; sourceTree = SOURCE_ROOT; };
@@ -899,8 +901,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7867A4FB126C99EA0012E520 /* CoreData.framework in Frameworks */,
 				39EBAAC91350913C00BBFB4B /* UIKit.framework in Frameworks */,
+				7867A4FB126C99EA0012E520 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,6 +929,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7867B87213599669008A7644 /* UIKit.framework in Frameworks */,
 				788E1F30126C95B1009801E5 /* Foundation.framework in Frameworks */,
 				788E1F32126C95B1009801E5 /* libxml2.2.7.3.dylib in Frameworks */,
 				3936595A12C7F3AE001D4D53 /* AudioToolbox.framework in Frameworks */,
@@ -952,6 +955,7 @@
 		0867D691FE84028FC02AAC07 /* PSCommon */ = {
 			isa = PBXGroup;
 			children = (
+				7867B87113599669008A7644 /* UIKit.framework */,
 				78BCBB6012B536E50093AE0C /* README.mdown */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -2515,6 +2519,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "../**";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
@@ -2532,6 +2537,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "../**";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
@@ -2593,6 +2599,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "../**";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
@@ -2889,6 +2896,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "../**";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
