@@ -2145,6 +2145,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0410;
 				ORGANIZATIONNAME = "Peter Steinberger";
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "PSFoundation" */;
@@ -2521,7 +2522,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2539,7 +2539,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -2551,7 +2550,6 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				PREBINDING = NO;
 				PRODUCT_NAME = PSFoundation_CoreLocation;
 			};
 			name = Debug;
@@ -2562,8 +2560,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PREBINDING = NO;
 				PRODUCT_NAME = PSFoundation_CoreLocation;
 				ZERO_LINK = NO;
 			};
@@ -2573,7 +2569,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				PREBINDING = NO;
 				PRODUCT_NAME = PSFoundation_CoreLocation;
 			};
 			name = Distribution;
@@ -2582,7 +2577,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				PREBINDING = NO;
 				PRODUCT_NAME = PSFoundation_CoreLocation;
 			};
 			name = AppStore;
@@ -2601,7 +2595,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = AppStore;
@@ -2612,7 +2605,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
-				PREBINDING = NO;
 				PRODUCT_NAME = PSFoundation_CoreData;
 			};
 			name = AppStore;
@@ -2645,7 +2637,6 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
-				PREBINDING = NO;
 				PRODUCT_NAME = PSFoundation_CoreData;
 			};
 			name = Debug;
@@ -2656,10 +2647,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
-				PREBINDING = NO;
 				PRODUCT_NAME = PSFoundation_CoreData;
 				ZERO_LINK = NO;
 			};
@@ -2671,7 +2660,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
-				PREBINDING = NO;
 				PRODUCT_NAME = PSFoundation_CoreData;
 			};
 			name = Distribution;
@@ -2683,7 +2671,6 @@
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/PSFoundation.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2774,7 +2761,6 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
-				PREBINDING = NO;
 				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 			};
@@ -2787,10 +2773,8 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
-				PREBINDING = NO;
 				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 				ZERO_LINK = NO;
@@ -2804,7 +2788,6 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
-				PREBINDING = NO;
 				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 			};
@@ -2817,7 +2800,6 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
-				PREBINDING = NO;
 				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 			};
@@ -2830,7 +2812,6 @@
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/PSFoundation.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2898,7 +2879,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Distribution;
