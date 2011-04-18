@@ -33,31 +33,34 @@ static NSPersistentStoreCoordinator *defaultCoordinator = nil;
 
 - (void) setupSqliteStoreNamed:(NSString *)storeFileName withOptions:(NSDictionary *)options
 {
-  NSError *error = nil;
-  NSPersistentStore *store = [self addPersistentStoreWithType:NSSQLiteStoreType
-                                                configuration:nil
-                                                          URL:[NSPersistentStore urlForStoreName:storeFileName]
-                                                      options:options
-                                                        error:&error];
-  if (!store)
-  {
-    [ActiveRecordHelpers handleErrors:error];
-    if(![[NSFileManager defaultManager] removeItemAtPath:[NSPersistentStore stringForStoreName:storeFileName] error:&error]) {
-      DDLogError(@"Deleting the store at url %@ failed: %@", storeFileName, error);
-    }else {
-      // try once again!
-      store = [self addPersistentStoreWithType:NSSQLiteStoreType
-                                 configuration:nil
-                                           URL:[NSPersistentStore urlForStoreName:storeFileName]
-                                       options:options
-                                         error:&error];
-      if (!store)
-      {
-        DDLogError(@"Error: Can't even recreate the persistent store.");
-      }
+    NSError *error = nil;
+    NSURL *urlForStore = [NSPersistentStore urlForStoreName:storeFileName];
+    DDLogInfo(@"storeUrl: %@", urlForStore);
+    
+    NSPersistentStore *store = [self addPersistentStoreWithType:NSSQLiteStoreType
+                                                  configuration:nil
+                                                            URL:urlForStore
+                                                        options:options
+                                                          error:&error];
+    if (!store)
+    {
+        [ActiveRecordHelpers handleErrors:error];
+        if(![[NSFileManager defaultManager] removeItemAtPath:[NSPersistentStore stringForStoreName:storeFileName] error:&error]) {
+            DDLogError(@"Deleting the store at url %@ failed: %@", storeFileName, error);
+        }else {
+            // try once again!
+            store = [self addPersistentStoreWithType:NSSQLiteStoreType
+                                       configuration:nil
+                                                 URL:[NSPersistentStore urlForStoreName:storeFileName]
+                                             options:options
+                                               error:&error];
+            if (!store)
+            {
+                DDLogError(@"Error: Can't even recreate the persistent store.");
+            }
+        }
     }
-  }
-  [NSPersistentStore setDetaultPersistentStore:store];
+    [NSPersistentStore setDetaultPersistentStore:store];
 }
 
 + (NSError *)removeDefaultStoreFile; {
@@ -76,21 +79,21 @@ static NSPersistentStoreCoordinator *defaultCoordinator = nil;
 
 - (void) setupAutoMigratingSqliteStoreNamed:(NSString *) storeFileName
 {
-  NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                           [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
-                           [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
-                           nil];
-  
-  [self setupSqliteStoreNamed:storeFileName withOptions:options];
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+                             [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption,
+                             nil];
+    
+    [self setupSqliteStoreNamed:storeFileName withOptions:options];
 }
 
 + (NSPersistentStoreCoordinator *) coordinatorWithSqliteStoreNamed:(NSString *)storeFileName
 {
     NSManagedObjectModel *model = [NSManagedObjectModel defaultManagedObjectModel];
     NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-
+    
     [psc setupAutoMigratingSqliteStoreNamed:storeFileName];
-
+    
     return [psc autorelease];
 }
 
@@ -98,9 +101,9 @@ static NSPersistentStoreCoordinator *defaultCoordinator = nil;
 {
     NSManagedObjectModel *model = [NSManagedObjectModel defaultManagedObjectModel];
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-
+    
     [coordinator setupAutoMigratingSqliteStoreNamed:storeFileName];
-
+    
     //HACK: lame solution to fix automigration error "Migration failed after first pass"
     if ([[coordinator persistentStores] count] == 0)
     {
@@ -113,7 +116,7 @@ static NSPersistentStoreCoordinator *defaultCoordinator = nil;
 {
 	NSManagedObjectModel *model = [NSManagedObjectModel defaultManagedObjectModel];
 	NSPersistentStoreCoordinator *psc = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-
+    
     [NSPersistentStore setDetaultPersistentStore:[psc addInMemoryStore]];
 	return [psc autorelease];
 }
@@ -122,10 +125,10 @@ static NSPersistentStoreCoordinator *defaultCoordinator = nil;
 {
     NSError *error = nil;
     NSPersistentStore *store = [self addPersistentStoreWithType:NSInMemoryStoreType
-                                                         configuration:nil
-                                                                   URL:nil
-                                                               options:nil
-                                                                 error:&error];
+                                                  configuration:nil
+                                                            URL:nil
+                                                        options:nil
+                                                          error:&error];
     if (!store)
     {
         [ActiveRecordHelpers handleErrors:error];
