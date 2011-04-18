@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
-
 @interface NSMutableArray (MTShuffle)
 - (void)shuffle;
 @end
