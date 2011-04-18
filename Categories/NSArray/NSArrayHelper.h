@@ -27,7 +27,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSArray (Helper)
+@interface NSArray (PSHelper)
 
 /*
  * Returns an array with A-Z and # to be used as section titles
@@ -43,5 +43,11 @@
  * Checks to see if the array is empty
  */
 @property(nonatomic,readonly,getter=isEmpty) BOOL empty;
+
+@end
+
+@interface NSMutableArray (PSHelper)
+
+-(void)moveObjectAtIndex:(NSUInteger)oldIndex toIndex:(NSUInteger)newIndex;
 
 @end

@@ -52,3 +52,26 @@
 }
 
 @end
+
+
+@implementation NSMutableArray (PSHelper)
+
+- (void)moveObjectAtIndex:(NSUInteger)oldIndex toIndex:(NSUInteger)newIndex {
+	if (oldIndex == newIndex)
+		return;
+    
+	id item = [self objectAtIndex:oldIndex];
+    
+	if (newIndex == [self count]) {
+		[self addObject:item];
+		[self removeObjectAtIndex:oldIndex];
+	}
+	else {
+		[item retain];
+		[self removeObjectAtIndex:oldIndex];
+		[self insertObject:item atIndex:newIndex];
+		[item release];
+	}
+}
+
+@end
