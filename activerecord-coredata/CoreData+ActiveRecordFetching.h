@@ -5,3 +5,4 @@
 #import "NSPersistentStoreCoordinator+ActiveRecord.h"
 #import "NSManagedObjectModel+ActiveRecord.h"
 #import "NSPersistentStore+ActiveRecord.h"
+#import "NSFetchedResultsController+ActiveRecord.h"
