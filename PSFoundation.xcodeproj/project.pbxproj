@@ -58,6 +58,8 @@
 		39FAFC88132FA7D100F039C4 /* UIImage+MTTiling.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FAFC86132FA7D100F039C4 /* UIImage+MTTiling.m */; };
 		780CBDA51326759100F22032 /* NSData+RSHexDump.h in Headers */ = {isa = PBXBuildFile; fileRef = 780CBDA31326759100F22032 /* NSData+RSHexDump.h */; };
 		780CBDA61326759100F22032 /* NSData+RSHexDump.m in Sources */ = {isa = PBXBuildFile; fileRef = 780CBDA41326759100F22032 /* NSData+RSHexDump.m */; };
+		7816DC69135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 7816DC67135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.h */; };
+		7816DC6A135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 7816DC68135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.m */; };
 		782AC0BA1281864800806121 /* MANotificationCenterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 782AC0B01281864800806121 /* MANotificationCenterAdditions.h */; };
 		782AC0BB1281864800806121 /* MANotificationCenterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 782AC0B11281864800806121 /* MANotificationCenterAdditions.m */; };
 		782AC0BC1281864800806121 /* MAWeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 782AC0B21281864800806121 /* MAWeakArray.h */; };
@@ -647,6 +649,8 @@
 		7806ED0D1339FCD200273BC6 /* UIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UIKit.xcodeproj; path = /Users/steipete/Desktop/PlanetRomeo/PlanetRomeo/../Chameleon/UIKit/UIKit.xcodeproj; sourceTree = "<absolute>"; };
 		780CBDA31326759100F22032 /* NSData+RSHexDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+RSHexDump.h"; path = "Categories/NSData/NSData+RSHexDump.h"; sourceTree = SOURCE_ROOT; };
 		780CBDA41326759100F22032 /* NSData+RSHexDump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+RSHexDump.m"; path = "Categories/NSData/NSData+RSHexDump.m"; sourceTree = SOURCE_ROOT; };
+		7816DC67135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchedResultsController+ActiveRecord.h"; sourceTree = "<group>"; };
+		7816DC68135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFetchedResultsController+ActiveRecord.m"; sourceTree = "<group>"; };
 		782AC0B01281864800806121 /* MANotificationCenterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MANotificationCenterAdditions.h; path = ZeroWeakReferences/MANotificationCenterAdditions.h; sourceTree = SOURCE_ROOT; };
 		782AC0B11281864800806121 /* MANotificationCenterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MANotificationCenterAdditions.m; path = ZeroWeakReferences/MANotificationCenterAdditions.m; sourceTree = SOURCE_ROOT; };
 		782AC0B21281864800806121 /* MAWeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAWeakArray.h; path = ZeroWeakReferences/MAWeakArray.h; sourceTree = SOURCE_ROOT; };
@@ -1289,6 +1293,8 @@
 				78DF3BDE126CC484008F05B9 /* NSPersistentStore+ActiveRecord.m */,
 				78DF3BDF126CC484008F05B9 /* NSPersistentStoreCoordinator+ActiveRecord.h */,
 				78DF3BE0126CC484008F05B9 /* NSPersistentStoreCoordinator+ActiveRecord.m */,
+				7816DC67135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.h */,
+				7816DC68135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.m */,
 			);
 			name = "ActiveRecord-CoreData";
 			path = "activerecord-coredata";
@@ -1757,6 +1763,7 @@
 				7837DCDC12A09381005CC81B /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */,
 				7856A32612B43AA30025424F /* PSFoundation_CoreData.h in Headers */,
 				39EBAAB113508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h in Headers */,
+				7816DC69135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2211,6 +2218,7 @@
 				78DF3BEE126CC484008F05B9 /* NSPersistentStoreCoordinator+ActiveRecord.m in Sources */,
 				78E5327B126E042100A89047 /* SafeFetchedResultsController.m in Sources */,
 				7837DCDD12A09381005CC81B /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
+				7816DC6A135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2523,6 +2531,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -2540,6 +2549,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -2596,6 +2606,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = AppStore;
 		};
@@ -2880,6 +2891,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Distribution;
 		};
