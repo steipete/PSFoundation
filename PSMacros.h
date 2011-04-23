@@ -261,3 +261,17 @@ NSObject* __UKHELPERMACRO_OLDTARG = (NSObject*)(targ);\
 } while(0)
 
 #define PS_NOT_IMPLEMENTED DDLogError(@"Not yet implemented: %@", _cmd);
+
+// spapper
+
+#define swap(a,b) {  \
+int c = (a);         \
+(a) = (b);           \
+(b) = c;             \
+}
+
+#define swapf(a,b) { \
+float c = (a);       \
+(a) = (b);           \
+(b) = c;             \
+}
