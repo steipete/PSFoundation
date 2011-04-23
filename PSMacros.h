@@ -264,13 +264,13 @@ NSObject* __UKHELPERMACRO_OLDTARG = (NSObject*)(targ);\
 
 // spapper
 
-#define swap(a,b) {  \
+#define ps_swap(a,b) {  \
 int c = (a);         \
 (a) = (b);           \
 (b) = c;             \
 }
 
-#define swapf(a,b) { \
+#define ps_swapf(a,b) { \
 float c = (a);       \
 (a) = (b);           \
 (b) = c;             \

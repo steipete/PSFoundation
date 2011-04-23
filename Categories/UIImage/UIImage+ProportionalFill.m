@@ -39,8 +39,8 @@ CGFloat RadiansToDegrees(CGFloat radians) {
         case UIImageOrientationRight:   // button bottom
         case UIImageOrientationLeftMirrored:
         case UIImageOrientationRightMirrored: { 
-            swapf(sourceWidth, sourceHeight);
-            swapf(targetWidth, targetHeight);
+            ps_swapf(sourceWidth, sourceHeight);
+            ps_swapf(targetWidth, targetHeight);
         }break;
             
         case UIImageOrientationUp:     // button left
