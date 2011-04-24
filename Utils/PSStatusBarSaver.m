@@ -13,7 +13,7 @@
 
 @synthesize savedStatusBarStyle = savedStatusBarStyle_;
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(PSStatusBarSaver);
+SYNTHESIZE_LESSER_SINGLETON_FOR_CLASS(PSStatusBarSaver);
 
 
 // - (id)init
@@ -43,7 +43,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSStatusBarSaver);
 
 + (void)captureStatusBar {
   UIStatusBarStyle savedStyle = [UIApplication sharedApplication].statusBarStyle;
-  [self sharedPSStatusBarSaver].savedStatusBarStyle = savedStyle;
+  [self sharedInstance].savedStatusBarStyle = savedStyle;
 }
 
 + (void)restoreStatusBar {
@@ -51,7 +51,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSStatusBarSaver);
 }
 
 + (void)restoreStatusBarAnimated:(BOOL)animated {
-  UIStatusBarStyle restoreStyle = [self sharedPSStatusBarSaver].savedStatusBarStyle;
+  UIStatusBarStyle restoreStyle = [self sharedInstance].savedStatusBarStyle;
   [[UIApplication sharedApplication] setStatusBarStyle:restoreStyle animated:animated];
 }
 
