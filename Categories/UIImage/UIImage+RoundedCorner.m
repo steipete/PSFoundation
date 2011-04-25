@@ -20,6 +20,9 @@
 // Original author: Björn Sållarp. Used with permission. See: http://blog.sallarp.com/iphone-uiimage-round-corners/
 - (UIImage *)roundedCornerImage:(NSInteger)cornerSize borderSize:(NSInteger)borderSize {
   // If the image does not have an alpha layer, add one
+    
+    // adapt to scale
+    cornerSize *= self.scale;
 
 	UIImage *roundedImage = nil;
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
