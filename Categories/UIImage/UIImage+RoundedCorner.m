@@ -22,7 +22,7 @@
     // If the image does not have an alpha layer, add one
     
     // adapt to scale
-    cornerSize *= self.scale;
+    //cornerSize *= self.scale;
     
 	UIImage *roundedImage = nil;
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0); // 0.0 for scale means "correct scale for device's main screen".
