@@ -21,36 +21,44 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 NSString* MTDeviceSpecificImageName(NSString *imageName) {
-	// seperate extension from imageName
+	return MTDeviceSpecificImageNameWithAppendix(imageName, kIPadAppendix);
+}
+
+NSString* MTDeviceSpecificImageNameWithAppendix(NSString *imageName, NSString *appendix) {
+    // seperate extension from imageName
 	NSArray *parts = [imageName componentsSeparatedByString:@"."];
 	// when on iPad, append "-iPad"
-	NSString *iPadAppendix = isIPad() ? kIPadAppendix : @"";
-
+	NSString *iPadAppendix = isIPad() ? appendix : @"";
+    
 	if (parts.count == 2) {
 		return [NSString stringWithFormat:@"%@%@.%@", [parts objectAtIndex:0], iPadAppendix, [parts objectAtIndex:1]];
 	} else if (parts.count == 1) {
 		// append .png per default
 		return [NSString stringWithFormat:@"%@%@.png", [parts objectAtIndex:0], iPadAppendix];
 	}
-
+    
 	return nil;
 }
 
 NSString* MTDeviceSpecificImageNameForOrientation(NSString *imageName, UIInterfaceOrientation orientation) {
-	// seperate extension from imageName
+	return MTDeviceSpecificImageNameForOrientationWithAppendix(imageName, orientation, kIPadAppendix);
+}
+
+NSString* MTDeviceSpecificImageNameForOrientationWithAppendix(NSString *imageName, UIInterfaceOrientation orientation, NSString *appendix) {
+    // seperate extension from imageName
 	NSArray *parts = [imageName componentsSeparatedByString:@"."];
 	// when on iPad, append "-iPad"
-	NSString *iPadAppendix = isIPad() ? kIPadAppendix : @"";
+	NSString *iPadAppendix = isIPad() ? appendix : @"";
 	// when on iPad and orientation is Landscape, append "-iPad-L"
 	NSString *orientationAppendix = isIPad() && UIInterfaceOrientationIsLandscape(orientation) ? kIPadLandscapeAppendix : @"";
-
+    
 	if (parts.count == 2) {
 		return [NSString stringWithFormat:@"%@%@%@.%@", [parts objectAtIndex:0], iPadAppendix, orientationAppendix, [parts objectAtIndex:1]];
 	} else if (parts.count == 1) {
 		// append .png per default
 		return [NSString stringWithFormat:@"%@%@%@.png", [parts objectAtIndex:0], iPadAppendix, orientationAppendix];
 	}
-
+    
 	return nil;
 }
 
