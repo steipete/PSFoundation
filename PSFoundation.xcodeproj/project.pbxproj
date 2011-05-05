@@ -38,8 +38,6 @@
 		39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D8262E12E364530079B785 /* UIView+Hierarchy.m */; };
 		39EBAAB113508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */; };
 		39EBAAC91350913C00BBFB4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39EBAAC81350913C00BBFB4B /* UIKit.framework */; };
-		39EE4115136ABFE300ABE900 /* JMWhenTappedBlockKeeper.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE4111136ABFE300ABE900 /* JMWhenTappedBlockKeeper.h */; };
-		39EE4116136ABFE300ABE900 /* JMWhenTappedBlockKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE4112136ABFE300ABE900 /* JMWhenTappedBlockKeeper.m */; };
 		39EE4117136ABFE300ABE900 /* UIView+WhenTappedBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE4113136ABFE300ABE900 /* UIView+WhenTappedBlocks.h */; };
 		39EE4118136ABFE300ABE900 /* UIView+WhenTappedBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE4114136ABFE300ABE900 /* UIView+WhenTappedBlocks.m */; };
 		39EE950112C3ADC900AD953B /* BSUIViewRearranger.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */; };
@@ -632,8 +630,6 @@
 		39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MTAnimatedFetch.h"; sourceTree = "<group>"; };
 		39EBAAB013508EE100BBFB4B /* UIViewController+MTAnimatedFetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MTAnimatedFetch.m"; sourceTree = "<group>"; };
 		39EBAAC81350913C00BBFB4B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		39EE4111136ABFE300ABE900 /* JMWhenTappedBlockKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMWhenTappedBlockKeeper.h; sourceTree = "<group>"; };
-		39EE4112136ABFE300ABE900 /* JMWhenTappedBlockKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMWhenTappedBlockKeeper.m; sourceTree = "<group>"; };
 		39EE4113136ABFE300ABE900 /* UIView+WhenTappedBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WhenTappedBlocks.h"; sourceTree = "<group>"; };
 		39EE4114136ABFE300ABE900 /* UIView+WhenTappedBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WhenTappedBlocks.m"; sourceTree = "<group>"; };
 		39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BSUIViewRearranger.h; path = InterfaceBuilder/BSUIViewRearranger.h; sourceTree = SOURCE_ROOT; };
@@ -1086,8 +1082,6 @@
 		39EE410F136ABFC800ABE900 /* JMWhenTapped */ = {
 			isa = PBXGroup;
 			children = (
-				39EE4111136ABFE300ABE900 /* JMWhenTappedBlockKeeper.h */,
-				39EE4112136ABFE300ABE900 /* JMWhenTappedBlockKeeper.m */,
 				39EE4113136ABFE300ABE900 /* UIView+WhenTappedBlocks.h */,
 				39EE4114136ABFE300ABE900 /* UIView+WhenTappedBlocks.m */,
 			);
@@ -2073,7 +2067,6 @@
 				780CBDA51326759100F22032 /* NSData+RSHexDump.h in Headers */,
 				3934261A1328CCE5001427E1 /* DTCustomColoredAccessory.h in Headers */,
 				39FAFC87132FA7D100F039C4 /* UIImage+MTTiling.h in Headers */,
-				39EE4115136ABFE300ABE900 /* JMWhenTappedBlockKeeper.h in Headers */,
 				39EE4117136ABFE300ABE900 /* UIView+WhenTappedBlocks.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2517,7 +2510,6 @@
 				780CBDA61326759100F22032 /* NSData+RSHexDump.m in Sources */,
 				3934261B1328CCE5001427E1 /* DTCustomColoredAccessory.m in Sources */,
 				39FAFC88132FA7D100F039C4 /* UIImage+MTTiling.m in Sources */,
-				39EE4116136ABFE300ABE900 /* JMWhenTappedBlockKeeper.m in Sources */,
 				39EE4118136ABFE300ABE900 /* UIView+WhenTappedBlocks.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
