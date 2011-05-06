@@ -48,6 +48,7 @@
 
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
+#include <netinet/in.h>
 
 typedef enum {
 	NotReachable = 0,
