@@ -15,6 +15,7 @@
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(PSStatusBarSaver);
 
+
 // - (id)init
 //
 - (id)init {
