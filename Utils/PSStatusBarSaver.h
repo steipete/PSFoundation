@@ -11,8 +11,6 @@
   UIStatusBarStyle savedStatusBarStyle_;
 }
 
-SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(PSStatusBarSaver);
-
 @property (nonatomic, assign) UIStatusBarStyle savedStatusBarStyle;
 
 + (void)captureStatusBar;
