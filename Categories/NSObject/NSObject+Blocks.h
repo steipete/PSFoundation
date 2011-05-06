@@ -6,16 +6,13 @@
 //  Copyright 2010 Peter Steinberger. All rights reserved.
 //
 
-// some credits go to http://www.mikeash.com/pyblog/friday-qa-2009-08-14-practical-blocks.html
-typedef void (^BasicBlock)(void);
+@interface NSObject (Blocks)
 
-void RunAfterDelay(NSTimeInterval delay, BasicBlock block);
++ (id)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
++ (id)performBlock:(void (^)(id arg))block withObject:(id)anObject afterDelay:(NSTimeInterval)delay;
+- (id)performBlock:(void (^)(void))block afterDelay:(NSTimeInterval)delay;
+- (id)performBlock:(void (^)(id arg))block withObject:(id)anObject afterDelay:(NSTimeInterval)delay;
 
-@interface NSObject (BlocksAdditions)
-
-- (void)ps_callBlock;
-
-+ (id)performBlock:(void(^)())aBlock afterDelay:(NSTimeInterval)seconds;
-+ (void)cancelPreviousPerformBlock:(id)aWrappingBlockHandle;
++ (void)cancelBlock:(id)block;
 
 @end
