@@ -97,10 +97,14 @@ static inline dispatch_time_t dTimeDelay(NSTimeInterval time) {
     return wrappingBlock;
 }
 
-+ (void) cancelBlock:(id)block {
++ (void)cancelBlock:(id)block {
     if (!block) return;
     void (^aWrappingBlock)(BOOL) = (void(^)(BOOL))block;
     aWrappingBlock(YES);
+}
+
++ (void)cancelPreviousPerformBlock:(id)aWrappingBlockHandle {
+    [self cancelBlock:aWrappingBlockHandle];
 }
 
 @end
