@@ -23,6 +23,7 @@ static inline BOOL IsEmpty(id thing) {
 #define CGRectClearCoords(_CGRECT) PSRectClearCoords(_CGRECT) // legacy
 
 // portrait/landscape corrected screen bounds
+#define PSIsPortrait()  UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])
 #define PSIsLandscape() UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
 static inline CGRect PSScreenBounds() {
   CGRect bounds = [UIScreen mainScreen].bounds;
@@ -261,3 +262,17 @@ NSObject* __UKHELPERMACRO_OLDTARG = (NSObject*)(targ);\
 } while(0)
 
 #define PS_NOT_IMPLEMENTED DDLogError(@"Not yet implemented: %@", _cmd);
+
+// spapper
+
+#define ps_swap(a,b) {  \
+int c = (a);         \
+(a) = (b);           \
+(b) = c;             \
+}
+
+#define ps_swapf(a,b) { \
+float c = (a);       \
+(a) = (b);           \
+(b) = c;             \
+}

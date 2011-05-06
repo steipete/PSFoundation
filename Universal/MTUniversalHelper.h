@@ -26,7 +26,10 @@
 
 // returns the image name depending on the current device by appending "-iPad" when on iPad
 NSString* MTDeviceSpecificImageName(NSString *imageName);
+// you can specify your own appendix
+NSString* MTDeviceSpecificImageNameWithAppendix(NSString *imageName, NSString *appendix);
 // takes the current orientation on iPad into account by appending "-iPad-L" when in Landscape-Mode, otherwise "-iPad"
 NSString* MTDeviceSpecificImageNameForOrientation(NSString *imageName, UIInterfaceOrientation orientation);
+NSString* MTDeviceSpecificImageNameForOrientationWithAppendix(NSString *imageName, UIInterfaceOrientation orientation, NSString *appendix);
 // Create Device-Specific Nib-Name
 NSString* MTNibName(NSString *name);

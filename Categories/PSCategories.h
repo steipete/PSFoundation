@@ -144,6 +144,7 @@
 #import "UIView+MTUIAdditions.h"
 #import "UIView+Hierarchy.h"
 #import "UIViewHelper.h"
+#import "UIView+WhenTappedBlocks.h"
 
 #import "UIViewControllerHelper.h"
 

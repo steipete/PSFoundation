@@ -12,6 +12,7 @@
   NSMutableArray *blocks_;
 }
 
++ (PSAlertView *)alertWithTitle:(NSString *)title;
 + (PSAlertView *)alertWithTitle:(NSString *)title message:(NSString *)message;
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message;

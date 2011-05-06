@@ -146,6 +146,15 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
 }
 
+- (void)simulateMemoryWarning
+{
+#if TARGET_IPHONE_SIMULATOR
+#ifdef DEBUG
+    CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)@"UISimulatedMemoryWarningNotification", NULL, NULL, true);
+#endif
+#endif
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
@@ -153,7 +162,18 @@
     // you have to set self.lastSelectedIndexPath in
     // - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [self.tableView deselectRowAtIndexPath:self.lastSelectedIndexPath animated:YES];
+
+#if TARGET_IPHONE_SIMULATOR
+#ifdef DEBUG
+    // If we are running in the simulator and it's the DEBUG target
+    // then simulate a memory warning. Note that the DEBUG flag isn't
+    // defined by default. To define it add this Preprocessor Macro for
+    // the Debug target: DEBUG=1
+    [self simulateMemoryWarning];
+#endif
+#endif
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
