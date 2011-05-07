@@ -33,7 +33,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {
     BOOL cropping = !(resizeMethod == MGImageResizeScale);
     
     // adapt rect based on source image size
-    DDLogInfo(@"imageOrientation: %d", self.imageOrientation);
+    //DDLogInfo(@"imageOrientation: %d", self.imageOrientation);
     switch (self.imageOrientation) {
         case UIImageOrientationLeft:    // button top
         case UIImageOrientationRight:   // button bottom
