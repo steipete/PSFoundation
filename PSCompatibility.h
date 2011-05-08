@@ -68,7 +68,7 @@ __VA_ARGS__ \
 }
 
 // special addition for Chameleon support: http://chameleonproject.org/
-#ifdef MAC_OSX_BUILD // needs to be defined in project settings
+#ifdef CHAMELEON_MAC // needs to be defined in project settings
 #define IF_IOS(...)
 #define IF_DESKTOP(...) do {__VA_ARGS__} while(0);
 #else

@@ -37,7 +37,6 @@
 		39D8262F12E364530079B785 /* UIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 39D8262D12E364530079B785 /* UIView+Hierarchy.h */; };
 		39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D8262E12E364530079B785 /* UIView+Hierarchy.m */; };
 		39EBAAB113508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */; };
-		39EBAAC91350913C00BBFB4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39EBAAC81350913C00BBFB4B /* UIKit.framework */; };
 		39EE4117136ABFE300ABE900 /* UIView+WhenTappedBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE4113136ABFE300ABE900 /* UIView+WhenTappedBlocks.h */; };
 		39EE4118136ABFE300ABE900 /* UIView+WhenTappedBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE4114136ABFE300ABE900 /* UIView+WhenTappedBlocks.m */; };
 		39EE950112C3ADC900AD953B /* BSUIViewRearranger.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */; };
@@ -88,6 +87,7 @@
 		782E2A5C12AC5A5C00F2CFC9 /* SCGrfx.m in Sources */ = {isa = PBXBuildFile; fileRef = 782E2A5A12AC5A5C00F2CFC9 /* SCGrfx.m */; };
 		782E2A5F12AC5AD400F2CFC9 /* NSMutableArray+SCQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 782E2A5D12AC5AD400F2CFC9 /* NSMutableArray+SCQueue.h */; };
 		782E2A6012AC5AD400F2CFC9 /* NSMutableArray+SCQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 782E2A5E12AC5AD400F2CFC9 /* NSMutableArray+SCQueue.m */; };
+		782EE80A1376E38000AAA233 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 782EE8091376E38000AAA233 /* UIKit.framework */; };
 		7833EAB912897C940025D418 /* PSShadowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7833EAB712897C940025D418 /* PSShadowView.h */; };
 		7833EABA12897C940025D418 /* PSShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7833EAB812897C940025D418 /* PSShadowView.m */; };
 		7837D43012DA749D00BE3C22 /* NSObject+AssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 7837D42E12DA749D00BE3C22 /* NSObject+AssociatedObjects.h */; };
@@ -104,7 +104,6 @@
 		7856A32812B43AAB0025424F /* PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7856A32712B43AAB0025424F /* PSFoundation.h */; };
 		7856A32A12B43AB40025424F /* PSFoundation_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 7856A32912B43AB40025424F /* PSFoundation_Prefix.pch */; };
 		7867A4FB126C99EA0012E520 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7867A4FA126C99EA0012E520 /* CoreData.framework */; };
-		7867B87213599669008A7644 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7867B87113599669008A7644 /* UIKit.framework */; };
 		7875132012BE992700BC60D0 /* MACollectionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 7875131E12BE992700BC60D0 /* MACollectionUtilities.h */; };
 		7875132112BE992700BC60D0 /* MACollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7875131F12BE992700BC60D0 /* MACollectionUtilities.m */; };
 		7881282912E6EBE300623BCB /* NSTimer+Blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 7881282712E6EBE300623BCB /* NSTimer+Blocks.h */; };
@@ -572,30 +571,6 @@
 		DC3E94B9129F14F600022ED8 /* UIButton+Presets.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3E94B7129F14F600022ED8 /* UIButton+Presets.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		7806ED111339FCD200273BC6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7806ED0D1339FCD200273BC6 /* UIKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = UIKit;
-		};
-		7885878B133B39E700797FF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7806ED0D1339FCD200273BC6 /* UIKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = UIKit;
-		};
-		7885889B133B39F000797FF0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7806ED0D1339FCD200273BC6 /* UIKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = UIKit;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		3900165E130C28D8006F7477 /* CoreGraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreGraphicsHelper.h; sourceTree = SOURCE_ROOT; };
 		390BAB2712C9438B00C39661 /* libPSFoundation_CoreLocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation_CoreLocation.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -629,7 +604,6 @@
 		39D8262E12E364530079B785 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Hierarchy.m"; path = "Categories/UIView/UIView+Hierarchy.m"; sourceTree = SOURCE_ROOT; };
 		39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MTAnimatedFetch.h"; sourceTree = "<group>"; };
 		39EBAAB013508EE100BBFB4B /* UIViewController+MTAnimatedFetch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MTAnimatedFetch.m"; sourceTree = "<group>"; };
-		39EBAAC81350913C00BBFB4B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		39EE4113136ABFE300ABE900 /* UIView+WhenTappedBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WhenTappedBlocks.h"; sourceTree = "<group>"; };
 		39EE4114136ABFE300ABE900 /* UIView+WhenTappedBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WhenTappedBlocks.m"; sourceTree = "<group>"; };
 		39EE94FD12C3ADC800AD953B /* BSUIViewRearranger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BSUIViewRearranger.h; path = InterfaceBuilder/BSUIViewRearranger.h; sourceTree = SOURCE_ROOT; };
@@ -650,7 +624,6 @@
 		39EE95F812C3B83400AD953B /* ColorLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorLog.m; path = Lumberjack/ColorLog.m; sourceTree = SOURCE_ROOT; };
 		39FAFC85132FA7D100F039C4 /* UIImage+MTTiling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MTTiling.h"; sourceTree = "<group>"; };
 		39FAFC86132FA7D100F039C4 /* UIImage+MTTiling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MTTiling.m"; sourceTree = "<group>"; };
-		7806ED0D1339FCD200273BC6 /* UIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UIKit.xcodeproj; path = /Users/steipete/Desktop/PlanetRomeo/PlanetRomeo/../Chameleon/UIKit/UIKit.xcodeproj; sourceTree = "<absolute>"; };
 		780CBDA31326759100F22032 /* NSData+RSHexDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+RSHexDump.h"; path = "Categories/NSData/NSData+RSHexDump.h"; sourceTree = SOURCE_ROOT; };
 		780CBDA41326759100F22032 /* NSData+RSHexDump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+RSHexDump.m"; path = "Categories/NSData/NSData+RSHexDump.m"; sourceTree = SOURCE_ROOT; };
 		7816DC67135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFetchedResultsController+ActiveRecord.h"; sourceTree = "<group>"; };
@@ -681,6 +654,7 @@
 		782E2A5A12AC5A5C00F2CFC9 /* SCGrfx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SCGrfx.m; path = Utils/SCGrfx.m; sourceTree = SOURCE_ROOT; };
 		782E2A5D12AC5AD400F2CFC9 /* NSMutableArray+SCQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+SCQueue.h"; path = "Categories/NSArray/NSMutableArray+SCQueue.h"; sourceTree = SOURCE_ROOT; };
 		782E2A5E12AC5AD400F2CFC9 /* NSMutableArray+SCQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+SCQueue.m"; path = "Categories/NSArray/NSMutableArray+SCQueue.m"; sourceTree = SOURCE_ROOT; };
+		782EE8091376E38000AAA233 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7833EAB712897C940025D418 /* PSShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSShadowView.h; path = TableView/PSShadowView.h; sourceTree = SOURCE_ROOT; };
 		7833EAB812897C940025D418 /* PSShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSShadowView.m; path = TableView/PSShadowView.m; sourceTree = SOURCE_ROOT; };
 		7837D42E12DA749D00BE3C22 /* NSObject+AssociatedObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+AssociatedObjects.h"; path = "Categories/NSObject/NSObject+AssociatedObjects.h"; sourceTree = SOURCE_ROOT; };
@@ -698,7 +672,6 @@
 		7856A32912B43AB40025424F /* PSFoundation_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		7867A4E5126C98C70012E520 /* libPSFoundation_CoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation_CoreData.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7867A4FA126C99EA0012E520 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		7867B87113599669008A7644 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		78692099126B4195000259AC /* TPAutoArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPAutoArchiver.h; path = Archiving/TPAutoArchiver.h; sourceTree = SOURCE_ROOT; };
 		7869209A126B4195000259AC /* TPAutoArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPAutoArchiver.m; path = Archiving/TPAutoArchiver.m; sourceTree = SOURCE_ROOT; };
 		7869211F126B4195000259AC /* DSActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActivityView.h; path = HUD/DSActivityView.h; sourceTree = SOURCE_ROOT; };
@@ -909,7 +882,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39EBAAC91350913C00BBFB4B /* UIKit.framework in Frameworks */,
 				7867A4FB126C99EA0012E520 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -937,7 +909,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7867B87213599669008A7644 /* UIKit.framework in Frameworks */,
+				782EE80A1376E38000AAA233 /* UIKit.framework in Frameworks */,
 				788E1F30126C95B1009801E5 /* Foundation.framework in Frameworks */,
 				788E1F32126C95B1009801E5 /* libxml2.2.7.3.dylib in Frameworks */,
 				3936595A12C7F3AE001D4D53 /* AudioToolbox.framework in Frameworks */,
@@ -963,13 +935,11 @@
 		0867D691FE84028FC02AAC07 /* PSCommon */ = {
 			isa = PBXGroup;
 			children = (
-				7867B87113599669008A7644 /* UIKit.framework */,
 				78BCBB6012B536E50093AE0C /* README.mdown */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
-				39EBAAC81350913C00BBFB4B /* UIKit.framework */,
 			);
 			name = PSCommon;
 			sourceTree = "<group>";
@@ -977,7 +947,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7806ED0D1339FCD200273BC6 /* UIKit.xcodeproj */,
+				782EE8091376E38000AAA233 /* UIKit.framework */,
 				390BAB3912C9448500C39661 /* CoreLocation.framework */,
 				7867A4FA126C99EA0012E520 /* CoreData.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
@@ -1117,14 +1087,6 @@
 			);
 			path = Universal;
 			sourceTree = SOURCE_ROOT;
-		};
-		7806ED0E1339FCD200273BC6 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7806ED121339FCD200273BC6 /* UIKit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
 		};
 		782AC0AF1281864800806121 /* ZeroWeakReferences */ = {
 			isa = PBXGroup;
@@ -2119,7 +2081,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				7885878A133B39E700797FF0 /* PBXTargetDependency */,
 			);
 			name = "PSFoundation-OSX";
 			productName = PSCommon;
@@ -2137,7 +2098,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				7885889A133B39F000797FF0 /* PBXTargetDependency */,
 			);
 			name = "PSFoundation_CoreData-OSX";
 			productName = PSCommon_CoreData;
@@ -2185,32 +2145,16 @@
 			mainGroup = 0867D691FE84028FC02AAC07 /* PSCommon */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 7806ED0E1339FCD200273BC6 /* Products */;
-					ProjectRef = 7806ED0D1339FCD200273BC6 /* UIKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				7867A4E4126C98C70012E520 /* PSFoundation_CoreData */,
 				788E1E6D126C95B1009801E5 /* PSFoundation */,
+				7867A4E4126C98C70012E520 /* PSFoundation_CoreData */,
 				390BAB2612C9438B00C39661 /* PSFoundation_CoreLocation */,
 				78858789133B39E700797FF0 /* PSFoundation-OSX */,
 				78858899133B39F000797FF0 /* PSFoundation_CoreData-OSX */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		7806ED121339FCD200273BC6 /* UIKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = UIKit.framework;
-			remoteRef = 7806ED111339FCD200273BC6 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		390BAB2412C9438B00C39661 /* Sources */ = {
@@ -2517,19 +2461,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		7885878A133B39E700797FF0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = UIKit;
-			targetProxy = 7885878B133B39E700797FF0 /* PBXContainerItemProxy */;
-		};
-		7885889A133B39F000797FF0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = UIKit;
-			targetProxy = 7885889B133B39F000797FF0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
 		1DEB922308733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -2704,7 +2635,7 @@
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
-					MAC_OSX_BUILD,
+					CHAMELEON_MAC,
 				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
@@ -2726,6 +2657,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = CHAMELEON_MAC;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				LIBRARY_SEARCH_PATHS = (
@@ -2746,6 +2678,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DISTRIBUTION,
+					CHAMELEON_MAC,
+				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				LIBRARY_SEARCH_PATHS = (
@@ -2766,6 +2702,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					APPSTORE,
+					CHAMELEON_MAC,
+				);
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				LIBRARY_SEARCH_PATHS = (
@@ -2788,6 +2728,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					CHAMELEON_MAC,
+				);
 				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 			};
@@ -2802,6 +2746,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = CHAMELEON_MAC;
 				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 				ZERO_LINK = NO;
@@ -2815,6 +2760,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DISTRIBUTION,
+					CHAMELEON_MAC,
+				);
 				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 			};
@@ -2827,6 +2776,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PSFoundation_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					APPSTORE,
+					CHAMELEON_MAC,
+				);
 				PRODUCT_NAME = "PSFoundation_CoreData-OSX";
 				SDKROOT = macosx;
 			};

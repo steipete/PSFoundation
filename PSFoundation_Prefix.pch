@@ -1,11 +1,11 @@
 #ifdef __OBJC__
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
-#ifndef AVAILABLE_MAC_OS_X_VERSION_10_5_AND_LATER
-#import <CoreGraphics/CoreGraphics.h>
+#ifdef CHAMELEON_MAC
+#import <QuartzCore/QuartzCore.h>
 #else
+#import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #endif
 
