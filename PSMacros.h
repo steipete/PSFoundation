@@ -25,6 +25,8 @@ static inline BOOL IsEmpty(id thing) {
 // portrait/landscape corrected screen bounds
 #define PSIsPortrait()  UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])
 #define PSIsLandscape() UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
+#define UIInterfaceOrientationsAreCounterpart(o1,o2) (UIInterfaceOrientationIsPortrait(o1) && UIInterfaceOrientationIsPortrait(o2) || UIInterfaceOrientationIsLandscape(o1) && UIInterfaceOrientationIsLandscape(o2))
+
 static inline CGRect PSScreenBounds() {
   CGRect bounds = [UIScreen mainScreen].bounds;
   if (PSIsLandscape()) {
@@ -263,7 +265,7 @@ NSObject* __UKHELPERMACRO_OLDTARG = (NSObject*)(targ);\
 
 #define PS_NOT_IMPLEMENTED DDLogError(@"Not yet implemented: %@", _cmd);
 
-// spapper
+// swapper
 
 #define ps_swap(a,b) {  \
 int c = (a);         \
