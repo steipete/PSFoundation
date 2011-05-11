@@ -72,7 +72,7 @@
 }
 
 - (void)dismissPopUpViewController {
-	[((UIViewController<PopUpViewControllerDelegate>*)self).poppedUpFromViewController dismissPopUpViewController:self];
+	[((UIViewController<PopUpViewControllerDelegate> *)self).poppedUpFromViewController dismissPopUpViewController:(UIViewController<PopUpViewControllerDelegate> *)self];
 }
 
 - (void)dismissPopUpViewController:(UIViewController<PopUpViewControllerDelegate>*)viewController {
