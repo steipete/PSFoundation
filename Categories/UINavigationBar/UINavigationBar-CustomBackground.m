@@ -27,12 +27,12 @@
     CGContextFillRect(ctx, fillRect);
 
     // Create an instance of the image we want to draw
-    UIImage * logo = [UIImage imageNamed:@"NavigationBar.png"];//[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"NavigationBar" ofType:@"png"]];
+    UIImage * logo = [UIImage imageNamed:@"NavigationBar"];//[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"NavigationBar" ofType:@"png"]];
 
     // TODO: extract into pslib!
     /*
     if (UIDeviceOrientationIsLandscape([[AppDelegate getAppDelegate] interfaceOrientation])) {
-      logo = [UIImage imageNamed:@"NavigationBarLandscape.png"];
+      logo = [UIImage imageNamed:@"NavigationBarLandscape"];
     }
     */
 
