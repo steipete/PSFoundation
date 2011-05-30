@@ -9,6 +9,7 @@
 @interface UIView (PSAdditions)
 
 - (void)enableDebugBorderWithColor:(UIColor *)color;
+- (void)enableDebugBorderWithRandomColor;
 - (void)enableDebugBorder;
 
 @end
