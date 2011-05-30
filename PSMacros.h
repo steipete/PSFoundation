@@ -23,8 +23,9 @@ static inline BOOL IsEmpty(id thing) {
 #define CGRectClearCoords(_CGRECT) PSRectClearCoords(_CGRECT) // legacy
 
 // portrait/landscape corrected screen bounds
-#define PSIsPortrait()  UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])
-#define PSIsLandscape() UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
+#define PSAppStatusBarOrientation ([[UIApplication sharedApplication] statusBarOrientation])
+#define PSIsPortrait()  UIInterfaceOrientationIsPortrait(PSAppStatusBarOrientation)
+#define PSIsLandscape() UIInterfaceOrientationIsLandscape(PSAppStatusBarOrientation)
 #define UIInterfaceOrientationsAreCounterpart(o1,o2) (UIInterfaceOrientationIsPortrait(o1) && UIInterfaceOrientationIsPortrait(o2) || UIInterfaceOrientationIsLandscape(o1) && UIInterfaceOrientationIsLandscape(o2))
 
 static inline CGRect PSScreenBounds() {
