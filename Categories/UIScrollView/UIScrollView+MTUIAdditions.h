@@ -9,6 +9,13 @@
 #import <UIKit/UIkit.h>
 
 
+@interface UIView (MTUIScrollAdditions)
+
+@property (nonatomic, assign) BOOL excludedFromScrollViewAutocalculation;
+
+@end
+
+
 @interface UIScrollView (MTUIAdditions)
 
 //===========================================================

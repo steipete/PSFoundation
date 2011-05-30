@@ -7,8 +7,11 @@
 //
 
 #import "UIScrollView+MTUIAdditions.h"
+#import <objc/runtime.h>
 
 #define kDefaultViewPadding 20
+
+static char excludedKey;
 
 BOOL MTViewIsScrollIndicator(UIView *view) {
     // TODO: Is there a better way to detect the scrollIndicators?
@@ -25,13 +28,17 @@ BOOL MTViewIsScrollIndicator(UIView *view) {
     return NO;
 }
 
+BOOL MTViewUseForAutocalculation(UIView *view) {
+    return view.alpha > 0.f && view.hidden == NO && !MTViewIsScrollIndicator(view) && !view.excludedFromScrollViewAutocalculation;
+}
+
 CGFloat MTGetMaxPosition(UIScrollView *scrollView, BOOL vertical) {
     NSArray *subviews = scrollView.subviews;
 	CGFloat max = -1.f;
 
     // calculate max position of any subview of the scrollView
 	for (UIView *view in subviews) {
-        if (view.alpha > 0.f && view.hidden == NO && !MTViewIsScrollIndicator(view)) {
+        if (MTViewUseForAutocalculation(view)) {
             CGFloat maxOfView = vertical ? CGRectGetMaxY(view.frame) : CGRectGetMaxX(view.frame);
 
             if (maxOfView > max) {
@@ -42,6 +49,26 @@ CGFloat MTGetMaxPosition(UIScrollView *scrollView, BOOL vertical) {
 
     return max;
 }
+
+
+@implementation UIView (MTUIScrollAdditions) 
+
+- (BOOL)excludedFromScrollViewAutocalculation {
+    NSNumber *excluded = (NSNumber *)objc_getAssociatedObject(self, &excludedKey);
+    
+    if (excluded != nil) {
+        return [excluded boolValue];
+    }
+    
+    return NO;
+}
+
+- (void)setExcludedFromScrollViewAutocalculation:(BOOL)excludedFromScrollViewAutocalculation {
+    NSNumber *excluded = [NSNumber numberWithBool:excludedFromScrollViewAutocalculation];
+    objc_setAssociatedObject(self, &excludedKey, excluded, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end
 
 
 @implementation UIScrollView (MTUIAdditions)
