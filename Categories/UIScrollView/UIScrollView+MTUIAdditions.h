@@ -16,7 +16,10 @@
 #pragma mark Automatic Calculation of ContentSize (height) depending on View-Content
 //===========================================================
 
-- (void)autocalculateContentSizeWithPadding:(CGFloat)padding;
-- (void)autocalculateContentSize;
+- (void)autocalculateContentHeight;
+- (void)autocalculateContentHeightWithPadding:(CGFloat)padding;
+
+- (void)autocalculateContentWidth;
+- (void)autocalculateContentWidthWithPadding:(CGFloat)padding;
 
 @end
