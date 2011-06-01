@@ -8,10 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-// image helper
-CGFloat DegreesToRadians(CGFloat degrees);
-CGFloat RadiansToDegrees(CGFloat radians);
-
 @interface UIImage (MGProportionalFill)
 
 typedef enum {

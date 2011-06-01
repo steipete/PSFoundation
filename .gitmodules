@@ -1,3 +1,6 @@
 [submodule "PSFoundation/External/BlocksKit"]
 	path = PSFoundation/External/BlocksKit
 	url = git://github.com/zwaldowski/BlocksKit.git
+[submodule "PSFoundation/External/TDSemiModal"]
+	path = PSFoundation/External/TDSemiModal
+	url = https://github.com/reednj/TDSemiModal.git

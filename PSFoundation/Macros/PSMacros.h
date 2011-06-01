@@ -48,11 +48,12 @@ NS_INLINE CGFloat PSAppWidth() {
 }
 
 // file management
-
 #define NSDocumentsFolder() [NSFileManager documentsFolder]
 #define MTDocumentsDirectory() [NSFileManager documentsFolder]
 #define NSLibraryFolder() [NSFileManager libraryFolder]
 #define NSBundleFolder() [NSFileManager bundleFolder]
+#define MTGetFullPath(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
+
 
 // color
 #define SETTINGS_TEXT_COLOR	RGBCOLOR(57, 85, 135)
@@ -72,15 +73,9 @@ NS_INLINE CGFloat PSAppWidth() {
 #define MTTimeIntervalHours(x) (NSTimeInterval)(x * 3600.)
 #define MTTimeIntervalDays(x) (NSTimeInterval)(x * 3600. * 24.)
 
-// Resource Path used with Folder References
-#define MTGetFullPath(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
-
-
-// Short hand NSLocalizedString, doesn't need 2 parameters
+// Short hand NSLocalizedString
 #define LocalizedString(s) NSLocalizedString(s,s)
 #define _(s) NSLocalizedString(s,s)
-
-// LocalizedString with an additionl parameter for formatting
 #define LocalizedStringWithFormat(s,...) [NSString stringWithFormat:NSLocalizedString(s,s),##__VA_ARGS__]
 
 // for function pass entering

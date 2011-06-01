@@ -11,14 +11,6 @@
 
 @implementation UIImage (MGProportionalFill)
 
-CGFloat DegreesToRadians(CGFloat degrees) {
-    return degrees * M_PI / 180;
-};
-
-CGFloat RadiansToDegrees(CGFloat radians) {
-    return radians * 180 / M_PI;
-};
-
 - (UIImage *)imageToFitSize:(CGSize)fitSize method:(MGImageResizingMethod)resizeMethod honorScaleFactor:(BOOL)honorScaleFactor {
     
 	float imageScaleFactor = 1.0;
