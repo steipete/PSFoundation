@@ -3,7 +3,13 @@
 	url = git://github.com/zwaldowski/BlocksKit.git
 [submodule "PSFoundation/External/TDSemiModal"]
 	path = PSFoundation/External/TDSemiModal
-	url = https://github.com/reednj/TDSemiModal.git
+	url = git://github.com/reednj/TDSemiModal.git
 [submodule "PSFoundation/External/MAZeroingWeakRef"]
 	path = PSFoundation/External/MAZeroingWeakRef
 	url = git://github.com/zwaldowski/MAZeroingWeakRef.git
+[submodule "PSFoundation/External/MBProgressHUD"]
+	path = PSFoundation/External/MBProgressHUD
+	url = git://github.com/matej/MBProgressHUD.git
+[submodule "PSFoundation/External/DSActivityView"]
+	path = PSFoundation/External/DSActivityView
+	url = git://github.com/joycodes/DSActivityView.git

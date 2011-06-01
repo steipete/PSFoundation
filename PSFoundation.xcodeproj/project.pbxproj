@@ -98,10 +98,6 @@
 		6C86B5DB1396B187009F6FE6 /* TPAutoArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4F11396B185009F6FE6 /* TPAutoArchiver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B5DC1396B187009F6FE6 /* TPAutoArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4F21396B185009F6FE6 /* TPAutoArchiver.m */; };
 		6C86B67C1396B187009F6FE6 /* CoreGraphicsHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5B51396B186009F6FE6 /* CoreGraphicsHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B67D1396B187009F6FE6 /* DSActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5B71396B186009F6FE6 /* DSActivityView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B67E1396B187009F6FE6 /* DSActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5B81396B186009F6FE6 /* DSActivityView.m */; };
-		6C86B67F1396B187009F6FE6 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5B91396B186009F6FE6 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B6801396B187009F6FE6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5BA1396B186009F6FE6 /* MBProgressHUD.m */; };
 		6C86B6811396B187009F6FE6 /* BSUIViewRearranger.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5BC1396B186009F6FE6 /* BSUIViewRearranger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B6821396B187009F6FE6 /* BSUIViewRearranger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5BD1396B186009F6FE6 /* BSUIViewRearranger.m */; };
 		6C86B6831396B187009F6FE6 /* UIView+CWNibLocalizations.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5BE1396B186009F6FE6 /* UIView+CWNibLocalizations.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -338,6 +334,10 @@
 		6C86BAF613970188009F6FE6 /* MAZeroingWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BAE313970188009F6FE6 /* MAZeroingWeakProxy.m */; };
 		6C86BAF713970188009F6FE6 /* MAZeroingWeakRef.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BAE413970188009F6FE6 /* MAZeroingWeakRef.h */; };
 		6C86BAF813970188009F6FE6 /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BAE513970188009F6FE6 /* MAZeroingWeakRef.m */; };
+		6C86BB4E139702B6009F6FE6 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BB41139702B5009F6FE6 /* MBProgressHUD.h */; };
+		6C86BB4F139702B6009F6FE6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BB42139702B5009F6FE6 /* MBProgressHUD.m */; };
+		6C86BB9813970301009F6FE6 /* DSActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BB8A13970301009F6FE6 /* DSActivityView.h */; };
+		6C86BB9913970301009F6FE6 /* DSActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BB8B13970301009F6FE6 /* DSActivityView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -451,10 +451,6 @@
 		6C86B4F11396B185009F6FE6 /* TPAutoArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAutoArchiver.h; sourceTree = "<group>"; };
 		6C86B4F21396B185009F6FE6 /* TPAutoArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAutoArchiver.m; sourceTree = "<group>"; };
 		6C86B5B51396B186009F6FE6 /* CoreGraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreGraphicsHelper.h; sourceTree = "<group>"; };
-		6C86B5B71396B186009F6FE6 /* DSActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSActivityView.h; sourceTree = "<group>"; };
-		6C86B5B81396B186009F6FE6 /* DSActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSActivityView.m; sourceTree = "<group>"; };
-		6C86B5B91396B186009F6FE6 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		6C86B5BA1396B186009F6FE6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6C86B5BC1396B186009F6FE6 /* BSUIViewRearranger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSUIViewRearranger.h; sourceTree = "<group>"; };
 		6C86B5BD1396B186009F6FE6 /* BSUIViewRearranger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSUIViewRearranger.m; sourceTree = "<group>"; };
 		6C86B5BE1396B186009F6FE6 /* UIView+CWNibLocalizations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CWNibLocalizations.h"; sourceTree = "<group>"; };
@@ -675,6 +671,10 @@
 		6C86BAE313970188009F6FE6 /* MAZeroingWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAZeroingWeakProxy.m; sourceTree = "<group>"; };
 		6C86BAE413970188009F6FE6 /* MAZeroingWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAZeroingWeakRef.h; sourceTree = "<group>"; };
 		6C86BAE513970188009F6FE6 /* MAZeroingWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAZeroingWeakRef.m; sourceTree = "<group>"; };
+		6C86BB41139702B5009F6FE6 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		6C86BB42139702B5009F6FE6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		6C86BB8A13970301009F6FE6 /* DSActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActivityView.h; path = Sources/DSActivityView.h; sourceTree = "<group>"; };
+		6C86BB8B13970301009F6FE6 /* DSActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActivityView.m; path = Sources/DSActivityView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -740,7 +740,6 @@
 				6C86B4F31396B185009F6FE6 /* Categories */,
 				6C86B80B1396B4FC009F6FE6 /* External */,
 				6C86B38E1396B096009F6FE6 /* ExternalFrameworks */,
-				6C86B5B61396B186009F6FE6 /* HUD */,
 				6C86B5BB1396B186009F6FE6 /* InterfaceBuilder */,
 				6C86B5C01396B186009F6FE6 /* Invocation */,
 				6C86B5C91396B186009F6FE6 /* Keychain */,
@@ -1147,17 +1146,6 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		6C86B5B61396B186009F6FE6 /* HUD */ = {
-			isa = PBXGroup;
-			children = (
-				6C86B5B71396B186009F6FE6 /* DSActivityView.h */,
-				6C86B5B81396B186009F6FE6 /* DSActivityView.m */,
-				6C86B5B91396B186009F6FE6 /* MBProgressHUD.h */,
-				6C86B5BA1396B186009F6FE6 /* MBProgressHUD.m */,
-			);
-			path = HUD;
-			sourceTree = "<group>";
-		};
 		6C86B5BB1396B186009F6FE6 /* InterfaceBuilder */ = {
 			isa = PBXGroup;
 			children = (
@@ -1196,6 +1184,8 @@
 		6C86B80B1396B4FC009F6FE6 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				6C86BB5413970301009F6FE6 /* DSActivityView */,
+				6C86BB04139702B5009F6FE6 /* MBProgressHUD */,
 				6C86BADA13970188009F6FE6 /* MAZeroingWeakRef */,
 				6C86B9B91396FCE2009F6FE6 /* TDSemiModal */,
 				6C86B8141396B56E009F6FE6 /* BlocksKit */,
@@ -1281,6 +1271,26 @@
 			path = External/MAZeroingWeakRef/Source;
 			sourceTree = "<group>";
 		};
+		6C86BB04139702B5009F6FE6 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				6C86BB41139702B5009F6FE6 /* MBProgressHUD.h */,
+				6C86BB42139702B5009F6FE6 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			path = External/MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		6C86BB5413970301009F6FE6 /* DSActivityView */ = {
+			isa = PBXGroup;
+			children = (
+				6C86BB8A13970301009F6FE6 /* DSActivityView.h */,
+				6C86BB8B13970301009F6FE6 /* DSActivityView.m */,
+			);
+			name = DSActivityView;
+			path = External/DSActivityView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1336,8 +1346,6 @@
 				6C86B4DC1396B175009F6FE6 /* VTPG_Common.h in Headers */,
 				6C86B5DB1396B187009F6FE6 /* TPAutoArchiver.h in Headers */,
 				6C86B67C1396B187009F6FE6 /* CoreGraphicsHelper.h in Headers */,
-				6C86B67D1396B187009F6FE6 /* DSActivityView.h in Headers */,
-				6C86B67F1396B187009F6FE6 /* MBProgressHUD.h in Headers */,
 				6C86B6811396B187009F6FE6 /* BSUIViewRearranger.h in Headers */,
 				6C86B6831396B187009F6FE6 /* UIView+CWNibLocalizations.h in Headers */,
 				6C86B6851396B187009F6FE6 /* DDInvocationGrabber.h in Headers */,
@@ -1448,6 +1456,8 @@
 				6C86BAF313970188009F6FE6 /* MAWeakDictionary.h in Headers */,
 				6C86BAF513970188009F6FE6 /* MAZeroingWeakProxy.h in Headers */,
 				6C86BAF713970188009F6FE6 /* MAZeroingWeakRef.h in Headers */,
+				6C86BB4E139702B6009F6FE6 /* MBProgressHUD.h in Headers */,
+				6C86BB9813970301009F6FE6 /* DSActivityView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1604,8 +1614,6 @@
 				6C86B4DB1396B175009F6FE6 /* PSDDFormatter.m in Sources */,
 				6C86B4DD1396B175009F6FE6 /* VTPG_Common.m in Sources */,
 				6C86B5DC1396B187009F6FE6 /* TPAutoArchiver.m in Sources */,
-				6C86B67E1396B187009F6FE6 /* DSActivityView.m in Sources */,
-				6C86B6801396B187009F6FE6 /* MBProgressHUD.m in Sources */,
 				6C86B6821396B187009F6FE6 /* BSUIViewRearranger.m in Sources */,
 				6C86B6841396B187009F6FE6 /* UIView+CWNibLocalizations.m in Sources */,
 				6C86B6861396B187009F6FE6 /* DDInvocationGrabber.m in Sources */,
@@ -1711,6 +1719,8 @@
 				6C86BAF413970188009F6FE6 /* MAWeakDictionary.m in Sources */,
 				6C86BAF613970188009F6FE6 /* MAZeroingWeakProxy.m in Sources */,
 				6C86BAF813970188009F6FE6 /* MAZeroingWeakRef.m in Sources */,
+				6C86BB4F139702B6009F6FE6 /* MBProgressHUD.m in Sources */,
+				6C86BB9913970301009F6FE6 /* DSActivityView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
