@@ -5,6 +5,8 @@
 //  Contains stuff from Dirk Holtwick - thanks for sharing!
 //
 
+#import "MACollectionMacros.h"
+
 // compiler help
 #define INVALIDATE_TIMER(__TIMER) { [__TIMER invalidate]; __TIMER = nil; }
 #define STRING_IS_EMPTY_OR_NIL( _STRING ) ( _STRING == nil || [_STRING isEmptyOrWhitespace] )

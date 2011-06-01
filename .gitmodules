@@ -1,0 +1,3 @@
+[submodule "PSFoundation/External/BlocksKit"]
+	path = PSFoundation/External/BlocksKit
+	url = git://github.com/zwaldowski/BlocksKit.git

@@ -5,7 +5,6 @@
 //
 
 // NSArray/NSSet //////////////////////////////////////////////////////////////////////////////////
-#import "NSArray+blocks.h"
 #import "NSArray+Linq.h"
 #import "NSMutableArray+SCQueue.h"
 #import "NSMutableArray+MTShuffle.h"
@@ -14,8 +13,6 @@
 // arrayBySortingStrings, firstObject, uniqueMembers, map, collect, reject, removeFirstObject, reverse,
 // scramble, Stack-Tools like pop, pull, objectUsingPredicate
 #import "NSArray-Utilities.h"                                 // BSD
-
-#import "NSSet+blocks.h"
 
 #import "MACollectionUtilities.h"
 
@@ -87,9 +84,6 @@
 // helper for automatic description!
 #import "NSObject+AutoDescription.h"
 
-// http://petersteinberger.com/2010/10/how-to-mock-asihttprequest-with-ocmock-and-blocks/
-#import "NSObject+Blocks.h"
-
 #import "NSObject+AssociatedObjects.h"
 
 
@@ -144,7 +138,6 @@
 #import "UIView+MTUIAdditions.h"
 #import "UIView+Hierarchy.h"
 #import "UIViewHelper.h"
-#import "UIView+WhenTappedBlocks.h"
 
 #import "UIViewControllerHelper.h"
 #import "UIViewController+MTUIAdditions.h"
@@ -190,7 +183,3 @@
 #import "NSError+SCMethods.h"
 
 #import "NilCategories.h"
-
-#import "NSObject+BlockObservation.h"
-
-#import "NSTimer+Blocks.h"

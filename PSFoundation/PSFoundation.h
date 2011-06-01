@@ -2,13 +2,17 @@
 //  PSFoundation.h
 //
 //  Created by Peter Steinberger on 03.05.10.
+//
 
-//  includes all headers from PSFoundation
 
-#import "Macros/SynthesizeSingleton.h"
-#import "Lumberjack/DDLog.h"
+
+#import "DDLog.h"
+#import "SynthesizeSingleton.h"
 #import "PSMacros.h"
-#import "Categories/PSCategories.h"
+#import "PSCategories.h"
+
+// external projects
+#import "BlocksKit.h"
 
 #import "Reachability.h"
 #import "IKNetworkActivityManager.h"
