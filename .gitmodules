@@ -4,3 +4,6 @@
 [submodule "PSFoundation/External/TDSemiModal"]
 	path = PSFoundation/External/TDSemiModal
 	url = https://github.com/reednj/TDSemiModal.git
+[submodule "PSFoundation/External/MAZeroingWeakRef"]
+	path = PSFoundation/External/MAZeroingWeakRef
+	url = git://github.com/zwaldowski/MAZeroingWeakRef.git

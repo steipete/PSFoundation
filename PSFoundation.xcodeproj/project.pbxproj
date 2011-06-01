@@ -20,16 +20,6 @@
 		6C86B3B21396B096009F6FE6 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B39C1396B096009F6FE6 /* EGOImageLoader.m */; };
 		6C86B3B31396B096009F6FE6 /* EGOImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B39E1396B096009F6FE6 /* EGOImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B3B41396B096009F6FE6 /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B39F1396B096009F6FE6 /* EGOImageView.m */; };
-		6C86B3C71396B0C6009F6FE6 /* MANotificationCenterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3BD1396B0C6009F6FE6 /* MANotificationCenterAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B3C81396B0C6009F6FE6 /* MANotificationCenterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3BE1396B0C6009F6FE6 /* MANotificationCenterAdditions.m */; };
-		6C86B3C91396B0C6009F6FE6 /* MAWeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3BF1396B0C6009F6FE6 /* MAWeakArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B3CA1396B0C6009F6FE6 /* MAWeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3C01396B0C6009F6FE6 /* MAWeakArray.m */; };
-		6C86B3CB1396B0C6009F6FE6 /* MAWeakDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3C11396B0C6009F6FE6 /* MAWeakDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B3CC1396B0C6009F6FE6 /* MAWeakDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3C21396B0C6009F6FE6 /* MAWeakDictionary.m */; };
-		6C86B3CD1396B0C6009F6FE6 /* MAZeroingWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3C31396B0C6009F6FE6 /* MAZeroingWeakProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B3CE1396B0C6009F6FE6 /* MAZeroingWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3C41396B0C6009F6FE6 /* MAZeroingWeakProxy.m */; };
-		6C86B3CF1396B0C6009F6FE6 /* MAZeroingWeakRef.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3C51396B0C6009F6FE6 /* MAZeroingWeakRef.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B3D01396B0C6009F6FE6 /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3C61396B0C6009F6FE6 /* MAZeroingWeakRef.m */; };
 		6C86B4071396B0CD009F6FE6 /* SoundEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3D21396B0CD009F6FE6 /* SoundEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4081396B0CD009F6FE6 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3D31396B0CD009F6FE6 /* SoundEffect.m */; };
 		6C86B41B1396B0CD009F6FE6 /* MTUniversalHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3E81396B0CD009F6FE6 /* MTUniversalHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -338,6 +328,16 @@
 		6C86BA791396FCE3009F6FE6 /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BA681396FCE2009F6FE6 /* TDSemiModalViewController.m */; };
 		6C86BA7A1396FCE3009F6FE6 /* UIViewController+TDSemiModalExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BA691396FCE2009F6FE6 /* UIViewController+TDSemiModalExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BA7B1396FCE3009F6FE6 /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BA6A1396FCE2009F6FE6 /* UIViewController+TDSemiModalExtension.m */; };
+		6C86BAEF13970188009F6FE6 /* MANotificationCenterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BADC13970188009F6FE6 /* MANotificationCenterAdditions.h */; };
+		6C86BAF013970188009F6FE6 /* MANotificationCenterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BADD13970188009F6FE6 /* MANotificationCenterAdditions.m */; };
+		6C86BAF113970188009F6FE6 /* MAWeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BADE13970188009F6FE6 /* MAWeakArray.h */; };
+		6C86BAF213970188009F6FE6 /* MAWeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BADF13970188009F6FE6 /* MAWeakArray.m */; };
+		6C86BAF313970188009F6FE6 /* MAWeakDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BAE013970188009F6FE6 /* MAWeakDictionary.h */; };
+		6C86BAF413970188009F6FE6 /* MAWeakDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BAE113970188009F6FE6 /* MAWeakDictionary.m */; };
+		6C86BAF513970188009F6FE6 /* MAZeroingWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BAE213970188009F6FE6 /* MAZeroingWeakProxy.h */; };
+		6C86BAF613970188009F6FE6 /* MAZeroingWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BAE313970188009F6FE6 /* MAZeroingWeakProxy.m */; };
+		6C86BAF713970188009F6FE6 /* MAZeroingWeakRef.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BAE413970188009F6FE6 /* MAZeroingWeakRef.h */; };
+		6C86BAF813970188009F6FE6 /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BAE513970188009F6FE6 /* MAZeroingWeakRef.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -356,16 +356,6 @@
 		6C86B39C1396B096009F6FE6 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
 		6C86B39E1396B096009F6FE6 /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
 		6C86B39F1396B096009F6FE6 /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
-		6C86B3BD1396B0C6009F6FE6 /* MANotificationCenterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANotificationCenterAdditions.h; sourceTree = "<group>"; };
-		6C86B3BE1396B0C6009F6FE6 /* MANotificationCenterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANotificationCenterAdditions.m; sourceTree = "<group>"; };
-		6C86B3BF1396B0C6009F6FE6 /* MAWeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeakArray.h; sourceTree = "<group>"; };
-		6C86B3C01396B0C6009F6FE6 /* MAWeakArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAWeakArray.m; sourceTree = "<group>"; };
-		6C86B3C11396B0C6009F6FE6 /* MAWeakDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeakDictionary.h; sourceTree = "<group>"; };
-		6C86B3C21396B0C6009F6FE6 /* MAWeakDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAWeakDictionary.m; sourceTree = "<group>"; };
-		6C86B3C31396B0C6009F6FE6 /* MAZeroingWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAZeroingWeakProxy.h; sourceTree = "<group>"; };
-		6C86B3C41396B0C6009F6FE6 /* MAZeroingWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAZeroingWeakProxy.m; sourceTree = "<group>"; };
-		6C86B3C51396B0C6009F6FE6 /* MAZeroingWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAZeroingWeakRef.h; sourceTree = "<group>"; };
-		6C86B3C61396B0C6009F6FE6 /* MAZeroingWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAZeroingWeakRef.m; sourceTree = "<group>"; };
 		6C86B3D21396B0CD009F6FE6 /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
 		6C86B3D31396B0CD009F6FE6 /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
 		6C86B3E81396B0CD009F6FE6 /* MTUniversalHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUniversalHelper.h; sourceTree = "<group>"; };
@@ -675,6 +665,16 @@
 		6C86BA681396FCE2009F6FE6 /* TDSemiModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDSemiModalViewController.m; path = Source/TDSemiModalViewController.m; sourceTree = "<group>"; };
 		6C86BA691396FCE2009F6FE6 /* UIViewController+TDSemiModalExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+TDSemiModalExtension.h"; path = "Source/UIViewController+TDSemiModalExtension.h"; sourceTree = "<group>"; };
 		6C86BA6A1396FCE2009F6FE6 /* UIViewController+TDSemiModalExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+TDSemiModalExtension.m"; path = "Source/UIViewController+TDSemiModalExtension.m"; sourceTree = "<group>"; };
+		6C86BADC13970188009F6FE6 /* MANotificationCenterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANotificationCenterAdditions.h; sourceTree = "<group>"; };
+		6C86BADD13970188009F6FE6 /* MANotificationCenterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MANotificationCenterAdditions.m; sourceTree = "<group>"; };
+		6C86BADE13970188009F6FE6 /* MAWeakArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeakArray.h; sourceTree = "<group>"; };
+		6C86BADF13970188009F6FE6 /* MAWeakArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAWeakArray.m; sourceTree = "<group>"; };
+		6C86BAE013970188009F6FE6 /* MAWeakDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAWeakDictionary.h; sourceTree = "<group>"; };
+		6C86BAE113970188009F6FE6 /* MAWeakDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAWeakDictionary.m; sourceTree = "<group>"; };
+		6C86BAE213970188009F6FE6 /* MAZeroingWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAZeroingWeakProxy.h; sourceTree = "<group>"; };
+		6C86BAE313970188009F6FE6 /* MAZeroingWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAZeroingWeakProxy.m; sourceTree = "<group>"; };
+		6C86BAE413970188009F6FE6 /* MAZeroingWeakRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAZeroingWeakRef.h; sourceTree = "<group>"; };
+		6C86BAE513970188009F6FE6 /* MAZeroingWeakRef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAZeroingWeakRef.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -751,7 +751,6 @@
 				6C86B4541396B118009F6FE6 /* Utilities */,
 				6C86B3D11396B0CD009F6FE6 /* Sound */,
 				6C86B3E71396B0CD009F6FE6 /* Universal */,
-				6C86B3BC1396B0C6009F6FE6 /* ZeroWeakReferences */,
 				6C86B4B01396B169009F6FE6 /* PSCategories.h */,
 				6C86B4A61396B13E009F6FE6 /* PSCompatibility.h */,
 				6C86B4A71396B13E009F6FE6 /* PSCompatibility.m */,
@@ -828,23 +827,6 @@
 				6C86B39F1396B096009F6FE6 /* EGOImageView.m */,
 			);
 			path = EGOImageView;
-			sourceTree = "<group>";
-		};
-		6C86B3BC1396B0C6009F6FE6 /* ZeroWeakReferences */ = {
-			isa = PBXGroup;
-			children = (
-				6C86B3BD1396B0C6009F6FE6 /* MANotificationCenterAdditions.h */,
-				6C86B3BE1396B0C6009F6FE6 /* MANotificationCenterAdditions.m */,
-				6C86B3BF1396B0C6009F6FE6 /* MAWeakArray.h */,
-				6C86B3C01396B0C6009F6FE6 /* MAWeakArray.m */,
-				6C86B3C11396B0C6009F6FE6 /* MAWeakDictionary.h */,
-				6C86B3C21396B0C6009F6FE6 /* MAWeakDictionary.m */,
-				6C86B3C31396B0C6009F6FE6 /* MAZeroingWeakProxy.h */,
-				6C86B3C41396B0C6009F6FE6 /* MAZeroingWeakProxy.m */,
-				6C86B3C51396B0C6009F6FE6 /* MAZeroingWeakRef.h */,
-				6C86B3C61396B0C6009F6FE6 /* MAZeroingWeakRef.m */,
-			);
-			path = ZeroWeakReferences;
 			sourceTree = "<group>";
 		};
 		6C86B3D11396B0CD009F6FE6 /* Sound */ = {
@@ -1214,6 +1196,7 @@
 		6C86B80B1396B4FC009F6FE6 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				6C86BADA13970188009F6FE6 /* MAZeroingWeakRef */,
 				6C86B9B91396FCE2009F6FE6 /* TDSemiModal */,
 				6C86B8141396B56E009F6FE6 /* BlocksKit */,
 			);
@@ -1280,6 +1263,24 @@
 			path = External/TDSemiModal;
 			sourceTree = "<group>";
 		};
+		6C86BADA13970188009F6FE6 /* MAZeroingWeakRef */ = {
+			isa = PBXGroup;
+			children = (
+				6C86BADC13970188009F6FE6 /* MANotificationCenterAdditions.h */,
+				6C86BADD13970188009F6FE6 /* MANotificationCenterAdditions.m */,
+				6C86BADE13970188009F6FE6 /* MAWeakArray.h */,
+				6C86BADF13970188009F6FE6 /* MAWeakArray.m */,
+				6C86BAE013970188009F6FE6 /* MAWeakDictionary.h */,
+				6C86BAE113970188009F6FE6 /* MAWeakDictionary.m */,
+				6C86BAE213970188009F6FE6 /* MAZeroingWeakProxy.h */,
+				6C86BAE313970188009F6FE6 /* MAZeroingWeakProxy.m */,
+				6C86BAE413970188009F6FE6 /* MAZeroingWeakRef.h */,
+				6C86BAE513970188009F6FE6 /* MAZeroingWeakRef.m */,
+			);
+			name = MAZeroingWeakRef;
+			path = External/MAZeroingWeakRef/Source;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1293,11 +1294,6 @@
 				6C86B3AF1396B096009F6FE6 /* EGOImageLoadConnection.h in Headers */,
 				6C86B3B11396B096009F6FE6 /* EGOImageLoader.h in Headers */,
 				6C86B3B31396B096009F6FE6 /* EGOImageView.h in Headers */,
-				6C86B3C71396B0C6009F6FE6 /* MANotificationCenterAdditions.h in Headers */,
-				6C86B3C91396B0C6009F6FE6 /* MAWeakArray.h in Headers */,
-				6C86B3CB1396B0C6009F6FE6 /* MAWeakDictionary.h in Headers */,
-				6C86B3CD1396B0C6009F6FE6 /* MAZeroingWeakProxy.h in Headers */,
-				6C86B3CF1396B0C6009F6FE6 /* MAZeroingWeakRef.h in Headers */,
 				6C86B4071396B0CD009F6FE6 /* SoundEffect.h in Headers */,
 				6C86B41B1396B0CD009F6FE6 /* MTUniversalHelper.h in Headers */,
 				6C86B4711396B118009F6FE6 /* Reachability.h in Headers */,
@@ -1447,6 +1443,11 @@
 				6C86B6891396B187009F6FE6 /* NSObject+DDExtensions.h in Headers */,
 				6C86B68B1396B187009F6FE6 /* NSObject+Proxy.h in Headers */,
 				6C86B68D1396B187009F6FE6 /* SFHFKeychainUtils.h in Headers */,
+				6C86BAEF13970188009F6FE6 /* MANotificationCenterAdditions.h in Headers */,
+				6C86BAF113970188009F6FE6 /* MAWeakArray.h in Headers */,
+				6C86BAF313970188009F6FE6 /* MAWeakDictionary.h in Headers */,
+				6C86BAF513970188009F6FE6 /* MAZeroingWeakProxy.h in Headers */,
+				6C86BAF713970188009F6FE6 /* MAZeroingWeakRef.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1567,11 +1568,6 @@
 				6C86B3B01396B096009F6FE6 /* EGOImageLoadConnection.m in Sources */,
 				6C86B3B21396B096009F6FE6 /* EGOImageLoader.m in Sources */,
 				6C86B3B41396B096009F6FE6 /* EGOImageView.m in Sources */,
-				6C86B3C81396B0C6009F6FE6 /* MANotificationCenterAdditions.m in Sources */,
-				6C86B3CA1396B0C6009F6FE6 /* MAWeakArray.m in Sources */,
-				6C86B3CC1396B0C6009F6FE6 /* MAWeakDictionary.m in Sources */,
-				6C86B3CE1396B0C6009F6FE6 /* MAZeroingWeakProxy.m in Sources */,
-				6C86B3D01396B0C6009F6FE6 /* MAZeroingWeakRef.m in Sources */,
 				6C86B4081396B0CD009F6FE6 /* SoundEffect.m in Sources */,
 				6C86B41C1396B0CD009F6FE6 /* MTUniversalHelper.m in Sources */,
 				6C86B4721396B118009F6FE6 /* Reachability.m in Sources */,
@@ -1710,6 +1706,11 @@
 				6C86BA761396FCE3009F6FE6 /* TDDatePickerController.m in Sources */,
 				6C86BA791396FCE3009F6FE6 /* TDSemiModalViewController.m in Sources */,
 				6C86BA7B1396FCE3009F6FE6 /* UIViewController+TDSemiModalExtension.m in Sources */,
+				6C86BAF013970188009F6FE6 /* MANotificationCenterAdditions.m in Sources */,
+				6C86BAF213970188009F6FE6 /* MAWeakArray.m in Sources */,
+				6C86BAF413970188009F6FE6 /* MAWeakDictionary.m in Sources */,
+				6C86BAF613970188009F6FE6 /* MAZeroingWeakProxy.m in Sources */,
+				6C86BAF813970188009F6FE6 /* MAZeroingWeakRef.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
