@@ -8,18 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6C86B37D1396AAE7009F6FE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C86B37C1396AAE7009F6FE6 /* Foundation.framework */; };
-		6C86B3A91396B096009F6FE6 /* Appirater.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3901396B096009F6FE6 /* Appirater.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B3AA1396B096009F6FE6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3911396B096009F6FE6 /* Appirater.m */; };
-		6C86B3AB1396B096009F6FE6 /* EGOCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3931396B096009F6FE6 /* EGOCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B3AC1396B096009F6FE6 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3941396B096009F6FE6 /* EGOCache.m */; };
-		6C86B3AD1396B096009F6FE6 /* EGOImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3961396B096009F6FE6 /* EGOImageButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B3AE1396B096009F6FE6 /* EGOImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3971396B096009F6FE6 /* EGOImageButton.m */; };
-		6C86B3AF1396B096009F6FE6 /* EGOImageLoadConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3991396B096009F6FE6 /* EGOImageLoadConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B3B01396B096009F6FE6 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B39A1396B096009F6FE6 /* EGOImageLoadConnection.m */; };
-		6C86B3B11396B096009F6FE6 /* EGOImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B39B1396B096009F6FE6 /* EGOImageLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B3B21396B096009F6FE6 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B39C1396B096009F6FE6 /* EGOImageLoader.m */; };
-		6C86B3B31396B096009F6FE6 /* EGOImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B39E1396B096009F6FE6 /* EGOImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B3B41396B096009F6FE6 /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B39F1396B096009F6FE6 /* EGOImageView.m */; };
 		6C86B4071396B0CD009F6FE6 /* SoundEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3D21396B0CD009F6FE6 /* SoundEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4081396B0CD009F6FE6 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3D31396B0CD009F6FE6 /* SoundEffect.m */; };
 		6C86B41B1396B0CD009F6FE6 /* MTUniversalHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3E81396B0CD009F6FE6 /* MTUniversalHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -324,38 +312,38 @@
 		6C86BA791396FCE3009F6FE6 /* TDSemiModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BA681396FCE2009F6FE6 /* TDSemiModalViewController.m */; };
 		6C86BA7A1396FCE3009F6FE6 /* UIViewController+TDSemiModalExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BA691396FCE2009F6FE6 /* UIViewController+TDSemiModalExtension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BA7B1396FCE3009F6FE6 /* UIViewController+TDSemiModalExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BA6A1396FCE2009F6FE6 /* UIViewController+TDSemiModalExtension.m */; };
-		6C86BAEF13970188009F6FE6 /* MANotificationCenterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BADC13970188009F6FE6 /* MANotificationCenterAdditions.h */; };
+		6C86BAEF13970188009F6FE6 /* MANotificationCenterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BADC13970188009F6FE6 /* MANotificationCenterAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BAF013970188009F6FE6 /* MANotificationCenterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BADD13970188009F6FE6 /* MANotificationCenterAdditions.m */; };
-		6C86BAF113970188009F6FE6 /* MAWeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BADE13970188009F6FE6 /* MAWeakArray.h */; };
+		6C86BAF113970188009F6FE6 /* MAWeakArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BADE13970188009F6FE6 /* MAWeakArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BAF213970188009F6FE6 /* MAWeakArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BADF13970188009F6FE6 /* MAWeakArray.m */; };
-		6C86BAF313970188009F6FE6 /* MAWeakDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BAE013970188009F6FE6 /* MAWeakDictionary.h */; };
+		6C86BAF313970188009F6FE6 /* MAWeakDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BAE013970188009F6FE6 /* MAWeakDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BAF413970188009F6FE6 /* MAWeakDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BAE113970188009F6FE6 /* MAWeakDictionary.m */; };
-		6C86BAF513970188009F6FE6 /* MAZeroingWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BAE213970188009F6FE6 /* MAZeroingWeakProxy.h */; };
+		6C86BAF513970188009F6FE6 /* MAZeroingWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BAE213970188009F6FE6 /* MAZeroingWeakProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BAF613970188009F6FE6 /* MAZeroingWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BAE313970188009F6FE6 /* MAZeroingWeakProxy.m */; };
-		6C86BAF713970188009F6FE6 /* MAZeroingWeakRef.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BAE413970188009F6FE6 /* MAZeroingWeakRef.h */; };
+		6C86BAF713970188009F6FE6 /* MAZeroingWeakRef.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BAE413970188009F6FE6 /* MAZeroingWeakRef.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BAF813970188009F6FE6 /* MAZeroingWeakRef.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BAE513970188009F6FE6 /* MAZeroingWeakRef.m */; };
-		6C86BB4E139702B6009F6FE6 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BB41139702B5009F6FE6 /* MBProgressHUD.h */; };
+		6C86BB4E139702B6009F6FE6 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BB41139702B5009F6FE6 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BB4F139702B6009F6FE6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BB42139702B5009F6FE6 /* MBProgressHUD.m */; };
-		6C86BB9813970301009F6FE6 /* DSActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BB8A13970301009F6FE6 /* DSActivityView.h */; };
+		6C86BB9813970301009F6FE6 /* DSActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BB8A13970301009F6FE6 /* DSActivityView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BB9913970301009F6FE6 /* DSActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BB8B13970301009F6FE6 /* DSActivityView.m */; };
+		6C86BBD01397038E009F6FE6 /* Appirater.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBCD1397038E009F6FE6 /* Appirater.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86BBD11397038E009F6FE6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBCE1397038E009F6FE6 /* Appirater.m */; };
+		6C86BBE11397060E009F6FE6 /* EGOCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBD41397060E009F6FE6 /* EGOCache.h */; };
+		6C86BBE21397060E009F6FE6 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBD51397060E009F6FE6 /* EGOCache.m */; };
+		6C86BBE31397060E009F6FE6 /* EGOImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBD71397060E009F6FE6 /* EGOImageButton.h */; };
+		6C86BBE41397060E009F6FE6 /* EGOImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBD81397060E009F6FE6 /* EGOImageButton.m */; };
+		6C86BBE51397060F009F6FE6 /* EGOImageLoadConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBDA1397060E009F6FE6 /* EGOImageLoadConnection.h */; };
+		6C86BBE61397060F009F6FE6 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBDB1397060E009F6FE6 /* EGOImageLoadConnection.m */; };
+		6C86BBE71397060F009F6FE6 /* EGOImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBDC1397060E009F6FE6 /* EGOImageLoader.h */; };
+		6C86BBE81397060F009F6FE6 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBDD1397060E009F6FE6 /* EGOImageLoader.m */; };
+		6C86BBE91397060F009F6FE6 /* EGOImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBDF1397060E009F6FE6 /* EGOImageView.h */; };
+		6C86BBEA1397060F009F6FE6 /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBE01397060E009F6FE6 /* EGOImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6C86B3791396AAE7009F6FE6 /* libPSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86B37C1396AAE7009F6FE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6C86B3801396AAE7009F6FE6 /* PSFoundation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSFoundation-Prefix.pch"; sourceTree = "<group>"; };
-		6C86B3901396B096009F6FE6 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
-		6C86B3911396B096009F6FE6 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
-		6C86B3931396B096009F6FE6 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
-		6C86B3941396B096009F6FE6 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
-		6C86B3961396B096009F6FE6 /* EGOImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageButton.h; sourceTree = "<group>"; };
-		6C86B3971396B096009F6FE6 /* EGOImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageButton.m; sourceTree = "<group>"; };
-		6C86B3991396B096009F6FE6 /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
-		6C86B39A1396B096009F6FE6 /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
-		6C86B39B1396B096009F6FE6 /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
-		6C86B39C1396B096009F6FE6 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
-		6C86B39E1396B096009F6FE6 /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
-		6C86B39F1396B096009F6FE6 /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
 		6C86B3D21396B0CD009F6FE6 /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
 		6C86B3D31396B0CD009F6FE6 /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
 		6C86B3E81396B0CD009F6FE6 /* MTUniversalHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUniversalHelper.h; sourceTree = "<group>"; };
@@ -675,6 +663,18 @@
 		6C86BB42139702B5009F6FE6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6C86BB8A13970301009F6FE6 /* DSActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActivityView.h; path = Sources/DSActivityView.h; sourceTree = "<group>"; };
 		6C86BB8B13970301009F6FE6 /* DSActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActivityView.m; path = Sources/DSActivityView.m; sourceTree = "<group>"; };
+		6C86BBCD1397038E009F6FE6 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		6C86BBCE1397038E009F6FE6 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		6C86BBD41397060E009F6FE6 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
+		6C86BBD51397060E009F6FE6 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
+		6C86BBD71397060E009F6FE6 /* EGOImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageButton.h; sourceTree = "<group>"; };
+		6C86BBD81397060E009F6FE6 /* EGOImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageButton.m; sourceTree = "<group>"; };
+		6C86BBDA1397060E009F6FE6 /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
+		6C86BBDB1397060E009F6FE6 /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
+		6C86BBDC1397060E009F6FE6 /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
+		6C86BBDD1397060E009F6FE6 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
+		6C86BBDF1397060E009F6FE6 /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
+		6C86BBE01397060E009F6FE6 /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -739,7 +739,6 @@
 				6C86B4F01396B185009F6FE6 /* Archiving */,
 				6C86B4F31396B185009F6FE6 /* Categories */,
 				6C86B80B1396B4FC009F6FE6 /* External */,
-				6C86B38E1396B096009F6FE6 /* ExternalFrameworks */,
 				6C86B5BB1396B186009F6FE6 /* InterfaceBuilder */,
 				6C86B5C01396B186009F6FE6 /* Invocation */,
 				6C86B5C91396B186009F6FE6 /* Keychain */,
@@ -767,65 +766,6 @@
 				6C86B3801396AAE7009F6FE6 /* PSFoundation-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		6C86B38E1396B096009F6FE6 /* ExternalFrameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6C86B38F1396B096009F6FE6 /* Appirater */,
-				6C86B3921396B096009F6FE6 /* EGOImageLoader */,
-			);
-			path = ExternalFrameworks;
-			sourceTree = "<group>";
-		};
-		6C86B38F1396B096009F6FE6 /* Appirater */ = {
-			isa = PBXGroup;
-			children = (
-				6C86B3901396B096009F6FE6 /* Appirater.h */,
-				6C86B3911396B096009F6FE6 /* Appirater.m */,
-			);
-			path = Appirater;
-			sourceTree = "<group>";
-		};
-		6C86B3921396B096009F6FE6 /* EGOImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				6C86B3931396B096009F6FE6 /* EGOCache.h */,
-				6C86B3941396B096009F6FE6 /* EGOCache.m */,
-				6C86B3951396B096009F6FE6 /* EGOImageButton */,
-				6C86B3981396B096009F6FE6 /* EGOImageLoader */,
-				6C86B39D1396B096009F6FE6 /* EGOImageView */,
-			);
-			path = EGOImageLoader;
-			sourceTree = "<group>";
-		};
-		6C86B3951396B096009F6FE6 /* EGOImageButton */ = {
-			isa = PBXGroup;
-			children = (
-				6C86B3961396B096009F6FE6 /* EGOImageButton.h */,
-				6C86B3971396B096009F6FE6 /* EGOImageButton.m */,
-			);
-			path = EGOImageButton;
-			sourceTree = "<group>";
-		};
-		6C86B3981396B096009F6FE6 /* EGOImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				6C86B3991396B096009F6FE6 /* EGOImageLoadConnection.h */,
-				6C86B39A1396B096009F6FE6 /* EGOImageLoadConnection.m */,
-				6C86B39B1396B096009F6FE6 /* EGOImageLoader.h */,
-				6C86B39C1396B096009F6FE6 /* EGOImageLoader.m */,
-			);
-			path = EGOImageLoader;
-			sourceTree = "<group>";
-		};
-		6C86B39D1396B096009F6FE6 /* EGOImageView */ = {
-			isa = PBXGroup;
-			children = (
-				6C86B39E1396B096009F6FE6 /* EGOImageView.h */,
-				6C86B39F1396B096009F6FE6 /* EGOImageView.m */,
-			);
-			path = EGOImageView;
 			sourceTree = "<group>";
 		};
 		6C86B3D11396B0CD009F6FE6 /* Sound */ = {
@@ -1184,6 +1124,8 @@
 		6C86B80B1396B4FC009F6FE6 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				6C86BBD31397060E009F6FE6 /* EGOImageLoader */,
+				6C86BBA71397038E009F6FE6 /* appirater */,
 				6C86BB5413970301009F6FE6 /* DSActivityView */,
 				6C86BB04139702B5009F6FE6 /* MBProgressHUD */,
 				6C86BADA13970188009F6FE6 /* MAZeroingWeakRef */,
@@ -1291,6 +1233,58 @@
 			path = External/DSActivityView;
 			sourceTree = "<group>";
 		};
+		6C86BBA71397038E009F6FE6 /* appirater */ = {
+			isa = PBXGroup;
+			children = (
+				6C86BBCD1397038E009F6FE6 /* Appirater.h */,
+				6C86BBCE1397038E009F6FE6 /* Appirater.m */,
+			);
+			name = appirater;
+			path = ../../../Documents/Development/Projects/Filemator/PSFoundation/PSFoundation/External/appirater;
+			sourceTree = "<group>";
+		};
+		6C86BBD31397060E009F6FE6 /* EGOImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				6C86BBD41397060E009F6FE6 /* EGOCache.h */,
+				6C86BBD51397060E009F6FE6 /* EGOCache.m */,
+				6C86BBD61397060E009F6FE6 /* EGOImageButton */,
+				6C86BBD91397060E009F6FE6 /* EGOImageLoader */,
+				6C86BBDE1397060E009F6FE6 /* EGOImageView */,
+			);
+			name = EGOImageLoader;
+			path = External/EGOImageLoader;
+			sourceTree = "<group>";
+		};
+		6C86BBD61397060E009F6FE6 /* EGOImageButton */ = {
+			isa = PBXGroup;
+			children = (
+				6C86BBD71397060E009F6FE6 /* EGOImageButton.h */,
+				6C86BBD81397060E009F6FE6 /* EGOImageButton.m */,
+			);
+			path = EGOImageButton;
+			sourceTree = "<group>";
+		};
+		6C86BBD91397060E009F6FE6 /* EGOImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				6C86BBDA1397060E009F6FE6 /* EGOImageLoadConnection.h */,
+				6C86BBDB1397060E009F6FE6 /* EGOImageLoadConnection.m */,
+				6C86BBDC1397060E009F6FE6 /* EGOImageLoader.h */,
+				6C86BBDD1397060E009F6FE6 /* EGOImageLoader.m */,
+			);
+			path = EGOImageLoader;
+			sourceTree = "<group>";
+		};
+		6C86BBDE1397060E009F6FE6 /* EGOImageView */ = {
+			isa = PBXGroup;
+			children = (
+				6C86BBDF1397060E009F6FE6 /* EGOImageView.h */,
+				6C86BBE01397060E009F6FE6 /* EGOImageView.m */,
+			);
+			path = EGOImageView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1298,12 +1292,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C86B3A91396B096009F6FE6 /* Appirater.h in Headers */,
-				6C86B3AB1396B096009F6FE6 /* EGOCache.h in Headers */,
-				6C86B3AD1396B096009F6FE6 /* EGOImageButton.h in Headers */,
-				6C86B3AF1396B096009F6FE6 /* EGOImageLoadConnection.h in Headers */,
-				6C86B3B11396B096009F6FE6 /* EGOImageLoader.h in Headers */,
-				6C86B3B31396B096009F6FE6 /* EGOImageView.h in Headers */,
 				6C86B4071396B0CD009F6FE6 /* SoundEffect.h in Headers */,
 				6C86B41B1396B0CD009F6FE6 /* MTUniversalHelper.h in Headers */,
 				6C86B4711396B118009F6FE6 /* Reachability.h in Headers */,
@@ -1450,7 +1438,6 @@
 				6C86BA7A1396FCE3009F6FE6 /* UIViewController+TDSemiModalExtension.h in Headers */,
 				6C86B6891396B187009F6FE6 /* NSObject+DDExtensions.h in Headers */,
 				6C86B68B1396B187009F6FE6 /* NSObject+Proxy.h in Headers */,
-				6C86B68D1396B187009F6FE6 /* SFHFKeychainUtils.h in Headers */,
 				6C86BAEF13970188009F6FE6 /* MANotificationCenterAdditions.h in Headers */,
 				6C86BAF113970188009F6FE6 /* MAWeakArray.h in Headers */,
 				6C86BAF313970188009F6FE6 /* MAWeakDictionary.h in Headers */,
@@ -1458,6 +1445,13 @@
 				6C86BAF713970188009F6FE6 /* MAZeroingWeakRef.h in Headers */,
 				6C86BB4E139702B6009F6FE6 /* MBProgressHUD.h in Headers */,
 				6C86BB9813970301009F6FE6 /* DSActivityView.h in Headers */,
+				6C86BBD01397038E009F6FE6 /* Appirater.h in Headers */,
+				6C86B68D1396B187009F6FE6 /* SFHFKeychainUtils.h in Headers */,
+				6C86BBE11397060E009F6FE6 /* EGOCache.h in Headers */,
+				6C86BBE31397060E009F6FE6 /* EGOImageButton.h in Headers */,
+				6C86BBE51397060F009F6FE6 /* EGOImageLoadConnection.h in Headers */,
+				6C86BBE71397060F009F6FE6 /* EGOImageLoader.h in Headers */,
+				6C86BBE91397060F009F6FE6 /* EGOImageView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1572,12 +1566,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C86B3AA1396B096009F6FE6 /* Appirater.m in Sources */,
-				6C86B3AC1396B096009F6FE6 /* EGOCache.m in Sources */,
-				6C86B3AE1396B096009F6FE6 /* EGOImageButton.m in Sources */,
-				6C86B3B01396B096009F6FE6 /* EGOImageLoadConnection.m in Sources */,
-				6C86B3B21396B096009F6FE6 /* EGOImageLoader.m in Sources */,
-				6C86B3B41396B096009F6FE6 /* EGOImageView.m in Sources */,
 				6C86B4081396B0CD009F6FE6 /* SoundEffect.m in Sources */,
 				6C86B41C1396B0CD009F6FE6 /* MTUniversalHelper.m in Sources */,
 				6C86B4721396B118009F6FE6 /* Reachability.m in Sources */,
@@ -1721,6 +1709,12 @@
 				6C86BAF813970188009F6FE6 /* MAZeroingWeakRef.m in Sources */,
 				6C86BB4F139702B6009F6FE6 /* MBProgressHUD.m in Sources */,
 				6C86BB9913970301009F6FE6 /* DSActivityView.m in Sources */,
+				6C86BBD11397038E009F6FE6 /* Appirater.m in Sources */,
+				6C86BBE21397060E009F6FE6 /* EGOCache.m in Sources */,
+				6C86BBE41397060E009F6FE6 /* EGOImageButton.m in Sources */,
+				6C86BBE61397060F009F6FE6 /* EGOImageLoadConnection.m in Sources */,
+				6C86BBE81397060F009F6FE6 /* EGOImageLoader.m in Sources */,
+				6C86BBEA1397060F009F6FE6 /* EGOImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

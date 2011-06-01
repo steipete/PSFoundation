@@ -13,12 +13,15 @@
 
 // external projects
 #import "BlocksKit.h"
+#import "DSActivityView.h"
+#import "MBProgressHUD.h"
+#import "MAZeroingWeakRef.h"
+#import "TDSemiModal.h"
+// not including appirator
+#import "EGOImageView.h"
 
 #import "Reachability.h"
 #import "IKNetworkActivityManager.h"
-
-// http://www.mikeash.com/pyblog/friday-qa-2010-07-16-zeroing-weak-references-in-objective-c.html
-#import "MAZeroingWeakRef.h"
 
 // awesomeness at logging!
 #import "VTPG_Common.h"
@@ -27,10 +30,6 @@
 #import "PSClassUtils.h"
 #import "SoundEffect.h"
 #import "SFHFKeychainUtils.h"
-
-// HUD
-#import "DSActivityView.h"
-#import "MBProgressHUD.h"
 
 // InterfaceBuilder
 #import "BSUIViewRearranger.h"

@@ -13,3 +13,6 @@
 [submodule "PSFoundation/External/DSActivityView"]
 	path = PSFoundation/External/DSActivityView
 	url = git://github.com/joycodes/DSActivityView.git
+[submodule "PSFoundation/External/appirater"]
+	path = PSFoundation/External/appirater
+	url = git://github.com/arashpayan/appirater.git
