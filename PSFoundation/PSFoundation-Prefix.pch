@@ -1,0 +1,15 @@
+//
+// Prefix header for all source files of the 'PSFoundation' target in the 'PSFoundation' project
+//
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
+#import "PSCompatibility.h"
+#import "DDLog.h"
+#import "SynthesizeSingleton.h"
+#import "PSMacros.h"
+#endif
+
