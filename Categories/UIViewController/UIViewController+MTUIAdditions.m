@@ -8,8 +8,6 @@
 
 #import "UIViewController+MTUIAdditions.h"
 
-#define kMTActivityViewTag      34032
-
 
 @implementation UIViewController (MTUIAdditions)
 
@@ -21,6 +19,7 @@
     activityView.tag = kMTActivityViewTag;
     
     [self.view addSubview:activityView];
+    [activityView startAnimating];
 }
 
 - (void)hideLoadingIndicator {

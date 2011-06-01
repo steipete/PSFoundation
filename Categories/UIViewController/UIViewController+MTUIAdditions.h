@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#define kMTActivityViewTag      34032
 
 @interface UIViewController (MTUIAdditions)
 
