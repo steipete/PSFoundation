@@ -47,6 +47,13 @@ NS_INLINE CGFloat PSAppWidth() {
     }
 }
 
+// file management
+
+#define NSDocumentsFolder() [NSFileManager documentsFolder]
+#define MTDocumentsDirectory() [NSFileManager documentsFolder]
+#define NSLibraryFolder() [NSFileManager libraryFolder]
+#define NSBundleFolder() [NSFileManager bundleFolder]
+
 // color
 #define SETTINGS_TEXT_COLOR	RGBCOLOR(57, 85, 135)
 #ifndef RGBCOLOR

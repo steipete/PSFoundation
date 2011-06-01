@@ -25,7 +25,6 @@
 
 #import "ColorUtils.h"
 #import "PSClassUtils.h"
-#import "PSGlobal.h"
 #import "SoundEffect.h"
 #import "SFHFKeychainUtils.h"
 

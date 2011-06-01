@@ -50,11 +50,7 @@
 #import "JRSwizzle.h"
 
 
-// NSFileManager //////////////////////////////////////////////////////////////////////////////////
-
-// NSDocumentsFolder(), NSLibraryFolder(), NSTmpFolder(), NSBundleFolder(), pathForItemNamed, filesInFolder...
-#import "NSFileManager-Utilities.h"                         // BSD
-
+#import "NSFileManager+PSFoundation.h"
 
 // NSNotifications ////////////////////////////////////////////////////////////////////////////////
 

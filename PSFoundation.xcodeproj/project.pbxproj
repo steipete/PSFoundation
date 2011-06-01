@@ -73,8 +73,6 @@
 		6C86B48E1396B118009F6FE6 /* PSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B45E1396B118009F6FE6 /* PSAlertView.m */; };
 		6C86B48F1396B118009F6FE6 /* PSClassUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B45F1396B118009F6FE6 /* PSClassUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4901396B118009F6FE6 /* PSClassUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4601396B118009F6FE6 /* PSClassUtils.m */; };
-		6C86B4911396B118009F6FE6 /* PSGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4611396B118009F6FE6 /* PSGlobal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B4921396B118009F6FE6 /* PSGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4621396B118009F6FE6 /* PSGlobal.m */; };
 		6C86B4931396B118009F6FE6 /* PSNonEdiableTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4631396B118009F6FE6 /* PSNonEdiableTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4941396B118009F6FE6 /* PSNonEdiableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4641396B118009F6FE6 /* PSNonEdiableTextView.m */; };
 		6C86B4951396B118009F6FE6 /* PSSettingsUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4651396B118009F6FE6 /* PSSettingsUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -229,8 +227,8 @@
 		6C86B91D1396C744009F6FE6 /* NSDictionaryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8801396C744009F6FE6 /* NSDictionaryHelper.m */; };
 		6C86B91E1396C744009F6FE6 /* NSError+SCMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8811396C744009F6FE6 /* NSError+SCMethods.h */; };
 		6C86B91F1396C744009F6FE6 /* NSError+SCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8821396C744009F6FE6 /* NSError+SCMethods.m */; };
-		6C86B9201396C744009F6FE6 /* NSFileManager-Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8831396C744009F6FE6 /* NSFileManager-Utilities.h */; };
-		6C86B9211396C744009F6FE6 /* NSFileManager-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8841396C744009F6FE6 /* NSFileManager-Utilities.m */; };
+		6C86B9201396C744009F6FE6 /* NSFileManager+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8831396C744009F6FE6 /* NSFileManager+PSFoundation.h */; };
+		6C86B9211396C744009F6FE6 /* NSFileManager+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8841396C744009F6FE6 /* NSFileManager+PSFoundation.m */; };
 		6C86B9221396C744009F6FE6 /* NSManagedObject+AutoDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8851396C744009F6FE6 /* NSManagedObject+AutoDescription.h */; };
 		6C86B9231396C744009F6FE6 /* NSManagedObject+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */; };
 		6C86B9241396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */; };
@@ -412,8 +410,6 @@
 		6C86B45E1396B118009F6FE6 /* PSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAlertView.m; sourceTree = "<group>"; };
 		6C86B45F1396B118009F6FE6 /* PSClassUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSClassUtils.h; sourceTree = "<group>"; };
 		6C86B4601396B118009F6FE6 /* PSClassUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSClassUtils.m; sourceTree = "<group>"; };
-		6C86B4611396B118009F6FE6 /* PSGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGlobal.h; sourceTree = "<group>"; };
-		6C86B4621396B118009F6FE6 /* PSGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGlobal.m; sourceTree = "<group>"; };
 		6C86B4631396B118009F6FE6 /* PSNonEdiableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNonEdiableTextView.h; sourceTree = "<group>"; };
 		6C86B4641396B118009F6FE6 /* PSNonEdiableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNonEdiableTextView.m; sourceTree = "<group>"; };
 		6C86B4651396B118009F6FE6 /* PSSettingsUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSettingsUtil.h; sourceTree = "<group>"; };
@@ -570,8 +566,8 @@
 		6C86B8801396C744009F6FE6 /* NSDictionaryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionaryHelper.m; sourceTree = "<group>"; };
 		6C86B8811396C744009F6FE6 /* NSError+SCMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+SCMethods.h"; sourceTree = "<group>"; };
 		6C86B8821396C744009F6FE6 /* NSError+SCMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+SCMethods.m"; sourceTree = "<group>"; };
-		6C86B8831396C744009F6FE6 /* NSFileManager-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager-Utilities.h"; sourceTree = "<group>"; };
-		6C86B8841396C744009F6FE6 /* NSFileManager-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager-Utilities.m"; sourceTree = "<group>"; };
+		6C86B8831396C744009F6FE6 /* NSFileManager+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+PSFoundation.h"; sourceTree = "<group>"; };
+		6C86B8841396C744009F6FE6 /* NSFileManager+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+PSFoundation.m"; sourceTree = "<group>"; };
 		6C86B8851396C744009F6FE6 /* NSManagedObject+AutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+AutoDescription.h"; sourceTree = "<group>"; };
 		6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+AutoDescription.m"; sourceTree = "<group>"; };
 		6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+FetchedObjectFromURI.h"; sourceTree = "<group>"; };
@@ -936,8 +932,6 @@
 				6C86B45E1396B118009F6FE6 /* PSAlertView.m */,
 				6C86B45F1396B118009F6FE6 /* PSClassUtils.h */,
 				6C86B4601396B118009F6FE6 /* PSClassUtils.m */,
-				6C86B4611396B118009F6FE6 /* PSGlobal.h */,
-				6C86B4621396B118009F6FE6 /* PSGlobal.m */,
 				6C86B4631396B118009F6FE6 /* PSNonEdiableTextView.h */,
 				6C86B4641396B118009F6FE6 /* PSNonEdiableTextView.m */,
 				6C86B4651396B118009F6FE6 /* PSSettingsUtil.h */,
@@ -1075,8 +1069,8 @@
 				6C86B8801396C744009F6FE6 /* NSDictionaryHelper.m */,
 				6C86B8811396C744009F6FE6 /* NSError+SCMethods.h */,
 				6C86B8821396C744009F6FE6 /* NSError+SCMethods.m */,
-				6C86B8831396C744009F6FE6 /* NSFileManager-Utilities.h */,
-				6C86B8841396C744009F6FE6 /* NSFileManager-Utilities.m */,
+				6C86B8831396C744009F6FE6 /* NSFileManager+PSFoundation.h */,
+				6C86B8841396C744009F6FE6 /* NSFileManager+PSFoundation.m */,
 				6C86B8851396C744009F6FE6 /* NSManagedObject+AutoDescription.h */,
 				6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */,
 				6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */,
@@ -1328,7 +1322,6 @@
 				6C86B48B1396B118009F6FE6 /* PSActionSheet.h in Headers */,
 				6C86B48D1396B118009F6FE6 /* PSAlertView.h in Headers */,
 				6C86B48F1396B118009F6FE6 /* PSClassUtils.h in Headers */,
-				6C86B4911396B118009F6FE6 /* PSGlobal.h in Headers */,
 				6C86B4931396B118009F6FE6 /* PSNonEdiableTextView.h in Headers */,
 				6C86B4951396B118009F6FE6 /* PSSettingsUtil.h in Headers */,
 				6C86B4971396B118009F6FE6 /* PSStatusBarSaver.h in Headers */,
@@ -1401,7 +1394,7 @@
 				6C86B91A1396C744009F6FE6 /* NSDictionary+CGStructs.h in Headers */,
 				6C86B91C1396C744009F6FE6 /* NSDictionaryHelper.h in Headers */,
 				6C86B91E1396C744009F6FE6 /* NSError+SCMethods.h in Headers */,
-				6C86B9201396C744009F6FE6 /* NSFileManager-Utilities.h in Headers */,
+				6C86B9201396C744009F6FE6 /* NSFileManager+PSFoundation.h in Headers */,
 				6C86B9221396C744009F6FE6 /* NSManagedObject+AutoDescription.h in Headers */,
 				6C86B9241396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */,
 				6C86B9261396C744009F6FE6 /* NSMutableArray+MTShuffle.h in Headers */,
@@ -1602,7 +1595,6 @@
 				6C86B48C1396B118009F6FE6 /* PSActionSheet.m in Sources */,
 				6C86B48E1396B118009F6FE6 /* PSAlertView.m in Sources */,
 				6C86B4901396B118009F6FE6 /* PSClassUtils.m in Sources */,
-				6C86B4921396B118009F6FE6 /* PSGlobal.m in Sources */,
 				6C86B4941396B118009F6FE6 /* PSNonEdiableTextView.m in Sources */,
 				6C86B4961396B118009F6FE6 /* PSSettingsUtil.m in Sources */,
 				6C86B4981396B118009F6FE6 /* PSStatusBarSaver.m in Sources */,
@@ -1664,7 +1656,7 @@
 				6C86B91B1396C744009F6FE6 /* NSDictionary+CGStructs.m in Sources */,
 				6C86B91D1396C744009F6FE6 /* NSDictionaryHelper.m in Sources */,
 				6C86B91F1396C744009F6FE6 /* NSError+SCMethods.m in Sources */,
-				6C86B9211396C744009F6FE6 /* NSFileManager-Utilities.m in Sources */,
+				6C86B9211396C744009F6FE6 /* NSFileManager+PSFoundation.m in Sources */,
 				6C86B9231396C744009F6FE6 /* NSManagedObject+AutoDescription.m in Sources */,
 				6C86B9251396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				6C86B9271396C744009F6FE6 /* NSMutableArray+MTShuffle.m in Sources */,
