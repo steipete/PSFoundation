@@ -18,6 +18,8 @@
 		3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595B12C7F3AE001D4D53 /* QuartzCore.framework */; };
 		3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948220E12C8AA9700763012 /* TDBadgedCell.h */; };
 		3948221112C8AA9700763012 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948220F12C8AA9700763012 /* TDBadgedCell.m */; };
+		39483F141396488A00AA4C4E /* UIViewController+MTUIAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 39483F121396488900AA4C4E /* UIViewController+MTUIAdditions.h */; };
+		39483F151396488A00AA4C4E /* UIViewController+MTUIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 39483F131396488A00AA4C4E /* UIViewController+MTUIAdditions.m */; };
 		3975C0841317BFC400F1D336 /* NSDate+MTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */; };
 		3975C0851317BFC400F1D336 /* NSDate+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */; };
 		3994624812C9241A005574A6 /* NSArrayHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994624612C9241A005574A6 /* NSArrayHelper.h */; };
@@ -584,6 +586,8 @@
 		3936595B12C7F3AE001D4D53 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3948220E12C8AA9700763012 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDBadgedCell.h; path = TableView/TDBadgedCell.h; sourceTree = SOURCE_ROOT; };
 		3948220F12C8AA9700763012 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDBadgedCell.m; path = TableView/TDBadgedCell.m; sourceTree = SOURCE_ROOT; };
+		39483F121396488900AA4C4E /* UIViewController+MTUIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MTUIAdditions.h"; sourceTree = "<group>"; };
+		39483F131396488A00AA4C4E /* UIViewController+MTUIAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MTUIAdditions.m"; sourceTree = "<group>"; };
 		3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+MTAdditions.h"; path = "Categories/NSDate/NSDate+MTAdditions.h"; sourceTree = SOURCE_ROOT; };
 		3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MTAdditions.m"; path = "Categories/NSDate/NSDate+MTAdditions.m"; sourceTree = SOURCE_ROOT; };
 		3994624612C9241A005574A6 /* NSArrayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSArrayHelper.h; path = Categories/NSArray/NSArrayHelper.h; sourceTree = SOURCE_ROOT; };
@@ -1035,6 +1039,8 @@
 				3994625F12C925F5005574A6 /* UIViewControllerHelper.m */,
 				39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */,
 				39EBAAB013508EE100BBFB4B /* UIViewController+MTAnimatedFetch.m */,
+				39483F121396488900AA4C4E /* UIViewController+MTUIAdditions.h */,
+				39483F131396488A00AA4C4E /* UIViewController+MTUIAdditions.m */,
 			);
 			name = UIViewController;
 			path = Categories/UIViewController;
@@ -2030,6 +2036,7 @@
 				3934261A1328CCE5001427E1 /* DTCustomColoredAccessory.h in Headers */,
 				39FAFC87132FA7D100F039C4 /* UIImage+MTTiling.h in Headers */,
 				39EE4117136ABFE300ABE900 /* UIView+WhenTappedBlocks.h in Headers */,
+				39483F141396488A00AA4C4E /* UIViewController+MTUIAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2456,6 +2463,7 @@
 				3934261B1328CCE5001427E1 /* DTCustomColoredAccessory.m in Sources */,
 				39FAFC88132FA7D100F039C4 /* UIImage+MTTiling.m in Sources */,
 				39EE4118136ABFE300ABE900 /* UIView+WhenTappedBlocks.m in Sources */,
+				39483F151396488A00AA4C4E /* UIViewController+MTUIAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
