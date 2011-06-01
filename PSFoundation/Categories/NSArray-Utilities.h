@@ -51,9 +51,4 @@
 @interface NSArray (PSLib)
 - (id)objectUsingPredicate:(NSPredicate *)predicate;
 
-/*
- * Checks to see if the array is empty
- */
-@property(nonatomic,readonly,getter=isEmpty) BOOL empty;
-
 @end

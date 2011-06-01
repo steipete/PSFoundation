@@ -5,19 +5,19 @@
 //  Contains stuff from Dirk Holtwick - thanks for sharing!
 //
 
+#import "NilCategories.h"
 #import "MACollectionMacros.h"
 
 // compiler help
 #define INVALIDATE_TIMER(__TIMER) { [__TIMER invalidate]; __TIMER = nil; }
-#define STRING_IS_EMPTY_OR_NIL( _STRING ) ( _STRING == nil || [_STRING isEmptyOrWhitespace] )
 #define VERIFIED_CLASS(className) ((className *) NSClassFromString(@"" # className))
 
-// http://www.wilshipley.com/blog/2005/10/pimp-my-code-interlude-free-code.html
+#define STRING_IS_EMPTY_OR_NIL( _STRING ) string.empty
 static inline BOOL IsEmpty(id thing) {
-	return thing == nil ||
-  ([thing isEqual:[NSNull null]]) ||
-  ([thing respondsToSelector:@selector(length)] && [(NSData *)thing length] == 0) ||
-  ([thing respondsToSelector:@selector(count)]  && [(NSArray *)thing count] == 0);
+    if ([thing respondsToSelector:@selector(isEmpty)]) {
+        return [thing isEmpty];
+    }
+	return (!thing);
 }
 
 // CGRect

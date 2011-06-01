@@ -29,15 +29,6 @@
 
 @implementation NSURL (Helper)
 
-+ (NSURL *)URLWithStringOrNil:(NSString *)URLString {
- if (URLString) {
-   return [NSURL URLWithString:URLString];
- }else {
-   return nil;
- }
-}
-
-
 - (NSString*)baseString {
 	// Let's see if we can build it, it'll be the most accurate
 	if([self scheme] && [self host]) {

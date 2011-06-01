@@ -76,9 +76,9 @@
 @end
 
 @implementation NSString  (RangeAvoidance)
-- (BOOL) hasSubstring:(NSString*)substring;
-{
-	if(IsEmpty(substring))
+
+- (BOOL) hasSubstring:(NSString*)substring {
+	if(substring.empty)
 		return NO;
 	NSRange substringRange = [self rangeOfString:substring];
 	return substringRange.location != NSNotFound && substringRange.length > 0;

@@ -39,11 +39,6 @@
  */
 + (NSArray*)arrayWithAlphaNumericTitlesWithSearch:(BOOL)search;
 
-/*
- * Checks to see if the array is empty
- */
-@property(nonatomic,readonly,getter=isEmpty) BOOL empty;
-
 @end
 
 @interface NSMutableArray (PSHelper)

@@ -42,7 +42,7 @@
 
 // NSDictionary////////////////////////////////////////////////////////////////////////////////////
 
-// containsObjectForKey, isEmpty
+// containsObjectForKey
 #import "NSDictionaryHelper.h"
 
 #import "NSDictionary+CGStructs.h"

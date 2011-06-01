@@ -31,30 +31,6 @@ int const GGCharacterIsNotADigit = 10;
 
 @implementation NSString (Helper)
 
-- (BOOL)isNotEmpty {
-    return [self length] > 0;
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (BOOL)isWhitespaceAndNewlines {
-    NSCharacterSet* whitespace = [NSCharacterSet whitespaceAndNewlineCharacterSet];
-    for (NSInteger i = 0; i < self.length; ++i) {
-        unichar c = [self characterAtIndex:i];
-        if (![whitespace characterIsMember:c]) {
-            return NO;
-        }
-    }
-    return YES;
-}
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (BOOL)isEmptyOrWhitespace {
-    return !self.length ||
-    ![self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length;
-}
-
-
 - (BOOL)containsString:(NSString *)string {
 	return [self containsString:string options:NSCaseInsensitiveSearch];
 }

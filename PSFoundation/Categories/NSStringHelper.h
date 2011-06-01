@@ -32,18 +32,6 @@ enum {
 
 @interface NSString (Helper)
 
-- (BOOL)isNotEmpty;
-
-/**
- * Determines if the string contains only whitespace and newlines.
- */
-- (BOOL)isWhitespaceAndNewlines;
-
-/**
- * Determines if the string is empty or contains only whitespace.
- */
-- (BOOL)isEmptyOrWhitespace;
-
 /*
  * Checks to see if the string contains the given string, case insenstive
  */

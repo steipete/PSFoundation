@@ -83,7 +83,7 @@
 
 	NSString *text = self.text;
 
-	if (IsEmpty(text)) {
+	if (text.empty) {
 
 		result = 0;
 
