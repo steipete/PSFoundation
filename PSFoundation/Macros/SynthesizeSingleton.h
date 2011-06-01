@@ -1,9 +1,10 @@
 //
 //  SynthesizeSingleton.h
-//  CocoaWithLove
+//  PSFoundation
 //
-//  Created by Matt Gallagher on 20/10/08.
-//  Copyright 2009 Matt Gallagher. All rights reserved.
+//  Includes code by the following:
+//   - Matt Gallagher.  See below.
+//   - Ching-Lan Huang.
 //
 //  Permission is given to use this source code file without charge in any
 //  project, commercial or otherwise, entirely at your risk, with the condition
@@ -13,37 +14,39 @@
 //
 
 #define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \
- \
-static classname *shared##classname = nil; \
- \
-+ (classname *)shared##classname \
-{ \
-  static dispatch_once_t pred; \
-  dispatch_once(&pred, ^{ shared##classname = [[self alloc] init]; }); \
-  return shared##classname; \
+\
+static classname *sharedInstance = nil; \
+\
++ (classname *)sharedInstance { \
+static dispatch_once_t pred; \
+if (sharedInstance) return sharedInstance; \
+dispatch_once(&pred, ^{ sharedInstance = [[super allocWithZone:NULL] init]; }); \
+return sharedInstance; \
 } \
- \
- \
-- (id)copyWithZone:(NSZone *)zone \
-{ \
-	return self; \
+\
++ (classname *)shared##classname { \
+return [self sharedInstance]; \
 } \
- \
-- (id)retain \
-{ \
-	return self; \
+\
++ (id)allocWithZone:(NSZone *)zone { \
+return [[self sharedInstance] retain]; \
 } \
- \
-- (NSUInteger)retainCount \
-{ \
-	return NSUIntegerMax; \
+\
+- (id)copyWithZone:(NSZone *)zone { \
+return self; \
 } \
- \
-- (oneway void)release \
-{ \
+\
+- (id)retain { \
+return self; \
 } \
- \
-- (id)autorelease \
-{ \
-	return self; \
+\
+- (NSUInteger)retainCount { \
+return NSUIntegerMax; \
+} \
+\
+- (oneway void)release { \
+} \
+\
+- (id)autorelease { \
+return self; \
 }
