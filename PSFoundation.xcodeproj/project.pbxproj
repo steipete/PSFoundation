@@ -475,7 +475,6 @@
 		6C86B50B1396B186009F6FE6 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
 		6C86B50C1396B186009F6FE6 /* NSData+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MTAdditions.h"; sourceTree = "<group>"; };
 		6C86B50D1396B186009F6FE6 /* NSData+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MTAdditions.m"; sourceTree = "<group>"; };
-		6C86B50E1396B186009F6FE6 /* NSData+RSHexDump-MIT-License.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "NSData+RSHexDump-MIT-License.rtf"; sourceTree = "<group>"; };
 		6C86B50F1396B186009F6FE6 /* NSData+RSHexDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+RSHexDump.h"; sourceTree = "<group>"; };
 		6C86B5101396B186009F6FE6 /* NSData+RSHexDump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+RSHexDump.m"; sourceTree = "<group>"; };
 		6C86B5121396B186009F6FE6 /* NSDate+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MTAdditions.h"; sourceTree = "<group>"; };
@@ -1059,7 +1058,6 @@
 				6C86B50B1396B186009F6FE6 /* NSData+CommonCrypto.m */,
 				6C86B50C1396B186009F6FE6 /* NSData+MTAdditions.h */,
 				6C86B50D1396B186009F6FE6 /* NSData+MTAdditions.m */,
-				6C86B50E1396B186009F6FE6 /* NSData+RSHexDump-MIT-License.rtf */,
 				6C86B50F1396B186009F6FE6 /* NSData+RSHexDump.h */,
 				6C86B5101396B186009F6FE6 /* NSData+RSHexDump.m */,
 			);
@@ -2019,6 +2017,7 @@
 				6C86B3851396AAE7009F6FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6C86B7AC1396B20F009F6FE6 /* Build configuration list for PBXNativeTarget "PSFoundation CoreData" */ = {
 			isa = XCConfigurationList;
@@ -2027,6 +2026,7 @@
 				6C86B7AE1396B20F009F6FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6C86B7F71396B300009F6FE6 /* Build configuration list for PBXNativeTarget "PSFoundation CoreLocation" */ = {
 			isa = XCConfigurationList;
@@ -2035,6 +2035,7 @@
 				6C86B7F91396B300009F6FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
