@@ -147,6 +147,7 @@
 #import "UIView+WhenTappedBlocks.h"
 
 #import "UIViewControllerHelper.h"
+#import "UIViewController+MTUIAdditions.h"
 
 #import "UIScreen+PSAdditions.h"
 
