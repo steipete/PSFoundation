@@ -18,6 +18,8 @@
 // creates a rect with the first 4 parameters on iPhone and the last 4 parameters on iPad
 #define MTRectMake(x1,y1,w1,h1,x2,y2,w2,h2) (isIPad() ? CGRectMake(x2,y2,w2,h2) : CGRectMake(x1,y1,w1,h1))
 
+// creates a point with the first 2 parameters on iPhone and the second 2 parameters on iPad
+#define MTPointMake(x1,y1,x2,y2)    (isIPad() ? CGPointMake(x2,y2) : CGPointMake(x1,x2))
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
