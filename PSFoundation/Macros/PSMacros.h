@@ -30,13 +30,21 @@ static inline BOOL IsEmpty(id thing) {
 #define PSIsLandscape() UIInterfaceOrientationIsLandscape(PSAppStatusBarOrientation)
 #define UIInterfaceOrientationsAreCounterpart(o1,o2) (UIInterfaceOrientationIsPortrait(o1) && UIInterfaceOrientationIsPortrait(o2) || UIInterfaceOrientationIsLandscape(o1) && UIInterfaceOrientationIsLandscape(o2))
 
-static inline CGRect PSScreenBounds() {
-  CGRect bounds = [UIScreen mainScreen].bounds;
-  if (PSIsLandscape()) {
-    bounds.size.width = [UIScreen mainScreen].bounds.size.height;
-    bounds.size.height = [UIScreen mainScreen].bounds.size.width;
-  }
-  return bounds;
+NS_INLINE CGRect PSScreenBounds() {
+    CGRect bounds = [UIScreen mainScreen].bounds;
+    if (PSIsLandscape()) {
+        bounds.size.width = [UIScreen mainScreen].bounds.size.height;
+        bounds.size.height = [UIScreen mainScreen].bounds.size.width;
+    }
+    return bounds;
+}
+
+NS_INLINE CGFloat PSAppWidth() {
+    if (PSIsPortrait()) {
+        return [UIScreen mainScreen].bounds.size.width;
+    } else {
+        return [UIScreen mainScreen].bounds.size.height;
+    }
 }
 
 // color
