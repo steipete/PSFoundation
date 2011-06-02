@@ -302,18 +302,6 @@
 		6C86BB4F139702B6009F6FE6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BB42139702B5009F6FE6 /* MBProgressHUD.m */; };
 		6C86BB9813970301009F6FE6 /* DSActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BB8A13970301009F6FE6 /* DSActivityView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BB9913970301009F6FE6 /* DSActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BB8B13970301009F6FE6 /* DSActivityView.m */; };
-		6C86BBD01397038E009F6FE6 /* Appirater.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBCD1397038E009F6FE6 /* Appirater.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86BBD11397038E009F6FE6 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBCE1397038E009F6FE6 /* Appirater.m */; };
-		6C86BBE11397060E009F6FE6 /* EGOCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBD41397060E009F6FE6 /* EGOCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86BBE21397060E009F6FE6 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBD51397060E009F6FE6 /* EGOCache.m */; };
-		6C86BBE31397060E009F6FE6 /* EGOImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBD71397060E009F6FE6 /* EGOImageButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86BBE41397060E009F6FE6 /* EGOImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBD81397060E009F6FE6 /* EGOImageButton.m */; };
-		6C86BBE51397060F009F6FE6 /* EGOImageLoadConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBDA1397060E009F6FE6 /* EGOImageLoadConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86BBE61397060F009F6FE6 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBDB1397060E009F6FE6 /* EGOImageLoadConnection.m */; };
-		6C86BBE71397060F009F6FE6 /* EGOImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBDC1397060E009F6FE6 /* EGOImageLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86BBE81397060F009F6FE6 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBDD1397060E009F6FE6 /* EGOImageLoader.m */; };
-		6C86BBE91397060F009F6FE6 /* EGOImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBDF1397060E009F6FE6 /* EGOImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86BBEA1397060F009F6FE6 /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBE01397060E009F6FE6 /* EGOImageView.m */; };
 		6C86BBF5139707F3009F6FE6 /* IKNetworkActivityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBF3139707F3009F6FE6 /* IKNetworkActivityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BBF6139707F3009F6FE6 /* IKNetworkActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBF4139707F3009F6FE6 /* IKNetworkActivityManager.m */; };
 		6C86BC3B139711A4009F6FE6 /* JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BC1D139711A3009F6FE6 /* JRSwizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -325,6 +313,18 @@
 		6C86BC72139727D5009F6FE6 /* CoreGraphics+RoundedRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BC6F139727D5009F6FE6 /* CoreGraphics+RoundedRect.m */; };
 		6C86BC7513972AB0009F6FE6 /* UIColor+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BC7313972AAC009F6FE6 /* UIColor+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BC7613972AB0009F6FE6 /* UIColor+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BC7413972AAE009F6FE6 /* UIColor+PSFoundation.m */; };
+		6CED5985139817BB00E3F38D /* EGOCache+MTCollections.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED594F139817BB00E3F38D /* EGOCache+MTCollections.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CED5986139817BB00E3F38D /* EGOCache+MTCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED5950139817BB00E3F38D /* EGOCache+MTCollections.m */; };
+		6CED5987139817BB00E3F38D /* EGOCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED5951139817BB00E3F38D /* EGOCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CED5988139817BB00E3F38D /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED5952139817BB00E3F38D /* EGOCache.m */; };
+		6CED5989139817BB00E3F38D /* EGOImageButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED597B139817BB00E3F38D /* EGOImageButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CED598A139817BB00E3F38D /* EGOImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED597C139817BB00E3F38D /* EGOImageButton.m */; };
+		6CED598B139817BC00E3F38D /* EGOImageLoadConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED597E139817BB00E3F38D /* EGOImageLoadConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CED598C139817BC00E3F38D /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED597F139817BB00E3F38D /* EGOImageLoadConnection.m */; };
+		6CED598D139817BC00E3F38D /* EGOImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED5980139817BB00E3F38D /* EGOImageLoader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CED598E139817BC00E3F38D /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED5981139817BB00E3F38D /* EGOImageLoader.m */; };
+		6CED598F139817BC00E3F38D /* EGOImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED5983139817BB00E3F38D /* EGOImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CED5990139817BC00E3F38D /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED5984139817BB00E3F38D /* EGOImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -626,18 +626,6 @@
 		6C86BB42139702B5009F6FE6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6C86BB8A13970301009F6FE6 /* DSActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DSActivityView.h; path = Sources/DSActivityView.h; sourceTree = "<group>"; };
 		6C86BB8B13970301009F6FE6 /* DSActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DSActivityView.m; path = Sources/DSActivityView.m; sourceTree = "<group>"; };
-		6C86BBCD1397038E009F6FE6 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Appirater.h; path = PSFoundation/External/appirater/Appirater.h; sourceTree = SOURCE_ROOT; };
-		6C86BBCE1397038E009F6FE6 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Appirater.m; path = PSFoundation/External/appirater/Appirater.m; sourceTree = SOURCE_ROOT; };
-		6C86BBD41397060E009F6FE6 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
-		6C86BBD51397060E009F6FE6 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
-		6C86BBD71397060E009F6FE6 /* EGOImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageButton.h; sourceTree = "<group>"; };
-		6C86BBD81397060E009F6FE6 /* EGOImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageButton.m; sourceTree = "<group>"; };
-		6C86BBDA1397060E009F6FE6 /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
-		6C86BBDB1397060E009F6FE6 /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
-		6C86BBDC1397060E009F6FE6 /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
-		6C86BBDD1397060E009F6FE6 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
-		6C86BBDF1397060E009F6FE6 /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
-		6C86BBE01397060E009F6FE6 /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
 		6C86BBF3139707F3009F6FE6 /* IKNetworkActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKNetworkActivityManager.h; sourceTree = "<group>"; };
 		6C86BBF4139707F3009F6FE6 /* IKNetworkActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKNetworkActivityManager.m; sourceTree = "<group>"; };
 		6C86BC1D139711A3009F6FE6 /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
@@ -649,6 +637,18 @@
 		6C86BC6F139727D5009F6FE6 /* CoreGraphics+RoundedRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CoreGraphics+RoundedRect.m"; sourceTree = "<group>"; };
 		6C86BC7313972AAC009F6FE6 /* UIColor+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PSFoundation.h"; sourceTree = "<group>"; };
 		6C86BC7413972AAE009F6FE6 /* UIColor+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PSFoundation.m"; sourceTree = "<group>"; };
+		6CED594F139817BB00E3F38D /* EGOCache+MTCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EGOCache+MTCollections.h"; sourceTree = "<group>"; };
+		6CED5950139817BB00E3F38D /* EGOCache+MTCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EGOCache+MTCollections.m"; sourceTree = "<group>"; };
+		6CED5951139817BB00E3F38D /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
+		6CED5952139817BB00E3F38D /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
+		6CED597B139817BB00E3F38D /* EGOImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageButton.h; sourceTree = "<group>"; };
+		6CED597C139817BB00E3F38D /* EGOImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageButton.m; sourceTree = "<group>"; };
+		6CED597E139817BB00E3F38D /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoadConnection.h; sourceTree = "<group>"; };
+		6CED597F139817BB00E3F38D /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
+		6CED5980139817BB00E3F38D /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageLoader.h; sourceTree = "<group>"; };
+		6CED5981139817BB00E3F38D /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
+		6CED5983139817BB00E3F38D /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
+		6CED5984139817BB00E3F38D /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -956,9 +956,9 @@
 		6C86B80B1396B4FC009F6FE6 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				6CED5929139817BB00E3F38D /* EGOCache */,
+				6CED5953139817BB00E3F38D /* EGOImageLoading */,
 				6C86BBF7139711A3009F6FE6 /* jrswizzle */,
-				6C86BBD31397060E009F6FE6 /* EGOImageLoader */,
-				6C86BBA71397038E009F6FE6 /* appirater */,
 				6C86BB5413970301009F6FE6 /* DSActivityView */,
 				6C86BB04139702B5009F6FE6 /* MBProgressHUD */,
 				6C86BADA13970188009F6FE6 /* MAZeroingWeakRef */,
@@ -1064,58 +1064,6 @@
 			);
 			name = DSActivityView;
 			path = External/DSActivityView;
-			sourceTree = "<group>";
-		};
-		6C86BBA71397038E009F6FE6 /* appirater */ = {
-			isa = PBXGroup;
-			children = (
-				6C86BBCD1397038E009F6FE6 /* Appirater.h */,
-				6C86BBCE1397038E009F6FE6 /* Appirater.m */,
-			);
-			name = appirater;
-			path = ../../../Documents/Development/Projects/Filemator/PSFoundation/PSFoundation/External/appirater;
-			sourceTree = "<group>";
-		};
-		6C86BBD31397060E009F6FE6 /* EGOImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				6C86BBD41397060E009F6FE6 /* EGOCache.h */,
-				6C86BBD51397060E009F6FE6 /* EGOCache.m */,
-				6C86BBD61397060E009F6FE6 /* EGOImageButton */,
-				6C86BBD91397060E009F6FE6 /* EGOImageLoader */,
-				6C86BBDE1397060E009F6FE6 /* EGOImageView */,
-			);
-			name = EGOImageLoader;
-			path = External/EGOImageLoader;
-			sourceTree = "<group>";
-		};
-		6C86BBD61397060E009F6FE6 /* EGOImageButton */ = {
-			isa = PBXGroup;
-			children = (
-				6C86BBD71397060E009F6FE6 /* EGOImageButton.h */,
-				6C86BBD81397060E009F6FE6 /* EGOImageButton.m */,
-			);
-			path = EGOImageButton;
-			sourceTree = "<group>";
-		};
-		6C86BBD91397060E009F6FE6 /* EGOImageLoader */ = {
-			isa = PBXGroup;
-			children = (
-				6C86BBDA1397060E009F6FE6 /* EGOImageLoadConnection.h */,
-				6C86BBDB1397060E009F6FE6 /* EGOImageLoadConnection.m */,
-				6C86BBDC1397060E009F6FE6 /* EGOImageLoader.h */,
-				6C86BBDD1397060E009F6FE6 /* EGOImageLoader.m */,
-			);
-			path = EGOImageLoader;
-			sourceTree = "<group>";
-		};
-		6C86BBDE1397060E009F6FE6 /* EGOImageView */ = {
-			isa = PBXGroup;
-			children = (
-				6C86BBDF1397060E009F6FE6 /* EGOImageView.h */,
-				6C86BBE01397060E009F6FE6 /* EGOImageView.m */,
-			);
-			path = EGOImageView;
 			sourceTree = "<group>";
 		};
 		6C86BBF7139711A3009F6FE6 /* jrswizzle */ = {
@@ -1479,6 +1427,58 @@
 			name = UITextView;
 			sourceTree = "<group>";
 		};
+		6CED5929139817BB00E3F38D /* EGOCache */ = {
+			isa = PBXGroup;
+			children = (
+				6CED594F139817BB00E3F38D /* EGOCache+MTCollections.h */,
+				6CED5950139817BB00E3F38D /* EGOCache+MTCollections.m */,
+				6CED5951139817BB00E3F38D /* EGOCache.h */,
+				6CED5952139817BB00E3F38D /* EGOCache.m */,
+			);
+			name = EGOCache;
+			path = External/EGOCache;
+			sourceTree = "<group>";
+		};
+		6CED5953139817BB00E3F38D /* EGOImageLoading */ = {
+			isa = PBXGroup;
+			children = (
+				6CED597A139817BB00E3F38D /* EGOImageButton */,
+				6CED597D139817BB00E3F38D /* EGOImageLoader */,
+				6CED5982139817BB00E3F38D /* EGOImageView */,
+			);
+			name = EGOImageLoading;
+			path = External/EGOImageLoading;
+			sourceTree = "<group>";
+		};
+		6CED597A139817BB00E3F38D /* EGOImageButton */ = {
+			isa = PBXGroup;
+			children = (
+				6CED597B139817BB00E3F38D /* EGOImageButton.h */,
+				6CED597C139817BB00E3F38D /* EGOImageButton.m */,
+			);
+			path = EGOImageButton;
+			sourceTree = "<group>";
+		};
+		6CED597D139817BB00E3F38D /* EGOImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				6CED597E139817BB00E3F38D /* EGOImageLoadConnection.h */,
+				6CED597F139817BB00E3F38D /* EGOImageLoadConnection.m */,
+				6CED5980139817BB00E3F38D /* EGOImageLoader.h */,
+				6CED5981139817BB00E3F38D /* EGOImageLoader.m */,
+			);
+			path = EGOImageLoader;
+			sourceTree = "<group>";
+		};
+		6CED5982139817BB00E3F38D /* EGOImageView */ = {
+			isa = PBXGroup;
+			children = (
+				6CED5983139817BB00E3F38D /* EGOImageView.h */,
+				6CED5984139817BB00E3F38D /* EGOImageView.m */,
+			);
+			path = EGOImageView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1627,12 +1627,6 @@
 				6C86BAF713970188009F6FE6 /* MAZeroingWeakRef.h in Headers */,
 				6C86BB4E139702B6009F6FE6 /* MBProgressHUD.h in Headers */,
 				6C86BB9813970301009F6FE6 /* DSActivityView.h in Headers */,
-				6C86BBD01397038E009F6FE6 /* Appirater.h in Headers */,
-				6C86BBE11397060E009F6FE6 /* EGOCache.h in Headers */,
-				6C86BBE31397060E009F6FE6 /* EGOImageButton.h in Headers */,
-				6C86BBE51397060F009F6FE6 /* EGOImageLoadConnection.h in Headers */,
-				6C86BBE71397060F009F6FE6 /* EGOImageLoader.h in Headers */,
-				6C86BBE91397060F009F6FE6 /* EGOImageView.h in Headers */,
 				6C86BBF5139707F3009F6FE6 /* IKNetworkActivityManager.h in Headers */,
 				6C86BC3B139711A4009F6FE6 /* JRSwizzle.h in Headers */,
 				6C86BC64139711CE009F6FE6 /* NSObject+Swizzle.h in Headers */,
@@ -1640,6 +1634,12 @@
 				6C86BC71139727D5009F6FE6 /* CoreGraphics+RoundedRect.h in Headers */,
 				6C86BC7513972AB0009F6FE6 /* UIColor+PSFoundation.h in Headers */,
 				6C86B68D1396B187009F6FE6 /* SFHFKeychainUtils.h in Headers */,
+				6CED5985139817BB00E3F38D /* EGOCache+MTCollections.h in Headers */,
+				6CED5987139817BB00E3F38D /* EGOCache.h in Headers */,
+				6CED5989139817BB00E3F38D /* EGOImageButton.h in Headers */,
+				6CED598B139817BC00E3F38D /* EGOImageLoadConnection.h in Headers */,
+				6CED598D139817BC00E3F38D /* EGOImageLoader.h in Headers */,
+				6CED598F139817BC00E3F38D /* EGOImageView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1885,17 +1885,17 @@
 				6C86BAF813970188009F6FE6 /* MAZeroingWeakRef.m in Sources */,
 				6C86BB4F139702B6009F6FE6 /* MBProgressHUD.m in Sources */,
 				6C86BB9913970301009F6FE6 /* DSActivityView.m in Sources */,
-				6C86BBD11397038E009F6FE6 /* Appirater.m in Sources */,
-				6C86BBE21397060E009F6FE6 /* EGOCache.m in Sources */,
-				6C86BBE41397060E009F6FE6 /* EGOImageButton.m in Sources */,
-				6C86BBE61397060F009F6FE6 /* EGOImageLoadConnection.m in Sources */,
-				6C86BBE81397060F009F6FE6 /* EGOImageLoader.m in Sources */,
-				6C86BBEA1397060F009F6FE6 /* EGOImageView.m in Sources */,
 				6C86BBF6139707F3009F6FE6 /* IKNetworkActivityManager.m in Sources */,
 				6C86BC3C139711A4009F6FE6 /* JRSwizzle.m in Sources */,
 				6C86BC65139711CE009F6FE6 /* NSObject+Swizzle.m in Sources */,
 				6C86BC72139727D5009F6FE6 /* CoreGraphics+RoundedRect.m in Sources */,
 				6C86BC7613972AB0009F6FE6 /* UIColor+PSFoundation.m in Sources */,
+				6CED5986139817BB00E3F38D /* EGOCache+MTCollections.m in Sources */,
+				6CED5988139817BB00E3F38D /* EGOCache.m in Sources */,
+				6CED598A139817BB00E3F38D /* EGOImageButton.m in Sources */,
+				6CED598C139817BC00E3F38D /* EGOImageLoadConnection.m in Sources */,
+				6CED598E139817BC00E3F38D /* EGOImageLoader.m in Sources */,
+				6CED5990139817BC00E3F38D /* EGOImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

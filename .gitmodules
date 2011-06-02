@@ -13,9 +13,12 @@
 [submodule "PSFoundation/External/DSActivityView"]
 	path = PSFoundation/External/DSActivityView
 	url = git://github.com/joycodes/DSActivityView.git
-[submodule "PSFoundation/External/appirater"]
-	path = PSFoundation/External/appirater
-	url = git://github.com/arashpayan/appirater.git
 [submodule "PSFoundation/External/jrswizzle"]
 	path = PSFoundation/External/jrswizzle
 	url = git://github.com/zwaldowski/jrswizzle.git
+[submodule "PSFoundation/External/EGOImageLoading"]
+	path = PSFoundation/External/EGOImageLoading
+	url = git://github.com/myell0w/EGOImageLoading.git
+[submodule "PSFoundation/External/EGOCache"]
+	path = PSFoundation/External/EGOCache
+	url = git://github.com/myell0w/EGOCache.git
