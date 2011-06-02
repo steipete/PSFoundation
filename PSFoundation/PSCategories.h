@@ -47,9 +47,6 @@
 
 #import "NSDictionary+CGStructs.h"
 
-#import "JRSwizzle.h"
-
-
 #import "NSFileManager+PSFoundation.h"
 
 // NSNotifications ////////////////////////////////////////////////////////////////////////////////
@@ -81,6 +78,8 @@
 #import "NSObject+AutoDescription.h"
 
 #import "NSObject+AssociatedObjects.h"
+
+#import "NSObject+Swizzle.h"
 
 
 // NSOperationQueue ///////////////////////////////////////////////////////////////////////////////

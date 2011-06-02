@@ -43,6 +43,7 @@
 }
 
 -(void)dealloc {
+    // to do:  find the length of the audio clip, so it has time to play in an autoreleased situation
     [NSObject performBlock:^(void) {
         AudioServicesDisposeSystemSoundID(_soundID);
     } afterDelay:3.0];

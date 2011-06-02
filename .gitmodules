@@ -16,3 +16,6 @@
 [submodule "PSFoundation/External/appirater"]
 	path = PSFoundation/External/appirater
 	url = git://github.com/arashpayan/appirater.git
+[submodule "PSFoundation/External/jrswizzle"]
+	path = PSFoundation/External/jrswizzle
+	url = git://github.com/rentzsch/jrswizzle.git
