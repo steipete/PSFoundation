@@ -327,6 +327,21 @@
 		6CED5990139817BC00E3F38D /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED5984139817BB00E3F38D /* EGOImageView.m */; };
 		6CED59BE1398195C00E3F38D /* Appirater.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59BB1398195C00E3F38D /* Appirater.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CED59BF1398195C00E3F38D /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59BC1398195C00E3F38D /* Appirater.m */; };
+		6CED59FE1398289100E3F38D /* UIImage+Filtering.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59ED1398289100E3F38D /* UIImage+Filtering.h */; };
+		6CED59FF1398289100E3F38D /* UIImage+Filtering.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59EE1398289100E3F38D /* UIImage+Filtering.m */; };
+		6CED5A001398289100E3F38D /* UIImage+Masking.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59EF1398289100E3F38D /* UIImage+Masking.h */; };
+		6CED5A011398289100E3F38D /* UIImage+Masking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59F01398289100E3F38D /* UIImage+Masking.m */; };
+		6CED5A021398289100E3F38D /* UIImage+Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F11398289100E3F38D /* UIImage+Reflection.h */; };
+		6CED5A031398289100E3F38D /* UIImage+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59F21398289100E3F38D /* UIImage+Reflection.m */; };
+		6CED5A041398289100E3F38D /* UIImage+Resizing.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F31398289100E3F38D /* UIImage+Resizing.h */; };
+		6CED5A051398289100E3F38D /* UIImage+Resizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59F41398289100E3F38D /* UIImage+Resizing.m */; };
+		6CED5A061398289100E3F38D /* UIImage+Rotating.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F51398289100E3F38D /* UIImage+Rotating.h */; };
+		6CED5A071398289200E3F38D /* UIImage+Rotating.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59F61398289100E3F38D /* UIImage+Rotating.m */; };
+		6CED5A081398289200E3F38D /* UIImage+Saving.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F71398289100E3F38D /* UIImage+Saving.h */; };
+		6CED5A091398289200E3F38D /* UIImage+Saving.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59F81398289100E3F38D /* UIImage+Saving.m */; };
+		6CED5A0A1398289200E3F38D /* NYXImagesHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59FA1398289100E3F38D /* NYXImagesHelper.h */; };
+		6CED5A0B1398289200E3F38D /* NYXImagesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59FB1398289100E3F38D /* NYXImagesHelper.m */; };
+		6CED5A0C1398289200E3F38D /* NYXImagesUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59FC1398289100E3F38D /* NYXImagesUtilities.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -653,6 +668,21 @@
 		6CED5984139817BB00E3F38D /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
 		6CED59BB1398195C00E3F38D /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Appirater.h; path = PSFoundation/External/appirater/Appirater.h; sourceTree = SOURCE_ROOT; };
 		6CED59BC1398195C00E3F38D /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Appirater.m; path = PSFoundation/External/appirater/Appirater.m; sourceTree = SOURCE_ROOT; };
+		6CED59ED1398289100E3F38D /* UIImage+Filtering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filtering.h"; sourceTree = "<group>"; };
+		6CED59EE1398289100E3F38D /* UIImage+Filtering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filtering.m"; sourceTree = "<group>"; };
+		6CED59EF1398289100E3F38D /* UIImage+Masking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Masking.h"; sourceTree = "<group>"; };
+		6CED59F01398289100E3F38D /* UIImage+Masking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Masking.m"; sourceTree = "<group>"; };
+		6CED59F11398289100E3F38D /* UIImage+Reflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Reflection.h"; sourceTree = "<group>"; };
+		6CED59F21398289100E3F38D /* UIImage+Reflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Reflection.m"; sourceTree = "<group>"; };
+		6CED59F31398289100E3F38D /* UIImage+Resizing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resizing.h"; sourceTree = "<group>"; };
+		6CED59F41398289100E3F38D /* UIImage+Resizing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resizing.m"; sourceTree = "<group>"; };
+		6CED59F51398289100E3F38D /* UIImage+Rotating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotating.h"; sourceTree = "<group>"; };
+		6CED59F61398289100E3F38D /* UIImage+Rotating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotating.m"; sourceTree = "<group>"; };
+		6CED59F71398289100E3F38D /* UIImage+Saving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Saving.h"; sourceTree = "<group>"; };
+		6CED59F81398289100E3F38D /* UIImage+Saving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Saving.m"; sourceTree = "<group>"; };
+		6CED59FA1398289100E3F38D /* NYXImagesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYXImagesHelper.h; sourceTree = "<group>"; };
+		6CED59FB1398289100E3F38D /* NYXImagesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYXImagesHelper.m; sourceTree = "<group>"; };
+		6CED59FC1398289100E3F38D /* NYXImagesUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYXImagesUtilities.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -967,6 +997,7 @@
 				6C86BB5413970301009F6FE6 /* DSActivityView */,
 				6C86BB04139702B5009F6FE6 /* MBProgressHUD */,
 				6C86BADA13970188009F6FE6 /* MAZeroingWeakRef */,
+				6CED59C61398289100E3F38D /* NYXImagesUtilities */,
 				6C86B9B91396FCE2009F6FE6 /* TDSemiModal */,
 				6C86B8141396B56E009F6FE6 /* BlocksKit */,
 			);
@@ -1494,6 +1525,45 @@
 			path = External/appirater;
 			sourceTree = "<group>";
 		};
+		6CED59C61398289100E3F38D /* NYXImagesUtilities */ = {
+			isa = PBXGroup;
+			children = (
+				6CED59EC1398289100E3F38D /* Categories */,
+				6CED59F91398289100E3F38D /* Helper */,
+			);
+			name = NYXImagesUtilities;
+			path = External/NYXImagesUtilities;
+			sourceTree = "<group>";
+		};
+		6CED59EC1398289100E3F38D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				6CED59ED1398289100E3F38D /* UIImage+Filtering.h */,
+				6CED59EE1398289100E3F38D /* UIImage+Filtering.m */,
+				6CED59EF1398289100E3F38D /* UIImage+Masking.h */,
+				6CED59F01398289100E3F38D /* UIImage+Masking.m */,
+				6CED59F11398289100E3F38D /* UIImage+Reflection.h */,
+				6CED59F21398289100E3F38D /* UIImage+Reflection.m */,
+				6CED59F31398289100E3F38D /* UIImage+Resizing.h */,
+				6CED59F41398289100E3F38D /* UIImage+Resizing.m */,
+				6CED59F51398289100E3F38D /* UIImage+Rotating.h */,
+				6CED59F61398289100E3F38D /* UIImage+Rotating.m */,
+				6CED59F71398289100E3F38D /* UIImage+Saving.h */,
+				6CED59F81398289100E3F38D /* UIImage+Saving.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		6CED59F91398289100E3F38D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				6CED59FA1398289100E3F38D /* NYXImagesHelper.h */,
+				6CED59FB1398289100E3F38D /* NYXImagesHelper.m */,
+				6CED59FC1398289100E3F38D /* NYXImagesUtilities.h */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1656,6 +1726,14 @@
 				6CED598D139817BC00E3F38D /* EGOImageLoader.h in Headers */,
 				6CED598F139817BC00E3F38D /* EGOImageView.h in Headers */,
 				6CED59BE1398195C00E3F38D /* Appirater.h in Headers */,
+				6CED59FE1398289100E3F38D /* UIImage+Filtering.h in Headers */,
+				6CED5A001398289100E3F38D /* UIImage+Masking.h in Headers */,
+				6CED5A021398289100E3F38D /* UIImage+Reflection.h in Headers */,
+				6CED5A041398289100E3F38D /* UIImage+Resizing.h in Headers */,
+				6CED5A061398289100E3F38D /* UIImage+Rotating.h in Headers */,
+				6CED5A081398289200E3F38D /* UIImage+Saving.h in Headers */,
+				6CED5A0A1398289200E3F38D /* NYXImagesHelper.h in Headers */,
+				6CED5A0C1398289200E3F38D /* NYXImagesUtilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1913,6 +1991,13 @@
 				6CED598E139817BC00E3F38D /* EGOImageLoader.m in Sources */,
 				6CED5990139817BC00E3F38D /* EGOImageView.m in Sources */,
 				6CED59BF1398195C00E3F38D /* Appirater.m in Sources */,
+				6CED59FF1398289100E3F38D /* UIImage+Filtering.m in Sources */,
+				6CED5A011398289100E3F38D /* UIImage+Masking.m in Sources */,
+				6CED5A031398289100E3F38D /* UIImage+Reflection.m in Sources */,
+				6CED5A051398289100E3F38D /* UIImage+Resizing.m in Sources */,
+				6CED5A071398289200E3F38D /* UIImage+Rotating.m in Sources */,
+				6CED5A091398289200E3F38D /* UIImage+Saving.m in Sources */,
+				6CED5A0B1398289200E3F38D /* NYXImagesHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
