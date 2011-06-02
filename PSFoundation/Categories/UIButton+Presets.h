@@ -2,7 +2,7 @@
 //  UIButton+Presets.h
 //  PSFoundation
 //
-//  Created by Erik Aigner on 11/25/10.
+//  Created by Erik Aigner.
 //
 
 @interface UIButton (Presets)

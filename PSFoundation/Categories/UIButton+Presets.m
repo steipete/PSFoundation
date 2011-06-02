@@ -2,7 +2,7 @@
 //  UIButton+Presets.m
 //  PSFoundation
 //
-//  Created by Erik Aigner on 11/25/10.
+//  Created by Erik Aigner.
 //
 
 #import "UIButton+Presets.h"

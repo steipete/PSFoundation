@@ -1,5 +1,13 @@
-// Code is under 3-clause BSD
-// http://www.mlsite.net/blog/?page_id=372
+//
+//  UIButton+Glossy.m
+//  PSFoundation
+//
+//  Created by Michael Heyeck.
+//  Licensed under BSD.  All rights reserved.
+//
+//  References:
+//   - http://www.mlsite.net/blog/?page_id=372
+//
 
 #import "UIButton+Glossy.h"
 

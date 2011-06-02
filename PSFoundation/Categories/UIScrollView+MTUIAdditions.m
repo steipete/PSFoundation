@@ -1,13 +1,13 @@
 //
 //  UIScrollView+MTAdditions.m
-//  myell0w-helper
+//  PSFoundation
 //
 //  Created by Matthias Tretter on 26.09.10.
 //  Copyright 2010 @myell0w. All rights reserved.
 //
 
 #import "UIScrollView+MTUIAdditions.h"
-#import <objc/runtime.h>
+#import "NSObject+AssociatedObjects.h"
 
 BOOL MTViewIsScrollIndicator(UIView *view);
 BOOL MTViewUseForAutocalculation(UIView *view);
@@ -58,18 +58,17 @@ CGFloat MTGetMaxPosition(UIScrollView *scrollView, BOOL vertical) {
 @implementation UIView (MTUIScrollAdditions) 
 
 - (BOOL)excludedFromScrollViewAutocalculation {
-    NSNumber *excluded = (NSNumber *)objc_getAssociatedObject(self, &excludedKey);
+    NSNumber *excluded = [self associatedValueForKey:&excludedKey];
     
-    if (excluded != nil) {
+    if (excluded)
         return [excluded boolValue];
-    }
     
     return NO;
 }
 
 - (void)setExcludedFromScrollViewAutocalculation:(BOOL)excludedFromScrollViewAutocalculation {
     NSNumber *excluded = [NSNumber numberWithBool:excludedFromScrollViewAutocalculation];
-    objc_setAssociatedObject(self, &excludedKey, excluded, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self associateValue:excluded withKey:&excludedKey];
 }
 
 @end

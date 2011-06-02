@@ -1,13 +1,10 @@
 //
 //  UIScrollView+MTAdditions.h
-//  myell0w-helper
+//  PSFoundation
 //
 //  Created by Matthias Tretter on 26.09.10.
 //  Copyright 2010 @myell0w. All rights reserved.
 //
-
-#import <UIKit/UIkit.h>
-
 
 @interface UIView (MTUIScrollAdditions)
 

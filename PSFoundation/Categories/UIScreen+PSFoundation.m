@@ -1,16 +1,15 @@
 //
-//  UIScreen+PSAdditions.m
+//  UIScreen+PSFoundation.m
 //  PSFoundation
 //
 //  Created by Peter Steinberger on 04.12.10.
-//  Copyright 2010 Peter Steinberger. All rights reserved.
+//  Licensed under MIT.  All rights reserved.
 //
 
-#import "UIScreen+PSAdditions.h"
+#import "UIScreen+PSFoundation.h"
 
-@implementation UIScreen (PSAdditions)
+@implementation UIScreen (PSFoundation)
 
-// http://stackoverflow.com/questions/2807339/uikeyboardboundsuserinfokey-is-deprecated-what-to-use-instead/2807367#2807367
 + (CGRect) convertRect:(CGRect)rect toView:(UIView *)view {
   UIWindow *window = [view isKindOfClass:[UIWindow class]] ? (UIWindow *) view : [view window];
   return [view convertRect:[window convertRect:rect fromWindow:nil] fromView:nil];
