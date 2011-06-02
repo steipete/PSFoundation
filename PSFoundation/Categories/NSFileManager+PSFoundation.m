@@ -9,9 +9,8 @@
 //
 
 #import "NSFileManager+PSFoundation.h"
-#import "PSMacros.h"
-#import "NSArray+PSFoundation.h"
 #import "NSArray+BlocksKit.h"
+#import "NSArray-Utilities.h"
 
 @implementation NSFileManager (PSFoundation)
 

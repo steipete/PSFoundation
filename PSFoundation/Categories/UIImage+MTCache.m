@@ -7,8 +7,7 @@
 //
 
 #import "UIImage+MTCache.h"
-#import "NSFileManager-Utilities.h"
-
+#import "NSFileManager+PSFoundation.h"
 
 @implementation UIImage (MTCache)
 
