@@ -133,7 +133,7 @@
 #import "UIAlertView+SCMethods.h"
 
 // setApplicationStyle animated
-#import "UIApplicationHelper.h"
+#import "UIApplication+PSFoundation.h"
 
 #if IS_IOS // not all of the CG stuff is available in Chameleon yet.
 // setPathToRoundedRect, drawGlossyRect, setBackgroundToGlossyRectOfColor
@@ -164,18 +164,18 @@
 #import "UIImage+MTUniversalAdditions.h"
 
 // (UIImageView *)imageViewNamed:(NSString *)imageName;
-#import "UIImageView+PSLib.h"
+#import "UIImageView+PSFoundation.h"
 
 // + (UILabel *)labelWithText:(NSString *)text;
-#import "UILabel+PSLib.h"
+#import "UILabel+PSFoundation.h"
 
 #import "UINavigationBar+CustomBackground.h"
 
-#import "UIScreen+PSAdditions.h"
+#import "UIScreen+PSFoundation.h"
 
 #import "UIScrollView+MTUIAdditions.h"
 
-#import "UIToolBar+PSLib.h"
+#import "UIToolbar+PSFoundation.h"
 
 #import "UIView+Sizes.h"
 #import "UIView+Animation.h"
