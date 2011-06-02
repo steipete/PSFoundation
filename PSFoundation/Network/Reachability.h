@@ -21,12 +21,17 @@ typedef enum {
 
 extern NSString* const kReachabilityChangedNotification;
 
-
-@interface Reachability: NSObject
-{
+@interface Reachability: NSObject {
 	BOOL localWiFiRef;
+@private
 	SCNetworkReachabilityRef reachabilityRef;
 }
+
+
+
+// initWithReachabilityRef- designated initializer
+- (Reachability *)initWithReachabilityRef:(SCNetworkReachabilityRef)ref;
+- (Reachability *)initWithReachabilityRef:(SCNetworkReachabilityRef)ref isWiFi:(BOOL)wifi;
 
 //reachabilityWithHostName- Use to check the reachability of a particular host name.
 + (Reachability*) reachabilityWithHostName: (NSString*) hostName;
