@@ -2,16 +2,28 @@
 //  NSString+PSFoundation.m
 //  PSFoundation
 //
-//  Created by Shaun Harrison on 10/14/08.
-//  Copyright 2008 enormego.  Licensed under BSD.
+//  Includes code by the following:
+//   - Shaun Harrison.     2009.  BSD.
+//   - Sam Soffes.         2010.  MIT.
+//   - Peter Steinberger.  2010.  MIT.
+//   - Matthias Tretter.   2011.  MIT.
 //
 
 #import "NSString+PSFoundation.h"
+#import "NSData+CommonCrypto.h"
+#import "GTMBase64.h"
 #import <CommonCrypto/CommonDigest.h>
 
 int const GGCharacterIsNotADigit = 10;
 
-@implementation NSString (Helper)
+@implementation NSString (PSFoundation)
+
++ (NSString *)stringWithUUID {
+	CFUUIDRef uuidObj = CFUUIDCreate(nil);
+	NSString *UUIDstring = (NSString*)CFUUIDCreateString(nil, uuidObj);
+	CFRelease(uuidObj);
+	return [UUIDstring autorelease];
+}
 
 - (BOOL)containsString:(NSString *)string {
 	return [self containsString:string options:NSCaseInsensitiveSearch];
@@ -21,116 +33,63 @@ int const GGCharacterIsNotADigit = 10;
 	return [self rangeOfString:string options:options].location == NSNotFound ? NO : YES;
 }
 
-#pragma mark -
-#pragma mark Hashes
+- (BOOL)hasSubstring:(NSString *)substring {
+    return [self containsString:substring];
+}
 
-/*
- * Contact info@enormego.com if you're the author and we'll update this comment to reflect credit
- */
+- (NSString*) substringAfterSubstring:(NSString*)substring {
+    return ([self containsString:substring]) ? [self substringFromIndex:NSMaxRange([self rangeOfString:substring])] : nil; 
+}
+
+- (NSComparisonResult)compareToVersionString:(NSString *)version {
+	// Break version into fields (separated by '.')
+	NSMutableArray *leftFields  = [[NSMutableArray alloc] initWithArray:[self  componentsSeparatedByString:@"."]];
+	NSMutableArray *rightFields = [[NSMutableArray alloc] initWithArray:[version componentsSeparatedByString:@"."]];
+	
+	// Implict ".0" in case version doesn't have the same number of '.'
+	if ([leftFields count] < [rightFields count]) {
+		while ([leftFields count] != [rightFields count]) {
+			[leftFields addObject:@"0"];
+		}
+	} else if ([leftFields count] > [rightFields count]) {
+		while ([leftFields count] != [rightFields count]) {
+			[rightFields addObject:@"0"];
+		}
+	}
+	
+	// Do a numeric comparison on each field
+	for (NSUInteger i = 0; i < [leftFields count]; i++) {
+		NSComparisonResult result = [[leftFields objectAtIndex:i] compare:[rightFields objectAtIndex:i] options:NSNumericSearch];
+		if (result != NSOrderedSame) {
+			[leftFields release];
+			[rightFields release];
+			return result;
+		}
+	}
+	
+	[leftFields release];
+	[rightFields release];	
+	return NSOrderedSame;
+}
+
+- (BOOL)isEqualToStringIgnoringCase:(NSString*)otherString {
+	if (otherString.empty)
+		return NO;
+	return ([self compare:otherString options:NSCaseInsensitiveSearch | NSWidthInsensitiveSearch] == NSOrderedSame);
+}
 
 - (NSString *)md5 {
-	const char* string = [self UTF8String];
-	unsigned char result[16];
-	CC_MD5(string, strlen(string), result);
-	NSString * hash = [NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-                       result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7],
-                       result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]];
-
-	return [hash lowercaseString];
+    NSData *sum = [[self dataUsingEncoding:NSUTF8StringEncoding] MD5Sum];
+    return [[[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding] autorelease];
 }
 
-#pragma mark -
-#pragma mark Truncation
-
-/*
- * Contact info@enormego.com if you're the author and we'll update this comment to reflect credit
- */
-
-- (NSString *)stringByTruncatingToLength:(int)length {
-	return [self stringByTruncatingToLength:length direction:NSTruncateStringPositionEnd];
+- (NSString *)sha1 {
+    NSData *sum = [[self dataUsingEncoding:NSUTF8StringEncoding] SHA1Hash];
+    return [[[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding] autorelease];
 }
 
-- (NSString *)stringByTruncatingToLength:(int)length direction:(NSTruncateStringPosition)truncateFrom {
-	return [self stringByTruncatingToLength:length direction:truncateFrom withEllipsisString:@"..."];
-}
-
-- (NSString *)stringByTruncatingToLength:(int)length direction:(NSTruncateStringPosition)truncateFrom withEllipsisString:(NSString *)ellipsis {
-	NSMutableString *result = [[NSMutableString alloc] initWithString:self];
-	NSString *immutableResult;
-
-	if([result length] <= length) {
-		[result release];
-		return self;
-	}
-
-	unsigned int charactersEachSide = length / 2;
-
-	NSString * first;
-	NSString * last;
-
-	switch(truncateFrom) {
-		case NSTruncateStringPositionStart:
-			[result insertString:ellipsis atIndex:[result length] - length + [ellipsis length] ];
-			immutableResult  = [[result substringFromIndex:[result length] - length] copy];
-			[result release];
-			return [immutableResult autorelease];
-		case NSTruncateStringPositionMiddle:
-			first = [result substringToIndex:charactersEachSide - [ellipsis length]+1];
-			last = [result substringFromIndex:[result length] - charactersEachSide];
-			immutableResult = [[[NSArray arrayWithObjects:first, last, NULL] componentsJoinedByString:ellipsis] copy];
-			[result release];
-			return [immutableResult autorelease];
-		default:
-		case NSTruncateStringPositionEnd:
-			[result insertString:ellipsis atIndex:length - [ellipsis length]];
-			immutableResult  = [[result substringToIndex:length] copy];
-			[result release];
-			return [immutableResult autorelease];
-	}
-}
-
-- (NSString *)trimWhiteSpace {
-	NSMutableString *s = [[self mutableCopy] autorelease];
-	CFStringTrimWhitespace ((CFMutableStringRef) s);
-	return (NSString *) [[s copy] autorelease];
-} /*trimWhiteSpace*/
-
-
-// replaces string with new string, returns new var
-- (NSString *)stringByReplacingString:(NSString *)searchString withString:(NSString *)newString {
-    NSMutableString *mutable = [NSMutableString stringWithString:self];
-    [mutable replaceOccurrencesOfString:searchString withString:newString options:NSCaseInsensitiveSearch range:NSMakeRange(0, [self length])];
-    return [NSString stringWithString:mutable];
-}
-
-- (NSString *)URLEncodedString {
-    NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                           (CFStringRef)self,
-                                                                           NULL,
-                                                                           CFSTR("!*'();:@&=+$,/?%#[]<>"),
-                                                                           kCFStringEncodingUTF8);
-    [result autorelease];
-    return result;
-}
-
-- (NSString*)URLDecodedString {
-    NSString *result = (NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
-                                                                                           (CFStringRef)self,
-                                                                                           CFSTR(""),
-                                                                                           kCFStringEncodingUTF8);
-    [result autorelease];
-    return result;
-}
-
-- (NSURL *)ps_URL; {
-    NSURL *url = nil;
-    if ([self hasPrefix:@"http"]) {
-        url = [NSURL URLWithString:self];
-    }else if([self length] > 0) {
-        url = [NSURL fileURLWithPath:self];
-    }
-
-    return url;
+- (NSString *)base64 {
+    return [GTMBase64 stringByEncodingData:[self dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 @end

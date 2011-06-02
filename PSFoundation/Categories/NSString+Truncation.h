@@ -14,7 +14,6 @@ enum {
 	NSTruncateStringPositionEnd
 }; typedef int NSTruncateStringPosition;
 
-
 @interface NSString (Truncation)
 
 - (NSString*)stringByTruncatingToWidth:(CGFloat)width withFont:(UIFont *)font;

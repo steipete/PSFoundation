@@ -2,35 +2,27 @@
 //  NSString+PSFoundation.h
 //  PSFoundation
 //
-//  Created by Shaun Harrison on 10/14/08.
-//  Copyright 2008 enormego.  Licensed under BSD.
+//  Includes code by the following:
+//   - Shaun Harrison.     2009.  BSD.
+//   - Sam Soffes.         2010.  MIT.
+//   - Peter Steinberger.  2010.  MIT.
+//   - Matthias Tretter.   2011.  MIT.
 //
 
-@interface NSString (Helper)
+@interface NSString (PSFoundation)
 
-/*
- * Checks to see if the string contains the given string, case insenstive
- */
++ (NSString*) stringWithUUID;
+
 - (BOOL)containsString:(NSString *)string;
-
-/*
- * Checks to see if the string contains the given string while allowing you to define the compare options
- */
 - (BOOL)containsString:(NSString *)string options:(NSStringCompareOptions)options;
+- (BOOL)hasSubstring:(NSString*)substring;
+- (NSString*)substringAfterSubstring:(NSString*)substring;
 
-/*
- * Returns the MD5 value of the string
- */
+- (NSComparisonResult)compareToVersionString:(NSString *)version;
+- (BOOL)isEqualToStringIgnoringCase:(NSString*)otherString;
+
 - (NSString *)md5;
-
-- (NSString *)trimWhiteSpace;
-
-// added by PS
-- (NSString *)stringByReplacingString:(NSString *)searchString withString:(NSString *)newString;
-
-- (NSString *)URLEncodedString;
-- (NSString *)URLDecodedString;
-
-- (NSURL *)ps_URL;
+- (NSString *)sha1;
+- (NSString *)base64;
 
 @end
