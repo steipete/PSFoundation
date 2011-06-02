@@ -1,12 +1,9 @@
 //
 //  NSError+SCMethods.m
-//  TouchCustoms
+//  PSFoundation
 //
 //  Created by Aleks Nesterow on 3/14/10.
-//	aleks.nesterow@gmail.com
-//	
-//  Copyright © 2010 Screen Customs s.r.o.
-//	All rights reserved.
+//	Licensed under MIT.  Copyright 2010 Screen Customs s.r.o.
 //
 
 #import "NSError+SCMethods.h"

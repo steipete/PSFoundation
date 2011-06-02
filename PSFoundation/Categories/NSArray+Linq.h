@@ -3,7 +3,7 @@
 //  PSFoundation
 //
 //  Created by Aleks Nesterow on 8/10/10.
-//  Copyright © 2010 Screencustoms, LLC.
+//  Licensed under MIT.  Copyright 2010 Screen Customs s.r.o.
 //
 
 @interface NSArray (Linq)

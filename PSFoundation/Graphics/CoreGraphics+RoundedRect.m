@@ -2,9 +2,8 @@
 //  CoreGraphics+RoundedRect.m
 //  PSFoundation
 //
-//  Created by Aleks Nesterow.
-//  Copyright © 2010 Screen Customs s.r.o.
-//  Licensed under MIT; found in LICENSES/MIT
+//  Created by Aleks Nesterow on 10/15/09.
+//  Licensed under MIT.  Copyright 2010 Screen Customs s.r.o.
 //
 
 #import "CoreGraphics+RoundedRect.h"

@@ -1,12 +1,9 @@
 //
 //  UIAlertView+SCMethods.m
-//  TouchCustoms
+//  PSFoundation
 //
 //  Created by Aleks Nesterow on 3/14/10.
-//	aleks.nesterow@gmail.com
-//
-//  Copyright © 2010 Screen Customs s.r.o.
-//	All rights reserved.
+//  Licensed under MIT.  Copyright 2010 Screen Customs s.r.o.
 //
 
 #import "UIAlertView+SCMethods.h"
@@ -58,7 +55,6 @@
                      otherButtonTitles:nil] autorelease] show];
 }
 
-
 + (void)showWithTitle:(NSString *)title message:(NSString *)message error:(NSError *)error {
   NSString *messageWithError = message;
   if (error) {
@@ -66,7 +62,5 @@
   }
   return [self showWithTitle:title message:messageWithError];
 }
-
-
 
 @end

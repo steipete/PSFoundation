@@ -1,12 +1,9 @@
 //
-//  SCFooterLabel.m
-//  TouchCustoms
+//  SCFooterLabel.h
+//  PSFoundation
 //
 //  Created by Aleks Nesterow on 3/12/10.
-//	aleks.nesterow@gmail.com
-//
-//  Copyright © 2010 Screen Customs s.r.o.
-//	All rights reserved.
+//	Licensed under MIT.  Copyright 2010 Screen Customs s.r.o.
 //
 
 #import "SCFooterLabel.h"

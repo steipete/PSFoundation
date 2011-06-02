@@ -1,12 +1,9 @@
 //
 //  NSMutableArray+SCQueue.m
-//  TouchCustoms
+//  PSFoundation
 //
 //  Created by Aleks Nesterow on 2/7/10.
-//	aleks.nesterow@gmail.com
-//	
-//  Copyright © 2010 Screen Customs s.r.o.
-//	All rights reserved.
+//	Licensed under MIT.  Copyright 2010 Screen Customs s.r.o.
 //
 
 #import "NSMutableArray+SCQueue.h"
