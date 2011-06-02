@@ -24,7 +24,7 @@
 //  THE SOFTWARE.
 //
 
-#import "UIDeviceHelper.h"
+#import "UIDevice+PSFoundation.h"
 #include <sys/sysctl.h>
 #include <mach/mach.h>
 #include <ifaddrs.h>

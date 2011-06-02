@@ -1,6 +1,6 @@
 //
 //  LRPopoverManager.m
-//  Spark
+//  PSFoundation
 //
 //  Created by Luke Redpath on 24/05/2010.
 //  Copyright 2010 LJR Software Limited. All rights reserved.
@@ -8,25 +8,22 @@
 
 #import "LRPopoverManager.h"
 
-
 NSString *const LRUIPopoverControllerDidDismissNotification = @"LRUIPopoverControllerDidDismissNotification";
 
 @implementation LRPopoverManager
 
-@synthesize currentPopoverController;
-@synthesize permitCurrentPopoverControllerToDismiss;
+@synthesize currentPopoverController, permitCurrentPopoverControllerToDismiss;
 
-static LRPopoverManager *sharedManager = nil;
+SYNTHESIZE_SINGLETON_FOR_CLASS(LRPopoverManager)
 
 + (void)initialize {
   if (self == [LRPopoverManager class]) {
-    sharedManager = [[self alloc] init];
-    sharedManager.permitCurrentPopoverControllerToDismiss = YES;
+      [[LRPopoverManager sharedManager] setPermitCurrentPopoverControllerToDismiss:YES];
   }
 }
 
-+ (id)sharedManager {
-  return sharedManager;
++ (LRPopoverManager *)sharedManager {
+    return [LRPopoverManager sharedInstance];
 }
 
 - (void)setCurrentPopoverController:(UIPopoverController *)pc
