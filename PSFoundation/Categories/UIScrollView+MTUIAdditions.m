@@ -9,6 +9,10 @@
 #import "UIScrollView+MTUIAdditions.h"
 #import <objc/runtime.h>
 
+BOOL MTViewIsScrollIndicator(UIView *view);
+BOOL MTViewUseForAutocalculation(UIView *view);
+CGFloat MTGetMaxPosition(UIScrollView *scrollView, BOOL vertical);
+
 #define kDefaultViewPadding 20
 
 static char excludedKey;
