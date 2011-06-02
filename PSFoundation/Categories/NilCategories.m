@@ -89,6 +89,18 @@
 
 @end
 
+@implementation NSDictionary (NilCategories)
+
+- (BOOL)containsObjectForKey:(id)key {
+	return [[self allKeys] containsObject:key];
+}
+
+- (BOOL)isEmpty {
+    return (self.count == 0);
+}
+
+@end
+
 @implementation NSMutableDictionary (NilCategories)
 
 - (void) setObjectToObjectForKey:(id)key inDictionary:(NSDictionary*)otherDictionary {
@@ -104,7 +116,7 @@
 
 @end
 
-@implementation NSDictionary (NilCategories)
+@implementation NSSet (NilCategories)
 
 - (BOOL)isEmpty {
     return (self.count == 0);
@@ -117,14 +129,6 @@
 - (void)addObjectIfNotNil:(id)anObject {
     if (anObject)
         [self addObject:anObject];
-}
-
-@end
-
-@implementation NSSet (NilCategories)
-
-- (BOOL)isEmpty {
-    return (self.count == 0);
 }
 
 @end

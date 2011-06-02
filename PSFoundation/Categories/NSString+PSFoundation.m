@@ -1,30 +1,12 @@
 //
-//  NSStringHelper.m
-//  CocoaHelpers
+//  NSString+PSFoundation.m
+//  PSFoundation
 //
 //  Created by Shaun Harrison on 10/14/08.
-//  Copyright (c) 2008-2009 enormego
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
+//  Copyright 2008 enormego.  Licensed under BSD.
 //
 
-#import "NSStringHelper.h"
+#import "NSString+PSFoundation.h"
 #import <CommonCrypto/CommonDigest.h>
 
 int const GGCharacterIsNotADigit = 10;
@@ -37,54 +19,6 @@ int const GGCharacterIsNotADigit = 10;
 
 - (BOOL)containsString:(NSString *)string options:(NSStringCompareOptions)options {
 	return [self rangeOfString:string options:options].location == NSNotFound ? NO : YES;
-}
-
-#pragma mark -
-#pragma mark Long conversions
-
-- (long)longValue {
-	return (long)[self longLongValue];
-}
-
-- (long long)longLongValue {
-	NSScanner* scanner = [NSScanner scannerWithString:self];
-	long long valueToGet;
-	if([scanner scanLongLong:&valueToGet] == YES) {
-		return valueToGet;
-	} else {
-		return 0;
-	}
-}
-
-/*
- * Contact info@enormego.com if you're the author and we'll update this comment to reflect credit
- */
-
-- (unsigned)digitValue:(unichar)c {
-
-	if ((c>47)&&(c<58)) {
-        return (c-48);
-	}
-
-	return GGCharacterIsNotADigit;
-}
-
-- (unsigned long long)unsignedLongLongValue {
-	unsigned n = [self length];
-	unsigned long long v,a;
-	unsigned small_a, j;
-
-	v=0;
-	for (j=0;j<n;j++) {
-		unichar c=[self characterAtIndex:j];
-		small_a=[self digitValue:c];
-		if (small_a==GGCharacterIsNotADigit) continue;
-		a=(unsigned long long)small_a;
-		v=(10*v)+a;
-	}
-
-	return v;
-
 }
 
 #pragma mark -

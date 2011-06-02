@@ -17,7 +17,6 @@
 #import "NSMutableArray+SCQueue.h"
 #import "NSMutableArray+MTShuffle.h"
 #import "NSArrayHelper.h"
-#import "NSDictionaryHelper.h"
 
 // arrayBySortingStrings, firstObject, uniqueMembers, map, collect, reject, removeFirstObject, reverse,
 // scramble, Stack-Tools like pop, pull, objectUsingPredicate
@@ -107,7 +106,7 @@
 #import "NSString+FlattenHTML.h"
 
 // containsString, md5, longValue, longLongValue, stringByTruncatingToLength, stringByReplacingString
-#import "NSStringHelper.h"
+#import "NSString+PSFoundation.h"
 
 // stringWithMaxLength, urlWithoutParameters, stringByReplacingRange
 #import "StringUtil.h"

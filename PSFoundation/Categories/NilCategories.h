@@ -29,6 +29,10 @@
 - (BOOL)addObjectsFromArrayIfNotNil:(NSArray *)otherArray;
 @end
 
+@interface NSDictionary (NilCategories)
+- (BOOL)containsObjectForKey:(id)key;
+@end
+
 @interface NSMutableDictionary (NilCategories)
 - (void)setObjectToObjectForKey:(id)key inDictionary:(NSDictionary*)otherDictionary;
 - (void)setObject:(id)anObject forKeyIfNotNil:(id)aKey;
