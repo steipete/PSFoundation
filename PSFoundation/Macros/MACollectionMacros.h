@@ -7,6 +7,10 @@
 //  https://github.com/mikeash/MACollectionUtilities
 //
 
+#import "NSArray+BlocksKit.h"
+#import "NSSet+BlocksKit.h"
+#import "NSDictionary+BlocksKit.h"
+
 #define IDARRAY(...) ((id[]){ __VA_ARGS__ })
 #define IDCOUNT(...) (sizeof(IDARRAY(__VA_ARGS__)) / sizeof(id))
 
