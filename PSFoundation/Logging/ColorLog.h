@@ -14,83 +14,81 @@
 // Supported Xcode 3 and 4. Leopard 10.5 or Snow Leopard 10.6. Autorelease Pool or GC environment.
 
 /*
-	Usage demo:
-	
-	#import "ColorLog.h"
-	
-	...
-	
-	NSLog(@"You can simple log " LCL_BLUE "and " LCL_GREEN "use " LCL_RED "colors" LCL_RESET);
-	
-	// or use safe function that strip colors if no plugn found:
-	
-	NSLogColor(@"Hello Standard world!\n"
-	
-	LBCL_WHITE												
-	
-	LCL_RED "Hello Red world!\n"
-	LCL_GREEN "Hello Green world!\n"
-	LCL_YELLOW "Hello Yellow world!\n"
-	LCL_BLUE "Hello Blue world!\n"
-	LCL_MAGENTA "Hello Magenta world!\n"
-	LCL_CYAN "Hello Cyan world!\n"
-	LCL_WHITE "Hello White world!\n"
-	
-	LCL_RESET "Hello Standard world again!");
-	
-	NSLogColor(@"New Standard line");
-	NSLogColor(LBCL_GREEN @"New Green-Br line");// background and color continues until next color set
-	NSLogColor(@"Next Green-Bg line");
-	NSLogColor(@"Next Green-Bg line");
-	NSLogColor(LBCL_GREEN LCL_BLUE @"Next Blue Green-Bg line");
-	NSLogColor(@"Last Green-Bg line" LCL_RESET);
-	NSLogColor(LBCL_YELLOW @"New line on Yellow-Bg");	
-	
-	NSLogReset();// it works as split line also
-	
-	NSLogRed(LBCL_BLUE @"I'm Red line on Blue-Bg");
-	NSLogGreen(@"I'm Green line");
-	NSLogYellow(@"I'm Yellow line");
-	NSLogBlue(LBCL_GREEN @"I'm Blue line on Green-Bg");
-	NSLogMagenta(@"I'm Magenta line");
-	NSLogCyan(LBCL_BLACK @"I'm Cyan line on Black-Bg");
-	NSLogWhite(LBCL_RED @"I'm White line on Red-Bg " LCL_BLUE @"Blue cut " LCL_GREEN @"Green cut");		
-	
-	*/
+ Usage demo:
+ 
+ #import "ColorLog.h"
+ 
+ ...
+ 
+ NSLog(@"You can simple log " LCL_BLUE "and " LCL_GREEN "use " LCL_RED "colors" LCL_RESET);
+ 
+ // or use safe function that strip colors if no plugn found:
+ 
+ NSLogColor(@"Hello Standard world!\n"
+ 
+ LBCL_WHITE												
+ 
+ LCL_RED "Hello Red world!\n"
+ LCL_GREEN "Hello Green world!\n"
+ LCL_YELLOW "Hello Yellow world!\n"
+ LCL_BLUE "Hello Blue world!\n"
+ LCL_MAGENTA "Hello Magenta world!\n"
+ LCL_CYAN "Hello Cyan world!\n"
+ LCL_WHITE "Hello White world!\n"
+ 
+ LCL_RESET "Hello Standard world again!");
+ 
+ NSLogColor(@"New Standard line");
+ NSLogColor(LBCL_GREEN @"New Green-Br line");// background and color continues until next color set
+ NSLogColor(@"Next Green-Bg line");
+ NSLogColor(@"Next Green-Bg line");
+ NSLogColor(LBCL_GREEN LCL_BLUE @"Next Blue Green-Bg line");
+ NSLogColor(@"Last Green-Bg line" LCL_RESET);
+ NSLogColor(LBCL_YELLOW @"New line on Yellow-Bg");	
+ 
+ NSLogReset();// it works as split line also
+ 
+ NSLogRed(LBCL_BLUE @"I'm Red line on Blue-Bg");
+ NSLogGreen(@"I'm Green line");
+ NSLogYellow(@"I'm Yellow line");
+ NSLogBlue(LBCL_GREEN @"I'm Blue line on Green-Bg");
+ NSLogMagenta(@"I'm Magenta line");
+ NSLogCyan(LBCL_BLACK @"I'm Cyan line on Black-Bg");
+ NSLogWhite(LBCL_RED @"I'm White line on Red-Bg " LCL_BLUE @"Blue cut " LCL_GREEN @"Green cut");		
+ 
+ */
 
 /*
-	There are known issues:
-	
-	1)
-	
-	To prevent Xcode crash, we don't delete special \033[..m (ESC-sequences, or NBSP for iOS) from the console text internal storage,
-	however we replace all of them to \035 - logical group marker instead, that does nothing and invisible.
-	So, you actually don't see special characters on colored output but you may invisble-touch them while copy-paste to TextEdit.
-
-	Here is solution if you need to full clear output: copy and paste a log to the vi, then run one command:
-
-	:%s/Ctrl-v]//g
-	
-	Where Ctrl-v] means you press Ctrl-v then Ctrl-]
-	
-	Or you can even disable XcodeColors module to see results as is:
-	
-	setenv("XcodeColors", "NO", 1);
-	
-	or by executable environment configuration
-	
-	2)
-	
-	Sometimes, rarely, colors may be shown not as need (ignored).
-	It may happen due to limited lazy console refresh.
-	
-	*/
-
-#import <Foundation/Foundation.h>
+ There are known issues:
+ 
+ 1)
+ 
+ To prevent Xcode crash, we don't delete special \033[..m (ESC-sequences, or NBSP for iOS) from the console text internal storage,
+ however we replace all of them to \035 - logical group marker instead, that does nothing and invisible.
+ So, you actually don't see special characters on colored output but you may invisble-touch them while copy-paste to TextEdit.
+ 
+ Here is solution if you need to full clear output: copy and paste a log to the vi, then run one command:
+ 
+ :%s/Ctrl-v]//g
+ 
+ Where Ctrl-v] means you press Ctrl-v then Ctrl-]
+ 
+ Or you can even disable XcodeColors module to see results as is:
+ 
+ setenv("XcodeColors", "NO", 1);
+ 
+ or by executable environment configuration
+ 
+ 2)
+ 
+ Sometimes, rarely, colors may be shown not as need (ignored).
+ It may happen due to limited lazy console refresh.
+ 
+ */
 
 // You can use simple NSLogColor (as NSLog replacement) to automatically strip color specific sequences from the format string if it needs
 
-#if TARGET_OS_IPHONE
+#if IS_IOS
 #define LC_ESC @"\xC2\xA0"
 #else
 #define LC_ESC @"\033"
@@ -99,54 +97,54 @@
 // Only restricted ANSI colors set available now:
 
 // Foreground
-#define LCL_BLACK				LC_ESC @"[0;30m"
-#define LCL_RED						LC_ESC @"[0;31m"
-#define LCL_GREEN				LC_ESC @"[0;32m"
+#define LCL_BLACK			LC_ESC @"[0;30m"
+#define LCL_RED				LC_ESC @"[0;31m"
+#define LCL_GREEN			LC_ESC @"[0;32m"
 #define LCL_YELLOW			LC_ESC @"[0;33m"
-#define LCL_BLUE					LC_ESC @"[0;34m"
-#define LCL_MAGENTA		LC_ESC @"[0;35m"
-#define LCL_CYAN					LC_ESC @"[0;36m"
-#define LCL_WHITE				LC_ESC @"[0;37m"
+#define LCL_BLUE			LC_ESC @"[0;34m"
+#define LCL_MAGENTA         LC_ESC @"[0;35m"
+#define LCL_CYAN			LC_ESC @"[0;36m"
+#define LCL_WHITE			LC_ESC @"[0;37m"
 
 // Background
 #define LBCL_BLACK			LC_ESC @"[0;40m"
-#define LBCL_RED					LC_ESC @"[0;41m"
+#define LBCL_RED			LC_ESC @"[0;41m"
 #define LBCL_GREEN			LC_ESC @"[0;42m"
-#define LBCL_YELLOW		LC_ESC @"[0;43m"
-#define LBCL_BLUE				LC_ESC @"[0;44m"
-#define LBCL_MAGENTA	LC_ESC @"[0;45m"
-#define LBCL_CYAN				LC_ESC @"[0;46m"
+#define LBCL_YELLOW         LC_ESC @"[0;43m"
+#define LBCL_BLUE			LC_ESC @"[0;44m"
+#define LBCL_MAGENTA        LC_ESC @"[0;45m"
+#define LBCL_CYAN			LC_ESC @"[0;46m"
 #define LBCL_WHITE			LC_ESC @"[0;47m"
 
 // Reset colors
-#define LCL_RESET				LC_ESC @"[0m"
+#define LCL_RESET			LC_ESC @"[0m"
 
 /* To adjust colors
-	
-	There are only 7 basic colors for the Foreground and 7 for the Background but you can adjust all of them.
-	Color names are black, red, green etc - as defined in appropriate define macros.
-	
-	To define a custom color for predefined colors use the following command format:
-	
-	defaults write com.apple.Xcode ColorLog_blackColor -TYPE YOUR_VALUE
-	
-	where TYPE maybe simple 'string'
-	then you can define value as +method name of std NSColor class
-	like 'blackColor' method:
-	
-	defaults write com.apple.Xcode ColorLog_blackColor -string blackColor
-	
-	or in RGBA format with 0..1 floating point number for every component:
-	
-	defaults write com.apple.Xcode ColorLog_greenBackgroundColor -string 0.1,0.9,0.1,0.5
-	
-	defaults write com.apple.Xcode ColorLog_redBackgroundColor -string 0.9,0.1,0.1,0.5
-	
-	or even set color option as NSColor archived as standard NSData.
-	
-	*/
+ 
+ There are only 7 basic colors for the Foreground and 7 for the Background but you can adjust all of them.
+ Color names are black, red, green etc - as defined in appropriate define macros.
+ 
+ To define a custom color for predefined colors use the following command format:
+ 
+ defaults write com.apple.Xcode ColorLog_blackColor -TYPE YOUR_VALUE
+ 
+ where TYPE maybe simple 'string'
+ then you can define value as +method name of std NSColor class
+ like 'blackColor' method:
+ 
+ defaults write com.apple.Xcode ColorLog_blackColor -string blackColor
+ 
+ or in RGBA format with 0..1 floating point number for every component:
+ 
+ defaults write com.apple.Xcode ColorLog_greenBackgroundColor -string 0.1,0.9,0.1,0.5
+ 
+ defaults write com.apple.Xcode ColorLog_redBackgroundColor -string 0.9,0.1,0.1,0.5
+ 
+ or even set color option as NSColor archived as standard NSData.
+ 
+ */
 
-BOOL IsXcodeColorsEnabled();
+BOOL IsXcodeColorsEnabled(void);
 
 NSString* StripXcodeColors(NSString* str,...) __attribute__((format(__NSString__, 1, 2)));// format checking is enabled
 NSString* AllowXcodeColors(NSString* str,...) __attribute__((format(__NSString__, 1, 2)));// just returns the same string, it needs for format chacking
