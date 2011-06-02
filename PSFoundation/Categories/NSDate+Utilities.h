@@ -1,8 +1,10 @@
-/*
- Erica Sadun, http://ericasadun.com
- iPhone Developer's Cookbook 3.x and beyond
- BSD License, Use at your own risk
- */
+//
+//  NSDate+Utilities.h
+//  PSFoundation
+//
+//  Created by Erica Sadun.
+//  Licensed under BSD.  Use at your own risk.
+//
 
 #define D_MINUTE	60
 #define D_HOUR		3600

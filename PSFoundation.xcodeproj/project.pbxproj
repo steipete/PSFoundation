@@ -168,8 +168,8 @@
 		6C86B9111396C744009F6FE6 /* NSData+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8741396C744009F6FE6 /* NSData+MTAdditions.m */; };
 		6C86B9121396C744009F6FE6 /* NSData+RSHexDump.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8751396C744009F6FE6 /* NSData+RSHexDump.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9131396C744009F6FE6 /* NSData+RSHexDump.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8761396C744009F6FE6 /* NSData+RSHexDump.m */; };
-		6C86B9141396C744009F6FE6 /* NSDate-Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8771396C744009F6FE6 /* NSDate-Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9151396C744009F6FE6 /* NSDate-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8781396C744009F6FE6 /* NSDate-Utilities.m */; };
+		6C86B9141396C744009F6FE6 /* NSDate+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8771396C744009F6FE6 /* NSDate+Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B9151396C744009F6FE6 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8781396C744009F6FE6 /* NSDate+Utilities.m */; };
 		6C86B9161396C744009F6FE6 /* NSDate+MTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8791396C744009F6FE6 /* NSDate+MTAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9171396C744009F6FE6 /* NSDate+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B87A1396C744009F6FE6 /* NSDate+MTAdditions.m */; };
 		6C86B9181396C744009F6FE6 /* NSDate+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B87B1396C744009F6FE6 /* NSDate+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -495,8 +495,8 @@
 		6C86B8741396C744009F6FE6 /* NSData+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MTAdditions.m"; sourceTree = "<group>"; };
 		6C86B8751396C744009F6FE6 /* NSData+RSHexDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+RSHexDump.h"; sourceTree = "<group>"; };
 		6C86B8761396C744009F6FE6 /* NSData+RSHexDump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+RSHexDump.m"; sourceTree = "<group>"; };
-		6C86B8771396C744009F6FE6 /* NSDate-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate-Utilities.h"; sourceTree = "<group>"; };
-		6C86B8781396C744009F6FE6 /* NSDate-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate-Utilities.m"; sourceTree = "<group>"; };
+		6C86B8771396C744009F6FE6 /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		6C86B8781396C744009F6FE6 /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 		6C86B8791396C744009F6FE6 /* NSDate+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MTAdditions.h"; sourceTree = "<group>"; };
 		6C86B87A1396C744009F6FE6 /* NSDate+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MTAdditions.m"; sourceTree = "<group>"; };
 		6C86B87B1396C744009F6FE6 /* NSDate+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+PSFoundation.h"; sourceTree = "<group>"; };
@@ -1210,8 +1210,8 @@
 		6CED58EE1397399500E3F38D /* NSDate */ = {
 			isa = PBXGroup;
 			children = (
-				6C86B8771396C744009F6FE6 /* NSDate-Utilities.h */,
-				6C86B8781396C744009F6FE6 /* NSDate-Utilities.m */,
+				6C86B8771396C744009F6FE6 /* NSDate+Utilities.h */,
+				6C86B8781396C744009F6FE6 /* NSDate+Utilities.m */,
 				6C86B8791396C744009F6FE6 /* NSDate+MTAdditions.h */,
 				6C86B87A1396C744009F6FE6 /* NSDate+MTAdditions.m */,
 				6C86B87B1396C744009F6FE6 /* NSDate+PSFoundation.h */,
@@ -1571,7 +1571,7 @@
 				6C86B90E1396C744009F6FE6 /* NSData+CommonCrypto.h in Headers */,
 				6C86B9101396C744009F6FE6 /* NSData+MTAdditions.h in Headers */,
 				6C86B9121396C744009F6FE6 /* NSData+RSHexDump.h in Headers */,
-				6C86B9141396C744009F6FE6 /* NSDate-Utilities.h in Headers */,
+				6C86B9141396C744009F6FE6 /* NSDate+Utilities.h in Headers */,
 				6C86B9161396C744009F6FE6 /* NSDate+MTAdditions.h in Headers */,
 				6C86B9181396C744009F6FE6 /* NSDate+PSFoundation.h in Headers */,
 				6C86B91A1396C744009F6FE6 /* NSDictionary+CGStructs.h in Headers */,
@@ -1833,7 +1833,7 @@
 				6C86B90F1396C744009F6FE6 /* NSData+CommonCrypto.m in Sources */,
 				6C86B9111396C744009F6FE6 /* NSData+MTAdditions.m in Sources */,
 				6C86B9131396C744009F6FE6 /* NSData+RSHexDump.m in Sources */,
-				6C86B9151396C744009F6FE6 /* NSDate-Utilities.m in Sources */,
+				6C86B9151396C744009F6FE6 /* NSDate+Utilities.m in Sources */,
 				6C86B9171396C744009F6FE6 /* NSDate+MTAdditions.m in Sources */,
 				6C86B9191396C744009F6FE6 /* NSDate+PSFoundation.m in Sources */,
 				6C86B91B1396C744009F6FE6 /* NSDictionary+CGStructs.m in Sources */,

@@ -46,7 +46,7 @@
 #import "NSDate+MTAdditions.h"
 
 // isToday, isTomorrow, isThisYear
-#import "NSDate-Utilities.h"
+#import "NSDate+Utilities.h"
 
 #import "TimeFormatters.h"
 

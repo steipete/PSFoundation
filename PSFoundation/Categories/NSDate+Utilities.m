@@ -1,16 +1,12 @@
-/*
- Erica Sadun, http://ericasadun.com
- iPhone Developer's Cookbook 3.x and beyond
- BSD License, Use at your own risk
- */
+//
+//  NSDate+Utilities.m
+//  PSFoundation
+//
+//  Created by Erica Sadun.
+//  Licensed under BSD.  Use at your own risk.
+//
 
-/*
- #import <humor.h> : Not planning to implement: dateByAskingBoyOut and dateByGettingBabysitter
- ----
- General Thanks: sstreza, Scott Lawrence, Kevin Ballard, NoOneButMe, Avi`, August Joki. Emanuele Vulcano, jcromartiej
-*/
-
-#import "NSDate-Utilities.h"
+#import "NSDate+Utilities.h"
 
 #define DATE_COMPONENTS (NSYearCalendarUnit| NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekCalendarUnit |  NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit | NSWeekdayCalendarUnit | NSWeekdayOrdinalCalendarUnit)
 #define CURRENT_CALENDAR [NSCalendar currentCalendar]

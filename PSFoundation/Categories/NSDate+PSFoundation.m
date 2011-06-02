@@ -1,7 +1,9 @@
 //
 //  NSDate+PSFoundation.m
+//  PSFoundation
 //
 //  Created by Peter Steinberger on 23.05.09.
+//  Licensed under MIT.  All rights reserved.
 //
 
 #import "NSDate+PSFoundation.h"

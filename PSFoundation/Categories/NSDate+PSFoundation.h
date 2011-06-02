@@ -1,7 +1,9 @@
 //
-//  NSDate+PSFoundation.m
+//  NSDate+PSFoundation.h
+//  PSFoundation
 //
 //  Created by Peter Steinberger on 23.05.09.
+//  Licensed under MIT.  All rights reserved.
 //
 
 @interface NSDate (PSFoundation)
