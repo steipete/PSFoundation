@@ -13,6 +13,7 @@
 #import "NSManagedObjectContext+FetchedObjectFromURI.h"
 
 #import "NSManagedObject+AutoDescription.h"
+#import "NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h"
 
 #import "CoreData+ActiveRecordFetching.h"
 

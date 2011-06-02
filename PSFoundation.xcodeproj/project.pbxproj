@@ -36,6 +36,8 @@
 		39C27BD713146056000C0C94 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C27BD513146056000C0C94 /* UIView+Animation.m */; };
 		39C27C0F131469A1000C0C94 /* NSString+Truncation.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C27C0D131469A1000C0C94 /* NSString+Truncation.h */; };
 		39C27C10131469A1000C0C94 /* NSString+Truncation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C27C0E131469A1000C0C94 /* NSString+Truncation.m */; };
+		39C917A4139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C917A2139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h */; };
+		39C917A5139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C917A3139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m */; };
 		39D8262F12E364530079B785 /* UIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 39D8262D12E364530079B785 /* UIView+Hierarchy.h */; };
 		39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D8262E12E364530079B785 /* UIView+Hierarchy.m */; };
 		39EBAAB113508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */; };
@@ -604,6 +606,8 @@
 		39C27BD513146056000C0C94 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Animation.m"; path = "Categories/UIView/UIView+Animation.m"; sourceTree = SOURCE_ROOT; };
 		39C27C0D131469A1000C0C94 /* NSString+Truncation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Truncation.h"; path = "Categories/NSString/NSString+Truncation.h"; sourceTree = SOURCE_ROOT; };
 		39C27C0E131469A1000C0C94 /* NSString+Truncation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Truncation.m"; path = "Categories/NSString/NSString+Truncation.m"; sourceTree = SOURCE_ROOT; };
+		39C917A2139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h"; sourceTree = "<group>"; };
+		39C917A3139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m"; sourceTree = "<group>"; };
 		39D8262D12E364530079B785 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Hierarchy.h"; path = "Categories/UIView/UIView+Hierarchy.h"; sourceTree = SOURCE_ROOT; };
 		39D8262E12E364530079B785 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Hierarchy.m"; path = "Categories/UIView/UIView+Hierarchy.m"; sourceTree = SOURCE_ROOT; };
 		39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MTAnimatedFetch.h"; sourceTree = "<group>"; };
@@ -1407,6 +1411,8 @@
 			children = (
 				78E53185126E03EB00A89047 /* NSManagedObject+AutoDescription.h */,
 				78E53186126E03EB00A89047 /* NSManagedObject+AutoDescription.m */,
+				39C917A2139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h */,
+				39C917A3139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m */,
 			);
 			name = NSManagedObject;
 			path = Categories/NSManagedObject;
@@ -1746,6 +1752,7 @@
 				7856A32612B43AA30025424F /* PSFoundation_CoreData.h in Headers */,
 				39EBAAB113508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h in Headers */,
 				7816DC69135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.h in Headers */,
+				39C917A4139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2185,6 +2192,7 @@
 				78E5327B126E042100A89047 /* SafeFetchedResultsController.m in Sources */,
 				7837DCDD12A09381005CC81B /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				7816DC6A135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.m in Sources */,
+				39C917A5139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
