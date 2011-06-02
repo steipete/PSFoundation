@@ -5,7 +5,6 @@
 
 @interface NSString (NSStringUtils)
 
-- (NSString *)stringWithMaxLength:(NSUInteger)maxLen;
 - (NSString *)urlWithoutParameters;
 - (NSString *)stringByReplacingRange:(NSRange)aRange with:(NSString *)aString;
 

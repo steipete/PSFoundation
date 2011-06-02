@@ -6,12 +6,6 @@
 //  Copyright 2008 enormego.  Licensed under BSD.
 //
 
-enum {
-	NSTruncateStringPositionStart=0,
-	NSTruncateStringPositionMiddle,
-	NSTruncateStringPositionEnd
-}; typedef int NSTruncateStringPosition;
-
 @interface NSString (Helper)
 
 /*
@@ -28,13 +22,6 @@ enum {
  * Returns the MD5 value of the string
  */
 - (NSString *)md5;
-
-/*
- * Truncate string to length
- */
-- (NSString *)stringByTruncatingToLength:(int)length;
-- (NSString *)stringByTruncatingToLength:(int)length direction:(NSTruncateStringPosition)truncateFrom;
-- (NSString *)stringByTruncatingToLength:(int)length direction:(NSTruncateStringPosition)truncateFrom withEllipsisString:(NSString *)ellipsis;
 
 - (NSString *)trimWhiteSpace;
 
