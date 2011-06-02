@@ -4,72 +4,73 @@
 //  Created by Peter Steinberger on 03.05.10.
 //
 
-// NSArray/NSSet //////////////////////////////////////////////////////////////////////////////////
+// checks whether or not objects are empty
+#import "NilCategories.h"
+
+// Collections ////////////////////////////////////////////////////////////////////////////////////
+
+// BlocksKit backwards-compatibility
 #import "NSArray+Linq.h"
+#import "MACollectionUtilities.h"
+
+// a variety of basic utilities
 #import "NSMutableArray+SCQueue.h"
 #import "NSMutableArray+MTShuffle.h"
 #import "NSArrayHelper.h"
+#import "NSDictionaryHelper.h"
 
 // arrayBySortingStrings, firstObject, uniqueMembers, map, collect, reject, removeFirstObject, reverse,
 // scramble, Stack-Tools like pop, pull, objectUsingPredicate
-#import "NSArray-Utilities.h"                                 // BSD
+#import "NSArray-Utilities.h"
 
-#import "MACollectionUtilities.h"
+// encode and decode UIKit geometry in a dictionary
+#import "NSDictionary+CGStructs.h"
 
 // NSData /////////////////////////////////////////////////////////////////////////////////////////
 
-// Base64 de/encoding by google
-#import "GTMBase64.h"                                       // Apache 2.0
+// Base64 decoding/encoding
+#import "GTMBase64.h"
 
-// [kPSCommonCompression] zlib additions
-#import "GTMNSData+zlib.h"                                  // Apache 2.0
+// Zlib utilities
+#import "NSData+zlib.h"
 
 // [kPSCommonCrypto] crypto stuff like MD5, SHA1, AES256
-#import "NSData+CommonCrypto.h"                             // New BSD
+#import "NSData+CommonCrypto.h"
 
 // override description for fun and glory!
-#import "NSData+RSHexDump.h"                                // MIT
+#import "NSData+RSHexDump.h"
 
 // NSDate /////////////////////////////////////////////////////////////////////////////////////////
 
 // prettyDate, prettyDateWithReference, ps_yesterday, ps_tomorrow, ...
-#import "NSDate+PSFoundation.h"                                    // own
+#import "NSDate+PSFoundation.h"
 #import "NSDate+MTAdditions.h"
 
 // isToday, isTomorrow, isThisYear
-#import "NSDate-Utilities.h"                                // http://github.com/erica/NSDate-Extensions
+#import "NSDate-Utilities.h"
 
+// NSError ///////////////////////////////////////////////////////////////////////////////////////
 
-// NSDictionary////////////////////////////////////////////////////////////////////////////////////
+#import "NSError+SCMethods.h"
 
-// containsObjectForKey
-#import "NSDictionaryHelper.h"
-
-#import "NSDictionary+CGStructs.h"
+// NSFileManager //////////////////////////////////////////////////////////////////////////////////
 
 #import "NSFileManager+PSFoundation.h"
 
 // NSNotifications ////////////////////////////////////////////////////////////////////////////////
 
 // postNotificationOnMainThread, postNotificationOnMainThreadWithName
-#import "NSNotificationAdditions.h"                         // -
-
+#import "NSNotificationAdditions.h"
 
 // NSNumber ///////////////////////////////////////////////////////////////////////////////////////
 
 // numberWithString
-#import "NSNumberAdditions.h"                               // own
-
-// NSURL ///////////////////////////////////////////////////////////////////////////////////////
-
-#import "NSURLHelper.h"
-#import "NSURL+PSFoundation.h"
-
+#import "NSNumberAdditions.h"
 
 // NSObject ///////////////////////////////////////////////////////////////////////////////////////
 
 // dd_invokeOnMainThread, dd_invokeOnMainThreadAndWaitUntilDone, dd_invokeOnThread
-#import "NSObject+DDExtensions.h"                           // BSD
+#import "NSObject+DDExtensions.h"
 
 // make
 #import "NSObject+Utilities.h"
@@ -77,16 +78,16 @@
 // helper for automatic description!
 #import "NSObject+AutoDescription.h"
 
+// exposes the 10.6+/iOS associated objects API  (incl. BlocksKit)
 #import "NSObject+AssociatedObjects.h"
 
+// take a wild guess.  Go on, guess!
 #import "NSObject+Swizzle.h"
-
 
 // NSOperationQueue ///////////////////////////////////////////////////////////////////////////////
 
 // sharedOperationQueue, NSObject:performSelectorInBackgroundQueue
-#import "NSOperationQueue+CWSharedQueue.h"                  // -
-
+#import "NSOperationQueue+CWSharedQueue.h"
 
 // NSString ///////////////////////////////////////////////////////////////////////////////////////
 
@@ -94,20 +95,20 @@
 #import "NSMutableString+PSAdditions.h"
 
 //gtm_stringByEscapingForHTML, gtm_stringByUnescapingFromHTML, ...
-#import "GTMNSString+HTML.h"                                // Apache 2.0
+#import "GTMNSString+HTML.h"
 
 // various string representations
-#import "NSString+Cat.h"                                    // -
+#import "NSString+Cat.h"
 #import "NSString+Truncation.h"
 
 // [kPSCommonLibXML] flattenHTML, removeWhitespace, removeAllWhitespaces, replaceAllWhitespacesWithSpace
-#import "NSString+FlattenHTML.h"                            // -
+#import "NSString+FlattenHTML.h"
 
 // containsString, md5, longValue, longLongValue, stringByTruncatingToLength, stringByReplacingString
-#import "NSStringHelper.h"                                  // BSD
+#import "NSStringHelper.h"
 
 // stringWithMaxLength, urlWithoutParameters, stringByReplacingRange
-#import "StringUtil.h"                                      // -
+#import "StringUtil.h"
 
 // dasherize, underscore, camelize, titleize
 #import "NSString+InflectionSupport.h"
@@ -115,15 +116,61 @@
 // gsub - string substitution
 #import "NSString+GSub.h"
 
+// NSURL ///////////////////////////////////////////////////////////////////////////////////////
+
+#import "NSURLHelper.h"
+#import "NSURL+PSFoundation.h"
+
 // UIKit //////////////////////////////////////////////////////////////////////////////////////////
+
+#import "SKProduct+LocalizedPrice.h"
+
+// showWithMessage fromTabBar|fromToolbar|inView
+#import "UIActionSheet+SCMethods.h"
+
+// alertViewFromError, showWithMessage, showWithTitle message
+#import "UIAlertView+SCMethods.h"
+
+// setApplicationStyle animated
+#import "UIApplicationHelper.h"
+
+#if IS_IOS // not all of the CG stuff is available in Chameleon yet.
+// setPathToRoundedRect, drawGlossyRect, setBackgroundToGlossyRectOfColor
+#import "UIButton+Glossy.h"
+#import "UIButton+Presets.h"
+#endif
 
 #import "UIColor+PSFoundation.h"
 
+// availableMemory, platform, isJailbroken, debugInfo
+#import "UIDeviceHelper.h"
+
+// hasAlpha, imageWithAlpha, transparentBorderImage
+#import "UIImage+Alpha.h"
+
+// roundedCornerImage
+#import "UIImage+RoundedCorner.h"
+
+// imageWithContentsOfURL, scaleToSize (...), colorizeImage
+#import "UIImageHelper.h"
+
+// cachedImageWithContentsOfFile, initWithContentsOfResolutionIndependentFile
+#import "UIImage+Cache.h"
+#import "UIImage+Tint.h"
+#import "UIImage+ProportionalFill.h"
+#import "UIImage+MTCache.h"
+#import "UIImage+MTTiling.h"
+#import "UIImage+MTUniversalAdditions.h"
+
 // (UIImageView *)imageViewNamed:(NSString *)imageName;
-#import "UIImageView+PSLib.h"                               // own
+#import "UIImageView+PSLib.h"
 
 // + (UILabel *)labelWithText:(NSString *)text;
-#import "UILabel+PSLib.h"                                   // own
+#import "UILabel+PSLib.h"
+
+#import "UINavigationBar+CustomBackground.h"
+
+#import "UIScreen+PSAdditions.h"
 
 #import "UIScrollView+MTUIAdditions.h"
 
@@ -138,45 +185,3 @@
 
 #import "UIViewControllerHelper.h"
 #import "UIViewController+MTUIAdditions.h"
-
-#import "UIScreen+PSAdditions.h"
-
-// setApplicationStyle animated
-#import "UIApplicationHelper.h"                             // New BSD
-
-// setPathToRoundedRect, drawGlossyRect, setBackgroundToGlossyRectOfColor
-#import "UIButton+Glossy.h"                                 // 3-clause BSD
-#import "UIButton+Presets.h"
-
-// showWithMessage fromTabBar|fromToolbar|inView
-#import "UIActionSheet+SCMethods.h"                         // 4-clause BSD
-
-// alertViewFromError, showWithMessage, showWithTitle message
-#import "UIAlertView+SCMethods.h"                           // 4-clause BSD
-
-// availableMemory, platform, isJailbroken, debugInfo
-#import "UIDeviceHelper.h"                                   // BSD
-
-// UIImage ////////////////////////////////////////////////////////////////////////////////////////
-
-// hasAlpha, imageWithAlpha, transparentBorderImage
-#import "UIImage+Alpha.h"                                   // custom, free for commercial use
-
-// roundedCornerImage
-#import "UIImage+RoundedCorner.h"                           // custom, free for commercial use
-
-// imageWithContentsOfURL, scaleToSize (...), colorizeImage
-#import "UIImageHelper.h"                                   // BSD
-
-// cachedImageWithContentsOfFile, initWithContentsOfResolutionIndependentFile
-#import "UIImage+Cache.h"
-#import "UIImage+Tint.h"
-#import "UIImage+ProportionalFill.h"
-#import "UIImage+MTCache.h"
-#import "UIImage+MTTiling.h"
-#import "UIImage+MTUniversalAdditions.h"
-
-
-#import "NSError+SCMethods.h"
-
-#import "NilCategories.h"
