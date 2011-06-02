@@ -39,31 +39,28 @@ What's In The Box?
 Getting Started
 ===============
 
-Clone or download the repository.
+_If you use [https://github.com/zwaldowski/BlocksKit](BlocksKit), it must be removed from your project prior to including PSFoundation, which has its own copy._
 
-In Xcode 4, click-and-drag (or add using File > Add Files to Project) the PSFoundation XCode project into a project or workspace.  Enter your target's settings and ad PSFoundation (and any of the CoreData/CoreLocation derivatives) to "Target Dependencies", then add libPSFoundation.a (and the derivatives) to "Link Binary with Libraries".  libPSFoundation will appear in red both in that section and in the source list; don't worry, this is a known bug with Xcode.  Additionally, set "Header Search Paths" to `$(BUILT_PRODUCTS_DIR)/**`.
-
-If you're running on iOS, add (or replace) "All Linker Flags" in your project with `-ObjC -all_load`.  The downside to this is that you will have to link the frameworks that Xcode usually weak links by default (see below), but, on the upside, your app won't crash when using PSFoundation's categories.
-
-_If you use [https://github.com/zwaldowski/BlocksKit](BlocksKit), it must be removed from your project before including PSFoundation, which has its own version._
-
-Use of the iOS static library requires linking against the following frameworks or libraries in the parent project:
- * SystemConfiguration
- * QuartzCore
- * CoreGraphics
- * AudioToolbox
- * Security
- * CFNetwork
- * MobilecoreServices
- * libz.1.dylib
-
-Usage of the CoreData and CoreLocation libraries require linking against CoreData and ImageIO, respectively.
-
-For use in Mac apps, no extra frameworks are required; PSFoundation.dylib already links against everything.
-
-Once all of that is done, simply `#import <PSFoundation.h>` in any file in your project.  _It is not recommended to include PSFoundation in your prefix header._
+1. Clone the repository:  ````git clone git://github.com/steipete/PSFoundation.git && cd PSFoundation````
+2. _(For using the refactor branch:)_  ````git checkout refactor2````
+3. Clone all submodules: ````git submodule update --init````
+4.  Click-and-drag PSFoundation.xcodoeproj into your project or workspace.
+5.  Enter your target's settings and add PSFoundation (and any the CoreData/CoreLocation derivatives) to "Target Dependencies", then add libPSFoundation.a **(iOS)** or libPSFoundation.dylib **(Mac)** to "Link Binary with Libraries".
+6.  Set "Header Search Paths" to `$(BUILT_PRODUCTS_DIR)/**`.
+7.  **(iOS only):**  Add (or replace) "All Linker Flags" in your project with `-ObjC -all_load`.
+8.  **(iOS only):**  Link your project against the following frameworks:
+  * SystemConfiguration
+  * QuartzCore
+  * CoreGraphics
+  * AudioToolbox
+  * Security
+  * CFNetwork
+  * MobilecoreServices
+  * libz.1.dylib
+9. **(iOS only):**  Usage of the CoreData and CoreLocation libraries require linking against CoreData and ImageIO, respectively.
+10.  `#import <PSFoundation.h>` in any file in your project.  _It is not recommended to include PSFoundation in your prefix header.
 
 License
 =======
 
-PSFoundation itself (and all the custom code from [https://github.com/steipete](steipete), [https://github.com/zwaldowski](zwaldowski), and [https://github.com/myell0w](myell0w)) is licensed under MIT.  The source code included in PSFoundation is a mix of MIT, BSD, Apache, and public domain code.  You can find the individual licenses in the LICENSES/ folder as well as in the header of each file.
+PSFoundation itself (and all the custom code from [@steipete](https://github.com/steipete), [@zwaldowski](https://github.com/zwaldowski), and [@myell0w](https://github.com/myell0w)) is licensed under MIT.  The source code included in PSFoundation is a mix of MIT, BSD, Apache, and public domain code.  You can find the individual licenses in the LICENSES/ folder as well as in the header of most files.
