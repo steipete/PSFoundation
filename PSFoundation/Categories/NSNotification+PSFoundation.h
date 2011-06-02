@@ -6,7 +6,7 @@
 //  Licensed under MIT.  All rights reserved.
 //
 
-@interface NSNotificationCenter (NSNotificationCenterAdditions)
+@interface NSNotificationCenter (PSFoundation)
 
 - (void) postNotificationOnMainThread:(NSNotification *) notification;
 - (void) postNotificationOnMainThread:(NSNotification *) notification waitUntilDone:(BOOL) wait;

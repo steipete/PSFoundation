@@ -192,8 +192,8 @@
 		6C86B92B1396C744009F6FE6 /* NSMutableString+PSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B88E1396C744009F6FE6 /* NSMutableString+PSAdditions.m */; };
 		6C86B92C1396C744009F6FE6 /* NSNotification+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B88F1396C744009F6FE6 /* NSNotification+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B92D1396C744009F6FE6 /* NSNotification+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8901396C744009F6FE6 /* NSNotification+PSFoundation.m */; };
-		6C86B92E1396C744009F6FE6 /* NSNumberAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8911396C744009F6FE6 /* NSNumberAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B92F1396C744009F6FE6 /* NSNumberAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8921396C744009F6FE6 /* NSNumberAdditions.m */; };
+		6C86B92E1396C744009F6FE6 /* NSNumber+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8911396C744009F6FE6 /* NSNumber+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B92F1396C744009F6FE6 /* NSNumber+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8921396C744009F6FE6 /* NSNumber+PSFoundation.m */; };
 		6C86B9321396C744009F6FE6 /* NSObject+AutoDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8951396C744009F6FE6 /* NSObject+AutoDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9331396C744009F6FE6 /* NSObject+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8961396C744009F6FE6 /* NSObject+AutoDescription.m */; };
 		6C86B9381396C744009F6FE6 /* NSObject+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B89B1396C744009F6FE6 /* NSObject+Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -519,8 +519,8 @@
 		6C86B88E1396C744009F6FE6 /* NSMutableString+PSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+PSAdditions.m"; sourceTree = "<group>"; };
 		6C86B88F1396C744009F6FE6 /* NSNotification+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotification+PSFoundation.h"; sourceTree = "<group>"; };
 		6C86B8901396C744009F6FE6 /* NSNotification+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotification+PSFoundation.m"; sourceTree = "<group>"; };
-		6C86B8911396C744009F6FE6 /* NSNumberAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberAdditions.h; sourceTree = "<group>"; };
-		6C86B8921396C744009F6FE6 /* NSNumberAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNumberAdditions.m; sourceTree = "<group>"; };
+		6C86B8911396C744009F6FE6 /* NSNumber+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+PSFoundation.h"; sourceTree = "<group>"; };
+		6C86B8921396C744009F6FE6 /* NSNumber+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+PSFoundation.m"; sourceTree = "<group>"; };
 		6C86B8951396C744009F6FE6 /* NSObject+AutoDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AutoDescription.h"; sourceTree = "<group>"; };
 		6C86B8961396C744009F6FE6 /* NSObject+AutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AutoDescription.m"; sourceTree = "<group>"; };
 		6C86B89B1396C744009F6FE6 /* NSObject+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utilities.h"; sourceTree = "<group>"; };
@@ -1252,8 +1252,8 @@
 		6CED58F2139739C000E3F38D /* NSNumber */ = {
 			isa = PBXGroup;
 			children = (
-				6C86B8911396C744009F6FE6 /* NSNumberAdditions.h */,
-				6C86B8921396C744009F6FE6 /* NSNumberAdditions.m */,
+				6C86B8911396C744009F6FE6 /* NSNumber+PSFoundation.h */,
+				6C86B8921396C744009F6FE6 /* NSNumber+PSFoundation.m */,
 			);
 			name = NSNumber;
 			sourceTree = "<group>";
@@ -1583,7 +1583,7 @@
 				6C86B9281396C744009F6FE6 /* NSMutableArray+SCQueue.h in Headers */,
 				6C86B92A1396C744009F6FE6 /* NSMutableString+PSAdditions.h in Headers */,
 				6C86B92C1396C744009F6FE6 /* NSNotification+PSFoundation.h in Headers */,
-				6C86B92E1396C744009F6FE6 /* NSNumberAdditions.h in Headers */,
+				6C86B92E1396C744009F6FE6 /* NSNumber+PSFoundation.h in Headers */,
 				6C86B9321396C744009F6FE6 /* NSObject+AutoDescription.h in Headers */,
 				6C86B9381396C744009F6FE6 /* NSObject+Utilities.h in Headers */,
 				6C86B93A1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.h in Headers */,
@@ -1845,7 +1845,7 @@
 				6C86B9291396C744009F6FE6 /* NSMutableArray+SCQueue.m in Sources */,
 				6C86B92B1396C744009F6FE6 /* NSMutableString+PSAdditions.m in Sources */,
 				6C86B92D1396C744009F6FE6 /* NSNotification+PSFoundation.m in Sources */,
-				6C86B92F1396C744009F6FE6 /* NSNumberAdditions.m in Sources */,
+				6C86B92F1396C744009F6FE6 /* NSNumber+PSFoundation.m in Sources */,
 				6C86B9331396C744009F6FE6 /* NSObject+AutoDescription.m in Sources */,
 				6C86B9391396C744009F6FE6 /* NSObject+Utilities.m in Sources */,
 				6C86B93B1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.m in Sources */,

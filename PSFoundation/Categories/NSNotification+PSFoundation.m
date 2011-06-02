@@ -9,7 +9,8 @@
 #import "NSNotification+PSFoundation.h"
 #import <pthread.h>
 
-@implementation NSNotificationCenter (NSNotificationCenterAdditions)
+@implementation NSNotificationCenter (PSFoundation)
+
 - (void) postNotificationOnMainThread:(NSNotification *) notification {
 	if( pthread_main_np() ) return [self postNotification:notification];
 	[self postNotificationOnMainThread:notification waitUntilDone:NO];

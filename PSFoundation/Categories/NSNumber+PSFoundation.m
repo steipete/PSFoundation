@@ -1,12 +1,14 @@
 //
-//  NSNumberAdditions.m
+//  NSNumber+PSFoundation.m
+//  PSFoundation
 //
-//  Created by Peter Steinberger on 21.09.09.
+//  Created by Peter Steinberger on 04.11.09.
+//  Licensed under MIT.  All rights reserved.
 //
 
-#import "NSNumberAdditions.h"
+#import "NSNumber+PSFoundation.h"
 
-@implementation NSNumber (PSLib)
+@implementation NSNumber (PSFoundation)
 
 static NSNumberFormatter *numberFormatter = nil;
 
