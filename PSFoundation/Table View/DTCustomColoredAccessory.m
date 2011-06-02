@@ -1,14 +1,12 @@
 //
 //  DTCustomColoredAccessory.m
-//  MW
+//  PSFoundation
 //
 //  Created by Matthias Tretter on 09.03.11.
-//  Copyright 2011 myell0w. All rights reserved.
+//  Copyright 2011 @myell0w. All rights reserved.
 //
-//  Found on Cocoanetics.com
 
 #import "DTCustomColoredAccessory.h"
-
 
 @implementation DTCustomColoredAccessory
 

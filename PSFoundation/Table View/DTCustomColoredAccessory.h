@@ -1,15 +1,13 @@
 //
 //  DTCustomColoredAccessory.h
-//  MW
+//  PSFoundation
 //
 //  Created by Matthias Tretter on 09.03.11.
 //  Copyright 2011 @myell0w. All rights reserved.
 //
-//  Found on cocoanetics.com
-//  http://www.cocoanetics.com/2011/03/expandingcollapsing-tableview-sections/
-
-#import <Foundation/Foundation.h>
-
+//  References:
+//   - http://www.cocoanetics.com/2011/03/expandingcollapsing-tableview-sections/
+//
 
 typedef enum
 {
