@@ -9,7 +9,6 @@
 DEPRECATED_ATTRIBUTE @interface PSAlertView : NSObject {
 @private
   UIAlertView *view_;
-  NSMutableArray *blocks_;
 }
 
 @property (nonatomic, retain) UIAlertView *alertView;

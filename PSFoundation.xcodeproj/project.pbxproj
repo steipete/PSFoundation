@@ -32,8 +32,6 @@
 		6C86B4821396B118009F6FE6 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4511396B118009F6FE6 /* TDBadgedCell.m */; };
 		6C86B4831396B118009F6FE6 /* UACellBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4521396B118009F6FE6 /* UACellBackgroundView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4841396B118009F6FE6 /* UACellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4531396B118009F6FE6 /* UACellBackgroundView.m */; };
-		6C86B4851396B118009F6FE6 /* ColorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4551396B118009F6FE6 /* ColorUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B4861396B118009F6FE6 /* ColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4561396B118009F6FE6 /* ColorUtils.m */; };
 		6C86B4871396B118009F6FE6 /* GradientButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4571396B118009F6FE6 /* GradientButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4881396B118009F6FE6 /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4581396B118009F6FE6 /* GradientButton.m */; };
 		6C86B4891396B118009F6FE6 /* LRPopoverManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4591396B118009F6FE6 /* LRPopoverManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -86,8 +84,6 @@
 		6C86B6841396B187009F6FE6 /* UIView+CWNibLocalizations.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5BF1396B186009F6FE6 /* UIView+CWNibLocalizations.m */; };
 		6C86B6851396B187009F6FE6 /* DDInvocationGrabber.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5C11396B186009F6FE6 /* DDInvocationGrabber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B6861396B187009F6FE6 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5C21396B186009F6FE6 /* DDInvocationGrabber.m */; };
-		6C86B6871396B187009F6FE6 /* NSInvocation+blocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5C31396B186009F6FE6 /* NSInvocation+blocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B6881396B187009F6FE6 /* NSInvocation+blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5C41396B186009F6FE6 /* NSInvocation+blocks.m */; };
 		6C86B6891396B187009F6FE6 /* NSObject+DDExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5C51396B186009F6FE6 /* NSObject+DDExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B68A1396B187009F6FE6 /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5C61396B186009F6FE6 /* NSObject+DDExtensions.m */; };
 		6C86B68B1396B187009F6FE6 /* NSObject+Proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5C71396B186009F6FE6 /* NSObject+Proxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -238,8 +234,6 @@
 		6C86B95D1396C744009F6FE6 /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8C01396C744009F6FE6 /* UIButton+Glossy.m */; };
 		6C86B95E1396C744009F6FE6 /* UIButton+Presets.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8C11396C744009F6FE6 /* UIButton+Presets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B95F1396C744009F6FE6 /* UIButton+Presets.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8C21396C744009F6FE6 /* UIButton+Presets.m */; };
-		6C86B9601396C744009F6FE6 /* UIColor-Expanded.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8C31396C744009F6FE6 /* UIColor-Expanded.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9611396C744009F6FE6 /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8C41396C744009F6FE6 /* UIColor-Expanded.m */; };
 		6C86B9621396C744009F6FE6 /* UIDevice+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8C51396C744009F6FE6 /* UIDevice+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9631396C744009F6FE6 /* UIDevice+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8C61396C744009F6FE6 /* UIDevice+PSFoundation.m */; };
 		6C86B9641396C744009F6FE6 /* UIImage+Alpha.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8C71396C744009F6FE6 /* UIImage+Alpha.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -337,6 +331,8 @@
 		6C86BC70139727D5009F6FE6 /* CoreGraphics+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BC6D139727D5009F6FE6 /* CoreGraphics+PSFoundation.h */; };
 		6C86BC71139727D5009F6FE6 /* CoreGraphics+RoundedRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BC6E139727D5009F6FE6 /* CoreGraphics+RoundedRect.h */; };
 		6C86BC72139727D5009F6FE6 /* CoreGraphics+RoundedRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BC6F139727D5009F6FE6 /* CoreGraphics+RoundedRect.m */; };
+		6C86BC7513972AB0009F6FE6 /* UIColor+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BC7313972AAC009F6FE6 /* UIColor+PSFoundation.h */; };
+		6C86BC7613972AB0009F6FE6 /* UIColor+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BC7413972AAE009F6FE6 /* UIColor+PSFoundation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -367,8 +363,6 @@
 		6C86B4511396B118009F6FE6 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
 		6C86B4521396B118009F6FE6 /* UACellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UACellBackgroundView.h; sourceTree = "<group>"; };
 		6C86B4531396B118009F6FE6 /* UACellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UACellBackgroundView.m; sourceTree = "<group>"; };
-		6C86B4551396B118009F6FE6 /* ColorUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorUtils.h; sourceTree = "<group>"; };
-		6C86B4561396B118009F6FE6 /* ColorUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorUtils.m; sourceTree = "<group>"; };
 		6C86B4571396B118009F6FE6 /* GradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
 		6C86B4581396B118009F6FE6 /* GradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientButton.m; sourceTree = "<group>"; };
 		6C86B4591396B118009F6FE6 /* LRPopoverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPopoverManager.h; sourceTree = "<group>"; };
@@ -438,8 +432,6 @@
 		6C86B5BF1396B186009F6FE6 /* UIView+CWNibLocalizations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CWNibLocalizations.m"; sourceTree = "<group>"; };
 		6C86B5C11396B186009F6FE6 /* DDInvocationGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDInvocationGrabber.h; sourceTree = "<group>"; };
 		6C86B5C21396B186009F6FE6 /* DDInvocationGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDInvocationGrabber.m; sourceTree = "<group>"; };
-		6C86B5C31396B186009F6FE6 /* NSInvocation+blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+blocks.h"; sourceTree = "<group>"; };
-		6C86B5C41396B186009F6FE6 /* NSInvocation+blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+blocks.m"; sourceTree = "<group>"; };
 		6C86B5C51396B186009F6FE6 /* NSObject+DDExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DDExtensions.h"; sourceTree = "<group>"; };
 		6C86B5C61396B186009F6FE6 /* NSObject+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DDExtensions.m"; sourceTree = "<group>"; };
 		6C86B5C71396B186009F6FE6 /* NSObject+Proxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Proxy.h"; sourceTree = "<group>"; };
@@ -573,8 +565,6 @@
 		6C86B8C01396C744009F6FE6 /* UIButton+Glossy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
 		6C86B8C11396C744009F6FE6 /* UIButton+Presets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Presets.h"; sourceTree = "<group>"; };
 		6C86B8C21396C744009F6FE6 /* UIButton+Presets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Presets.m"; sourceTree = "<group>"; };
-		6C86B8C31396C744009F6FE6 /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
-		6C86B8C41396C744009F6FE6 /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
 		6C86B8C51396C744009F6FE6 /* UIDevice+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+PSFoundation.h"; sourceTree = "<group>"; };
 		6C86B8C61396C744009F6FE6 /* UIDevice+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+PSFoundation.m"; sourceTree = "<group>"; };
 		6C86B8C71396C744009F6FE6 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
@@ -673,6 +663,8 @@
 		6C86BC6D139727D5009F6FE6 /* CoreGraphics+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreGraphics+PSFoundation.h"; sourceTree = "<group>"; };
 		6C86BC6E139727D5009F6FE6 /* CoreGraphics+RoundedRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreGraphics+RoundedRect.h"; sourceTree = "<group>"; };
 		6C86BC6F139727D5009F6FE6 /* CoreGraphics+RoundedRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CoreGraphics+RoundedRect.m"; sourceTree = "<group>"; };
+		6C86BC7313972AAC009F6FE6 /* UIColor+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PSFoundation.h"; sourceTree = "<group>"; };
+		6C86BC7413972AAE009F6FE6 /* UIColor+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PSFoundation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -823,8 +815,6 @@
 		6C86B4541396B118009F6FE6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				6C86B4551396B118009F6FE6 /* ColorUtils.h */,
-				6C86B4561396B118009F6FE6 /* ColorUtils.m */,
 				6C86B4571396B118009F6FE6 /* GradientButton.h */,
 				6C86B4581396B118009F6FE6 /* GradientButton.m */,
 				6C86B4591396B118009F6FE6 /* LRPopoverManager.h */,
@@ -1018,8 +1008,8 @@
 				6C86B8C01396C744009F6FE6 /* UIButton+Glossy.m */,
 				6C86B8C11396C744009F6FE6 /* UIButton+Presets.h */,
 				6C86B8C21396C744009F6FE6 /* UIButton+Presets.m */,
-				6C86B8C31396C744009F6FE6 /* UIColor-Expanded.h */,
-				6C86B8C41396C744009F6FE6 /* UIColor-Expanded.m */,
+				6C86BC7313972AAC009F6FE6 /* UIColor+PSFoundation.h */,
+				6C86BC7413972AAE009F6FE6 /* UIColor+PSFoundation.m */,
 				6C86B8C51396C744009F6FE6 /* UIDevice+PSFoundation.h */,
 				6C86B8C61396C744009F6FE6 /* UIDevice+PSFoundation.m */,
 				6C86B8C71396C744009F6FE6 /* UIImage+Alpha.h */,
@@ -1095,8 +1085,6 @@
 			children = (
 				6C86B5C11396B186009F6FE6 /* DDInvocationGrabber.h */,
 				6C86B5C21396B186009F6FE6 /* DDInvocationGrabber.m */,
-				6C86B5C31396B186009F6FE6 /* NSInvocation+blocks.h */,
-				6C86B5C41396B186009F6FE6 /* NSInvocation+blocks.m */,
 				6C86B5C51396B186009F6FE6 /* NSObject+DDExtensions.h */,
 				6C86B5C61396B186009F6FE6 /* NSObject+DDExtensions.m */,
 				6C86B5C71396B186009F6FE6 /* NSObject+Proxy.h */,
@@ -1318,7 +1306,6 @@
 				6C86B47F1396B118009F6FE6 /* ShadowedTableView.h in Headers */,
 				6C86B4811396B118009F6FE6 /* TDBadgedCell.h in Headers */,
 				6C86B4831396B118009F6FE6 /* UACellBackgroundView.h in Headers */,
-				6C86B4851396B118009F6FE6 /* ColorUtils.h in Headers */,
 				6C86B4871396B118009F6FE6 /* GradientButton.h in Headers */,
 				6C86B4891396B118009F6FE6 /* LRPopoverManager.h in Headers */,
 				6C86B48B1396B118009F6FE6 /* PSActionSheet.h in Headers */,
@@ -1348,7 +1335,6 @@
 				6C86B6811396B187009F6FE6 /* BSUIViewRearranger.h in Headers */,
 				6C86B6831396B187009F6FE6 /* UIView+CWNibLocalizations.h in Headers */,
 				6C86B6851396B187009F6FE6 /* DDInvocationGrabber.h in Headers */,
-				6C86B6871396B187009F6FE6 /* NSInvocation+blocks.h in Headers */,
 				6C86B8391396B56E009F6FE6 /* BKMacros.h in Headers */,
 				6C86B83A1396B56E009F6FE6 /* BlocksKit-Prefix.pch in Headers */,
 				6C86B83B1396B56E009F6FE6 /* BlocksKit.h in Headers */,
@@ -1414,7 +1400,6 @@
 				6C86B95A1396C744009F6FE6 /* UIApplicationHelper.h in Headers */,
 				6C86B95C1396C744009F6FE6 /* UIButton+Glossy.h in Headers */,
 				6C86B95E1396C744009F6FE6 /* UIButton+Presets.h in Headers */,
-				6C86B9601396C744009F6FE6 /* UIColor-Expanded.h in Headers */,
 				6C86B9621396C744009F6FE6 /* UIDevice+PSFoundation.h in Headers */,
 				6C86B9641396C744009F6FE6 /* UIImage+Alpha.h in Headers */,
 				6C86B9661396C744009F6FE6 /* UIImage+Cache.h in Headers */,
@@ -1466,6 +1451,7 @@
 				6C86BC64139711CE009F6FE6 /* NSObject+Swizzle.h in Headers */,
 				6C86BC70139727D5009F6FE6 /* CoreGraphics+PSFoundation.h in Headers */,
 				6C86BC71139727D5009F6FE6 /* CoreGraphics+RoundedRect.h in Headers */,
+				6C86BC7513972AB0009F6FE6 /* UIColor+PSFoundation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1592,7 +1578,6 @@
 				6C86B4801396B118009F6FE6 /* ShadowedTableView.m in Sources */,
 				6C86B4821396B118009F6FE6 /* TDBadgedCell.m in Sources */,
 				6C86B4841396B118009F6FE6 /* UACellBackgroundView.m in Sources */,
-				6C86B4861396B118009F6FE6 /* ColorUtils.m in Sources */,
 				6C86B4881396B118009F6FE6 /* GradientButton.m in Sources */,
 				6C86B48A1396B118009F6FE6 /* LRPopoverManager.m in Sources */,
 				6C86B48C1396B118009F6FE6 /* PSActionSheet.m in Sources */,
@@ -1616,7 +1601,6 @@
 				6C86B6821396B187009F6FE6 /* BSUIViewRearranger.m in Sources */,
 				6C86B6841396B187009F6FE6 /* UIView+CWNibLocalizations.m in Sources */,
 				6C86B6861396B187009F6FE6 /* DDInvocationGrabber.m in Sources */,
-				6C86B6881396B187009F6FE6 /* NSInvocation+blocks.m in Sources */,
 				6C86B68A1396B187009F6FE6 /* NSObject+DDExtensions.m in Sources */,
 				6C86B68C1396B187009F6FE6 /* NSObject+Proxy.m in Sources */,
 				6C86B68E1396B187009F6FE6 /* SFHFKeychainUtils.m in Sources */,
@@ -1680,7 +1664,6 @@
 				6C86B95B1396C744009F6FE6 /* UIApplicationHelper.m in Sources */,
 				6C86B95D1396C744009F6FE6 /* UIButton+Glossy.m in Sources */,
 				6C86B95F1396C744009F6FE6 /* UIButton+Presets.m in Sources */,
-				6C86B9611396C744009F6FE6 /* UIColor-Expanded.m in Sources */,
 				6C86B9631396C744009F6FE6 /* UIDevice+PSFoundation.m in Sources */,
 				6C86B9651396C744009F6FE6 /* UIImage+Alpha.m in Sources */,
 				6C86B9671396C744009F6FE6 /* UIImage+Cache.m in Sources */,
@@ -1728,6 +1711,7 @@
 				6C86BC3C139711A4009F6FE6 /* JRSwizzle.m in Sources */,
 				6C86BC65139711CE009F6FE6 /* NSObject+Swizzle.m in Sources */,
 				6C86BC72139727D5009F6FE6 /* CoreGraphics+RoundedRect.m in Sources */,
+				6C86BC7613972AB0009F6FE6 /* UIColor+PSFoundation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

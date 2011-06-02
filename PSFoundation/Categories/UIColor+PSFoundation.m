@@ -1,20 +1,18 @@
-#import "UIColor-Expanded.h"
+//
+//  UIColor+PSFoundation.h
+//  PSFoundation
+//
+//  Created by Peter Steinberger on 12.12.10.
+//  Licensed under MIT.  All rights reserved.
+//
+//  Thanks to Poltras, Millenomi, Eridius, Nownot, WhatAHam, jberry,
+//  and everyone else who helped out but whose name is inadvertantly omitted.
+//
 
-/*
- 
- Thanks to Poltras, Millenomi, Eridius, Nownot, WhatAHam, jberry,
- and everyone else who helped out but whose name is inadvertantly omitted
- 
-*/
+#import "UIColor+PSFoundation.h"
 
-/*
- Current outstanding request list:
- 
- - PolarBearFarm - color descriptions ([UIColor warmGrayWithHintOfBlueTouchOfRedAndSplashOfYellowColor])
- - Crayola color set
- - Eridius - UIColor needs a method that takes 2 colors and gives a third complementary one
- - Consider UIMutableColor that can be adjusted (brighter, cooler, warmer, thicker-alpha, etc)
- */
+static UIColor *gNavigationBarColors[5];
+static UIColor *gUnreadCellColors[5];
 
 /*
  FOR REFERENCE: Color Space Models: enum CGColorSpaceModel {
@@ -32,21 +30,13 @@
 // Static cache of looked up color names. Used with +colorWithName:
 static NSMutableDictionary *colorNameCache = nil;
 
-#if SUPPORTS_UNDOCUMENTED_API
-// UIColor_Undocumented
-// Undocumented methods of UIColor
-@interface UIColor (UIColor_Undocumented)
-- (NSString *)styleString;
-@end
-#endif // SUPPORTS_UNDOCUMENTED_API
-
 @interface UIColor (UIColor_Expanded_Support)
 + (UIColor *)searchForColorByName:(NSString *)cssColorName;
 @end
 
 #pragma mark -
 
-@implementation UIColor (UIColor_Expanded)
+@implementation UIColor (PSFoundation)
 
 - (CGColorSpaceModel)colorSpaceModel {
 	return CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor));
@@ -315,12 +305,14 @@ static NSMutableDictionary *colorNameCache = nil;
 	const NSUInteger kMaxComponents = 4;
 	CGFloat c[kMaxComponents];
 	NSUInteger i = 0;
-	if (![scanner scanFloat:&c[i++]]) return nil;
+    IF_IOS(    if (![scanner scanFloat:&c[i++]]) return nil;)
+	IF_DESKTOP(if (![scanner scanDouble:&c[i++]]) return nil;)
 	while (1) {
 		if ([scanner scanString:@"}" intoString:NULL]) break;
 		if (i >= kMaxComponents) return nil;
 		if ([scanner scanString:@"," intoString:NULL]) {
-			if (![scanner scanFloat:&c[i++]]) return nil;
+			IF_IOS(    if (![scanner scanFloat:&c[i++]]) return nil;)
+			IF_DESKTOP(if (![scanner scanDouble:&c[i++]]) return nil;)
 		} else {
 			// either we're at the end of there's an unexpected character here
 			// both cases are error conditions
@@ -394,6 +386,23 @@ static NSMutableDictionary *colorNameCache = nil;
 	return color;
 }
 
++ (UIColor*)navigationColorForTab:(int)tab {
+    return gNavigationBarColors[tab];
+}
+
++ (UIColor*)cellColorForTab:(int)tab {
+    return gUnreadCellColors[tab];
+}
+
++ (UIColor*)cellLabelColor {
+    return [UIColor colorWithRed:0.195 green:0.309 blue:0.520 alpha:1.0];
+}
+
++ (UIColor*)conversationBackground {
+    return [UIColor colorWithRed:0.859 green:0.886 blue:0.929 alpha:1.0];
+}
+
+
 #pragma mark UIColor_Expanded initialization
 
 + (void)load {
@@ -401,36 +410,6 @@ static NSMutableDictionary *colorNameCache = nil;
 }
 
 @end
-
-#pragma mark -
-
-#if SUPPORTS_UNDOCUMENTED_API
-@implementation UIColor (UIColor_Undocumented_Expanded)
-- (NSString *)fetchStyleString {
-	return [self styleString];
-}
-
-// Convert a color into RGB Color space, courtesy of Poltras
-// via http://ofcodeandmen.poltras.com/2009/01/22/convert-a-cgcolorref-to-another-cgcolorspaceref/
-//
-- (UIColor *)rgbColor {
-	// Call to undocumented method "styleString".
-	NSString *style = [self styleString];
-	NSScanner *scanner = [NSScanner scannerWithString:style];
-	CGFloat red, green, blue;
-	if (![scanner scanString:@"rgb(" intoString:NULL]) return nil;
-	if (![scanner scanFloat:&red]) return nil;
-	if (![scanner scanString:@"," intoString:NULL]) return nil;
-	if (![scanner scanFloat:&green]) return nil;
-	if (![scanner scanString:@"," intoString:NULL]) return nil;
-	if (![scanner scanFloat:&blue]) return nil;
-	if (![scanner scanString:@")" intoString:NULL]) return nil;
-	if (![scanner isAtEnd]) return nil;
-	
-	return [UIColor colorWithRed:red green:green blue:blue alpha:self.alpha];
-}
-@end
-#endif // SUPPORTS_UNDOCUMENTED_API
 
 @implementation UIColor (UIColor_Expanded_Support)
 /*
@@ -501,4 +480,5 @@ static const char *colorNameDB = ","
 	
 	return result;
 }
+
 @end

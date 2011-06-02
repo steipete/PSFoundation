@@ -13,7 +13,8 @@
 
 @property (nonatomic, assign) UIStatusBarStyle savedStatusBarStyle;
 
-+ (PSStatusBarSaver *)sharedPSStatusBarSaver;
++ (PSStatusBarSaver *)sharedPSStatusBarSaver DEPRECATED_ATTRIBUTE;
++ (PSStatusBarSaver *)sharedStatusBarSaver;
 
 + (void)captureStatusBar;
 + (void)captureStatusBarAndSetTo:(UIStatusBarStyle)newStyle;

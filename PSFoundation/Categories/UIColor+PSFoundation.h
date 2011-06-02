@@ -1,8 +1,16 @@
-#import <UIKit/UIKit.h>
+//
+//  UIColor+PSFoundation.h
+//  PSFoundation
+//
+//  Created by Peter Steinberger on 12.12.10.
+//  Licensed under MIT.  All rights reserved.
+//
+//  Thanks to Poltras, Millenomi, Eridius, Nownot, WhatAHam, jberry,
+//  and everyone else who helped out but whose name is inadvertantly omitted.
+//
 
-#define SUPPORTS_UNDOCUMENTED_API	0
+@interface UIColor (PSFoundation)
 
-@interface UIColor (UIColor_Expanded)
 @property (nonatomic, readonly) CGColorSpaceModel colorSpaceModel;
 @property (nonatomic, readonly) BOOL canProvideRGBComponents;
 @property (nonatomic, readonly) CGFloat red; // Only valid if canProvideRGBComponents is YES
@@ -45,13 +53,9 @@
 
 + (UIColor *)colorWithName:(NSString *)cssColorName;
 
-@end
++ (UIColor*)navigationColorForTab:(int)tab;
++ (UIColor*)cellColorForTab:(int)tab;
++ (UIColor*)cellLabelColor;
++ (UIColor*)conversationBackground;
 
-#if SUPPORTS_UNDOCUMENTED_API
-// UIColor_Undocumented_Expanded
-// Methods which rely on undocumented methods of UIColor
-@interface UIColor (UIColor_Undocumented_Expanded)
-- (NSString *)fetchStyleString;
-- (UIColor *)rgbColor; // Via Poltras
 @end
-#endif // SUPPORTS_UNDOCUMENTED_API

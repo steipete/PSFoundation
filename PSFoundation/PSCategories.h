@@ -117,6 +117,8 @@
 
 // UIKit //////////////////////////////////////////////////////////////////////////////////////////
 
+#import "UIColor+PSFoundation.h"
+
 // (UIImageView *)imageViewNamed:(NSString *)imageName;
 #import "UIImageView+PSLib.h"                               // own
 
