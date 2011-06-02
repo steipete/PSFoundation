@@ -1,10 +1,12 @@
 //
-//  NSNotificationAdditions.m
+//  NSNotification+PSFoundation.m
+//  PSFoundation
 //
 //  Created by Peter Steinberger on 04.11.09.
+//  Licensed under MIT.  All rights reserved.
 //
 
-#import "NSNotificationAdditions.h"
+#import "NSNotification+PSFoundation.h"
 #import <pthread.h>
 
 @implementation NSNotificationCenter (NSNotificationCenterAdditions)
