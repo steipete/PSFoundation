@@ -400,9 +400,9 @@
 		6C86B4BE1396B175009F6FE6 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
 		6C86B4BF1396B175009F6FE6 /* HOLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOLog.h; sourceTree = "<group>"; };
 		6C86B4C01396B175009F6FE6 /* HOLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOLog.m; sourceTree = "<group>"; };
-		6C86B4C21396B175009F6FE6 /* LoggerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerClient.h; sourceTree = "<group>"; };
-		6C86B4C31396B175009F6FE6 /* LoggerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggerClient.m; sourceTree = "<group>"; };
-		6C86B4C41396B175009F6FE6 /* LoggerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerCommon.h; sourceTree = "<group>"; };
+		6C86B4C21396B175009F6FE6 /* LoggerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerClient.h; path = NSLogger/LoggerClient.h; sourceTree = "<group>"; };
+		6C86B4C31396B175009F6FE6 /* LoggerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoggerClient.m; path = NSLogger/LoggerClient.m; sourceTree = "<group>"; };
+		6C86B4C41396B175009F6FE6 /* LoggerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerCommon.h; path = NSLogger/LoggerCommon.h; sourceTree = "<group>"; };
 		6C86B4C51396B175009F6FE6 /* PSDDFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDDFormatter.h; sourceTree = "<group>"; };
 		6C86B4C61396B175009F6FE6 /* PSDDFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDDFormatter.m; sourceTree = "<group>"; };
 		6C86B4C71396B175009F6FE6 /* VTPG_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPG_Common.h; sourceTree = "<group>"; };
@@ -860,23 +860,15 @@
 				6C86B4BE1396B175009F6FE6 /* DDTTYLogger.m */,
 				6C86B4BF1396B175009F6FE6 /* HOLog.h */,
 				6C86B4C01396B175009F6FE6 /* HOLog.m */,
-				6C86B4C11396B175009F6FE6 /* NSLogger */,
+				6C86B4C21396B175009F6FE6 /* LoggerClient.h */,
+				6C86B4C31396B175009F6FE6 /* LoggerClient.m */,
+				6C86B4C41396B175009F6FE6 /* LoggerCommon.h */,
 				6C86B4C51396B175009F6FE6 /* PSDDFormatter.h */,
 				6C86B4C61396B175009F6FE6 /* PSDDFormatter.m */,
 				6C86B4C71396B175009F6FE6 /* VTPG_Common.h */,
 				6C86B4C81396B175009F6FE6 /* VTPG_Common.m */,
 			);
 			path = Logging;
-			sourceTree = "<group>";
-		};
-		6C86B4C11396B175009F6FE6 /* NSLogger */ = {
-			isa = PBXGroup;
-			children = (
-				6C86B4C21396B175009F6FE6 /* LoggerClient.h */,
-				6C86B4C31396B175009F6FE6 /* LoggerClient.m */,
-				6C86B4C41396B175009F6FE6 /* LoggerCommon.h */,
-			);
-			path = NSLogger;
 			sourceTree = "<group>";
 		};
 		6C86B4DE1396B185009F6FE6 /* Core Data */ = {
