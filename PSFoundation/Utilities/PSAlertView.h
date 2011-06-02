@@ -1,16 +1,18 @@
 //
 //  PSAlertView.h
+//  PSFoundation
 //
 //  Created by Peter Steinberger on 17.03.10.
-//  Loosely based on Landon Fullers "Using Blocks", Plausible Labs Cooperative.
-//  http://landonf.bikemonkey.org/code/iphone/Using_Blocks_1.20090704.html
+//  Licensed under MIT. All rights reserved.
 //
 
-@interface PSAlertView : NSObject <UIAlertViewDelegate> {
+DEPRECATED_ATTRIBUTE @interface PSAlertView : NSObject {
 @private
   UIAlertView *view_;
   NSMutableArray *blocks_;
 }
+
+@property (nonatomic, retain) UIAlertView *alertView;
 
 + (PSAlertView *)alertWithTitle:(NSString *)title;
 + (PSAlertView *)alertWithTitle:(NSString *)title message:(NSString *)message;
@@ -22,7 +24,5 @@
 
 - (void)show;
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;
-
-@property (nonatomic, retain) UIAlertView *alertView;
 
 @end
