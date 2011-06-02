@@ -92,30 +92,26 @@
 
 // NSString ///////////////////////////////////////////////////////////////////////////////////////
 
-// replaceOccurrencesOfString
-#import "NSMutableString+PSAdditions.h"
-
-//gtm_stringByEscapingForHTML, gtm_stringByUnescapingFromHTML, ...
-#import "GTMNSString+HTML.h"
+// urlWithoutParameters
+#import "NSString+URL.h"
 
 // various string representations
 #import "NSString+Conversion.h"
+
+// stringWithMaxLength, stringByTruncatingToLength
 #import "NSString+Truncation.h"
 
-// [kPSCommonLibXML] flattenHTML, removeWhitespace, removeAllWhitespaces, replaceAllWhitespacesWithSpace
-#import "NSString+FlattenHTML.h"
+// flattenHTML, removeing whitespace
+#import "NSString+HTML.h"
 
-// containsString, md5, longValue, longLongValue, stringByTruncatingToLength, stringByReplacingString
+// containsString, hashing
 #import "NSString+PSFoundation.h"
 
-// stringWithMaxLength, urlWithoutParameters, stringByReplacingRange
-#import "StringUtil.h"
+// stringByReplacingString, replaceOccurrencesOfString, stringByReplacingRange, gsub
+#import "NSString+Replacement.h"
 
 // dasherize, underscore, camelize, titleize
 #import "NSString+InflectionSupport.h"
-
-// gsub - string substitution
-#import "NSString+GSub.h"
 
 // NSURL ///////////////////////////////////////////////////////////////////////////////////////
 

@@ -3,7 +3,7 @@
 //  PSFoundation
 //
 //  Created by Aleks Nesterow on 10/15/09.
-//  Licensed under MIT.  Copyright 2010 Screen Customs s.r.o.
+//  Licensed under MIT.  Copyright 2009 Screen Customs s.r.o.
 //
 
 #import "CoreGraphics+RoundedRect.h"

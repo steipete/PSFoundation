@@ -150,8 +150,6 @@
 		6C86B8FD1396C744009F6FE6 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8601396C744009F6FE6 /* GTMBase64.m */; };
 		6C86B8FE1396C744009F6FE6 /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8611396C744009F6FE6 /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B8FF1396C744009F6FE6 /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8621396C744009F6FE6 /* GTMNSData+zlib.m */; };
-		6C86B9001396C744009F6FE6 /* GTMNSString+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8631396C744009F6FE6 /* GTMNSString+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9011396C744009F6FE6 /* GTMNSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8641396C744009F6FE6 /* GTMNSString+HTML.m */; };
 		6C86B9041396C744009F6FE6 /* MACollectionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8671396C744009F6FE6 /* MACollectionUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9051396C744009F6FE6 /* MACollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8681396C744009F6FE6 /* MACollectionUtilities.m */; };
 		6C86B9061396C744009F6FE6 /* NilCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8691396C744009F6FE6 /* NilCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -188,8 +186,8 @@
 		6C86B9271396C744009F6FE6 /* NSMutableArray+MTShuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B88A1396C744009F6FE6 /* NSMutableArray+MTShuffle.m */; };
 		6C86B9281396C744009F6FE6 /* NSMutableArray+SCQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B88B1396C744009F6FE6 /* NSMutableArray+SCQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9291396C744009F6FE6 /* NSMutableArray+SCQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B88C1396C744009F6FE6 /* NSMutableArray+SCQueue.m */; };
-		6C86B92A1396C744009F6FE6 /* NSMutableString+PSAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B88D1396C744009F6FE6 /* NSMutableString+PSAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B92B1396C744009F6FE6 /* NSMutableString+PSAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B88E1396C744009F6FE6 /* NSMutableString+PSAdditions.m */; };
+		6C86B92A1396C744009F6FE6 /* NSString+URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B88D1396C744009F6FE6 /* NSString+URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B92B1396C744009F6FE6 /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B88E1396C744009F6FE6 /* NSString+URL.m */; };
 		6C86B92C1396C744009F6FE6 /* NSNotification+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B88F1396C744009F6FE6 /* NSNotification+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B92D1396C744009F6FE6 /* NSNotification+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8901396C744009F6FE6 /* NSNotification+PSFoundation.m */; };
 		6C86B92E1396C744009F6FE6 /* NSNumber+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8911396C744009F6FE6 /* NSNumber+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -202,10 +200,8 @@
 		6C86B93B1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B89E1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.m */; };
 		6C86B93E1396C744009F6FE6 /* NSString+Conversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8A11396C744009F6FE6 /* NSString+Conversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B93F1396C744009F6FE6 /* NSString+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8A21396C744009F6FE6 /* NSString+Conversion.m */; };
-		6C86B9401396C744009F6FE6 /* NSString+FlattenHTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8A31396C744009F6FE6 /* NSString+FlattenHTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9411396C744009F6FE6 /* NSString+FlattenHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8A41396C744009F6FE6 /* NSString+FlattenHTML.m */; };
-		6C86B9421396C744009F6FE6 /* NSString+GSub.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8A51396C744009F6FE6 /* NSString+GSub.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9431396C744009F6FE6 /* NSString+GSub.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8A61396C744009F6FE6 /* NSString+GSub.m */; };
+		6C86B9401396C744009F6FE6 /* NSString+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8A31396C744009F6FE6 /* NSString+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B9411396C744009F6FE6 /* NSString+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8A41396C744009F6FE6 /* NSString+HTML.m */; };
 		6C86B9441396C744009F6FE6 /* NSString+InflectionSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8A71396C744009F6FE6 /* NSString+InflectionSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9451396C744009F6FE6 /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8A81396C744009F6FE6 /* NSString+InflectionSupport.m */; };
 		6C86B9461396C744009F6FE6 /* NSString+Truncation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8A91396C744009F6FE6 /* NSString+Truncation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -216,8 +212,8 @@
 		6C86B94D1396C744009F6FE6 /* NSURL+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8B01396C744009F6FE6 /* NSURL+PSFoundation.m */; };
 		6C86B9501396C744009F6FE6 /* SKProduct+LocalizedPrice.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8B31396C744009F6FE6 /* SKProduct+LocalizedPrice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9511396C744009F6FE6 /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8B41396C744009F6FE6 /* SKProduct+LocalizedPrice.m */; };
-		6C86B9521396C744009F6FE6 /* StringUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8B51396C744009F6FE6 /* StringUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9531396C744009F6FE6 /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8B61396C744009F6FE6 /* StringUtil.m */; };
+		6C86B9521396C744009F6FE6 /* NSString+Replacement.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8B51396C744009F6FE6 /* NSString+Replacement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B9531396C744009F6FE6 /* NSString+Replacement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8B61396C744009F6FE6 /* NSString+Replacement.m */; };
 		6C86B9541396C744009F6FE6 /* TimeFormatters.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8B71396C744009F6FE6 /* TimeFormatters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9551396C744009F6FE6 /* TimeFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8B81396C744009F6FE6 /* TimeFormatters.m */; };
 		6C86B9561396C744009F6FE6 /* UIActionSheet+SCMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8B91396C744009F6FE6 /* UIActionSheet+SCMethods.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -477,8 +473,6 @@
 		6C86B8601396C744009F6FE6 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		6C86B8611396C744009F6FE6 /* GTMNSData+zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSData+zlib.h"; sourceTree = "<group>"; };
 		6C86B8621396C744009F6FE6 /* GTMNSData+zlib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSData+zlib.m"; sourceTree = "<group>"; };
-		6C86B8631396C744009F6FE6 /* GTMNSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSString+HTML.h"; sourceTree = "<group>"; };
-		6C86B8641396C744009F6FE6 /* GTMNSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GTMNSString+HTML.m"; sourceTree = "<group>"; };
 		6C86B8671396C744009F6FE6 /* MACollectionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACollectionUtilities.h; sourceTree = "<group>"; };
 		6C86B8681396C744009F6FE6 /* MACollectionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACollectionUtilities.m; sourceTree = "<group>"; };
 		6C86B8691396C744009F6FE6 /* NilCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NilCategories.h; sourceTree = "<group>"; };
@@ -515,8 +509,8 @@
 		6C86B88A1396C744009F6FE6 /* NSMutableArray+MTShuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MTShuffle.m"; sourceTree = "<group>"; };
 		6C86B88B1396C744009F6FE6 /* NSMutableArray+SCQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SCQueue.h"; sourceTree = "<group>"; };
 		6C86B88C1396C744009F6FE6 /* NSMutableArray+SCQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SCQueue.m"; sourceTree = "<group>"; };
-		6C86B88D1396C744009F6FE6 /* NSMutableString+PSAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+PSAdditions.h"; sourceTree = "<group>"; };
-		6C86B88E1396C744009F6FE6 /* NSMutableString+PSAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+PSAdditions.m"; sourceTree = "<group>"; };
+		6C86B88D1396C744009F6FE6 /* NSString+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
+		6C86B88E1396C744009F6FE6 /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
 		6C86B88F1396C744009F6FE6 /* NSNotification+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotification+PSFoundation.h"; sourceTree = "<group>"; };
 		6C86B8901396C744009F6FE6 /* NSNotification+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotification+PSFoundation.m"; sourceTree = "<group>"; };
 		6C86B8911396C744009F6FE6 /* NSNumber+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+PSFoundation.h"; sourceTree = "<group>"; };
@@ -529,10 +523,8 @@
 		6C86B89E1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+CWSharedQueue.m"; sourceTree = "<group>"; };
 		6C86B8A11396C744009F6FE6 /* NSString+Conversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Conversion.h"; sourceTree = "<group>"; };
 		6C86B8A21396C744009F6FE6 /* NSString+Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Conversion.m"; sourceTree = "<group>"; };
-		6C86B8A31396C744009F6FE6 /* NSString+FlattenHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FlattenHTML.h"; sourceTree = "<group>"; };
-		6C86B8A41396C744009F6FE6 /* NSString+FlattenHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FlattenHTML.m"; sourceTree = "<group>"; };
-		6C86B8A51396C744009F6FE6 /* NSString+GSub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GSub.h"; sourceTree = "<group>"; };
-		6C86B8A61396C744009F6FE6 /* NSString+GSub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GSub.m"; sourceTree = "<group>"; };
+		6C86B8A31396C744009F6FE6 /* NSString+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HTML.h"; sourceTree = "<group>"; };
+		6C86B8A41396C744009F6FE6 /* NSString+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HTML.m"; sourceTree = "<group>"; };
 		6C86B8A71396C744009F6FE6 /* NSString+InflectionSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+InflectionSupport.h"; sourceTree = "<group>"; };
 		6C86B8A81396C744009F6FE6 /* NSString+InflectionSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+InflectionSupport.m"; sourceTree = "<group>"; };
 		6C86B8A91396C744009F6FE6 /* NSString+Truncation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Truncation.h"; sourceTree = "<group>"; };
@@ -543,8 +535,8 @@
 		6C86B8B01396C744009F6FE6 /* NSURL+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PSFoundation.m"; sourceTree = "<group>"; };
 		6C86B8B31396C744009F6FE6 /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
 		6C86B8B41396C744009F6FE6 /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
-		6C86B8B51396C744009F6FE6 /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
-		6C86B8B61396C744009F6FE6 /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
+		6C86B8B51396C744009F6FE6 /* NSString+Replacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Replacement.h"; sourceTree = "<group>"; };
+		6C86B8B61396C744009F6FE6 /* NSString+Replacement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Replacement.m"; sourceTree = "<group>"; };
 		6C86B8B71396C744009F6FE6 /* TimeFormatters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeFormatters.h; sourceTree = "<group>"; };
 		6C86B8B81396C744009F6FE6 /* TimeFormatters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeFormatters.m; sourceTree = "<group>"; };
 		6C86B8B91396C744009F6FE6 /* UIActionSheet+SCMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+SCMethods.h"; sourceTree = "<group>"; };
@@ -1283,24 +1275,20 @@
 		6CED58F5139739EC00E3F38D /* NSString */ = {
 			isa = PBXGroup;
 			children = (
-				6C86B8631396C744009F6FE6 /* GTMNSString+HTML.h */,
-				6C86B8641396C744009F6FE6 /* GTMNSString+HTML.m */,
 				6C86B8A11396C744009F6FE6 /* NSString+Conversion.h */,
 				6C86B8A21396C744009F6FE6 /* NSString+Conversion.m */,
-				6C86B8A31396C744009F6FE6 /* NSString+FlattenHTML.h */,
-				6C86B8A41396C744009F6FE6 /* NSString+FlattenHTML.m */,
-				6C86B8A51396C744009F6FE6 /* NSString+GSub.h */,
-				6C86B8A61396C744009F6FE6 /* NSString+GSub.m */,
+				6C86B8A31396C744009F6FE6 /* NSString+HTML.h */,
+				6C86B8A41396C744009F6FE6 /* NSString+HTML.m */,
 				6C86B8A71396C744009F6FE6 /* NSString+InflectionSupport.h */,
 				6C86B8A81396C744009F6FE6 /* NSString+InflectionSupport.m */,
 				6C86B8A91396C744009F6FE6 /* NSString+Truncation.h */,
 				6C86B8AA1396C744009F6FE6 /* NSString+Truncation.m */,
 				6C86B8AB1396C744009F6FE6 /* NSString+PSFoundation.h */,
 				6C86B8AC1396C744009F6FE6 /* NSString+PSFoundation.m */,
-				6C86B8B51396C744009F6FE6 /* StringUtil.h */,
-				6C86B8B61396C744009F6FE6 /* StringUtil.m */,
-				6C86B88D1396C744009F6FE6 /* NSMutableString+PSAdditions.h */,
-				6C86B88E1396C744009F6FE6 /* NSMutableString+PSAdditions.m */,
+				6C86B8B51396C744009F6FE6 /* NSString+Replacement.h */,
+				6C86B8B61396C744009F6FE6 /* NSString+Replacement.m */,
+				6C86B88D1396C744009F6FE6 /* NSString+URL.h */,
+				6C86B88E1396C744009F6FE6 /* NSString+URL.m */,
 			);
 			name = NSString;
 			sourceTree = "<group>";
@@ -1562,7 +1550,6 @@
 				6C86B85E1396B751009F6FE6 /* MACollectionMacros.h in Headers */,
 				6C86B8FC1396C744009F6FE6 /* GTMBase64.h in Headers */,
 				6C86B8FE1396C744009F6FE6 /* GTMNSData+zlib.h in Headers */,
-				6C86B9001396C744009F6FE6 /* GTMNSString+HTML.h in Headers */,
 				6C86B9041396C744009F6FE6 /* MACollectionUtilities.h in Headers */,
 				6C86B9061396C744009F6FE6 /* NilCategories.h in Headers */,
 				6C86B9081396C744009F6FE6 /* NSArray-Utilities.h in Headers */,
@@ -1581,21 +1568,20 @@
 				6C86B9241396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */,
 				6C86B9261396C744009F6FE6 /* NSMutableArray+MTShuffle.h in Headers */,
 				6C86B9281396C744009F6FE6 /* NSMutableArray+SCQueue.h in Headers */,
-				6C86B92A1396C744009F6FE6 /* NSMutableString+PSAdditions.h in Headers */,
+				6C86B92A1396C744009F6FE6 /* NSString+URL.h in Headers */,
 				6C86B92C1396C744009F6FE6 /* NSNotification+PSFoundation.h in Headers */,
 				6C86B92E1396C744009F6FE6 /* NSNumber+PSFoundation.h in Headers */,
 				6C86B9321396C744009F6FE6 /* NSObject+AutoDescription.h in Headers */,
 				6C86B9381396C744009F6FE6 /* NSObject+Utilities.h in Headers */,
 				6C86B93A1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.h in Headers */,
 				6C86B93E1396C744009F6FE6 /* NSString+Conversion.h in Headers */,
-				6C86B9401396C744009F6FE6 /* NSString+FlattenHTML.h in Headers */,
-				6C86B9421396C744009F6FE6 /* NSString+GSub.h in Headers */,
+				6C86B9401396C744009F6FE6 /* NSString+HTML.h in Headers */,
 				6C86B9441396C744009F6FE6 /* NSString+InflectionSupport.h in Headers */,
 				6C86B9461396C744009F6FE6 /* NSString+Truncation.h in Headers */,
 				6C86B9481396C744009F6FE6 /* NSString+PSFoundation.h in Headers */,
 				6C86B94C1396C744009F6FE6 /* NSURL+PSFoundation.h in Headers */,
 				6C86B9501396C744009F6FE6 /* SKProduct+LocalizedPrice.h in Headers */,
-				6C86B9521396C744009F6FE6 /* StringUtil.h in Headers */,
+				6C86B9521396C744009F6FE6 /* NSString+Replacement.h in Headers */,
 				6C86B9541396C744009F6FE6 /* TimeFormatters.h in Headers */,
 				6C86B9561396C744009F6FE6 /* UIActionSheet+SCMethods.h in Headers */,
 				6C86B9581396C744009F6FE6 /* UIAlertView+SCMethods.h in Headers */,
@@ -1824,7 +1810,6 @@
 				6C86B85C1396B56E009F6FE6 /* UIWebView+BlocksKit.m in Sources */,
 				6C86B8FD1396C744009F6FE6 /* GTMBase64.m in Sources */,
 				6C86B8FF1396C744009F6FE6 /* GTMNSData+zlib.m in Sources */,
-				6C86B9011396C744009F6FE6 /* GTMNSString+HTML.m in Sources */,
 				6C86B9051396C744009F6FE6 /* MACollectionUtilities.m in Sources */,
 				6C86B9071396C744009F6FE6 /* NilCategories.m in Sources */,
 				6C86B9091396C744009F6FE6 /* NSArray-Utilities.m in Sources */,
@@ -1843,21 +1828,20 @@
 				6C86B9251396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				6C86B9271396C744009F6FE6 /* NSMutableArray+MTShuffle.m in Sources */,
 				6C86B9291396C744009F6FE6 /* NSMutableArray+SCQueue.m in Sources */,
-				6C86B92B1396C744009F6FE6 /* NSMutableString+PSAdditions.m in Sources */,
+				6C86B92B1396C744009F6FE6 /* NSString+URL.m in Sources */,
 				6C86B92D1396C744009F6FE6 /* NSNotification+PSFoundation.m in Sources */,
 				6C86B92F1396C744009F6FE6 /* NSNumber+PSFoundation.m in Sources */,
 				6C86B9331396C744009F6FE6 /* NSObject+AutoDescription.m in Sources */,
 				6C86B9391396C744009F6FE6 /* NSObject+Utilities.m in Sources */,
 				6C86B93B1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.m in Sources */,
 				6C86B93F1396C744009F6FE6 /* NSString+Conversion.m in Sources */,
-				6C86B9411396C744009F6FE6 /* NSString+FlattenHTML.m in Sources */,
-				6C86B9431396C744009F6FE6 /* NSString+GSub.m in Sources */,
+				6C86B9411396C744009F6FE6 /* NSString+HTML.m in Sources */,
 				6C86B9451396C744009F6FE6 /* NSString+InflectionSupport.m in Sources */,
 				6C86B9471396C744009F6FE6 /* NSString+Truncation.m in Sources */,
 				6C86B9491396C744009F6FE6 /* NSString+PSFoundation.m in Sources */,
 				6C86B94D1396C744009F6FE6 /* NSURL+PSFoundation.m in Sources */,
 				6C86B9511396C744009F6FE6 /* SKProduct+LocalizedPrice.m in Sources */,
-				6C86B9531396C744009F6FE6 /* StringUtil.m in Sources */,
+				6C86B9531396C744009F6FE6 /* NSString+Replacement.m in Sources */,
 				6C86B9551396C744009F6FE6 /* TimeFormatters.m in Sources */,
 				6C86B9571396C744009F6FE6 /* UIActionSheet+SCMethods.m in Sources */,
 				6C86B9591396C744009F6FE6 /* UIAlertView+SCMethods.m in Sources */,

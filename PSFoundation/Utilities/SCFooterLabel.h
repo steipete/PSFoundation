@@ -1,19 +1,10 @@
 //
 //  SCFooterLabel.h
-//  TouchCustoms
+//  PSFoundation
 //
 //  Created by Aleks Nesterow on 3/12/10.
-//	aleks.nesterow@gmail.com
-//	
-//  Copyright © 2010 Screen Customs s.r.o.
-//	All rights reserved.
-//	
-//	Purpose
-//	UILabel that is intended to be inserted as a UITableView footer.
-//	Tweaked to has the same shadow, font color and style.
+//	Licensed under MIT.  Copyright 2010 Screen Customs s.r.o.
 //
-
-#import <UIKit/UIKit.h>
 
 @interface SCFooterLabel : UILabel {
 
