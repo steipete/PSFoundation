@@ -49,6 +49,8 @@
 // isToday, isTomorrow, isThisYear
 #import "NSDate-Utilities.h"
 
+#import "TimeFormatters.h"
+
 // NSError ///////////////////////////////////////////////////////////////////////////////////////
 
 #import "NSError+SCMethods.h"
@@ -98,7 +100,7 @@
 #import "GTMNSString+HTML.h"
 
 // various string representations
-#import "NSString+Cat.h"
+#import "NSString+Conversion.h"
 #import "NSString+Truncation.h"
 
 // [kPSCommonLibXML] flattenHTML, removeWhitespace, removeAllWhitespaces, replaceAllWhitespacesWithSpace

@@ -202,8 +202,8 @@
 		6C86B9391396C744009F6FE6 /* NSObject+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B89C1396C744009F6FE6 /* NSObject+Utilities.m */; };
 		6C86B93A1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B89D1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B93B1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B89E1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.m */; };
-		6C86B93E1396C744009F6FE6 /* NSString+Cat.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8A11396C744009F6FE6 /* NSString+Cat.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B93F1396C744009F6FE6 /* NSString+Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8A21396C744009F6FE6 /* NSString+Cat.m */; };
+		6C86B93E1396C744009F6FE6 /* NSString+Conversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8A11396C744009F6FE6 /* NSString+Conversion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B93F1396C744009F6FE6 /* NSString+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8A21396C744009F6FE6 /* NSString+Conversion.m */; };
 		6C86B9401396C744009F6FE6 /* NSString+FlattenHTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8A31396C744009F6FE6 /* NSString+FlattenHTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9411396C744009F6FE6 /* NSString+FlattenHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8A41396C744009F6FE6 /* NSString+FlattenHTML.m */; };
 		6C86B9421396C744009F6FE6 /* NSString+GSub.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8A51396C744009F6FE6 /* NSString+GSub.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -533,8 +533,8 @@
 		6C86B89C1396C744009F6FE6 /* NSObject+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utilities.m"; sourceTree = "<group>"; };
 		6C86B89D1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSOperationQueue+CWSharedQueue.h"; sourceTree = "<group>"; };
 		6C86B89E1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSOperationQueue+CWSharedQueue.m"; sourceTree = "<group>"; };
-		6C86B8A11396C744009F6FE6 /* NSString+Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Cat.h"; sourceTree = "<group>"; };
-		6C86B8A21396C744009F6FE6 /* NSString+Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Cat.m"; sourceTree = "<group>"; };
+		6C86B8A11396C744009F6FE6 /* NSString+Conversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Conversion.h"; sourceTree = "<group>"; };
+		6C86B8A21396C744009F6FE6 /* NSString+Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Conversion.m"; sourceTree = "<group>"; };
 		6C86B8A31396C744009F6FE6 /* NSString+FlattenHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FlattenHTML.h"; sourceTree = "<group>"; };
 		6C86B8A41396C744009F6FE6 /* NSString+FlattenHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FlattenHTML.m"; sourceTree = "<group>"; };
 		6C86B8A51396C744009F6FE6 /* NSString+GSub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GSub.h"; sourceTree = "<group>"; };
@@ -976,8 +976,8 @@
 				6C86B89C1396C744009F6FE6 /* NSObject+Utilities.m */,
 				6C86B89D1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.h */,
 				6C86B89E1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.m */,
-				6C86B8A11396C744009F6FE6 /* NSString+Cat.h */,
-				6C86B8A21396C744009F6FE6 /* NSString+Cat.m */,
+				6C86B8A11396C744009F6FE6 /* NSString+Conversion.h */,
+				6C86B8A21396C744009F6FE6 /* NSString+Conversion.m */,
 				6C86B8A31396C744009F6FE6 /* NSString+FlattenHTML.h */,
 				6C86B8A41396C744009F6FE6 /* NSString+FlattenHTML.m */,
 				6C86B8A51396C744009F6FE6 /* NSString+GSub.h */,
@@ -998,71 +998,7 @@
 				6C86B8B61396C744009F6FE6 /* StringUtil.m */,
 				6C86B8B71396C744009F6FE6 /* TimeFormatters.h */,
 				6C86B8B81396C744009F6FE6 /* TimeFormatters.m */,
-				6C86B8B91396C744009F6FE6 /* UIActionSheet+SCMethods.h */,
-				6C86B8BA1396C744009F6FE6 /* UIActionSheet+SCMethods.m */,
-				6C86B8BB1396C744009F6FE6 /* UIAlertView+SCMethods.h */,
-				6C86B8BC1396C744009F6FE6 /* UIAlertView+SCMethods.m */,
-				6C86B8BD1396C744009F6FE6 /* UIApplicationHelper.h */,
-				6C86B8BE1396C744009F6FE6 /* UIApplicationHelper.m */,
-				6C86B8BF1396C744009F6FE6 /* UIButton+Glossy.h */,
-				6C86B8C01396C744009F6FE6 /* UIButton+Glossy.m */,
-				6C86B8C11396C744009F6FE6 /* UIButton+Presets.h */,
-				6C86B8C21396C744009F6FE6 /* UIButton+Presets.m */,
-				6C86BC7313972AAC009F6FE6 /* UIColor+PSFoundation.h */,
-				6C86BC7413972AAE009F6FE6 /* UIColor+PSFoundation.m */,
-				6C86B8C51396C744009F6FE6 /* UIDevice+PSFoundation.h */,
-				6C86B8C61396C744009F6FE6 /* UIDevice+PSFoundation.m */,
-				6C86B8C71396C744009F6FE6 /* UIImage+Alpha.h */,
-				6C86B8C81396C744009F6FE6 /* UIImage+Alpha.m */,
-				6C86B8C91396C744009F6FE6 /* UIImage+Cache.h */,
-				6C86B8CA1396C744009F6FE6 /* UIImage+Cache.m */,
-				6C86B8CB1396C744009F6FE6 /* UIImage+MTCache.h */,
-				6C86B8CC1396C744009F6FE6 /* UIImage+MTCache.m */,
-				6C86B8CD1396C744009F6FE6 /* UIImage+MTTiling.h */,
-				6C86B8CE1396C744009F6FE6 /* UIImage+MTTiling.m */,
-				6C86B8CF1396C744009F6FE6 /* UIImage+MTUniversalAdditions.h */,
-				6C86B8D01396C744009F6FE6 /* UIImage+MTUniversalAdditions.m */,
-				6C86B8D11396C744009F6FE6 /* UIImage+ProportionalFill.h */,
-				6C86B8D21396C744009F6FE6 /* UIImage+ProportionalFill.m */,
-				6C86B8D31396C744009F6FE6 /* UIImage+RoundedCorner.h */,
-				6C86B8D41396C744009F6FE6 /* UIImage+RoundedCorner.m */,
-				6C86B8D51396C744009F6FE6 /* UIImage+Tint.h */,
-				6C86B8D61396C744009F6FE6 /* UIImage+Tint.m */,
-				6C86B8D71396C744009F6FE6 /* UIImageHelper.h */,
-				6C86B8D81396C744009F6FE6 /* UIImageHelper.m */,
-				6C86B8D91396C744009F6FE6 /* UIImageView+PSLib.h */,
-				6C86B8DA1396C744009F6FE6 /* UIImageView+PSLib.m */,
-				6C86B8DB1396C744009F6FE6 /* UILabel+PSLib.h */,
-				6C86B8DC1396C744009F6FE6 /* UILabel+PSLib.m */,
-				6C86B8DD1396C744009F6FE6 /* UINavigationBar+CustomBackground.h */,
-				6C86B8DE1396C744009F6FE6 /* UINavigationBar+CustomBackground.m */,
-				6C86B8DF1396C744009F6FE6 /* UIScreen+PSAdditions.h */,
-				6C86B8E01396C744009F6FE6 /* UIScreen+PSAdditions.m */,
-				6C86B8E11396C744009F6FE6 /* UIScrollView+MTUIAdditions.h */,
-				6C86B8E21396C744009F6FE6 /* UIScrollView+MTUIAdditions.m */,
-				6C86B8E31396C744009F6FE6 /* UITextView+MTUIAdditions.h */,
-				6C86B8E41396C744009F6FE6 /* UITextView+MTUIAdditions.m */,
-				6C86B8E51396C744009F6FE6 /* UIToolBar+PSLib.h */,
-				6C86B8E61396C744009F6FE6 /* UIToolBar+PSLib.m */,
-				6C86B8E71396C744009F6FE6 /* UIView+Animation.h */,
-				6C86B8E81396C744009F6FE6 /* UIView+Animation.m */,
-				6C86B8E91396C744009F6FE6 /* UIView+Hierarchy.h */,
-				6C86B8EA1396C744009F6FE6 /* UIView+Hierarchy.m */,
-				6C86B8EB1396C744009F6FE6 /* UIView+MTUIAdditions.h */,
-				6C86B8EC1396C744009F6FE6 /* UIView+MTUIAdditions.m */,
-				6C86B8ED1396C744009F6FE6 /* UIView+PSAdditions.h */,
-				6C86B8EE1396C744009F6FE6 /* UIView+PSAdditions.m */,
-				6C86B8EF1396C744009F6FE6 /* UIView+Sizes.h */,
-				6C86B8F01396C744009F6FE6 /* UIView+Sizes.m */,
-				6C86B8F31396C744009F6FE6 /* UIViewController+MTAnimatedFetch.h */,
-				6C86B8F41396C744009F6FE6 /* UIViewController+MTAnimatedFetch.m */,
-				6C86B8F51396C744009F6FE6 /* UIViewController+MTUIAdditions.h */,
-				6C86B8F61396C744009F6FE6 /* UIViewController+MTUIAdditions.m */,
-				6C86B8F71396C744009F6FE6 /* UIViewControllerHelper.h */,
-				6C86B8F81396C744009F6FE6 /* UIViewControllerHelper.m */,
-				6C86B8F91396C744009F6FE6 /* UIViewExtras.m */,
-				6C86B8FA1396C744009F6FE6 /* UIViewHelper.h */,
-				6C86B8FB1396C744009F6FE6 /* UIViewHelper.m */,
+				6C86BC7713973052009F6FE6 /* UIKit */,
 				6C86BC62139711CE009F6FE6 /* NSObject+Swizzle.h */,
 				6C86BC63139711CE009F6FE6 /* NSObject+Swizzle.m */,
 			);
@@ -1287,6 +1223,78 @@
 			path = Graphics;
 			sourceTree = "<group>";
 		};
+		6C86BC7713973052009F6FE6 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				6C86B8B91396C744009F6FE6 /* UIActionSheet+SCMethods.h */,
+				6C86B8BA1396C744009F6FE6 /* UIActionSheet+SCMethods.m */,
+				6C86B8BB1396C744009F6FE6 /* UIAlertView+SCMethods.h */,
+				6C86B8BC1396C744009F6FE6 /* UIAlertView+SCMethods.m */,
+				6C86B8BD1396C744009F6FE6 /* UIApplicationHelper.h */,
+				6C86B8BE1396C744009F6FE6 /* UIApplicationHelper.m */,
+				6C86B8BF1396C744009F6FE6 /* UIButton+Glossy.h */,
+				6C86B8C01396C744009F6FE6 /* UIButton+Glossy.m */,
+				6C86B8C11396C744009F6FE6 /* UIButton+Presets.h */,
+				6C86B8C21396C744009F6FE6 /* UIButton+Presets.m */,
+				6C86BC7313972AAC009F6FE6 /* UIColor+PSFoundation.h */,
+				6C86BC7413972AAE009F6FE6 /* UIColor+PSFoundation.m */,
+				6C86B8C51396C744009F6FE6 /* UIDevice+PSFoundation.h */,
+				6C86B8C61396C744009F6FE6 /* UIDevice+PSFoundation.m */,
+				6C86B8C71396C744009F6FE6 /* UIImage+Alpha.h */,
+				6C86B8C81396C744009F6FE6 /* UIImage+Alpha.m */,
+				6C86B8C91396C744009F6FE6 /* UIImage+Cache.h */,
+				6C86B8CA1396C744009F6FE6 /* UIImage+Cache.m */,
+				6C86B8CB1396C744009F6FE6 /* UIImage+MTCache.h */,
+				6C86B8CC1396C744009F6FE6 /* UIImage+MTCache.m */,
+				6C86B8CD1396C744009F6FE6 /* UIImage+MTTiling.h */,
+				6C86B8CE1396C744009F6FE6 /* UIImage+MTTiling.m */,
+				6C86B8CF1396C744009F6FE6 /* UIImage+MTUniversalAdditions.h */,
+				6C86B8D01396C744009F6FE6 /* UIImage+MTUniversalAdditions.m */,
+				6C86B8D11396C744009F6FE6 /* UIImage+ProportionalFill.h */,
+				6C86B8D21396C744009F6FE6 /* UIImage+ProportionalFill.m */,
+				6C86B8D31396C744009F6FE6 /* UIImage+RoundedCorner.h */,
+				6C86B8D41396C744009F6FE6 /* UIImage+RoundedCorner.m */,
+				6C86B8D51396C744009F6FE6 /* UIImage+Tint.h */,
+				6C86B8D61396C744009F6FE6 /* UIImage+Tint.m */,
+				6C86B8D71396C744009F6FE6 /* UIImageHelper.h */,
+				6C86B8D81396C744009F6FE6 /* UIImageHelper.m */,
+				6C86B8D91396C744009F6FE6 /* UIImageView+PSLib.h */,
+				6C86B8DA1396C744009F6FE6 /* UIImageView+PSLib.m */,
+				6C86B8DB1396C744009F6FE6 /* UILabel+PSLib.h */,
+				6C86B8DC1396C744009F6FE6 /* UILabel+PSLib.m */,
+				6C86B8DD1396C744009F6FE6 /* UINavigationBar+CustomBackground.h */,
+				6C86B8DE1396C744009F6FE6 /* UINavigationBar+CustomBackground.m */,
+				6C86B8DF1396C744009F6FE6 /* UIScreen+PSAdditions.h */,
+				6C86B8E01396C744009F6FE6 /* UIScreen+PSAdditions.m */,
+				6C86B8E11396C744009F6FE6 /* UIScrollView+MTUIAdditions.h */,
+				6C86B8E21396C744009F6FE6 /* UIScrollView+MTUIAdditions.m */,
+				6C86B8E31396C744009F6FE6 /* UITextView+MTUIAdditions.h */,
+				6C86B8E41396C744009F6FE6 /* UITextView+MTUIAdditions.m */,
+				6C86B8E51396C744009F6FE6 /* UIToolBar+PSLib.h */,
+				6C86B8E61396C744009F6FE6 /* UIToolBar+PSLib.m */,
+				6C86B8E71396C744009F6FE6 /* UIView+Animation.h */,
+				6C86B8E81396C744009F6FE6 /* UIView+Animation.m */,
+				6C86B8E91396C744009F6FE6 /* UIView+Hierarchy.h */,
+				6C86B8EA1396C744009F6FE6 /* UIView+Hierarchy.m */,
+				6C86B8EB1396C744009F6FE6 /* UIView+MTUIAdditions.h */,
+				6C86B8EC1396C744009F6FE6 /* UIView+MTUIAdditions.m */,
+				6C86B8ED1396C744009F6FE6 /* UIView+PSAdditions.h */,
+				6C86B8EE1396C744009F6FE6 /* UIView+PSAdditions.m */,
+				6C86B8EF1396C744009F6FE6 /* UIView+Sizes.h */,
+				6C86B8F01396C744009F6FE6 /* UIView+Sizes.m */,
+				6C86B8F31396C744009F6FE6 /* UIViewController+MTAnimatedFetch.h */,
+				6C86B8F41396C744009F6FE6 /* UIViewController+MTAnimatedFetch.m */,
+				6C86B8F51396C744009F6FE6 /* UIViewController+MTUIAdditions.h */,
+				6C86B8F61396C744009F6FE6 /* UIViewController+MTUIAdditions.m */,
+				6C86B8F71396C744009F6FE6 /* UIViewControllerHelper.h */,
+				6C86B8F81396C744009F6FE6 /* UIViewControllerHelper.m */,
+				6C86B8F91396C744009F6FE6 /* UIViewExtras.m */,
+				6C86B8FA1396C744009F6FE6 /* UIViewHelper.h */,
+				6C86B8FB1396C744009F6FE6 /* UIViewHelper.m */,
+			);
+			name = UIKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1384,7 +1392,7 @@
 				6C86B9321396C744009F6FE6 /* NSObject+AutoDescription.h in Headers */,
 				6C86B9381396C744009F6FE6 /* NSObject+Utilities.h in Headers */,
 				6C86B93A1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.h in Headers */,
-				6C86B93E1396C744009F6FE6 /* NSString+Cat.h in Headers */,
+				6C86B93E1396C744009F6FE6 /* NSString+Conversion.h in Headers */,
 				6C86B9401396C744009F6FE6 /* NSString+FlattenHTML.h in Headers */,
 				6C86B9421396C744009F6FE6 /* NSString+GSub.h in Headers */,
 				6C86B9441396C744009F6FE6 /* NSString+InflectionSupport.h in Headers */,
@@ -1648,7 +1656,7 @@
 				6C86B9331396C744009F6FE6 /* NSObject+AutoDescription.m in Sources */,
 				6C86B9391396C744009F6FE6 /* NSObject+Utilities.m in Sources */,
 				6C86B93B1396C744009F6FE6 /* NSOperationQueue+CWSharedQueue.m in Sources */,
-				6C86B93F1396C744009F6FE6 /* NSString+Cat.m in Sources */,
+				6C86B93F1396C744009F6FE6 /* NSString+Conversion.m in Sources */,
 				6C86B9411396C744009F6FE6 /* NSString+FlattenHTML.m in Sources */,
 				6C86B9431396C744009F6FE6 /* NSString+GSub.m in Sources */,
 				6C86B9451396C744009F6FE6 /* NSString+InflectionSupport.m in Sources */,

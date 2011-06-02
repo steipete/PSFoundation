@@ -9,7 +9,6 @@
 //
 
 #import "UINavigationBar+CustomBackground.h"
-#import "NSArray+PSFoundation.h"
 #import "NSObject+AssociatedObjects.h"
 
 @implementation UINavigationBar (CustomBackground)
