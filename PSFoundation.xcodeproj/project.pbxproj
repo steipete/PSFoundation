@@ -214,8 +214,6 @@
 		6C86B9491396C744009F6FE6 /* NSString+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8AC1396C744009F6FE6 /* NSString+PSFoundation.m */; };
 		6C86B94C1396C744009F6FE6 /* NSURL+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8AF1396C744009F6FE6 /* NSURL+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B94D1396C744009F6FE6 /* NSURL+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8B01396C744009F6FE6 /* NSURL+PSFoundation.m */; };
-		6C86B94E1396C744009F6FE6 /* NSURLHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8B11396C744009F6FE6 /* NSURLHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B94F1396C744009F6FE6 /* NSURLHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8B21396C744009F6FE6 /* NSURLHelper.m */; };
 		6C86B9501396C744009F6FE6 /* SKProduct+LocalizedPrice.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8B31396C744009F6FE6 /* SKProduct+LocalizedPrice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9511396C744009F6FE6 /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8B41396C744009F6FE6 /* SKProduct+LocalizedPrice.m */; };
 		6C86B9521396C744009F6FE6 /* StringUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8B51396C744009F6FE6 /* StringUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -543,8 +541,6 @@
 		6C86B8AC1396C744009F6FE6 /* NSString+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PSFoundation.m"; sourceTree = "<group>"; };
 		6C86B8AF1396C744009F6FE6 /* NSURL+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+PSFoundation.h"; sourceTree = "<group>"; };
 		6C86B8B01396C744009F6FE6 /* NSURL+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PSFoundation.m"; sourceTree = "<group>"; };
-		6C86B8B11396C744009F6FE6 /* NSURLHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSURLHelper.h; sourceTree = "<group>"; };
-		6C86B8B21396C744009F6FE6 /* NSURLHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSURLHelper.m; sourceTree = "<group>"; };
 		6C86B8B31396C744009F6FE6 /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
 		6C86B8B41396C744009F6FE6 /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
 		6C86B8B51396C744009F6FE6 /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
@@ -1280,8 +1276,6 @@
 			children = (
 				6C86B8AF1396C744009F6FE6 /* NSURL+PSFoundation.h */,
 				6C86B8B01396C744009F6FE6 /* NSURL+PSFoundation.m */,
-				6C86B8B11396C744009F6FE6 /* NSURLHelper.h */,
-				6C86B8B21396C744009F6FE6 /* NSURLHelper.m */,
 			);
 			name = NSURL;
 			sourceTree = "<group>";
@@ -1600,7 +1594,6 @@
 				6C86B9461396C744009F6FE6 /* NSString+Truncation.h in Headers */,
 				6C86B9481396C744009F6FE6 /* NSString+PSFoundation.h in Headers */,
 				6C86B94C1396C744009F6FE6 /* NSURL+PSFoundation.h in Headers */,
-				6C86B94E1396C744009F6FE6 /* NSURLHelper.h in Headers */,
 				6C86B9501396C744009F6FE6 /* SKProduct+LocalizedPrice.h in Headers */,
 				6C86B9521396C744009F6FE6 /* StringUtil.h in Headers */,
 				6C86B9541396C744009F6FE6 /* TimeFormatters.h in Headers */,
@@ -1863,7 +1856,6 @@
 				6C86B9471396C744009F6FE6 /* NSString+Truncation.m in Sources */,
 				6C86B9491396C744009F6FE6 /* NSString+PSFoundation.m in Sources */,
 				6C86B94D1396C744009F6FE6 /* NSURL+PSFoundation.m in Sources */,
-				6C86B94F1396C744009F6FE6 /* NSURLHelper.m in Sources */,
 				6C86B9511396C744009F6FE6 /* SKProduct+LocalizedPrice.m in Sources */,
 				6C86B9531396C744009F6FE6 /* StringUtil.m in Sources */,
 				6C86B9551396C744009F6FE6 /* TimeFormatters.m in Sources */,

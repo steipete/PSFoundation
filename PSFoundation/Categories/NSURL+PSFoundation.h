@@ -2,13 +2,15 @@
 //  NSURL+PSFoundation.h
 //  PSFoundation
 //
-//  Created by Peter Steinberger on 12.12.10.
-//  Copyright 2010 Peter Steinberger. All rights reserved.
+//  Includes code by the following:
+//   - Shaun Harrison.     2009.  BSD.
+//   - Peter Steinberger.  2010.  MIT.
 //
-
 
 @interface NSURL (PSFoundation)
 
 - (BOOL) isEqualToURL:(NSURL*)otherURL;
+
+@property (readonly) NSString *baseString;
 
 @end
