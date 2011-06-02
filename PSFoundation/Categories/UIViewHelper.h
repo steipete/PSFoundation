@@ -27,11 +27,6 @@
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
 
-// Device Independent Width
-// Calculates a width based on baseWidth, and scales it up or down depending on actualWidth
-CGFloat DIW(CGFloat width); // baseWidth = 320, actualWidth = device width
-CGFloat DIWW(CGFloat width, CGFloat baseWidth, CGFloat actualWidth);
-
 @interface UIView (EGOHelper)
 
 /*

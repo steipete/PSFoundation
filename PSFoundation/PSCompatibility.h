@@ -9,6 +9,8 @@
 //   - http://blancer.com/tutorials/i-phone/72236/tips-tricks-for-conditional-ios3-ios3-2-and-ios4-code/
 //
 
+#import "UIDevice+PSFoundation.h"
+
 #ifndef kCFCoreFoundationVersionNumber_iPhoneOS_2_0
 #define kCFCoreFoundationVersionNumber_iPhoneOS_2_0 478.23
 #endif
@@ -33,41 +35,64 @@
 #define kCFCoreFoundationVersionNumber_iPhoneOS_3_2 478.61
 #endif
 
-#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_4_0
-#define kCFCoreFoundationVersionNumber_iPhoneOS_4_0 550.32
+#ifndef kCFCoreFoundationVersionNumber_iOS_4_0
+#define kCFCoreFoundationVersionNumber_iOS_4_0 550.32
+#endif
+
+#ifndef kCFCoreFoundationVersionNumber_iOS_4_1
+#define kCFCoreFoundationVersionNumber_iOS_4_1 550.38
+#endif
+
+#ifndef kCFCoreFoundationVersionNumber_iOS_4_2
+#define kCFCoreFoundationVersionNumber_iOS_4_2 550.52
+#endif
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40200
+#define IF_IOS42_OR_GREATER(...) \
+if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_4_2) { \
+__VA_ARGS__ \
+}
+#define IS_GTE_IOS42 (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_4_2)
+#define IS_GT_IOS42 (kCFCoreFoundationVersionNumber > kCFCoreFoundationVersionNumber_iOS_4_2)
+#else
+#define IF_IOS42_OR_GREATER(...)
+#define IS_GTE_IOS42 0
+#define IS_GT_IOS42 0
 #endif
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
 #define IF_IOS4_OR_GREATER(...) \
-if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_4_0) \
-{ \
+if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_4_0) { \
 __VA_ARGS__ \
 }
+#define IS_GTE_IOS4 (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_4_0)
 #else
 #define IF_IOS4_OR_GREATER(...)
+#define IS_GTE_IOS4 0
 #endif
 
 #define IF_PRE_IOS4(...)  \
-if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_4_0)  \
-{ \
-  __VA_ARGS__ \
+if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iOS_4_0) { \
+__VA_ARGS__ \
 }
+#define IS_LT_IOS4 (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iOS_4_0)
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 32000
 #define IF_3_2_OR_GREATER(...) \
-if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_3_2) \
-{ \
+if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_3_2) { \
 __VA_ARGS__ \
 }
+#define IS_GTE_IOS32 (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_3_2)
 #else
 #define IF_3_2_OR_GREATER(...)
+#define IS_GTE_IOS32 0
 #endif
 
 #define IF_PRE_3_2(...) \
-if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_3_2) \
-{ \
+if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_3_2) { \
 __VA_ARGS__ \
 }
+#define IS_LT_IOS32 (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_3_2)
 
 // special addition for Chameleon support: http://chameleonproject.org/
 #if TARGET_IPHONE_SIMULATOR
