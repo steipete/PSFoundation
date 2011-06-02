@@ -1,7 +1,10 @@
-/*
- Dustin Voss
- BSD License, Use at your own risk
- */
+//
+//  TimeFormatters.h
+//  PSFoundation
+//
+//  Created by Dustin Voss.
+//  Licensed under BSD.  All rights reserved.
+//
 
 typedef enum IntervalFormatterStyle {
     kIntervalFormatterDecimalStyle,
@@ -55,4 +58,3 @@ typedef enum IntervalFormatterStyle {
 }
 @property (nonatomic, assign) IntervalFormatterStyle style;
 @end
-
