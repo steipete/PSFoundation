@@ -62,6 +62,8 @@ NS_INLINE CGFloat PSAppWidth() {
 #endif
 #define XHEXCOLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0]
 #define XHEXCOLOR_ALPHA(c, a) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:a]
+#define HEXCOLOR(c) XHEXCOLOR(c)
+#define HexToFloats(c) XHEXCOLOR(c).CGColor
 
 #define degreesToRadian(x) (M_PI * (x) / 180.0)
 #define radianToDegrees(x) (M_PI * 180.0 / (x))
