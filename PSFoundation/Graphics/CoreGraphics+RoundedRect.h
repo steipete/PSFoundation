@@ -1,15 +1,10 @@
 //
-//  SCGrfx.h
-//  TouchCustoms
+//  CoreGraphics+RoundedRect.h
+//  PSFoundation
 //
-//  Created by Aleks Nesterow on 10/15/09.
-//  aleks.nesterow@gmail.com
-//  
-//  Copyright © 2009, Screen Customs s.r.o.
-//  All rights reserved.
-//  
-//  Purpose
-//	Contains extension methods for Core Graphics.
+//  Created by Aleks Nesterow.
+//  Copyright © 2010 Screen Customs s.r.o.
+//  Licensed under MIT; found in LICENSES/MIT
 //
 
 struct SCRoundedRect {

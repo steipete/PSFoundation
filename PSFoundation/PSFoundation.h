@@ -39,6 +39,8 @@
 
 // Core Graphics
 #import "CoreGraphicsHelper.h"
+#import "CoreGraphics+PSFoundation.h"
+#import "CoreGraphics+RoundedRect.h"
 
 // invocations & proxies
 #import "DDInvocationGrabber.h"

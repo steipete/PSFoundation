@@ -1,15 +1,13 @@
 //
-//  SCGrfx.m
-//  TouchCustoms
+//  CoreGraphics+RoundedRect.m
+//  PSFoundation
 //
-//  Created by Aleks Nesterow on 10/15/09.
-//  aleks.nesterow@gmail.com
-//  
-//  Copyright © 2009-2010 Screen Customs s.r.o.
-//  All rights reserved.
+//  Created by Aleks Nesterow.
+//  Copyright © 2010 Screen Customs s.r.o.
+//  Licensed under MIT; found in LICENSES/MIT
 //
 
-#import "SCGrfx.h"
+#import "CoreGraphics+RoundedRect.h"
 
 SCRoundedRect SCRoundedRectMake(CGRect rect, CGFloat cornerRadius) {
 

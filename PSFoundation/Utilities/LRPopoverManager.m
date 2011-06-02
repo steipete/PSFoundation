@@ -26,8 +26,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(LRPopoverManager)
     return [LRPopoverManager sharedInstance];
 }
 
-- (void)setCurrentPopoverController:(UIPopoverController *)pc
-{
+- (void)setCurrentPopoverController:(UIPopoverController *)pc {
   [self dismissCurrentPopoverController:YES];
   
   if (pc != currentPopoverController) {
@@ -38,46 +37,39 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(LRPopoverManager)
   self.permitCurrentPopoverControllerToDismiss = YES;
 }
 
-- (void)presentPopoverController:(UIPopoverController *)pc fromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated
-{
+- (void)presentPopoverController:(UIPopoverController *)pc fromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
   self.currentPopoverController = pc;
   [self.currentPopoverController presentPopoverFromRect:rect inView:view permittedArrowDirections:arrowDirections animated:animated];
 }
 
-- (void)presentPopoverController:(UIPopoverController *)pc fromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated
-{
+- (void)presentPopoverController:(UIPopoverController *)pc fromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
   self.currentPopoverController = pc;
   [self.currentPopoverController presentPopoverFromBarButtonItem:item permittedArrowDirections:arrowDirections animated:animated];
 }
 
-- (void)dismissCurrentPopoverController:(BOOL)animated;
-{
+- (void)dismissCurrentPopoverController:(BOOL)animated {
   [self.currentPopoverController dismissPopoverAnimated:animated];
 }
 
-- (void)presentControllerInPopoverController:(UIViewController *)vc fromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated;
-{
+- (void)presentControllerInPopoverController:(UIViewController *)vc fromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
   UIPopoverController *pc = [[UIPopoverController alloc] initWithContentViewController:vc];
   [self presentPopoverController:pc fromRect:rect inView:view permittedArrowDirections:arrowDirections animated:animated];
   [pc release];
 }
 
-- (void)presentControllerInPopoverController:(UIViewController *)vc fromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated;
-{
+- (void)presentControllerInPopoverController:(UIViewController *)vc fromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
   UIPopoverController *pc = [[UIPopoverController alloc] initWithContentViewController:vc];
   [self presentPopoverController:pc fromBarButtonItem:item permittedArrowDirections:arrowDirections animated:animated];
   [pc release];
 }
 
-- (void)presentControllerWithNavigationInPopoverController:(UIViewController *)vc fromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated;
-{
+- (void)presentControllerWithNavigationInPopoverController:(UIViewController *)vc fromRect:(CGRect)rect inView:(UIView *)view permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
   UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
   [self presentControllerInPopoverController:navigationController fromRect:rect inView:view permittedArrowDirections:arrowDirections animated:animated];
   [navigationController release];
 }
 
-- (void)presentControllerWithNavigationInPopoverController:(UIViewController *)vc fromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated;
-{
+- (void)presentControllerWithNavigationInPopoverController:(UIViewController *)vc fromBarButtonItem:(UIBarButtonItem *)item permittedArrowDirections:(UIPopoverArrowDirection)arrowDirections animated:(BOOL)animated {
   UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
   [self presentControllerInPopoverController:navigationController fromBarButtonItem:item permittedArrowDirections:arrowDirections animated:animated];
   [navigationController release];
@@ -86,13 +78,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(LRPopoverManager)
 #pragma mark -
 #pragma mark UIPopoverControllerDelegate methods
 
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
   [[NSNotificationCenter defaultCenter] postNotificationName:LRUIPopoverControllerDidDismissNotification object:popoverController];
 }
 
-- (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController
-{
+- (BOOL)popoverControllerShouldDismissPopover:(UIPopoverController *)popoverController {
   return self.permitCurrentPopoverControllerToDismiss;
 }
 

@@ -50,8 +50,6 @@
 		6C86B4981396B118009F6FE6 /* PSStatusBarSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4681396B118009F6FE6 /* PSStatusBarSaver.m */; };
 		6C86B49B1396B118009F6FE6 /* SCFooterLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B46B1396B118009F6FE6 /* SCFooterLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B49C1396B118009F6FE6 /* SCFooterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B46C1396B118009F6FE6 /* SCFooterLabel.m */; };
-		6C86B49D1396B118009F6FE6 /* SCGrfx.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B46D1396B118009F6FE6 /* SCGrfx.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B49E1396B118009F6FE6 /* SCGrfx.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B46E1396B118009F6FE6 /* SCGrfx.m */; };
 		6C86B49F1396B118009F6FE6 /* SMModelObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B46F1396B118009F6FE6 /* SMModelObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4A01396B118009F6FE6 /* SMModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4701396B118009F6FE6 /* SMModelObject.m */; };
 		6C86B4A41396B129009F6FE6 /* PSMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4A21396B129009F6FE6 /* PSMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -82,7 +80,6 @@
 		6C86B4DD1396B175009F6FE6 /* VTPG_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4C81396B175009F6FE6 /* VTPG_Common.m */; };
 		6C86B5DB1396B187009F6FE6 /* TPAutoArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4F11396B185009F6FE6 /* TPAutoArchiver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B5DC1396B187009F6FE6 /* TPAutoArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4F21396B185009F6FE6 /* TPAutoArchiver.m */; };
-		6C86B67C1396B187009F6FE6 /* CoreGraphicsHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5B51396B186009F6FE6 /* CoreGraphicsHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B6811396B187009F6FE6 /* BSUIViewRearranger.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5BC1396B186009F6FE6 /* BSUIViewRearranger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B6821396B187009F6FE6 /* BSUIViewRearranger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5BD1396B186009F6FE6 /* BSUIViewRearranger.m */; };
 		6C86B6831396B187009F6FE6 /* UIView+CWNibLocalizations.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5BE1396B186009F6FE6 /* UIView+CWNibLocalizations.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -337,6 +334,9 @@
 		6C86BC3C139711A4009F6FE6 /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BC1E139711A3009F6FE6 /* JRSwizzle.m */; };
 		6C86BC64139711CE009F6FE6 /* NSObject+Swizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BC62139711CE009F6FE6 /* NSObject+Swizzle.h */; };
 		6C86BC65139711CE009F6FE6 /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BC63139711CE009F6FE6 /* NSObject+Swizzle.m */; };
+		6C86BC70139727D5009F6FE6 /* CoreGraphics+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BC6D139727D5009F6FE6 /* CoreGraphics+PSFoundation.h */; };
+		6C86BC71139727D5009F6FE6 /* CoreGraphics+RoundedRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BC6E139727D5009F6FE6 /* CoreGraphics+RoundedRect.h */; };
+		6C86BC72139727D5009F6FE6 /* CoreGraphics+RoundedRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BC6F139727D5009F6FE6 /* CoreGraphics+RoundedRect.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -385,8 +385,6 @@
 		6C86B4681396B118009F6FE6 /* PSStatusBarSaver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSStatusBarSaver.m; sourceTree = "<group>"; };
 		6C86B46B1396B118009F6FE6 /* SCFooterLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFooterLabel.h; sourceTree = "<group>"; };
 		6C86B46C1396B118009F6FE6 /* SCFooterLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFooterLabel.m; sourceTree = "<group>"; };
-		6C86B46D1396B118009F6FE6 /* SCGrfx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCGrfx.h; sourceTree = "<group>"; };
-		6C86B46E1396B118009F6FE6 /* SCGrfx.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCGrfx.m; sourceTree = "<group>"; };
 		6C86B46F1396B118009F6FE6 /* SMModelObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMModelObject.h; sourceTree = "<group>"; };
 		6C86B4701396B118009F6FE6 /* SMModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMModelObject.m; sourceTree = "<group>"; };
 		6C86B4A21396B129009F6FE6 /* PSMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMacros.h; sourceTree = "<group>"; };
@@ -434,7 +432,6 @@
 		6C86B4EE1396B185009F6FE6 /* NSPersistentStoreCoordinator+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSPersistentStoreCoordinator+ActiveRecord.m"; path = "../Core Data/NSPersistentStoreCoordinator+ActiveRecord.m"; sourceTree = "<group>"; };
 		6C86B4F11396B185009F6FE6 /* TPAutoArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAutoArchiver.h; sourceTree = "<group>"; };
 		6C86B4F21396B185009F6FE6 /* TPAutoArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAutoArchiver.m; sourceTree = "<group>"; };
-		6C86B5B51396B186009F6FE6 /* CoreGraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreGraphicsHelper.h; sourceTree = "<group>"; };
 		6C86B5BC1396B186009F6FE6 /* BSUIViewRearranger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSUIViewRearranger.h; sourceTree = "<group>"; };
 		6C86B5BD1396B186009F6FE6 /* BSUIViewRearranger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSUIViewRearranger.m; sourceTree = "<group>"; };
 		6C86B5BE1396B186009F6FE6 /* UIView+CWNibLocalizations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CWNibLocalizations.h"; sourceTree = "<group>"; };
@@ -673,6 +670,9 @@
 		6C86BC1E139711A3009F6FE6 /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		6C86BC62139711CE009F6FE6 /* NSObject+Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
 		6C86BC63139711CE009F6FE6 /* NSObject+Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
+		6C86BC6D139727D5009F6FE6 /* CoreGraphics+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreGraphics+PSFoundation.h"; sourceTree = "<group>"; };
+		6C86BC6E139727D5009F6FE6 /* CoreGraphics+RoundedRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreGraphics+RoundedRect.h"; sourceTree = "<group>"; };
+		6C86BC6F139727D5009F6FE6 /* CoreGraphics+RoundedRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CoreGraphics+RoundedRect.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -739,6 +739,7 @@
 				6C86B80B1396B4FC009F6FE6 /* External */,
 				6C86B5BB1396B186009F6FE6 /* InterfaceBuilder */,
 				6C86B5C01396B186009F6FE6 /* Invocation */,
+				6C86BC6C139727CF009F6FE6 /* Graphics */,
 				6C86B5C91396B186009F6FE6 /* Keychain */,
 				6C86B4B21396B175009F6FE6 /* Logging */,
 				6C86B4A11396B129009F6FE6 /* Macros */,
@@ -840,8 +841,6 @@
 				6C86B4681396B118009F6FE6 /* PSStatusBarSaver.m */,
 				6C86B46B1396B118009F6FE6 /* SCFooterLabel.h */,
 				6C86B46C1396B118009F6FE6 /* SCFooterLabel.m */,
-				6C86B46D1396B118009F6FE6 /* SCGrfx.h */,
-				6C86B46E1396B118009F6FE6 /* SCGrfx.m */,
 				6C86B46F1396B118009F6FE6 /* SMModelObject.h */,
 				6C86B4701396B118009F6FE6 /* SMModelObject.m */,
 			);
@@ -851,7 +850,6 @@
 		6C86B4A11396B129009F6FE6 /* Macros */ = {
 			isa = PBXGroup;
 			children = (
-				6C86B5B51396B186009F6FE6 /* CoreGraphicsHelper.h */,
 				6C86B4A21396B129009F6FE6 /* PSMacros.h */,
 				6C86B4A31396B129009F6FE6 /* SynthesizeSingleton.h */,
 				6C86B85D1396B751009F6FE6 /* MACollectionMacros.h */,
@@ -1291,6 +1289,16 @@
 			path = External/jrswizzle;
 			sourceTree = "<group>";
 		};
+		6C86BC6C139727CF009F6FE6 /* Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				6C86BC6D139727D5009F6FE6 /* CoreGraphics+PSFoundation.h */,
+				6C86BC6E139727D5009F6FE6 /* CoreGraphics+RoundedRect.h */,
+				6C86BC6F139727D5009F6FE6 /* CoreGraphics+RoundedRect.m */,
+			);
+			path = Graphics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1319,7 +1327,6 @@
 				6C86B4951396B118009F6FE6 /* PSSettingsUtil.h in Headers */,
 				6C86B4971396B118009F6FE6 /* PSStatusBarSaver.h in Headers */,
 				6C86B49B1396B118009F6FE6 /* SCFooterLabel.h in Headers */,
-				6C86B49D1396B118009F6FE6 /* SCGrfx.h in Headers */,
 				6C86B49F1396B118009F6FE6 /* SMModelObject.h in Headers */,
 				6C86B4A41396B129009F6FE6 /* PSMacros.h in Headers */,
 				6C86B4A51396B129009F6FE6 /* SynthesizeSingleton.h in Headers */,
@@ -1338,7 +1345,6 @@
 				6C86B4DA1396B175009F6FE6 /* PSDDFormatter.h in Headers */,
 				6C86B4DC1396B175009F6FE6 /* VTPG_Common.h in Headers */,
 				6C86B5DB1396B187009F6FE6 /* TPAutoArchiver.h in Headers */,
-				6C86B67C1396B187009F6FE6 /* CoreGraphicsHelper.h in Headers */,
 				6C86B6811396B187009F6FE6 /* BSUIViewRearranger.h in Headers */,
 				6C86B6831396B187009F6FE6 /* UIView+CWNibLocalizations.h in Headers */,
 				6C86B6851396B187009F6FE6 /* DDInvocationGrabber.h in Headers */,
@@ -1458,6 +1464,8 @@
 				6C86BBF5139707F3009F6FE6 /* IKNetworkActivityManager.h in Headers */,
 				6C86BC3B139711A4009F6FE6 /* JRSwizzle.h in Headers */,
 				6C86BC64139711CE009F6FE6 /* NSObject+Swizzle.h in Headers */,
+				6C86BC70139727D5009F6FE6 /* CoreGraphics+PSFoundation.h in Headers */,
+				6C86BC71139727D5009F6FE6 /* CoreGraphics+RoundedRect.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1593,7 +1601,6 @@
 				6C86B4961396B118009F6FE6 /* PSSettingsUtil.m in Sources */,
 				6C86B4981396B118009F6FE6 /* PSStatusBarSaver.m in Sources */,
 				6C86B49C1396B118009F6FE6 /* SCFooterLabel.m in Sources */,
-				6C86B49E1396B118009F6FE6 /* SCGrfx.m in Sources */,
 				6C86B4A01396B118009F6FE6 /* SMModelObject.m in Sources */,
 				6C86B4CA1396B175009F6FE6 /* ColorLog.m in Sources */,
 				6C86B4CC1396B175009F6FE6 /* DDASLLogger.m in Sources */,
@@ -1720,6 +1727,7 @@
 				6C86BBF6139707F3009F6FE6 /* IKNetworkActivityManager.m in Sources */,
 				6C86BC3C139711A4009F6FE6 /* JRSwizzle.m in Sources */,
 				6C86BC65139711CE009F6FE6 /* NSObject+Swizzle.m in Sources */,
+				6C86BC72139727D5009F6FE6 /* CoreGraphics+RoundedRect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
