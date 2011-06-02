@@ -57,7 +57,6 @@
 		6C86B4A41396B129009F6FE6 /* PSMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4A21396B129009F6FE6 /* PSMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4A51396B129009F6FE6 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4A31396B129009F6FE6 /* SynthesizeSingleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4A81396B13F009F6FE6 /* PSCompatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4A61396B13E009F6FE6 /* PSCompatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B4A91396B13F009F6FE6 /* PSCompatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4A71396B13E009F6FE6 /* PSCompatibility.m */; };
 		6C86B4AF1396B14F009F6FE6 /* PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4AE1396B14F009F6FE6 /* PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4B11396B169009F6FE6 /* PSCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4B01396B169009F6FE6 /* PSCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4C91396B175009F6FE6 /* ColorLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4B31396B175009F6FE6 /* ColorLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -244,8 +243,8 @@
 		6C86B95F1396C744009F6FE6 /* UIButton+Presets.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8C21396C744009F6FE6 /* UIButton+Presets.m */; };
 		6C86B9601396C744009F6FE6 /* UIColor-Expanded.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8C31396C744009F6FE6 /* UIColor-Expanded.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9611396C744009F6FE6 /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8C41396C744009F6FE6 /* UIColor-Expanded.m */; };
-		6C86B9621396C744009F6FE6 /* UIDeviceHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8C51396C744009F6FE6 /* UIDeviceHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9631396C744009F6FE6 /* UIDeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8C61396C744009F6FE6 /* UIDeviceHelper.m */; };
+		6C86B9621396C744009F6FE6 /* UIDevice+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8C51396C744009F6FE6 /* UIDevice+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B9631396C744009F6FE6 /* UIDevice+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8C61396C744009F6FE6 /* UIDevice+PSFoundation.m */; };
 		6C86B9641396C744009F6FE6 /* UIImage+Alpha.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8C71396C744009F6FE6 /* UIImage+Alpha.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9651396C744009F6FE6 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8C81396C744009F6FE6 /* UIImage+Alpha.m */; };
 		6C86B9661396C744009F6FE6 /* UIImage+Cache.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8C91396C744009F6FE6 /* UIImage+Cache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -393,7 +392,6 @@
 		6C86B4A21396B129009F6FE6 /* PSMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMacros.h; sourceTree = "<group>"; };
 		6C86B4A31396B129009F6FE6 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		6C86B4A61396B13E009F6FE6 /* PSCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCompatibility.h; sourceTree = "<group>"; };
-		6C86B4A71396B13E009F6FE6 /* PSCompatibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCompatibility.m; sourceTree = "<group>"; };
 		6C86B4AA1396B145009F6FE6 /* PSFoundation_CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSFoundation_CoreData.h; path = PSFoundation/PSFoundation_CoreData.h; sourceTree = SOURCE_ROOT; };
 		6C86B4AB1396B145009F6FE6 /* PSFoundation_CoreLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSFoundation_CoreLocation.h; path = PSFoundation/PSFoundation_CoreLocation.h; sourceTree = SOURCE_ROOT; };
 		6C86B4AE1396B14F009F6FE6 /* PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation.h; sourceTree = "<group>"; };
@@ -580,8 +578,8 @@
 		6C86B8C21396C744009F6FE6 /* UIButton+Presets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Presets.m"; sourceTree = "<group>"; };
 		6C86B8C31396C744009F6FE6 /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
 		6C86B8C41396C744009F6FE6 /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
-		6C86B8C51396C744009F6FE6 /* UIDeviceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHelper.h; sourceTree = "<group>"; };
-		6C86B8C61396C744009F6FE6 /* UIDeviceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHelper.m; sourceTree = "<group>"; };
+		6C86B8C51396C744009F6FE6 /* UIDevice+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+PSFoundation.h"; sourceTree = "<group>"; };
+		6C86B8C61396C744009F6FE6 /* UIDevice+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+PSFoundation.m"; sourceTree = "<group>"; };
 		6C86B8C71396C744009F6FE6 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
 		6C86B8C81396C744009F6FE6 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		6C86B8C91396C744009F6FE6 /* UIImage+Cache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Cache.h"; sourceTree = "<group>"; };
@@ -751,7 +749,6 @@
 				6C86B3E71396B0CD009F6FE6 /* Universal */,
 				6C86B4B01396B169009F6FE6 /* PSCategories.h */,
 				6C86B4A61396B13E009F6FE6 /* PSCompatibility.h */,
-				6C86B4A71396B13E009F6FE6 /* PSCompatibility.m */,
 				6C86B4AA1396B145009F6FE6 /* PSFoundation_CoreData.h */,
 				6C86B4AB1396B145009F6FE6 /* PSFoundation_CoreLocation.h */,
 				6C86B4AE1396B14F009F6FE6 /* PSFoundation.h */,
@@ -1025,8 +1022,8 @@
 				6C86B8C21396C744009F6FE6 /* UIButton+Presets.m */,
 				6C86B8C31396C744009F6FE6 /* UIColor-Expanded.h */,
 				6C86B8C41396C744009F6FE6 /* UIColor-Expanded.m */,
-				6C86B8C51396C744009F6FE6 /* UIDeviceHelper.h */,
-				6C86B8C61396C744009F6FE6 /* UIDeviceHelper.m */,
+				6C86B8C51396C744009F6FE6 /* UIDevice+PSFoundation.h */,
+				6C86B8C61396C744009F6FE6 /* UIDevice+PSFoundation.m */,
 				6C86B8C71396C744009F6FE6 /* UIImage+Alpha.h */,
 				6C86B8C81396C744009F6FE6 /* UIImage+Alpha.m */,
 				6C86B8C91396C744009F6FE6 /* UIImage+Cache.h */,
@@ -1412,7 +1409,7 @@
 				6C86B95C1396C744009F6FE6 /* UIButton+Glossy.h in Headers */,
 				6C86B95E1396C744009F6FE6 /* UIButton+Presets.h in Headers */,
 				6C86B9601396C744009F6FE6 /* UIColor-Expanded.h in Headers */,
-				6C86B9621396C744009F6FE6 /* UIDeviceHelper.h in Headers */,
+				6C86B9621396C744009F6FE6 /* UIDevice+PSFoundation.h in Headers */,
 				6C86B9641396C744009F6FE6 /* UIImage+Alpha.h in Headers */,
 				6C86B9661396C744009F6FE6 /* UIImage+Cache.h in Headers */,
 				6C86B9681396C744009F6FE6 /* UIImage+MTCache.h in Headers */,
@@ -1598,7 +1595,6 @@
 				6C86B49C1396B118009F6FE6 /* SCFooterLabel.m in Sources */,
 				6C86B49E1396B118009F6FE6 /* SCGrfx.m in Sources */,
 				6C86B4A01396B118009F6FE6 /* SMModelObject.m in Sources */,
-				6C86B4A91396B13F009F6FE6 /* PSCompatibility.m in Sources */,
 				6C86B4CA1396B175009F6FE6 /* ColorLog.m in Sources */,
 				6C86B4CC1396B175009F6FE6 /* DDASLLogger.m in Sources */,
 				6C86B4CE1396B175009F6FE6 /* DDFileLogger.m in Sources */,
@@ -1678,7 +1674,7 @@
 				6C86B95D1396C744009F6FE6 /* UIButton+Glossy.m in Sources */,
 				6C86B95F1396C744009F6FE6 /* UIButton+Presets.m in Sources */,
 				6C86B9611396C744009F6FE6 /* UIColor-Expanded.m in Sources */,
-				6C86B9631396C744009F6FE6 /* UIDeviceHelper.m in Sources */,
+				6C86B9631396C744009F6FE6 /* UIDevice+PSFoundation.m in Sources */,
 				6C86B9651396C744009F6FE6 /* UIImage+Alpha.m in Sources */,
 				6C86B9671396C744009F6FE6 /* UIImage+Cache.m in Sources */,
 				6C86B9691396C744009F6FE6 /* UIImage+MTCache.m in Sources */,

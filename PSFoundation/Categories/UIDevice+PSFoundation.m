@@ -36,14 +36,14 @@
   NSString *appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
   NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
   NSString *appShortVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]; 
-#ifndef APPSTORE
+#ifdef DEBUG
   // adds this special string for better bug mail filtering
-  appVersion = [NSString stringWithFormat:@"%@ AdHoc", appVersion];
+  appVersion = [NSString stringWithFormat:@"%@ - Debug", appVersion];
 #endif
   NSString *iphoneOSVersion = [[UIDevice currentDevice] systemVersion];
   NSString *deviceType = [[UIDevice currentDevice] platform];
   if ([[UIDevice currentDevice] isJailbroken]) {
-    deviceType = [NSString stringWithFormat:@"%@ JB", deviceType];
+    deviceType = [NSString stringWithFormat:@"%@ - Jailbroken", deviceType];
   }
   NSString *deviceUUID = [[UIDevice currentDevice] uniqueIdentifier];
   NSString *deviceLang = [[NSLocale preferredLanguages] objectAtIndex:0];
@@ -127,19 +127,27 @@
 
 
 - (BOOL)isJailbroken {
-  BOOL jailbroken = NO;
-  NSString *cydiaPath = @"/Applications/Cydia.app";
-  NSString *aptPath = @"/private/var/lib/apt/";
+    // TODO:  Some jailbroken devices may not have Cydia installed (if you're in the future, maybe even ATV)
+    BOOL jailbroken = NO;
+    NSString *cydiaPath = @"/Applications/Cydia.app";
+    NSString *aptPath = @"/private/var/lib/apt/";
 
-  if ([[NSFileManager defaultManager] fileExistsAtPath:cydiaPath]) {
-    jailbroken = YES;
-  }
+    if ([[NSFileManager defaultManager] fileExistsAtPath:cydiaPath]) {
+        jailbroken = YES;
+    }
 
-  if ([[NSFileManager defaultManager] fileExistsAtPath:aptPath]) {
-    jailbroken = YES;
-  }
+    if ([[NSFileManager defaultManager] fileExistsAtPath:aptPath]) {
+        jailbroken = YES;
+    }
 
-  return jailbroken;
+    return jailbroken;
+}
+
+- (BOOL)isTablet {
+    IF_3_2_OR_GREATER(
+        return ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad);
+    );
+    return NO;
 }
 
 @end

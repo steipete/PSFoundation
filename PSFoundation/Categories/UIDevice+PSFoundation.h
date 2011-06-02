@@ -38,5 +38,6 @@
 - (NSString *)platform;
 - (BOOL)isSlowDevice;
 - (BOOL)isJailbroken;
+- (BOOL)isTablet;
 
 @end

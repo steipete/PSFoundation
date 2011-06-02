@@ -1,11 +1,13 @@
 //
 //  PSCompatibility.h
+//  PSFoundation
 //
 //  Created by Peter Steinberger on 09.09.10.
-//  Copyright 2010 Peter Steinberger. All rights reserved.
+//  Licensed under MIT. All rights reserved.
 //
-
-// http://blancer.com/tutorials/i-phone/72236/tips-tricks-for-conditional-ios3-ios3-2-and-ios4-code/
+//  References:
+//   - http://blancer.com/tutorials/i-phone/72236/tips-tricks-for-conditional-ios3-ios3-2-and-ios4-code/
+//
 
 #ifndef kCFCoreFoundationVersionNumber_iPhoneOS_2_0
 #define kCFCoreFoundationVersionNumber_iPhoneOS_2_0 478.23
@@ -68,13 +70,21 @@ __VA_ARGS__ \
 }
 
 // special addition for Chameleon support: http://chameleonproject.org/
-#ifdef CHAMELEON_MAC // needs to be defined in project settings
-#define IF_IOS(...)
-#define IF_DESKTOP(...) do {__VA_ARGS__} while(0);
-#else
+#if TARGET_IPHONE_SIMULATOR
+#define IS_IOS 1
+#define IS_MAC 0
 #define IF_IOS(...) do {__VA_ARGS__} while(0);
 #define IF_DESKTOP(...)
+#elif TARGET_OS_IPHONE
+#define IS_IOS 1
+#define IS_MAC 0
+#define IF_IOS(...) do {__VA_ARGS__} while(0);
+#define IF_DESKTOP(...)
+#else
+#define IS_IOS 0
+#define IS_MAC 1
+#define IF_IOS(...)
+#define IF_DESKTOP(...) do {__VA_ARGS__} while(0);
 #endif
 
-
-BOOL isIPad();
+#define isIPad() [[UIDevice currentDevice] isTablet]
