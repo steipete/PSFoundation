@@ -325,6 +325,8 @@
 		6CED598E139817BC00E3F38D /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED5981139817BB00E3F38D /* EGOImageLoader.m */; };
 		6CED598F139817BC00E3F38D /* EGOImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED5983139817BB00E3F38D /* EGOImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CED5990139817BC00E3F38D /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED5984139817BB00E3F38D /* EGOImageView.m */; };
+		6CED59BE1398195C00E3F38D /* Appirater.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59BB1398195C00E3F38D /* Appirater.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CED59BF1398195C00E3F38D /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59BC1398195C00E3F38D /* Appirater.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -649,6 +651,8 @@
 		6CED5981139817BB00E3F38D /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
 		6CED5983139817BB00E3F38D /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
 		6CED5984139817BB00E3F38D /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
+		6CED59BB1398195C00E3F38D /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Appirater.h; path = PSFoundation/External/appirater/Appirater.h; sourceTree = SOURCE_ROOT; };
+		6CED59BC1398195C00E3F38D /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Appirater.m; path = PSFoundation/External/appirater/Appirater.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -956,6 +960,7 @@
 		6C86B80B1396B4FC009F6FE6 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				6CED59951398195C00E3F38D /* appirater */,
 				6CED5929139817BB00E3F38D /* EGOCache */,
 				6CED5953139817BB00E3F38D /* EGOImageLoading */,
 				6C86BBF7139711A3009F6FE6 /* jrswizzle */,
@@ -1479,6 +1484,16 @@
 			path = EGOImageView;
 			sourceTree = "<group>";
 		};
+		6CED59951398195C00E3F38D /* appirater */ = {
+			isa = PBXGroup;
+			children = (
+				6CED59BB1398195C00E3F38D /* Appirater.h */,
+				6CED59BC1398195C00E3F38D /* Appirater.m */,
+			);
+			name = appirater;
+			path = External/appirater;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1640,6 +1655,7 @@
 				6CED598B139817BC00E3F38D /* EGOImageLoadConnection.h in Headers */,
 				6CED598D139817BC00E3F38D /* EGOImageLoader.h in Headers */,
 				6CED598F139817BC00E3F38D /* EGOImageView.h in Headers */,
+				6CED59BE1398195C00E3F38D /* Appirater.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1896,6 +1912,7 @@
 				6CED598C139817BC00E3F38D /* EGOImageLoadConnection.m in Sources */,
 				6CED598E139817BC00E3F38D /* EGOImageLoader.m in Sources */,
 				6CED5990139817BC00E3F38D /* EGOImageView.m in Sources */,
+				6CED59BF1398195C00E3F38D /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

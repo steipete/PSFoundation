@@ -22,3 +22,6 @@
 [submodule "PSFoundation/External/EGOCache"]
 	path = PSFoundation/External/EGOCache
 	url = git://github.com/myell0w/EGOCache.git
+[submodule "PSFoundation/External/appirater"]
+	path = PSFoundation/External/appirater
+	url = git://github.com/marzapower/appirater.git
