@@ -8,7 +8,9 @@
 //
 
 @interface IKNetworkActivityManager : NSObject {
+@private
     NSMutableSet *users;
+    NSUInteger count;
 }
 
 + (IKNetworkActivityManager *)sharedInstance;
@@ -18,5 +20,8 @@
 - (void)addNetworkUser:(id)aUser;
 - (void)removeNetworkUser:(id)aUser;
 - (void)removeAllNetworkUsers;
+
+- (void)incrementNetworkUsage;
+- (void)decrementNetworkUsage;
 
 @end

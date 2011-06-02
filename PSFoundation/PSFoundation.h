@@ -68,7 +68,7 @@
 #import "DTCustomColoredAccessory.h"
 
 // ui components
-#import "PSNonEdiableTextView.h"
+#import "PSNonEditableTextView.h"
 
 // helper for settings
 #import "PSSettingsUtil.h"

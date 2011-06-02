@@ -1,21 +1,21 @@
 //
-//  PSNonEdiableTextView.m
+//  PSNonEditableTextView.m
 //  PSFoundation
 //
 //  Created by Peter Steinberger on 19.11.10.
 //  Copyright 2010 Peter Steinberger. All rights reserved.
 //
 
-#import "PSNonEdiableTextView.h"
+#import "PSNonEditableTextView.h"
 #include "UIView+Sizes.h"
 #import <QuartzCore/QuartzCore.h>
 
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 
-@implementation PSNonEdiableTextView
+@implementation PSNonEditableTextView
 
 + (id)textViewForText:(NSString *)text {
-  PSNonEdiableTextView *textView = [[[[self class] alloc] init] autorelease];
+  PSNonEditableTextView *textView = [[[[self class] alloc] init] autorelease];
   textView.textColor = RGBCOLOR(76,86,108);
   textView.layer.shadowColor = [[UIColor whiteColor] CGColor];
   textView.layer.shadowOffset = CGSizeMake(1, 1);

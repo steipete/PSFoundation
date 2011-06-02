@@ -14,10 +14,7 @@
 SYNTHESIZE_SINGLETON_FOR_CLASS(IKNetworkActivityManager)
 
 - (IKNetworkActivityManager *)init {
-    if ((self = [super init])) {
-        users = [[NSMutableSet alloc] init];
-    }
-    return self;
+    return [self initWithCapacity:0];
 }
 
 - (IKNetworkActivityManager *)initWithCapacity:(NSInteger)capacity {
@@ -26,6 +23,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(IKNetworkActivityManager)
             users = [[NSMutableSet alloc] initWithCapacity:capacity];
         else
             users = [[NSMutableSet alloc] init];
+        count = 0;
     }
     return self;
 }
@@ -38,8 +36,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(IKNetworkActivityManager)
 
 - (void)addNetworkUser:(id)aUser {
     @synchronized (self) {
-      [users addObject:aUser];
-      [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        [users addObject:aUser];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     }
 }
 
@@ -47,7 +45,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(IKNetworkActivityManager)
 - (void)removeNetworkUser:(id)aUser {
     @synchronized (self) {
         [users removeObject:aUser];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = (users.count > 0);
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = (users.count > 0 || count > 0);
     }
 }
 
@@ -56,6 +54,20 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(IKNetworkActivityManager)
     @synchronized (self) {
         [users removeAllObjects];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }
+}
+
+- (void)incrementNetworkUsage {
+    @synchronized (self) {
+        count++;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    }
+}
+
+- (void)decrementNetworkUsage {
+    @synchronized (self) {
+        count--;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = (users.count > 0 || count > 0);
     }
 }
 

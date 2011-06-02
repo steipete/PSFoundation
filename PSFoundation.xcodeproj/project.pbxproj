@@ -44,8 +44,8 @@
 		6C86B48E1396B118009F6FE6 /* PSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B45E1396B118009F6FE6 /* PSAlertView.m */; };
 		6C86B48F1396B118009F6FE6 /* PSClassUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B45F1396B118009F6FE6 /* PSClassUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4901396B118009F6FE6 /* PSClassUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4601396B118009F6FE6 /* PSClassUtils.m */; };
-		6C86B4931396B118009F6FE6 /* PSNonEdiableTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4631396B118009F6FE6 /* PSNonEdiableTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B4941396B118009F6FE6 /* PSNonEdiableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4641396B118009F6FE6 /* PSNonEdiableTextView.m */; };
+		6C86B4931396B118009F6FE6 /* PSNonEditableTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4631396B118009F6FE6 /* PSNonEditableTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B4941396B118009F6FE6 /* PSNonEditableTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4641396B118009F6FE6 /* PSNonEditableTextView.m */; };
 		6C86B4951396B118009F6FE6 /* PSSettingsUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4651396B118009F6FE6 /* PSSettingsUtil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4961396B118009F6FE6 /* PSSettingsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4661396B118009F6FE6 /* PSSettingsUtil.m */; };
 		6C86B4971396B118009F6FE6 /* PSStatusBarSaver.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4671396B118009F6FE6 /* PSStatusBarSaver.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -338,6 +338,8 @@
 		6C86BBE81397060F009F6FE6 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBDD1397060E009F6FE6 /* EGOImageLoader.m */; };
 		6C86BBE91397060F009F6FE6 /* EGOImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBDF1397060E009F6FE6 /* EGOImageView.h */; };
 		6C86BBEA1397060F009F6FE6 /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBE01397060E009F6FE6 /* EGOImageView.m */; };
+		6C86BBF5139707F3009F6FE6 /* IKNetworkActivityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BBF3139707F3009F6FE6 /* IKNetworkActivityManager.h */; };
+		6C86BBF6139707F3009F6FE6 /* IKNetworkActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BBF4139707F3009F6FE6 /* IKNetworkActivityManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -380,8 +382,8 @@
 		6C86B45E1396B118009F6FE6 /* PSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSAlertView.m; sourceTree = "<group>"; };
 		6C86B45F1396B118009F6FE6 /* PSClassUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSClassUtils.h; sourceTree = "<group>"; };
 		6C86B4601396B118009F6FE6 /* PSClassUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSClassUtils.m; sourceTree = "<group>"; };
-		6C86B4631396B118009F6FE6 /* PSNonEdiableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNonEdiableTextView.h; sourceTree = "<group>"; };
-		6C86B4641396B118009F6FE6 /* PSNonEdiableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNonEdiableTextView.m; sourceTree = "<group>"; };
+		6C86B4631396B118009F6FE6 /* PSNonEditableTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSNonEditableTextView.h; sourceTree = "<group>"; };
+		6C86B4641396B118009F6FE6 /* PSNonEditableTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSNonEditableTextView.m; sourceTree = "<group>"; };
 		6C86B4651396B118009F6FE6 /* PSSettingsUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSettingsUtil.h; sourceTree = "<group>"; };
 		6C86B4661396B118009F6FE6 /* PSSettingsUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSettingsUtil.m; sourceTree = "<group>"; };
 		6C86B4671396B118009F6FE6 /* PSStatusBarSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSStatusBarSaver.h; sourceTree = "<group>"; };
@@ -675,6 +677,8 @@
 		6C86BBDD1397060E009F6FE6 /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoader.m; sourceTree = "<group>"; };
 		6C86BBDF1397060E009F6FE6 /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageView.h; sourceTree = "<group>"; };
 		6C86BBE01397060E009F6FE6 /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageView.m; sourceTree = "<group>"; };
+		6C86BBF3139707F3009F6FE6 /* IKNetworkActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKNetworkActivityManager.h; sourceTree = "<group>"; };
+		6C86BBF4139707F3009F6FE6 /* IKNetworkActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKNetworkActivityManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -789,6 +793,8 @@
 		6C86B43E1396B118009F6FE6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				6C86BBF3139707F3009F6FE6 /* IKNetworkActivityManager.h */,
+				6C86BBF4139707F3009F6FE6 /* IKNetworkActivityManager.m */,
 				6C86B43F1396B118009F6FE6 /* Reachability.h */,
 				6C86B4401396B118009F6FE6 /* Reachability.m */,
 			);
@@ -835,8 +841,8 @@
 				6C86B45E1396B118009F6FE6 /* PSAlertView.m */,
 				6C86B45F1396B118009F6FE6 /* PSClassUtils.h */,
 				6C86B4601396B118009F6FE6 /* PSClassUtils.m */,
-				6C86B4631396B118009F6FE6 /* PSNonEdiableTextView.h */,
-				6C86B4641396B118009F6FE6 /* PSNonEdiableTextView.m */,
+				6C86B4631396B118009F6FE6 /* PSNonEditableTextView.h */,
+				6C86B4641396B118009F6FE6 /* PSNonEditableTextView.m */,
 				6C86B4651396B118009F6FE6 /* PSSettingsUtil.h */,
 				6C86B4661396B118009F6FE6 /* PSSettingsUtil.m */,
 				6C86B4671396B118009F6FE6 /* PSStatusBarSaver.h */,
@@ -1310,7 +1316,7 @@
 				6C86B48B1396B118009F6FE6 /* PSActionSheet.h in Headers */,
 				6C86B48D1396B118009F6FE6 /* PSAlertView.h in Headers */,
 				6C86B48F1396B118009F6FE6 /* PSClassUtils.h in Headers */,
-				6C86B4931396B118009F6FE6 /* PSNonEdiableTextView.h in Headers */,
+				6C86B4931396B118009F6FE6 /* PSNonEditableTextView.h in Headers */,
 				6C86B4951396B118009F6FE6 /* PSSettingsUtil.h in Headers */,
 				6C86B4971396B118009F6FE6 /* PSStatusBarSaver.h in Headers */,
 				6C86B49B1396B118009F6FE6 /* SCFooterLabel.h in Headers */,
@@ -1452,6 +1458,7 @@
 				6C86BBE51397060F009F6FE6 /* EGOImageLoadConnection.h in Headers */,
 				6C86BBE71397060F009F6FE6 /* EGOImageLoader.h in Headers */,
 				6C86BBE91397060F009F6FE6 /* EGOImageView.h in Headers */,
+				6C86BBF5139707F3009F6FE6 /* IKNetworkActivityManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1584,7 +1591,7 @@
 				6C86B48C1396B118009F6FE6 /* PSActionSheet.m in Sources */,
 				6C86B48E1396B118009F6FE6 /* PSAlertView.m in Sources */,
 				6C86B4901396B118009F6FE6 /* PSClassUtils.m in Sources */,
-				6C86B4941396B118009F6FE6 /* PSNonEdiableTextView.m in Sources */,
+				6C86B4941396B118009F6FE6 /* PSNonEditableTextView.m in Sources */,
 				6C86B4961396B118009F6FE6 /* PSSettingsUtil.m in Sources */,
 				6C86B4981396B118009F6FE6 /* PSStatusBarSaver.m in Sources */,
 				6C86B49C1396B118009F6FE6 /* SCFooterLabel.m in Sources */,
@@ -1715,6 +1722,7 @@
 				6C86BBE61397060F009F6FE6 /* EGOImageLoadConnection.m in Sources */,
 				6C86BBE81397060F009F6FE6 /* EGOImageLoader.m in Sources */,
 				6C86BBEA1397060F009F6FE6 /* EGOImageView.m in Sources */,
+				6C86BBF6139707F3009F6FE6 /* IKNetworkActivityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
