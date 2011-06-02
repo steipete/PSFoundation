@@ -3,9 +3,9 @@
 //  PSFoundation
 //
 //  Includes code by the following:
-//   - Erica Sadun.  2009.  BSD.
+//   - Erica Sadun.        2009.  BSD.
 //   - Peter Steinberger.  2010.  MIT.
-//   - Steve Streza.  2010.
+//   - Steve Streza.       2010.
 //
 
 @interface NSFileManager (PSFoundation)

@@ -3,13 +3,13 @@
 //  PSFoundation
 //
 //  Includes code by the following:
-//   - Erica Sadun.  2009.  BSD.
+//   - Erica Sadun.        2009.  BSD.
 //   - Peter Steinberger.  2010.  MIT.
-//   - Steve Streza.  2010.
+//   - Steve Streza.       2010.
 //
 
 #import "NSFileManager+PSFoundation.h"
-#import "NSArray+BlocksKit.h"
+#import "MACollectionMacros.h"
 #import "NSArray-Utilities.h"
 
 @implementation NSFileManager (PSFoundation)

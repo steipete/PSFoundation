@@ -3,16 +3,13 @@
 //  PSFoundation
 //
 //  Created by Matthias Tretter on 27.12.10.
-//  Copyright 2010 Peter Steinberger. All rights reserved.
+//  Licensed under MIT. All rights reserved.
 //
 
 #import "NSData+MTAdditions.h"
 #import <ImageIO/ImageIO.h>
 #import <CoreLocation/CoreLocation.h>
 #import "PSCompatibility.h"
-
-
-
 
 @implementation NSData (MTAdditions)
 

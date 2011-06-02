@@ -1,6 +1,9 @@
 //
 //  NSObject+AutoDescription.m
+//  PSFoundation
+//
 //  Created by Peter Steinberger on 09.09.10.
+//  Licensed under MIT.  All rights reserved.
 //
 
 #import "NSObject+AutoDescription.h"

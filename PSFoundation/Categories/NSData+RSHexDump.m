@@ -1,13 +1,9 @@
 //
-//  NSData+RSHexDump.m
-//  RSFoundation
+//  NSData+RSHexDump.h
+//  PSFoundation
 //
 //  Created by Daniel Jalkut on 2/14/07.
 //  Copyright 2007 Red Sweater Software. All rights reserved.
-//
-//	Based on code from Dan Wood 
-//	http://gigliwood.com/weblog/Cocoa/Better_description_.html
-//
 //
 
 #import "NSData+RSHexDump.h"

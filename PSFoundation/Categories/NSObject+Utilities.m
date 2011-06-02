@@ -3,7 +3,7 @@
 //  PSFoundation
 //
 //  Created by Peter Steinberger on 12.12.10.
-//  Copyright 2010 Peter Steinberger. All rights reserved.
+//  Licensed under MIT. All rights reserved.
 //
 
 #import "NSObject+Utilities.h"

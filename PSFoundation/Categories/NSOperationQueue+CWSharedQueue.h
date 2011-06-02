@@ -1,8 +1,9 @@
 //
 //  NSOperationQueue+CWSharedQueue.h
+//  PSFoundation
 //
-//  Created by Fredrik Olsson on 2008-10-28.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
+//  Created by Fredrik Olsson on 10/28/2008.
+//  Licensed in the public domain.  All rights reserved.
 //
 
 #ifndef CW_DEFAULT_OPERATION_COUNT
