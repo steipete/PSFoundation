@@ -38,6 +38,9 @@
 		39C27C10131469A1000C0C94 /* NSString+Truncation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C27C0E131469A1000C0C94 /* NSString+Truncation.m */; };
 		39C917A4139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C917A2139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h */; };
 		39C917A5139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C917A3139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m */; };
+		39C918171398D7580045489C /* MTSplashScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C918151398D7580045489C /* MTSplashScreen.h */; };
+		39C918181398D7580045489C /* MTSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C918161398D7580045489C /* MTSplashScreen.m */; };
+		39C9181A1398D7AC0045489C /* MTSplashScreenDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 39C918191398D7AC0045489C /* MTSplashScreenDelegate.h */; };
 		39D8262F12E364530079B785 /* UIView+Hierarchy.h in Headers */ = {isa = PBXBuildFile; fileRef = 39D8262D12E364530079B785 /* UIView+Hierarchy.h */; };
 		39D8263012E364530079B785 /* UIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D8262E12E364530079B785 /* UIView+Hierarchy.m */; };
 		39EBAAB113508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */; };
@@ -608,6 +611,9 @@
 		39C27C0E131469A1000C0C94 /* NSString+Truncation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Truncation.m"; path = "Categories/NSString/NSString+Truncation.m"; sourceTree = SOURCE_ROOT; };
 		39C917A2139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h"; sourceTree = "<group>"; };
 		39C917A3139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m"; sourceTree = "<group>"; };
+		39C918151398D7580045489C /* MTSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSplashScreen.h; sourceTree = "<group>"; };
+		39C918161398D7580045489C /* MTSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSplashScreen.m; sourceTree = "<group>"; };
+		39C918191398D7AC0045489C /* MTSplashScreenDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSplashScreenDelegate.h; sourceTree = "<group>"; };
 		39D8262D12E364530079B785 /* UIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Hierarchy.h"; path = "Categories/UIView/UIView+Hierarchy.h"; sourceTree = SOURCE_ROOT; };
 		39D8262E12E364530079B785 /* UIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Hierarchy.m"; path = "Categories/UIView/UIView+Hierarchy.m"; sourceTree = SOURCE_ROOT; };
 		39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MTAnimatedFetch.h"; sourceTree = "<group>"; };
@@ -982,6 +988,7 @@
 				78692140126B4195000259AC /* Network */,
 				78692143126B4195000259AC /* Reachability */,
 				78692146126B4195000259AC /* Sound */,
+				39C918141398D73A0045489C /* Splash Screen */,
 				78692149126B4195000259AC /* TableView */,
 				39EE957A12C3B44200AD953B /* Universal */,
 				78E531EB126E03EB00A89047 /* Utils */,
@@ -1058,6 +1065,16 @@
 			);
 			name = UITextView;
 			sourceTree = SOURCE_ROOT;
+		};
+		39C918141398D73A0045489C /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				39C918151398D7580045489C /* MTSplashScreen.h */,
+				39C918161398D7580045489C /* MTSplashScreen.m */,
+				39C918191398D7AC0045489C /* MTSplashScreenDelegate.h */,
+			);
+			name = "Splash Screen";
+			sourceTree = "<group>";
 		};
 		39EE410F136ABFC800ABE900 /* JMWhenTapped */ = {
 			isa = PBXGroup;
@@ -2044,6 +2061,8 @@
 				39FAFC87132FA7D100F039C4 /* UIImage+MTTiling.h in Headers */,
 				39EE4117136ABFE300ABE900 /* UIView+WhenTappedBlocks.h in Headers */,
 				39483F141396488A00AA4C4E /* UIViewController+MTUIAdditions.h in Headers */,
+				39C918171398D7580045489C /* MTSplashScreen.h in Headers */,
+				39C9181A1398D7AC0045489C /* MTSplashScreenDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2472,6 +2491,7 @@
 				39FAFC88132FA7D100F039C4 /* UIImage+MTTiling.m in Sources */,
 				39EE4118136ABFE300ABE900 /* UIView+WhenTappedBlocks.m in Sources */,
 				39483F151396488A00AA4C4E /* UIViewController+MTUIAdditions.m in Sources */,
+				39C918181398D7580045489C /* MTSplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Rotate to all Orientations on iPad, on iPhone support only Portrait Orientation
+#define kRotateOnIPad(interfaceOrientation) (isIPad() || interfaceOrientation == UIInterfaceOrientationPortrait)
+// deprecated:
 #define ROTATE_ON_IPAD isIPad() || interfaceOrientation == UIInterfaceOrientationPortrait
 
 // creates a rect with the first 4 parameters on iPhone and the last 4 parameters on iPad

@@ -33,6 +33,10 @@
 #import "BSUIViewRearranger.h"
 #import "UIView+CWNibLocalizations.h"
 
+// Splash Screen
+#import "MTSplashScreen.h"
+#import "MTSplashScreenDelegate.h"
+
 // Universal
 #import "MTUniversalHelper.h"
 
