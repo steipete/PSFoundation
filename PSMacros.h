@@ -80,6 +80,13 @@ static inline CGRect PSScreenBounds() {
 #define MCReleaseViewNil(x) do { [x removeFromSuperview], [x release], x = nil; } while (0)
 
 
+#if defined(TARGET_IPHONE_SIMULATOR) && defined(DEBUG)
+#define PSSimulateMemoryWarning() CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)@"UISimulatedMemoryWarningNotification", NULL, NULL, true);
+#else
+#define PSSimulateMemoryWarning()
+#endif
+
+
 // http://code.google.com/p/cocoalumberjack/wiki/XcodeTricks - compiles most log messages out of the release build, but not all!
 #ifdef DEBUG
 static const int ddLogLevel = LOG_LEVEL_INFO;
