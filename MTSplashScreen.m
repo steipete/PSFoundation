@@ -25,7 +25,7 @@
 #pragma mark Lifecycle
 ////////////////////////////////////////////////////////////////////////
 
-+ (MTSplashScreen *)splashscreen {
++ (MTSplashScreen *)splashScreen {
     MTSplashScreen *splashScreen = [[[MTSplashScreen alloc] initWithNibName:nil bundle:nil] autorelease];
     
     return splashScreen;
