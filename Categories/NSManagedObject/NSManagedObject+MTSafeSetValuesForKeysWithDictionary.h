@@ -8,6 +8,7 @@
 //  Taken from: http://www.cimgf.com/2011/06/02/saving-json-to-core-data/
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
 
 @interface NSManagedObject (MTSafeSetValuesForKeysWithDictionary)
