@@ -39,6 +39,8 @@
 // override description for fun and glory!
 #import "NSData+RSHexDump.h"
 
+#import "NSData+MTAdditions.h"
+
 // NSDate /////////////////////////////////////////////////////////////////////////////////////////
 
 // prettyDate, prettyDateWithReference, ps_yesterday, ps_tomorrow, ...

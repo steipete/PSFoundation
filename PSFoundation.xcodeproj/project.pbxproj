@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C5A77091398987A00A74A82 /* NSManagedObject+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */; };
+		6C5A770B1398987C00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8881396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
+		6C5A770C1398987F00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C5A770D1398988000A74A82 /* NSManagedObject+AutoDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8851396C744009F6FE6 /* NSManagedObject+AutoDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B37D1396AAE7009F6FE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C86B37C1396AAE7009F6FE6 /* Foundation.framework */; };
 		6C86B4071396B0CD009F6FE6 /* SoundEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3D21396B0CD009F6FE6 /* SoundEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4081396B0CD009F6FE6 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3D31396B0CD009F6FE6 /* SoundEffect.m */; };
@@ -107,8 +111,6 @@
 		6C86B7D31396B2F8009F6FE6 /* NSPersistentStore+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4EB1396B185009F6FE6 /* NSPersistentStore+ActiveRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B7D41396B2F8009F6FE6 /* NSPersistentStoreCoordinator+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4ED1396B185009F6FE6 /* NSPersistentStoreCoordinator+ActiveRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B7D91396B2F8009F6FE6 /* PSFoundation_CoreData.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4AA1396B145009F6FE6 /* PSFoundation_CoreData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B7E81396B300009F6FE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C86B37C1396AAE7009F6FE6 /* Foundation.framework */; };
-		6C86B7FD1396B36C009F6FE6 /* PSFoundation_CoreLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4AB1396B145009F6FE6 /* PSFoundation_CoreLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B8391396B56E009F6FE6 /* BKMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8151396B56E009F6FE6 /* BKMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B83A1396B56E009F6FE6 /* BlocksKit-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8161396B56E009F6FE6 /* BlocksKit-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B83B1396B56E009F6FE6 /* BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8171396B56E009F6FE6 /* BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -178,10 +180,6 @@
 		6C86B91F1396C744009F6FE6 /* NSError+SCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8821396C744009F6FE6 /* NSError+SCMethods.m */; };
 		6C86B9201396C744009F6FE6 /* NSFileManager+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8831396C744009F6FE6 /* NSFileManager+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9211396C744009F6FE6 /* NSFileManager+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8841396C744009F6FE6 /* NSFileManager+PSFoundation.m */; };
-		6C86B9221396C744009F6FE6 /* NSManagedObject+AutoDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8851396C744009F6FE6 /* NSManagedObject+AutoDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9231396C744009F6FE6 /* NSManagedObject+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */; };
-		6C86B9241396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9251396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8881396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		6C86B9261396C744009F6FE6 /* NSMutableArray+MTShuffle.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8891396C744009F6FE6 /* NSMutableArray+MTShuffle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9271396C744009F6FE6 /* NSMutableArray+MTShuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B88A1396C744009F6FE6 /* NSMutableArray+MTShuffle.m */; };
 		6C86B9281396C744009F6FE6 /* NSMutableArray+SCQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B88B1396C744009F6FE6 /* NSMutableArray+SCQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -394,7 +392,6 @@
 		6C86B4A31396B129009F6FE6 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		6C86B4A61396B13E009F6FE6 /* PSCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCompatibility.h; sourceTree = "<group>"; };
 		6C86B4AA1396B145009F6FE6 /* PSFoundation_CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSFoundation_CoreData.h; path = PSFoundation/PSFoundation_CoreData.h; sourceTree = SOURCE_ROOT; };
-		6C86B4AB1396B145009F6FE6 /* PSFoundation_CoreLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSFoundation_CoreLocation.h; path = PSFoundation/PSFoundation_CoreLocation.h; sourceTree = SOURCE_ROOT; };
 		6C86B4AE1396B14F009F6FE6 /* PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation.h; sourceTree = "<group>"; };
 		6C86B4B01396B169009F6FE6 /* PSCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCategories.h; sourceTree = "<group>"; };
 		6C86B4B31396B175009F6FE6 /* ColorLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorLog.h; sourceTree = "<group>"; };
@@ -448,7 +445,6 @@
 		6C86B5CA1396B186009F6FE6 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		6C86B5CB1396B186009F6FE6 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		6C86B7AF1396B20F009F6FE6 /* libPSFoundation-CoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPSFoundation-CoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C86B7FA1396B300009F6FE6 /* libPSFoundation-CoreLocation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPSFoundation-CoreLocation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86B8151396B56E009F6FE6 /* BKMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKMacros.h; sourceTree = "<group>"; };
 		6C86B8161396B56E009F6FE6 /* BlocksKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BlocksKit-Prefix.pch"; sourceTree = "<group>"; };
 		6C86B8171396B56E009F6FE6 /* BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlocksKit.h; sourceTree = "<group>"; };
@@ -702,14 +698,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C86B7E71396B300009F6FE6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6C86B7E81396B300009F6FE6 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -727,7 +715,6 @@
 			children = (
 				6C86B3791396AAE7009F6FE6 /* libPSFoundation.a */,
 				6C86B7AF1396B20F009F6FE6 /* libPSFoundation-CoreData.a */,
-				6C86B7FA1396B300009F6FE6 /* libPSFoundation-CoreLocation.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -761,7 +748,6 @@
 				6C86B4B01396B169009F6FE6 /* PSCategories.h */,
 				6C86B4A61396B13E009F6FE6 /* PSCompatibility.h */,
 				6C86B4AA1396B145009F6FE6 /* PSFoundation_CoreData.h */,
-				6C86B4AB1396B145009F6FE6 /* PSFoundation_CoreLocation.h */,
 				6C86B4AE1396B14F009F6FE6 /* PSFoundation.h */,
 				6C86B37F1396AAE7009F6FE6 /* Supporting Files */,
 			);
@@ -1649,8 +1635,6 @@
 				6C86B91A1396C744009F6FE6 /* NSDictionary+CGStructs.h in Headers */,
 				6C86B91E1396C744009F6FE6 /* NSError+SCMethods.h in Headers */,
 				6C86B9201396C744009F6FE6 /* NSFileManager+PSFoundation.h in Headers */,
-				6C86B9221396C744009F6FE6 /* NSManagedObject+AutoDescription.h in Headers */,
-				6C86B9241396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */,
 				6C86B9261396C744009F6FE6 /* NSMutableArray+MTShuffle.h in Headers */,
 				6C86B9281396C744009F6FE6 /* NSMutableArray+SCQueue.h in Headers */,
 				6C86B92A1396C744009F6FE6 /* NSString+URL.h in Headers */,
@@ -1744,21 +1728,15 @@
 				6C86B7CD1396B2F8009F6FE6 /* ActiveRecordHelpers.h in Headers */,
 				6C86B7CE1396B2F8009F6FE6 /* CoreData+ActiveRecordFetching.h in Headers */,
 				6C86B7CF1396B2F8009F6FE6 /* NSFetchedResultsController+ActiveRecord.h in Headers */,
+				6C5A770C1398987F00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */,
 				6C86B7D01396B2F8009F6FE6 /* NSManagedObjectContext+ActiveRecord.h in Headers */,
 				6C86B7D11396B2F8009F6FE6 /* NSManagedObject+ActiveRecord.h in Headers */,
 				6C86B7D21396B2F8009F6FE6 /* NSManagedObjectModel+ActiveRecord.h in Headers */,
 				6C86B7D31396B2F8009F6FE6 /* NSPersistentStore+ActiveRecord.h in Headers */,
 				6C86B7D41396B2F8009F6FE6 /* NSPersistentStoreCoordinator+ActiveRecord.h in Headers */,
+				6C5A770D1398988000A74A82 /* NSManagedObject+AutoDescription.h in Headers */,
 				6C86B7D91396B2F8009F6FE6 /* PSFoundation_CoreData.h in Headers */,
 				6C86B9B71396CEA5009F6FE6 /* SafeFetchedResultsController.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C86B7E91396B300009F6FE6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6C86B7FD1396B36C009F6FE6 /* PSFoundation_CoreLocation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1799,23 +1777,6 @@
 			productReference = 6C86B7AF1396B20F009F6FE6 /* libPSFoundation-CoreData.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		6C86B7DA1396B300009F6FE6 /* PSFoundation CoreLocation */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6C86B7F71396B300009F6FE6 /* Build configuration list for PBXNativeTarget "PSFoundation CoreLocation" */;
-			buildPhases = (
-				6C86B7DB1396B300009F6FE6 /* Sources */,
-				6C86B7E71396B300009F6FE6 /* Frameworks */,
-				6C86B7E91396B300009F6FE6 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "PSFoundation CoreLocation";
-			productName = PSFoundation;
-			productReference = 6C86B7FA1396B300009F6FE6 /* libPSFoundation-CoreLocation.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1838,7 +1799,6 @@
 			targets = (
 				6C86B3781396AAE7009F6FE6 /* PSFoundation */,
 				6C86B68F1396B20F009F6FE6 /* PSFoundation CoreData */,
-				6C86B7DA1396B300009F6FE6 /* PSFoundation CoreLocation */,
 			);
 		};
 /* End PBXProject section */
@@ -1918,8 +1878,6 @@
 				6C86B91B1396C744009F6FE6 /* NSDictionary+CGStructs.m in Sources */,
 				6C86B91F1396C744009F6FE6 /* NSError+SCMethods.m in Sources */,
 				6C86B9211396C744009F6FE6 /* NSFileManager+PSFoundation.m in Sources */,
-				6C86B9231396C744009F6FE6 /* NSManagedObject+AutoDescription.m in Sources */,
-				6C86B9251396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				6C86B9271396C744009F6FE6 /* NSMutableArray+MTShuffle.m in Sources */,
 				6C86B9291396C744009F6FE6 /* NSMutableArray+SCQueue.m in Sources */,
 				6C86B92B1396C744009F6FE6 /* NSString+URL.m in Sources */,
@@ -2006,20 +1964,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C86B7B01396B267009F6FE6 /* ActiveRecordHelpers.m in Sources */,
+				6C5A77091398987A00A74A82 /* NSManagedObject+AutoDescription.m in Sources */,
 				6C86B7B11396B267009F6FE6 /* NSFetchedResultsController+ActiveRecord.m in Sources */,
 				6C86B7B21396B267009F6FE6 /* NSManagedObjectContext+ActiveRecord.m in Sources */,
 				6C86B7B31396B267009F6FE6 /* NSManagedObject+ActiveRecord.m in Sources */,
 				6C86B7B41396B267009F6FE6 /* NSManagedObjectModel+ActiveRecord.m in Sources */,
 				6C86B7B51396B267009F6FE6 /* NSPersistentStore+ActiveRecord.m in Sources */,
+				6C5A770B1398987C00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				6C86B7B61396B267009F6FE6 /* NSPersistentStoreCoordinator+ActiveRecord.m in Sources */,
 				6C86B9B81396CEA5009F6FE6 /* SafeFetchedResultsController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6C86B7DB1396B300009F6FE6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2107,30 +2060,6 @@
 			};
 			name = Release;
 		};
-		6C86B7F81396B300009F6FE6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				DSTROOT = /tmp/PSFoundation.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PSFoundation/PSFoundation-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "PSFoundation-CoreLocation";
-			};
-			name = Debug;
-		};
-		6C86B7F91396B300009F6FE6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				DSTROOT = /tmp/PSFoundation.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "PSFoundation/PSFoundation-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "PSFoundation-CoreLocation";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2157,15 +2086,6 @@
 			buildConfigurations = (
 				6C86B7AD1396B20F009F6FE6 /* Debug */,
 				6C86B7AE1396B20F009F6FE6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6C86B7F71396B300009F6FE6 /* Build configuration list for PBXNativeTarget "PSFoundation CoreLocation" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6C86B7F81396B300009F6FE6 /* Debug */,
-				6C86B7F91396B300009F6FE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

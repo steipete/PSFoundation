@@ -52,13 +52,13 @@ _If you use [https://github.com/zwaldowski/BlocksKit](BlocksKit), it must be rem
   * SystemConfiguration
   * QuartzCore
   * CoreGraphics
+  * ImageIO
   * AudioToolbox
   * Security
   * CFNetwork
   * MobilecoreServices
   * libz.1.dylib
   * CoreData (_libPSFoundation-CoreData only_)
-  * CoreLocation (**iOS**:  _libPSFoundation-CoreLocation only_)
 9.  `#import <PSFoundation.h>` in any file in your project.  _It is not recommended to include PSFoundation in your prefix header.
 
 License
