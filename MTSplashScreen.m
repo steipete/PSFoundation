@@ -19,6 +19,7 @@
 @synthesize splashImage = splashImage_;
 @synthesize showsStatusBarOnDismissal = showsStatusBarOnDismissal_;
 @synthesize delegate = delegate_;
+@synthesize delay = delay_;
 
 ////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -33,10 +34,8 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        if (isIPad()) {
-            showsStatusBarOnDismissal_ = YES;
-            self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        }
+        self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        delay_ = 0.;
     }
     
     return self;
@@ -74,7 +73,7 @@
         [self.delegate splashScreenDidAppear:self];
     }
     
-    [self hide];
+    [self performSelector:@selector(hide) withObject:nil afterDelay:self.delay];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
