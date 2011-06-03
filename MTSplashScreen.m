@@ -56,7 +56,7 @@
     UIImageView *iv = [[[UIImageView alloc] initWithImage:self.splashImage] autorelease];
     
     iv.autoresizingMask = UIViewAutoresizingFlexibleWidth |  UIViewAutoresizingFlexibleHeight;
-    iv.contentMode = UIViewContentModeCenter;
+    iv.contentMode = UIViewContentModeBottom;
     self.view = iv;
 }
 
