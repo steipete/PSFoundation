@@ -142,6 +142,7 @@
 #import "UIView+Animation.h"
 #import "UIView+PSAdditions.m"
 #import "UIView+MTUIAdditions.h"
+#import "UIView+MTRotation.h"
 #import "UIView+Hierarchy.h"
 #import "UIViewHelper.h"
 #import "UIView+WhenTappedBlocks.h"

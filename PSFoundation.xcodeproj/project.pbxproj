@@ -62,6 +62,8 @@
 		39EE95C612C3B66300AD953B /* NSMutableArray+MTShuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE95C412C3B66300AD953B /* NSMutableArray+MTShuffle.m */; };
 		39EE95F912C3B83400AD953B /* ColorLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EE95F712C3B83400AD953B /* ColorLog.h */; };
 		39EE95FA12C3B83400AD953B /* ColorLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE95F812C3B83400AD953B /* ColorLog.m */; };
+		39F258B31399587C0084A471 /* UIView+MTRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 39F258B11399587C0084A471 /* UIView+MTRotation.h */; };
+		39F258B41399587C0084A471 /* UIView+MTRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F258B21399587C0084A471 /* UIView+MTRotation.m */; };
 		39FAFC87132FA7D100F039C4 /* UIImage+MTTiling.h in Headers */ = {isa = PBXBuildFile; fileRef = 39FAFC85132FA7D100F039C4 /* UIImage+MTTiling.h */; };
 		39FAFC88132FA7D100F039C4 /* UIImage+MTTiling.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FAFC86132FA7D100F039C4 /* UIImage+MTTiling.m */; };
 		780CBDA51326759100F22032 /* NSData+RSHexDump.h in Headers */ = {isa = PBXBuildFile; fileRef = 780CBDA31326759100F22032 /* NSData+RSHexDump.h */; };
@@ -636,6 +638,8 @@
 		39EE95C412C3B66300AD953B /* NSMutableArray+MTShuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+MTShuffle.m"; path = "Categories/NSArray/NSMutableArray+MTShuffle.m"; sourceTree = SOURCE_ROOT; };
 		39EE95F712C3B83400AD953B /* ColorLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorLog.h; path = Lumberjack/ColorLog.h; sourceTree = SOURCE_ROOT; };
 		39EE95F812C3B83400AD953B /* ColorLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ColorLog.m; path = Lumberjack/ColorLog.m; sourceTree = SOURCE_ROOT; };
+		39F258B11399587C0084A471 /* UIView+MTRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MTRotation.h"; sourceTree = "<group>"; };
+		39F258B21399587C0084A471 /* UIView+MTRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MTRotation.m"; sourceTree = "<group>"; };
 		39FAFC85132FA7D100F039C4 /* UIImage+MTTiling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MTTiling.h"; sourceTree = "<group>"; };
 		39FAFC86132FA7D100F039C4 /* UIImage+MTTiling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MTTiling.m"; sourceTree = "<group>"; };
 		780CBDA31326759100F22032 /* NSData+RSHexDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+RSHexDump.h"; path = "Categories/NSData/NSData+RSHexDump.h"; sourceTree = SOURCE_ROOT; };
@@ -1686,6 +1690,8 @@
 				39D8262E12E364530079B785 /* UIView+Hierarchy.m */,
 				39C27BD413146056000C0C94 /* UIView+Animation.h */,
 				39C27BD513146056000C0C94 /* UIView+Animation.m */,
+				39F258B11399587C0084A471 /* UIView+MTRotation.h */,
+				39F258B21399587C0084A471 /* UIView+MTRotation.m */,
 			);
 			name = UIView;
 			path = Categories/UIView;
@@ -2063,6 +2069,7 @@
 				39483F141396488A00AA4C4E /* UIViewController+MTUIAdditions.h in Headers */,
 				39C918171398D7580045489C /* MTSplashScreen.h in Headers */,
 				39C9181A1398D7AC0045489C /* MTSplashScreenDelegate.h in Headers */,
+				39F258B31399587C0084A471 /* UIView+MTRotation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2492,6 +2499,7 @@
 				39EE4118136ABFE300ABE900 /* UIView+WhenTappedBlocks.m in Sources */,
 				39483F151396488A00AA4C4E /* UIViewController+MTUIAdditions.m in Sources */,
 				39C918181398D7580045489C /* MTSplashScreen.m in Sources */,
+				39F258B41399587C0084A471 /* UIView+MTRotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
