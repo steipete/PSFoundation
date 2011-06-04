@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C231C01139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C231BFF139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C231C02139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C231C00139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m */; };
 		6C5A77091398987A00A74A82 /* NSManagedObject+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */; };
 		6C5A770B1398987C00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8881396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		6C5A770C1398987F00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -277,7 +279,7 @@
 		6C86B9961396C744009F6FE6 /* UIViewExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8F91396C744009F6FE6 /* UIViewExtras.m */; };
 		6C86B9971396C744009F6FE6 /* UIViewHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8FA1396C744009F6FE6 /* UIViewHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9981396C744009F6FE6 /* UIViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8FB1396C744009F6FE6 /* UIViewHelper.m */; };
-		6C86B9B71396CEA5009F6FE6 /* SafeFetchedResultsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B9B51396CEA4009F6FE6 /* SafeFetchedResultsController.h */; };
+		6C86B9B71396CEA5009F6FE6 /* SafeFetchedResultsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B9B51396CEA4009F6FE6 /* SafeFetchedResultsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9B81396CEA5009F6FE6 /* SafeFetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B9B61396CEA4009F6FE6 /* SafeFetchedResultsController.m */; };
 		6C86BA751396FCE3009F6FE6 /* TDDatePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86BA631396FCE2009F6FE6 /* TDDatePickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86BA761396FCE3009F6FE6 /* TDDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86BA641396FCE2009F6FE6 /* TDDatePickerController.m */; };
@@ -343,6 +345,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C231BFF139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h"; path = "PSFoundation/Core Data/NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h"; sourceTree = SOURCE_ROOT; };
+		6C231C00139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m"; path = "PSFoundation/Core Data/NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m"; sourceTree = SOURCE_ROOT; };
 		6C86B3791396AAE7009F6FE6 /* libPSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86B37C1396AAE7009F6FE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6C86B3801396AAE7009F6FE6 /* PSFoundation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSFoundation-Prefix.pch"; sourceTree = "<group>"; };
@@ -895,6 +899,8 @@
 				6C86B4E81396B185009F6FE6 /* NSManagedObject+ActiveRecord.m */,
 				6C86B4E91396B185009F6FE6 /* NSManagedObjectModel+ActiveRecord.h */,
 				6C86B4EA1396B185009F6FE6 /* NSManagedObjectModel+ActiveRecord.m */,
+				6C231BFF139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h */,
+				6C231C00139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m */,
 				6C86B4EB1396B185009F6FE6 /* NSPersistentStore+ActiveRecord.h */,
 				6C86B4EC1396B185009F6FE6 /* NSPersistentStore+ActiveRecord.m */,
 				6C86B4ED1396B185009F6FE6 /* NSPersistentStoreCoordinator+ActiveRecord.h */,
@@ -1737,6 +1743,7 @@
 				6C5A770D1398988000A74A82 /* NSManagedObject+AutoDescription.h in Headers */,
 				6C86B7D91396B2F8009F6FE6 /* PSFoundation_CoreData.h in Headers */,
 				6C86B9B71396CEA5009F6FE6 /* SafeFetchedResultsController.h in Headers */,
+				6C231C01139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1973,6 +1980,7 @@
 				6C5A770B1398987C00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				6C86B7B61396B267009F6FE6 /* NSPersistentStoreCoordinator+ActiveRecord.m in Sources */,
 				6C86B9B81396CEA5009F6FE6 /* SafeFetchedResultsController.m in Sources */,
+				6C231C02139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
