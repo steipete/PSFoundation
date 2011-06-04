@@ -6,7 +6,7 @@
 //  Copyright 2010 Peter Steinberger. All rights reserved.
 //
 
-#define PSNonEdiableTextView PSNodEditableTextView
+#define PSNonEdiableTextView PSNonEditableTextView
 
 @interface PSNonEditableTextView : UITextView {
 }
