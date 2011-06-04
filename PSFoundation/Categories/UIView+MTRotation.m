@@ -3,7 +3,7 @@
 //  TVThek
 //
 //  Created by Matthias Tretter on 27.05.11.
-//  Copyright 2011 NOUS Wissensmanagement GmbH. All rights reserved.
+//  Copyright 2011 @myell0w. All rights reserved.
 //
 
 #import "UIView+MTRotation.h"
