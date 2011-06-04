@@ -1,6 +1,6 @@
 //
 //  UIView+MTRotation.m
-//  TVThek
+//  PSFoundation
 //
 //  Created by Matthias Tretter on 27.05.11.
 //  Copyright 2011 @myell0w. All rights reserved.

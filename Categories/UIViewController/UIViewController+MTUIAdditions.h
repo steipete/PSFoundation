@@ -17,4 +17,9 @@
 // hides the loading indicator and removes it from the view-hierarchy
 - (void)hideLoadingIndicator;
 
+// shows a loading indicator as the rightBarButtonItem
+- (void)showLoadingIndicatorInNavigationBar;
+// hides the right bar button item indicator
+- (void)hideLoadingIndicatorInNavigationBar;
+
 @end
