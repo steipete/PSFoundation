@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6C231C01139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C231BFF139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C231C02139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C231C00139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m */; };
+		6C231C0D139AAF310056E1D5 /* MTSplashScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C231C0A139AAF310056E1D5 /* MTSplashScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C231C0E139AAF310056E1D5 /* MTSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C231C0B139AAF310056E1D5 /* MTSplashScreen.m */; };
+		6C231C0F139AAF310056E1D5 /* MTSplashScreenDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C231C0C139AAF310056E1D5 /* MTSplashScreenDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5A77091398987A00A74A82 /* NSManagedObject+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */; };
 		6C5A770B1398987C00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8881396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		6C5A770C1398987F00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -327,26 +330,29 @@
 		6CED5990139817BC00E3F38D /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED5984139817BB00E3F38D /* EGOImageView.m */; };
 		6CED59BE1398195C00E3F38D /* Appirater.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59BB1398195C00E3F38D /* Appirater.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CED59BF1398195C00E3F38D /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59BC1398195C00E3F38D /* Appirater.m */; };
-		6CED59FE1398289100E3F38D /* UIImage+Filtering.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59ED1398289100E3F38D /* UIImage+Filtering.h */; };
+		6CED59FE1398289100E3F38D /* UIImage+Filtering.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59ED1398289100E3F38D /* UIImage+Filtering.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CED59FF1398289100E3F38D /* UIImage+Filtering.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59EE1398289100E3F38D /* UIImage+Filtering.m */; };
-		6CED5A001398289100E3F38D /* UIImage+Masking.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59EF1398289100E3F38D /* UIImage+Masking.h */; };
+		6CED5A001398289100E3F38D /* UIImage+Masking.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59EF1398289100E3F38D /* UIImage+Masking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CED5A011398289100E3F38D /* UIImage+Masking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59F01398289100E3F38D /* UIImage+Masking.m */; };
-		6CED5A021398289100E3F38D /* UIImage+Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F11398289100E3F38D /* UIImage+Reflection.h */; };
+		6CED5A021398289100E3F38D /* UIImage+Reflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F11398289100E3F38D /* UIImage+Reflection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CED5A031398289100E3F38D /* UIImage+Reflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59F21398289100E3F38D /* UIImage+Reflection.m */; };
-		6CED5A041398289100E3F38D /* UIImage+Resizing.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F31398289100E3F38D /* UIImage+Resizing.h */; };
+		6CED5A041398289100E3F38D /* UIImage+Resizing.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F31398289100E3F38D /* UIImage+Resizing.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CED5A051398289100E3F38D /* UIImage+Resizing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59F41398289100E3F38D /* UIImage+Resizing.m */; };
-		6CED5A061398289100E3F38D /* UIImage+Rotating.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F51398289100E3F38D /* UIImage+Rotating.h */; };
+		6CED5A061398289100E3F38D /* UIImage+Rotating.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F51398289100E3F38D /* UIImage+Rotating.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CED5A071398289200E3F38D /* UIImage+Rotating.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59F61398289100E3F38D /* UIImage+Rotating.m */; };
-		6CED5A081398289200E3F38D /* UIImage+Saving.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F71398289100E3F38D /* UIImage+Saving.h */; };
+		6CED5A081398289200E3F38D /* UIImage+Saving.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59F71398289100E3F38D /* UIImage+Saving.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CED5A091398289200E3F38D /* UIImage+Saving.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59F81398289100E3F38D /* UIImage+Saving.m */; };
-		6CED5A0A1398289200E3F38D /* NYXImagesHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59FA1398289100E3F38D /* NYXImagesHelper.h */; };
+		6CED5A0A1398289200E3F38D /* NYXImagesHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59FA1398289100E3F38D /* NYXImagesHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CED5A0B1398289200E3F38D /* NYXImagesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59FB1398289100E3F38D /* NYXImagesHelper.m */; };
-		6CED5A0C1398289200E3F38D /* NYXImagesUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59FC1398289100E3F38D /* NYXImagesUtilities.h */; };
+		6CED5A0C1398289200E3F38D /* NYXImagesUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59FC1398289100E3F38D /* NYXImagesUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6C231BFF139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h"; path = "PSFoundation/Core Data/NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h"; sourceTree = SOURCE_ROOT; };
 		6C231C00139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m"; path = "PSFoundation/Core Data/NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m"; sourceTree = SOURCE_ROOT; };
+		6C231C0A139AAF310056E1D5 /* MTSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSplashScreen.h; sourceTree = "<group>"; };
+		6C231C0B139AAF310056E1D5 /* MTSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSplashScreen.m; sourceTree = "<group>"; };
+		6C231C0C139AAF310056E1D5 /* MTSplashScreenDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSplashScreenDelegate.h; sourceTree = "<group>"; };
 		6C86B3791396AAE7009F6FE6 /* libPSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86B37C1396AAE7009F6FE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6C86B3801396AAE7009F6FE6 /* PSFoundation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSFoundation-Prefix.pch"; sourceTree = "<group>"; };
@@ -823,6 +829,9 @@
 		6C86B4541396B118009F6FE6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6C231C0A139AAF310056E1D5 /* MTSplashScreen.h */,
+				6C231C0B139AAF310056E1D5 /* MTSplashScreen.m */,
+				6C231C0C139AAF310056E1D5 /* MTSplashScreenDelegate.h */,
 				6C86B4571396B118009F6FE6 /* GradientButton.h */,
 				6C86B4581396B118009F6FE6 /* GradientButton.m */,
 				6C86B4591396B118009F6FE6 /* LRPopoverManager.h */,
@@ -1715,7 +1724,6 @@
 				6CED598B139817BC00E3F38D /* EGOImageLoadConnection.h in Headers */,
 				6CED598D139817BC00E3F38D /* EGOImageLoader.h in Headers */,
 				6CED598F139817BC00E3F38D /* EGOImageView.h in Headers */,
-				6CED59BE1398195C00E3F38D /* Appirater.h in Headers */,
 				6CED59FE1398289100E3F38D /* UIImage+Filtering.h in Headers */,
 				6CED5A001398289100E3F38D /* UIImage+Masking.h in Headers */,
 				6CED5A021398289100E3F38D /* UIImage+Reflection.h in Headers */,
@@ -1724,6 +1732,9 @@
 				6CED5A081398289200E3F38D /* UIImage+Saving.h in Headers */,
 				6CED5A0A1398289200E3F38D /* NYXImagesHelper.h in Headers */,
 				6CED5A0C1398289200E3F38D /* NYXImagesUtilities.h in Headers */,
+				6C231C0D139AAF310056E1D5 /* MTSplashScreen.h in Headers */,
+				6C231C0F139AAF310056E1D5 /* MTSplashScreenDelegate.h in Headers */,
+				6CED59BE1398195C00E3F38D /* Appirater.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1963,6 +1974,7 @@
 				6CED5A071398289200E3F38D /* UIImage+Rotating.m in Sources */,
 				6CED5A091398289200E3F38D /* UIImage+Saving.m in Sources */,
 				6CED5A0B1398289200E3F38D /* NYXImagesHelper.m in Sources */,
+				6C231C0E139AAF310056E1D5 /* MTSplashScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
