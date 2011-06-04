@@ -17,6 +17,7 @@
 @interface MTSplashScreen : UIViewController {
     UIImage *splashImage_;
     BOOL showsStatusBarOnDismissal_;
+    NSTimeInterval delay_;
     id<MTSplashScreenDelegate> delegate_;
 }
 
@@ -24,6 +25,8 @@
 @property (nonatomic, retain) UIImage *splashImage;
 @property (nonatomic, assign) BOOL showsStatusBarOnDismissal;
 @property (nonatomic, assign) id<MTSplashScreenDelegate> delegate;
+@property (nonatomic, assign) NSTimeInterval delay;
+
 
 + (MTSplashScreen *)splashScreen;
 
