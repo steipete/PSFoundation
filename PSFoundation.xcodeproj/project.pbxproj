@@ -12,6 +12,8 @@
 		6C231C0D139AAF310056E1D5 /* MTSplashScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C231C0A139AAF310056E1D5 /* MTSplashScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C231C0E139AAF310056E1D5 /* MTSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C231C0B139AAF310056E1D5 /* MTSplashScreen.m */; };
 		6C231C0F139AAF310056E1D5 /* MTSplashScreenDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C231C0C139AAF310056E1D5 /* MTSplashScreenDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C231C19139AB0690056E1D5 /* UIView+MTRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C231C17139AB0690056E1D5 /* UIView+MTRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C231C1A139AB0690056E1D5 /* UIView+MTRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C231C18139AB0690056E1D5 /* UIView+MTRotation.m */; };
 		6C5A77091398987A00A74A82 /* NSManagedObject+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */; };
 		6C5A770B1398987C00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8881396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		6C5A770C1398987F00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -353,6 +355,8 @@
 		6C231C0A139AAF310056E1D5 /* MTSplashScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSplashScreen.h; sourceTree = "<group>"; };
 		6C231C0B139AAF310056E1D5 /* MTSplashScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTSplashScreen.m; sourceTree = "<group>"; };
 		6C231C0C139AAF310056E1D5 /* MTSplashScreenDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSplashScreenDelegate.h; sourceTree = "<group>"; };
+		6C231C17139AB0690056E1D5 /* UIView+MTRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MTRotation.h"; sourceTree = "<group>"; };
+		6C231C18139AB0690056E1D5 /* UIView+MTRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MTRotation.m"; sourceTree = "<group>"; };
 		6C86B3791396AAE7009F6FE6 /* libPSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86B37C1396AAE7009F6FE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6C86B3801396AAE7009F6FE6 /* PSFoundation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSFoundation-Prefix.pch"; sourceTree = "<group>"; };
@@ -1340,6 +1344,8 @@
 				6C86B8E81396C744009F6FE6 /* UIView+Animation.m */,
 				6C86B8E91396C744009F6FE6 /* UIView+Hierarchy.h */,
 				6C86B8EA1396C744009F6FE6 /* UIView+Hierarchy.m */,
+				6C231C17139AB0690056E1D5 /* UIView+MTRotation.h */,
+				6C231C18139AB0690056E1D5 /* UIView+MTRotation.m */,
 				6C86B8EB1396C744009F6FE6 /* UIView+MTUIAdditions.h */,
 				6C86B8EC1396C744009F6FE6 /* UIView+MTUIAdditions.m */,
 				6C86B8ED1396C744009F6FE6 /* UIView+PSAdditions.h */,
@@ -1734,6 +1740,7 @@
 				6CED5A0C1398289200E3F38D /* NYXImagesUtilities.h in Headers */,
 				6C231C0D139AAF310056E1D5 /* MTSplashScreen.h in Headers */,
 				6C231C0F139AAF310056E1D5 /* MTSplashScreenDelegate.h in Headers */,
+				6C231C19139AB0690056E1D5 /* UIView+MTRotation.h in Headers */,
 				6CED59BE1398195C00E3F38D /* Appirater.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1975,6 +1982,7 @@
 				6CED5A091398289200E3F38D /* UIImage+Saving.m in Sources */,
 				6CED5A0B1398289200E3F38D /* NYXImagesHelper.m in Sources */,
 				6C231C0E139AAF310056E1D5 /* MTSplashScreen.m in Sources */,
+				6C231C1A139AB0690056E1D5 /* UIView+MTRotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
