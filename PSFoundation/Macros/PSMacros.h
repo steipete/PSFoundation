@@ -65,8 +65,8 @@ NS_INLINE CGFloat PSAppWidth() {
 #define HEXCOLOR(c) XHEXCOLOR(c)
 #define HexToFloats(c) XHEXCOLOR(c).CGColor
 
-#define degreesToRadian(x) (M_PI * (x) / 180.0)
-#define radianToDegrees(x) (M_PI * 180.0 / (x))
+#define MTDegreesToRadian(x) (M_PI * (x) / 180.0)
+#define MTRadianToDegrees(x) (M_PI * 180.0 / (x))
 
 // Time Macros
 #define MTTimeIntervalMilliseconds(x) (NSTimeInterval)(x / 1000.)
@@ -92,6 +92,13 @@ NS_INLINE CGFloat PSAppWidth() {
 // always nil out for viewDidUnload!
 #define MCReleaseNil(x) [x release], x = nil
 #define MCReleaseViewNil(x) do { [x removeFromSuperview], [x release], x = nil; } while (0)
+
+
+#if defined(TARGET_IPHONE_SIMULATOR) && defined(DEBUG)
+#define PSSimulateMemoryWarning() CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)@"UISimulatedMemoryWarningNotification", NULL, NULL, true);
+#else
+#define PSSimulateMemoryWarning()
+#endif
 
 
 // http://code.google.com/p/cocoalumberjack/wiki/XcodeTricks - compiles most log messages out of the release build, but not all!
