@@ -25,7 +25,7 @@
 @property (nonatomic, assign) BOOL showsStatusBarOnDismissal;
 @property (nonatomic, assign) id<MTSplashScreenDelegate> delegate;
 
-+ (MTSplashScreen *)splashscreen;
++ (MTSplashScreen *)splashScreen;
 
 - (void)hide;
 
