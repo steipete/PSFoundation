@@ -79,14 +79,20 @@ static char landscapeFrameKey;
     }
 }
 
-- (void)animateSubviewsToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [UIView animateWithDuration:duration animations:^{
-        for (UIView *view in self.subviews) {
-            if (view.hasPortraitAndLandscapeFrames) {
-                [view setFrameForInterfaceOrientation:toInterfaceOrientation];
+- (void)setSubviewFramesForInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+    [self setSubviewFramesForInterfaceOrientation:toInterfaceOrientation recursive:NO];
+}
+
+- (void)setSubviewFramesForInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation recursive:(BOOL)recursive {
+    for (UIView *view in self.subviews) {
+        if (view.hasPortraitAndLandscapeFrames) {
+            [view setFrameForInterfaceOrientation:toInterfaceOrientation];
+            
+            if (recursive) {
+                [view setSubviewFramesForInterfaceOrientation:toInterfaceOrientation recursive:recursive];
             }
         }
-    }];
+    } 
 }
 
 @end
