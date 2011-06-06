@@ -30,7 +30,8 @@ static char oldBarButtonItemKey;
     
     activityFrame.origin.x = floorl(originX);
     activityFrame.origin.y = floorl(originY);
-    
+
+    activityView.frame = activityFrame;
     activityView.tag = kMTActivityViewTag;
     
     [self.view addSubview:activityView];
