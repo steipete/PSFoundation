@@ -23,7 +23,14 @@ static char oldBarButtonItemKey;
     UIActivityIndicatorView *activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
     
     activityView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
-    activityView.center = self.view.center;
+    
+    CGRect activityFrame = activityView.frame;
+    CGFloat originX = (self.view.bounds.size.width - activityFrame.size.width) / 2; 
+    CGFloat originY = (self.view.bounds.size.height - activityFrame.size.height) / 2; 
+    
+    activityFrame.origin.x = floorl(originX);
+    activityFrame.origin.y = floorl(originY);
+    
     activityView.tag = kMTActivityViewTag;
     
     [self.view addSubview:activityView];
