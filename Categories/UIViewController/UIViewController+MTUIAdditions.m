@@ -24,7 +24,6 @@ static char oldBarButtonItemKey;
     UIActivityIndicatorView *activityView = nil;
     
     if (oldActivityView == nil) { 
-        DDLogFunction();
         UIActivityIndicatorView *activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
         
         activityView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
