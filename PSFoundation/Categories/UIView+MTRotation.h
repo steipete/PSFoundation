@@ -35,12 +35,20 @@
 - (void)setFrameForInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
 
 /**
- * Animates all subviews that support rotation (hasPortraitAndLandscapeFrames == YES) (not recursive!) 
+ * Sets the frames of all subviews that support rotation (hasPortraitAndLandscapeFrames == YES) (not recursive!) 
  * to the frame for the given interface orientation
  *
  * @param interfaceOrientation the interface orientation that specifies the frame used
- * @param duration the duration of the animation
  */
-- (void)animateSubviewsToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
+- (void)setSubviewFramesForInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation;
+
+/**
+ * Sets the frames of all subviews that support rotation (hasPortraitAndLandscapeFrames == YES)
+ * to the frame for the given interface orientation, can work recursively over whole view-hierarchy
+ *
+ * @param interfaceOrientation the interface orientation that specifies the frame used
+ * @param recursive flag that indicates if the method should be called recursively over whole view-hierarchy
+ */
+- (void)setSubviewFramesForInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation recursive:(BOOL)recursive;
 
 @end
