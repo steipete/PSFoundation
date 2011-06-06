@@ -31,7 +31,7 @@
 #import "GTMBase64.h"
 
 // Zlib utilities
-#import "NSData+zlib.h"
+#import "GTMNSData+zlib.h"
 
 // [kPSCommonCrypto] crypto stuff like MD5, SHA1, AES256
 #import "NSData+CommonCrypto.h"
@@ -117,7 +117,6 @@
 
 // NSURL ///////////////////////////////////////////////////////////////////////////////////////
 
-#import "NSURLHelper.h"
 #import "NSURL+PSFoundation.h"
 
 // UIKit //////////////////////////////////////////////////////////////////////////////////////////
@@ -142,7 +141,7 @@
 #import "UIColor+PSFoundation.h"
 
 // availableMemory, platform, isJailbroken, debugInfo
-#import "UIDeviceHelper.h"
+#import "UIDevice+PSFoundation.h"
 
 // hasAlpha, imageWithAlpha, transparentBorderImage
 #import "UIImage+Alpha.h"
@@ -177,7 +176,7 @@
 
 #import "UIView+Sizes.h"
 #import "UIView+Animation.h"
-#import "UIView+PSAdditions.m"
+#import "UIView+PSAdditions.h"
 #import "UIView+MTRotation.h"
 #import "UIView+MTUIAdditions.h"
 #import "UIView+Hierarchy.h"
