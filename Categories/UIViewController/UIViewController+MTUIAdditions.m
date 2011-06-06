@@ -20,21 +20,35 @@ static char oldBarButtonItemKey;
 @implementation UIViewController (MTUIAdditions)
 
 - (void)showLoadingIndicator {
-    UIActivityIndicatorView *activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+    id oldActivityView = [self.view viewWithTag:kMTActivityViewTag];
+    UIActivityIndicatorView *activityView = nil;
     
-    activityView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
+    if (oldActivityView == nil) { 
+        DDLogFunction();
+        UIActivityIndicatorView *activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+        
+        activityView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
+        
+        CGRect activityFrame = activityView.frame;
+        CGFloat originX = (self.view.bounds.size.width - activityFrame.size.width) / 2; 
+        CGFloat originY = (self.view.bounds.size.height - activityFrame.size.height) / 2; 
+        
+        activityFrame.origin.x = floorl(originX);
+        activityFrame.origin.y = floorl(originY);
+        
+        activityView.frame = activityFrame;
+        activityView.tag = kMTActivityViewTag;
+        
+        [self.view addSubview:activityView];
+    } 
+    // there is already a loading indicator showing
+    else {
+        if ([oldActivityView isKindOfClass:[UIActivityIndicatorView class]]) {
+            activityView = (UIActivityIndicatorView *)oldActivityView;
+        }
+    }
     
-    CGRect activityFrame = activityView.frame;
-    CGFloat originX = (self.view.bounds.size.width - activityFrame.size.width) / 2; 
-    CGFloat originY = (self.view.bounds.size.height - activityFrame.size.height) / 2; 
-    
-    activityFrame.origin.x = floorl(originX);
-    activityFrame.origin.y = floorl(originY);
-
-    activityView.frame = activityFrame;
-    activityView.tag = kMTActivityViewTag;
-    
-    [self.view addSubview:activityView];
+    [self.view bringSubviewToFront:activityView];
     [activityView startAnimating];
 }
 
