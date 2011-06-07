@@ -6,7 +6,8 @@
 	***************************************************************************/
 
 #import "JRSwizzle.h"
-#import </usr/include/objc/objc-class.h>
+//#import </usr/include/objc/objc-class.h>
+#import <objc/runtime.h>
 
 #define SetNSError(ERROR_VAR, FORMAT,...)	\
 	if (ERROR_VAR) {	\
