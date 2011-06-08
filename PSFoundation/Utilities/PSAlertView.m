@@ -13,12 +13,12 @@
 
 @synthesize alertView = view_;
 
-+ (PSAlertView *)alertWithTitle:(NSString *)title; {
-    return [[[PSAlertView alloc] initWithTitle:title message:nil] autorelease];
++ (id)alertWithTitle:(NSString *)title; {
+    return [[[self alloc] initWithTitle:title message:nil] autorelease];
 }
 
-+ (PSAlertView *)alertWithTitle:(NSString *)title message:(NSString *)message; {
-    return [[[PSAlertView alloc] initWithTitle:title message:message] autorelease];
++ (id)alertWithTitle:(NSString *)title message:(NSString *)message; {
+    return [[[self alloc] initWithTitle:title message:message] autorelease];
 }
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message {

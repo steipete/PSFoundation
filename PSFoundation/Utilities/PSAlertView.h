@@ -13,8 +13,8 @@ DEPRECATED_ATTRIBUTE @interface PSAlertView : NSObject {
 
 @property (nonatomic, retain) UIAlertView *alertView;
 
-+ (PSAlertView *)alertWithTitle:(NSString *)title;
-+ (PSAlertView *)alertWithTitle:(NSString *)title message:(NSString *)message;
++ (id)alertWithTitle:(NSString *)title;
++ (id)alertWithTitle:(NSString *)title message:(NSString *)message;
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message;
 
