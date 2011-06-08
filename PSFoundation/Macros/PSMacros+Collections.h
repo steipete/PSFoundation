@@ -1,10 +1,11 @@
 //
-//  MACollectionUtilities.h
+//  PSMacros-Collections.h
 //  PSFoundation
 //
-//  Created by Michael Ash on 10/11/2010.
-//  Distributed under a BSD license.  All rights reserved.
-//  https://github.com/mikeash/MACollectionUtilities
+//  Includes code by the following:
+//   - Michael Ash.       2010. BSD.
+//   - Dirk Holtwick.
+//   - Peter Steinberger. 2010. BSD.
 //
 
 #import "NSArray+BlocksKit.h"
@@ -47,3 +48,12 @@ static inline NSDictionary *MADictionaryWithKeysAndObjects(id *keysAndObjs, NSUI
     
     return [NSDictionary dictionaryWithObjects: objs forKeys: keys count: count];
 }
+
+// collection shortcuts
+#define XDEFAULT(_value, _default) ([[NSNull null] isEqual:(_value)] ? (_default) : (_value))
+#define XFMT(...) [NSString stringWithFormat: __VA_ARGS__]
+#define XARRAY(...) [NSArray arrayWithObjects: __VA_ARGS__, nil]
+#define XSET(...) [NSSet setWithObjects: __VA_ARGS__, nil]
+#define XDICT(...) [NSDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
+#define XMARRAY(...) [NSMutableArray arrayWithObjects: __VA_ARGS__, nil]
+#define XMDICT(...) [NSMutableDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]

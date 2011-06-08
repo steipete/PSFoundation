@@ -6,13 +6,13 @@
 //
 
 #import "NilCategories.h"
-#import "MACollectionMacros.h"
+#include "PSMacros+Collections.h"
+#include "PSMacros+Geometry.h"
 
 // compiler help
 #define INVALIDATE_TIMER(__TIMER) { [__TIMER invalidate]; __TIMER = nil; }
 #define VERIFIED_CLASS(className) ((className *) NSClassFromString(@"" # className))
 
-#define STRING_IS_EMPTY_OR_NIL( _STRING ) string.empty
 static inline BOOL IsEmpty(id thing) {
     if ([thing respondsToSelector:@selector(isEmpty)]) {
         return [thing isEmpty];
@@ -20,40 +20,14 @@ static inline BOOL IsEmpty(id thing) {
 	return (!thing);
 }
 
-// CGRect
-#define PSRectClearCoords(_CGRECT) CGRectMake(0, 0, _CGRECT.size.width, _CGRECT.size.height)
-#define CGRectClearCoords(_CGRECT) PSRectClearCoords(_CGRECT) // legacy
-
-// portrait/landscape corrected screen bounds
-#define PSAppStatusBarOrientation ([[UIApplication sharedApplication] statusBarOrientation])
-#define PSIsPortrait()  UIInterfaceOrientationIsPortrait(PSAppStatusBarOrientation)
-#define PSIsLandscape() UIInterfaceOrientationIsLandscape(PSAppStatusBarOrientation)
-#define UIInterfaceOrientationsAreCounterpart(o1,o2) (UIInterfaceOrientationIsPortrait(o1) && UIInterfaceOrientationIsPortrait(o2) || UIInterfaceOrientationIsLandscape(o1) && UIInterfaceOrientationIsLandscape(o2))
-
-NS_INLINE CGRect PSScreenBounds() {
-    CGRect bounds = [UIScreen mainScreen].bounds;
-    if (PSIsLandscape()) {
-        bounds.size.width = [UIScreen mainScreen].bounds.size.height;
-        bounds.size.height = [UIScreen mainScreen].bounds.size.width;
-    }
-    return bounds;
-}
-
-NS_INLINE CGFloat PSAppWidth() {
-    if (PSIsPortrait()) {
-        return [UIScreen mainScreen].bounds.size.width;
-    } else {
-        return [UIScreen mainScreen].bounds.size.height;
-    }
-}
-
 // file management
 #define NSDocumentsFolder() [NSFileManager documentsFolder]
-#define MTDocumentsDirectory() [NSFileManager documentsFolder]
+#define PSDocumentsFolder() [NSFileManager documentsFolder]
 #define NSLibraryFolder() [NSFileManager libraryFolder]
+#define PSLibraryFolder() [NSFileManager libraryFolder]
 #define NSBundleFolder() [NSFileManager bundleFolder]
-#define MTGetFullPath(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
-
+#define PSBundleFolder() [NSFileManager bundleFolder]
+#define PSGetFullPath(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
 
 // color
 #define SETTINGS_TEXT_COLOR	RGBCOLOR(57, 85, 135)
@@ -65,15 +39,15 @@ NS_INLINE CGFloat PSAppWidth() {
 #define HEXCOLOR(c) XHEXCOLOR(c)
 #define HexToFloats(c) XHEXCOLOR(c).CGColor
 
-#define MTDegreesToRadian(x) (M_PI * (x) / 180.0)
-#define MTRadianToDegrees(x) (M_PI * 180.0 / (x))
+#define PSDegreesToRadian(x) (M_PI * (x) / 180.0)
+#define PSRadianToDegrees(x) (M_PI * 180.0 / (x))
 
 // Time Macros
-#define MTTimeIntervalMilliseconds(x) (NSTimeInterval)(x / 1000.)
-#define MTTimeIntervalSeconds(x) (NSTimeInterval)x
-#define MTTimeIntervalMinutes(x) (NSTimeInterval)(x * 60.)
-#define MTTimeIntervalHours(x) (NSTimeInterval)(x * 3600.)
-#define MTTimeIntervalDays(x) (NSTimeInterval)(x * 3600. * 24.)
+#define PSTimeIntervalMilliseconds(x) (NSTimeInterval)(x / 1000.)
+#define PSTimeIntervalSeconds(x) (NSTimeInterval)x
+#define PSTimeIntervalMinutes(x) (NSTimeInterval)(x * 60.)
+#define PSTimeIntervalHours(x) (NSTimeInterval)(x * 3600.)
+#define PSTimeIntervalDays(x) (NSTimeInterval)(x * 3600. * 24.)
 
 // Short hand NSLocalizedString
 #define LocalizedString(s) NSLocalizedString(s,s)
@@ -191,14 +165,6 @@ __VA_ARGS__;                            \
 #define $F(value) XFLOAT(value)
 #define $B(value) XBOOL(value)
 #define $S(...)   [NSString stringWithFormat: __VA_ARGS__]
-
-// collection shortcuts
-#define XDEFAULT(_value, _default) ([[NSNull null] isEqual:(_value)] ? (_default) : (_value))
-#define XFMT(...) [NSString stringWithFormat: __VA_ARGS__]
-#define XARRAY(...) [NSArray arrayWithObjects: __VA_ARGS__, nil]
-#define XDICT(...) [NSDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
-#define XMARRAY(...) [NSMutableArray arrayWithObjects: __VA_ARGS__, nil]
-#define XMDICT(...) [NSMutableDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
 
 #define XMCOPY(_obj) [[_obj mutableCopy] autorelease]
 #define xcopy(_obj) [[_obj copy] autorelease]
