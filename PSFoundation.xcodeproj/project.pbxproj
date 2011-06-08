@@ -18,6 +18,7 @@
 		6C5A770B1398987C00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8881396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		6C5A770C1398987F00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5A770D1398988000A74A82 /* NSManagedObject+AutoDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8851396C744009F6FE6 /* NSManagedObject+AutoDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C75067B139F3BC10092D6C4 /* PSMacros+Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C75067A139F3BC10092D6C4 /* PSMacros+Geometry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B37D1396AAE7009F6FE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C86B37C1396AAE7009F6FE6 /* Foundation.framework */; };
 		6C86B4071396B0CD009F6FE6 /* SoundEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3D21396B0CD009F6FE6 /* SoundEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4081396B0CD009F6FE6 /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B3D31396B0CD009F6FE6 /* SoundEffect.m */; };
@@ -154,7 +155,7 @@
 		6C86B85A1396B56E009F6FE6 /* UIView+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8361396B56E009F6FE6 /* UIView+BlocksKit.m */; };
 		6C86B85B1396B56E009F6FE6 /* UIWebView+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8371396B56E009F6FE6 /* UIWebView+BlocksKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B85C1396B56E009F6FE6 /* UIWebView+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8381396B56E009F6FE6 /* UIWebView+BlocksKit.m */; };
-		6C86B85E1396B751009F6FE6 /* MACollectionMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B85D1396B751009F6FE6 /* MACollectionMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B85E1396B751009F6FE6 /* PSMacros+Collections.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B85D1396B751009F6FE6 /* PSMacros+Collections.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B8FC1396C744009F6FE6 /* GTMBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B85F1396C744009F6FE6 /* GTMBase64.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B8FD1396C744009F6FE6 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8601396C744009F6FE6 /* GTMBase64.m */; };
 		6C86B8FE1396C744009F6FE6 /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8611396C744009F6FE6 /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -357,6 +358,7 @@
 		6C231C0C139AAF310056E1D5 /* MTSplashScreenDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTSplashScreenDelegate.h; sourceTree = "<group>"; };
 		6C231C17139AB0690056E1D5 /* UIView+MTRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MTRotation.h"; sourceTree = "<group>"; };
 		6C231C18139AB0690056E1D5 /* UIView+MTRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MTRotation.m"; sourceTree = "<group>"; };
+		6C75067A139F3BC10092D6C4 /* PSMacros+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSMacros+Geometry.h"; sourceTree = "<group>"; };
 		6C86B3791396AAE7009F6FE6 /* libPSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86B37C1396AAE7009F6FE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6C86B3801396AAE7009F6FE6 /* PSFoundation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSFoundation-Prefix.pch"; sourceTree = "<group>"; };
@@ -495,7 +497,7 @@
 		6C86B8361396B56E009F6FE6 /* UIView+BlocksKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BlocksKit.m"; sourceTree = "<group>"; };
 		6C86B8371396B56E009F6FE6 /* UIWebView+BlocksKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+BlocksKit.h"; sourceTree = "<group>"; };
 		6C86B8381396B56E009F6FE6 /* UIWebView+BlocksKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+BlocksKit.m"; sourceTree = "<group>"; };
-		6C86B85D1396B751009F6FE6 /* MACollectionMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACollectionMacros.h; sourceTree = "<group>"; };
+		6C86B85D1396B751009F6FE6 /* PSMacros+Collections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSMacros+Collections.h"; sourceTree = "<group>"; };
 		6C86B85F1396C744009F6FE6 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		6C86B8601396C744009F6FE6 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		6C86B8611396C744009F6FE6 /* GTMNSData+zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GTMNSData+zlib.h"; sourceTree = "<group>"; };
@@ -863,7 +865,8 @@
 			children = (
 				6C86B4A21396B129009F6FE6 /* PSMacros.h */,
 				6C86B4A31396B129009F6FE6 /* SynthesizeSingleton.h */,
-				6C86B85D1396B751009F6FE6 /* MACollectionMacros.h */,
+				6C86B85D1396B751009F6FE6 /* PSMacros+Collections.h */,
+				6C75067A139F3BC10092D6C4 /* PSMacros+Geometry.h */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -1639,7 +1642,7 @@
 				6C86B8571396B56E009F6FE6 /* UIGestureRecognizer+BlocksKit.h in Headers */,
 				6C86B8591396B56E009F6FE6 /* UIView+BlocksKit.h in Headers */,
 				6C86B85B1396B56E009F6FE6 /* UIWebView+BlocksKit.h in Headers */,
-				6C86B85E1396B751009F6FE6 /* MACollectionMacros.h in Headers */,
+				6C86B85E1396B751009F6FE6 /* PSMacros+Collections.h in Headers */,
 				6C86B8FC1396C744009F6FE6 /* GTMBase64.h in Headers */,
 				6C86B8FE1396C744009F6FE6 /* GTMNSData+zlib.h in Headers */,
 				6C86B9041396C744009F6FE6 /* MACollectionUtilities.h in Headers */,
@@ -1737,6 +1740,7 @@
 				6CED5A061398289100E3F38D /* UIImage+Rotating.h in Headers */,
 				6CED5A081398289200E3F38D /* UIImage+Saving.h in Headers */,
 				6CED5A0A1398289200E3F38D /* NYXImagesHelper.h in Headers */,
+				6C75067B139F3BC10092D6C4 /* PSMacros+Geometry.h in Headers */,
 				6CED5A0C1398289200E3F38D /* NYXImagesUtilities.h in Headers */,
 				6C231C0D139AAF310056E1D5 /* MTSplashScreen.h in Headers */,
 				6C231C0F139AAF310056E1D5 /* MTSplashScreenDelegate.h in Headers */,

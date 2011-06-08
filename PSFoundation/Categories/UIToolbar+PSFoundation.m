@@ -8,7 +8,6 @@
 //
 
 #import "UIView+Sizes.h"
-#import "MACollectionMacros.h"
 
 @implementation UIToolbar (PSFoundation)
 
