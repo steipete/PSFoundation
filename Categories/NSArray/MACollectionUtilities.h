@@ -59,7 +59,7 @@
         return MA_retval; \
     }())
 
-static inline NSDictionary *MADictionaryWithKeysAndObjects(id *keysAndObjs, NSUInteger count)
+static inline NSDictionary *MADictionaryWithKeysAndObjects(id const *keysAndObjs, NSUInteger count)
 {
     id keys[count];
     id objs[count];
