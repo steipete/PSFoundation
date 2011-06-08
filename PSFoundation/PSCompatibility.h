@@ -47,6 +47,29 @@
 #define kCFCoreFoundationVersionNumber_iOS_4_2 550.52
 #endif
 
+#ifndef kCFCoreFoundationVersionNumber_iOS_5_0
+#define kCFCoreFoundationVersionNumber_iOS_5_0 661.00
+#endif
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 50000
+#define IF_IOS5_OR_GREATER(...) \
+if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_5_0) { \
+__VA_ARGS__ \
+}
+#define IS_GTE_IOS5 (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_5_0)
+#else
+#define IF_IOS5_OR_GREATER(...)
+#define IS_GTE_IOS5 0
+#endif
+
+#define IF_PRE_5_0(...) \
+if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iOS_5_0) { \
+__VA_ARGS__ \
+}
+#define IS_LT_IOS50 (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iOS_5_0)
+
+
+
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40200
 #define IF_IOS42_OR_GREATER(...) \
 if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_4_2) { \
