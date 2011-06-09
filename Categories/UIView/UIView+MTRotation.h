@@ -20,6 +20,14 @@
 
 
 /**
+ * Returns the frame set for the given interface orientation
+ * 
+ * @param interfaceOrientation the interface orientation that is used the determine the frame
+ * @return the frame that is set for the given interface orientation
+ */
+- (CGRect)frameForInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation;
+
+/**
  * Animates the frame to the frame for the given interface orientation
  *
  * @param toInterfaceOrientation the interface orientation that specifies the frame used
