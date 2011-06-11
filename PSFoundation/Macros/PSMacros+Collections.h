@@ -21,12 +21,6 @@
 // this is key/object order, not object/key order, thus all the fuss
 #define DICT(...) MADictionaryWithKeysAndObjects(IDARRAY(__VA_ARGS__), IDCOUNT(__VA_ARGS__) / 2)
 
-#define MAP(collection, ...) EACH_WRAPPER([collection map: ^id (id obj) { return (__VA_ARGS__); }])
-#define SELECT(collection, ...) EACH_WRAPPER([collection select: ^BOOL (id obj) { return (__VA_ARGS__); }])
-#define REJECT(collection, ...) EACH_WRAPPER([collection reject: ^BOOL (id obj) { return (__VA_ARGS__); }])
-#define MATCH(collection, ...) EACH_WRAPPER([collection match: ^BOOL (id obj) { return (__VA_ARGS__); }])
-#define REDUCE(collection, initial, ...) EACH_WRAPPER([collection reduce: (initial) block: ^id (id a, id b) { return (__VA_ARGS__); }])
-
 #define IDARRAY(...) ((id[]){ __VA_ARGS__ })
 #define IDCOUNT(...) (sizeof(IDARRAY(__VA_ARGS__)) / sizeof(id))
 #define EACH_WRAPPER(...) (^{ __block CFMutableDictionaryRef MA_eachTable = nil; \
