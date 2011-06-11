@@ -20,7 +20,7 @@
 /// @override
 - (PSGenericView *)initCellView {
   //[self doesNotRecognizeSelector:_cmd];
-  return nil;
+  return [PSGenericView new];
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
