@@ -16,7 +16,7 @@
 #import "MBProgressHUD.h"
 #import "MAZeroingWeakRef.h"
 #import "TDSemiModal.h"
-// not including appirator
+// not including appirater
 #import "EGOCache.h"
 #import "EGOCache+MTCollections.h"
 #import "EGOImageView.h"
