@@ -11,8 +11,8 @@
 #import "Reachability.h"
 
 @interface Reachability ()
-- (id)initWithReachabilityRef:(SCNetworkReachabilityRef)ref;
-- (NetworkStatus)_networkStatusForFlags:(SCNetworkReachabilityFlags)flags;
+- (id)initWithReachability:(SCNetworkReachabilityRef)ref;
+- (NetworkStatus)networkStatusForFlags:(SCNetworkReachabilityFlags)flags;
 @end
 
 NSString* const kReachabilityChangedNotification = @"SCNetworkReachabilityChangedNotification";
@@ -39,7 +39,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     [super dealloc];
 }
 
-- (Reachability *)initWithReachabilityRef:(SCNetworkReachabilityRef)ref {
+- (Reachability *)initWithReachability:(SCNetworkReachabilityRef)ref {
     if ((self = [super init])) {
         reachabilityRef = ref;
     }
@@ -49,14 +49,14 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 + (Reachability *)reachabilityWithHostName:(NSString *)hostName {
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, [hostName UTF8String]);
     if (reachability)
-        return [[[self alloc] initWithReachabilityRef:reachability] autorelease];
+        return [[[self alloc] initWithReachability:reachability] autorelease];
     return nil;
 }
 
 + (Reachability *)reachabilityWithAddress:(const struct sockaddr_in*)hostAddress {
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(NULL, (const struct sockaddr*)hostAddress);
     if (reachability)
-        return [[[self alloc] initWithReachabilityRef:reachability] autorelease];
+        return [[[self alloc] initWithReachability:reachability] autorelease];
     return nil;
 }
 
@@ -168,7 +168,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     return 0;
 }
 
-- (NetworkStatus)_networkStatusForFlags:(SCNetworkReachabilityFlags)flags {
+- (NetworkStatus)networkStatusForFlags:(SCNetworkReachabilityFlags)flags {
     if (!(flags & kSCNetworkReachabilityFlagsReachable))
         return NotReachable;
     

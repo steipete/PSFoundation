@@ -1,6 +1,6 @@
 //
-// Reachability.h
-// PSFoundation
+//  Reachability.h
+//  PSFoundation
 //
 //  Includes code by the following:
 //   - Apple Inc.         2010.  Apple Sample.
@@ -21,6 +21,7 @@ typedef enum {
 extern NSString* const kReachabilityChangedNotification;
 
 @interface Reachability : NSObject {
+@private
     SCNetworkReachabilityRef reachabilityRef;
 }
 
