@@ -56,16 +56,14 @@
 
 static void SoundEffectAutoDestruction(SystemSoundID soundID, void *userInfo) {
     AudioServicesDisposeSystemSoundID(soundID);
-    SoundEffect *instance = (SoundEffect *)userInfo;
-    [instance release];
-    instance = nil;
 }
 
 + (void)playSoundEffectWithContentsOfFile:(NSString *)path {
     if (!path.empty) {
         SoundEffect *instance = [[SoundEffect alloc] initWithContentsOfFile:path];
-        AudioServicesAddSystemSoundCompletion(instance->_soundID, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode, SoundEffectAutoDestruction, self);
+        AudioServicesAddSystemSoundCompletion(instance->_soundID, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode, SoundEffectAutoDestruction, NULL);
         [instance play];
+        [instance autorelease];
     }
 }
 
