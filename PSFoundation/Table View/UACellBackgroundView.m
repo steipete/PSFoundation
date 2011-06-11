@@ -4,19 +4,17 @@
 //
 //  Created by Matt Coneybeare on 1/31/10.
 //  Copyright 2010 Urban Apps LLC. All rights reserved.
-//  Code from http://gist.github.com/292384, free to use
+//  Code from http://gist.github.com/292384
+//
 
 #define TABLE_CELL_BACKGROUND    { 1, 1, 1, 1, 0.866, 0.866, 0.866, 1}			// #FFFFFF and #DDDDDD
 #define kDefaultMargin           10
 
 #import "UACellBackgroundView.h"
 
-static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWidth,float ovalHeight);
-
 @implementation UACellBackgroundView
 
 @synthesize position, backgroundImage;
-
 
 - (id)initWithFrame:(CGRect)frame {
 	if ((self = [super initWithFrame:frame])) {
@@ -177,29 +175,3 @@ static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWi
 }
 
 @end
-
-static void addRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWidth,float ovalHeight) {
-	float fw, fh;
-
-	if (ovalWidth == 0 || ovalHeight == 0) {// 1
-		CGContextAddRect(context, rect);
-		return;
-	}
-
-	CGContextSaveGState(context);// 2
-
-	CGContextTranslateCTM (context, CGRectGetMinX(rect),// 3
-						   CGRectGetMinY(rect));
-	CGContextScaleCTM (context, ovalWidth, ovalHeight);// 4
-	fw = CGRectGetWidth (rect) / ovalWidth;// 5
-	fh = CGRectGetHeight (rect) / ovalHeight;// 6
-
-	CGContextMoveToPoint(context, fw, fh/2); // 7
-	CGContextAddArcToPoint(context, fw, fh, fw/2, fh, 1);// 8
-	CGContextAddArcToPoint(context, 0, fh, 0, fh/2, 1);// 9
-	CGContextAddArcToPoint(context, 0, 0, fw/2, 0, 1);// 10
-	CGContextAddArcToPoint(context, fw, 0, fw, fh/2, 1); // 11
-	CGContextClosePath(context);// 12
-
-	CGContextRestoreGState(context);// 13
-}
