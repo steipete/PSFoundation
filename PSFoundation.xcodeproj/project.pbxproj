@@ -2018,15 +2018,11 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				PRIVATE_HEADERS_FOLDER_PATH = PSFoundation;
-				PUBLIC_HEADERS_FOLDER_PATH = PSFoundation;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2040,10 +2036,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
-				PRIVATE_HEADERS_FOLDER_PATH = PSFoundation;
-				PUBLIC_HEADERS_FOLDER_PATH = PSFoundation;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -2056,7 +2049,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSFoundation/PSFoundation-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
 		};
@@ -2068,7 +2064,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSFoundation/PSFoundation-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Release;
 		};
@@ -2080,7 +2079,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSFoundation/PSFoundation-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
 				PRODUCT_NAME = "PSFoundation-CoreData";
+				PUBLIC_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
 			};
 			name = Debug;
 		};
@@ -2092,7 +2093,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSFoundation/PSFoundation-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
 				PRODUCT_NAME = "PSFoundation-CoreData";
+				PUBLIC_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
 			};
 			name = Release;
 		};

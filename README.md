@@ -46,7 +46,7 @@ _If you use [https://github.com/zwaldowski/BlocksKit](BlocksKit), it must be rem
 3. Clone all submodules: ````git submodule update --init````
 4.  Click-and-drag PSFoundation.xcodoeproj into your project or workspace.
 5.  Enter your target's settings and add PSFoundation (and any the CoreData/CoreLocation derivatives) to "Target Dependencies", then add libPSFoundation.a **(iOS)** or libPSFoundation.dylib **(Mac)** to "Link Binary with Libraries".
-6.  Add `$(BUILT_PRODUCTS_DIR)/PSFoundation` to "Header Search Paths".
+6.  Add `$(BUILT_PRODUCTS_DIR)/../PSFoundation/**` to "Header Search Paths".
 7.  **(iOS only):**  Add (or replace) "All Linker Flags" in your project with `-ObjC -all_load`.
 8.  **(iOS only):**  Link your project against the following frameworks:
   * SystemConfiguration
@@ -59,7 +59,9 @@ _If you use [https://github.com/zwaldowski/BlocksKit](BlocksKit), it must be rem
   * MobilecoreServices
   * libz.1.dylib
   * CoreData (_libPSFoundation-CoreData only_)
-9.  `#import <PSFoundation.h>` in any file in your project.  _It is not recommended to include PSFoundation in your prefix header.
+9.  `#import "PSFoundation/PSFoundation.h"` in any file in your project.  _It is not recommended to include PSFoundation in your prefix header._
+  * The subdirectory requirement is a bug with Xcode.
+  * For the CoreData library, you would `#import "PSFoundation/PSFoundation_CoreData.h"`.
 
 License
 =======
