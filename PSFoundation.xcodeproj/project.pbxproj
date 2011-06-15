@@ -164,12 +164,12 @@
 		6C86B9051396C744009F6FE6 /* MACollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8681396C744009F6FE6 /* MACollectionUtilities.m */; };
 		6C86B9061396C744009F6FE6 /* NilCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8691396C744009F6FE6 /* NilCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9071396C744009F6FE6 /* NilCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B86A1396C744009F6FE6 /* NilCategories.m */; };
-		6C86B9081396C744009F6FE6 /* NSArray-Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B86B1396C744009F6FE6 /* NSArray-Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9091396C744009F6FE6 /* NSArray-Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B86C1396C744009F6FE6 /* NSArray-Utilities.m */; };
+		6C86B9081396C744009F6FE6 /* NSArray+Filtering.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B86B1396C744009F6FE6 /* NSArray+Filtering.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B9091396C744009F6FE6 /* NSArray+Filtering.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B86C1396C744009F6FE6 /* NSArray+Filtering.m */; };
 		6C86B90A1396C744009F6FE6 /* NSArray+Linq.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B86D1396C744009F6FE6 /* NSArray+Linq.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B90B1396C744009F6FE6 /* NSArray+Linq.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B86E1396C744009F6FE6 /* NSArray+Linq.m */; };
-		6C86B90C1396C744009F6FE6 /* NSArrayHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B86F1396C744009F6FE6 /* NSArrayHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B90D1396C744009F6FE6 /* NSArrayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8701396C744009F6FE6 /* NSArrayHelper.m */; };
+		6C86B90C1396C744009F6FE6 /* NSArray+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B86F1396C744009F6FE6 /* NSArray+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B90D1396C744009F6FE6 /* NSArray+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8701396C744009F6FE6 /* NSArray+PSFoundation.m */; };
 		6C86B90E1396C744009F6FE6 /* NSData+CommonCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8711396C744009F6FE6 /* NSData+CommonCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B90F1396C744009F6FE6 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8721396C744009F6FE6 /* NSData+CommonCrypto.m */; };
 		6C86B9101396C744009F6FE6 /* NSData+MTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8731396C744009F6FE6 /* NSData+MTAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -188,10 +188,8 @@
 		6C86B91F1396C744009F6FE6 /* NSError+SCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8821396C744009F6FE6 /* NSError+SCMethods.m */; };
 		6C86B9201396C744009F6FE6 /* NSFileManager+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8831396C744009F6FE6 /* NSFileManager+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B9211396C744009F6FE6 /* NSFileManager+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8841396C744009F6FE6 /* NSFileManager+PSFoundation.m */; };
-		6C86B9261396C744009F6FE6 /* NSMutableArray+MTShuffle.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8891396C744009F6FE6 /* NSMutableArray+MTShuffle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9271396C744009F6FE6 /* NSMutableArray+MTShuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B88A1396C744009F6FE6 /* NSMutableArray+MTShuffle.m */; };
-		6C86B9281396C744009F6FE6 /* NSMutableArray+SCQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B88B1396C744009F6FE6 /* NSMutableArray+SCQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B9291396C744009F6FE6 /* NSMutableArray+SCQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B88C1396C744009F6FE6 /* NSMutableArray+SCQueue.m */; };
+		6C86B9281396C744009F6FE6 /* NSArray+Structures.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B88B1396C744009F6FE6 /* NSArray+Structures.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C86B9291396C744009F6FE6 /* NSArray+Structures.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B88C1396C744009F6FE6 /* NSArray+Structures.m */; };
 		6C86B92A1396C744009F6FE6 /* NSString+URL.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B88D1396C744009F6FE6 /* NSString+URL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B92B1396C744009F6FE6 /* NSString+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B88E1396C744009F6FE6 /* NSString+URL.m */; };
 		6C86B92C1396C744009F6FE6 /* NSNotification+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B88F1396C744009F6FE6 /* NSNotification+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -506,12 +504,12 @@
 		6C86B8681396C744009F6FE6 /* MACollectionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACollectionUtilities.m; sourceTree = "<group>"; };
 		6C86B8691396C744009F6FE6 /* NilCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NilCategories.h; sourceTree = "<group>"; };
 		6C86B86A1396C744009F6FE6 /* NilCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NilCategories.m; sourceTree = "<group>"; };
-		6C86B86B1396C744009F6FE6 /* NSArray-Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray-Utilities.h"; sourceTree = "<group>"; };
-		6C86B86C1396C744009F6FE6 /* NSArray-Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray-Utilities.m"; sourceTree = "<group>"; };
+		6C86B86B1396C744009F6FE6 /* NSArray+Filtering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Filtering.h"; sourceTree = "<group>"; };
+		6C86B86C1396C744009F6FE6 /* NSArray+Filtering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Filtering.m"; sourceTree = "<group>"; };
 		6C86B86D1396C744009F6FE6 /* NSArray+Linq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Linq.h"; sourceTree = "<group>"; };
 		6C86B86E1396C744009F6FE6 /* NSArray+Linq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Linq.m"; sourceTree = "<group>"; };
-		6C86B86F1396C744009F6FE6 /* NSArrayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayHelper.h; sourceTree = "<group>"; };
-		6C86B8701396C744009F6FE6 /* NSArrayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayHelper.m; sourceTree = "<group>"; };
+		6C86B86F1396C744009F6FE6 /* NSArray+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PSFoundation.h"; sourceTree = "<group>"; };
+		6C86B8701396C744009F6FE6 /* NSArray+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PSFoundation.m"; sourceTree = "<group>"; };
 		6C86B8711396C744009F6FE6 /* NSData+CommonCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+CommonCrypto.h"; sourceTree = "<group>"; };
 		6C86B8721396C744009F6FE6 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
 		6C86B8731396C744009F6FE6 /* NSData+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MTAdditions.h"; sourceTree = "<group>"; };
@@ -534,10 +532,8 @@
 		6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObject+AutoDescription.m"; path = "PSFoundation/Core Data/NSManagedObject+AutoDescription.m"; sourceTree = SOURCE_ROOT; };
 		6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSManagedObjectContext+FetchedObjectFromURI.h"; path = "PSFoundation/Core Data/NSManagedObjectContext+FetchedObjectFromURI.h"; sourceTree = SOURCE_ROOT; };
 		6C86B8881396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+FetchedObjectFromURI.m"; path = "PSFoundation/Core Data/NSManagedObjectContext+FetchedObjectFromURI.m"; sourceTree = SOURCE_ROOT; };
-		6C86B8891396C744009F6FE6 /* NSMutableArray+MTShuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+MTShuffle.h"; sourceTree = "<group>"; };
-		6C86B88A1396C744009F6FE6 /* NSMutableArray+MTShuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+MTShuffle.m"; sourceTree = "<group>"; };
-		6C86B88B1396C744009F6FE6 /* NSMutableArray+SCQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SCQueue.h"; sourceTree = "<group>"; };
-		6C86B88C1396C744009F6FE6 /* NSMutableArray+SCQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SCQueue.m"; sourceTree = "<group>"; };
+		6C86B88B1396C744009F6FE6 /* NSArray+Structures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Structures.h"; sourceTree = "<group>"; };
+		6C86B88C1396C744009F6FE6 /* NSArray+Structures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Structures.m"; sourceTree = "<group>"; };
 		6C86B88D1396C744009F6FE6 /* NSString+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URL.h"; sourceTree = "<group>"; };
 		6C86B88E1396C744009F6FE6 /* NSString+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URL.m"; sourceTree = "<group>"; };
 		6C86B88F1396C744009F6FE6 /* NSNotification+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotification+PSFoundation.h"; sourceTree = "<group>"; };
@@ -949,7 +945,6 @@
 				6C86BC7813973667009F6FE6 /* Collections */,
 				6C86BC79139736E4009F6FE6 /* NSData */,
 				6CED58EE1397399500E3F38D /* NSDate */,
-				6CED58EF139739B200E3F38D /* NSError */,
 				6CED58F0139739B900E3F38D /* NSFileManager */,
 				6CED58F1139739BE00E3F38D /* NSNotification */,
 				6CED58F2139739C000E3F38D /* NSNumber */,
@@ -1158,18 +1153,16 @@
 			children = (
 				6C86B8671396C744009F6FE6 /* MACollectionUtilities.h */,
 				6C86B8681396C744009F6FE6 /* MACollectionUtilities.m */,
-				6C86B86B1396C744009F6FE6 /* NSArray-Utilities.h */,
-				6C86B86C1396C744009F6FE6 /* NSArray-Utilities.m */,
+				6C86B86B1396C744009F6FE6 /* NSArray+Filtering.h */,
+				6C86B86C1396C744009F6FE6 /* NSArray+Filtering.m */,
 				6C86B86D1396C744009F6FE6 /* NSArray+Linq.h */,
 				6C86B86E1396C744009F6FE6 /* NSArray+Linq.m */,
-				6C86B86F1396C744009F6FE6 /* NSArrayHelper.h */,
-				6C86B8701396C744009F6FE6 /* NSArrayHelper.m */,
+				6C86B86F1396C744009F6FE6 /* NSArray+PSFoundation.h */,
+				6C86B8701396C744009F6FE6 /* NSArray+PSFoundation.m */,
 				6C86B87D1396C744009F6FE6 /* NSDictionary+CGStructs.h */,
 				6C86B87E1396C744009F6FE6 /* NSDictionary+CGStructs.m */,
-				6C86B8891396C744009F6FE6 /* NSMutableArray+MTShuffle.h */,
-				6C86B88A1396C744009F6FE6 /* NSMutableArray+MTShuffle.m */,
-				6C86B88B1396C744009F6FE6 /* NSMutableArray+SCQueue.h */,
-				6C86B88C1396C744009F6FE6 /* NSMutableArray+SCQueue.m */,
+				6C86B88B1396C744009F6FE6 /* NSArray+Structures.h */,
+				6C86B88C1396C744009F6FE6 /* NSArray+Structures.m */,
 			);
 			name = Collections;
 			sourceTree = "<group>";
@@ -1194,6 +1187,7 @@
 		6CED58EE1397399500E3F38D /* NSDate */ = {
 			isa = PBXGroup;
 			children = (
+				6CED58EF139739B200E3F38D /* NSError */,
 				6C86B8771396C744009F6FE6 /* NSDate+Utilities.h */,
 				6C86B8781396C744009F6FE6 /* NSDate+Utilities.m */,
 				6C86B8791396C744009F6FE6 /* NSDate+MTAdditions.h */,
@@ -1647,9 +1641,9 @@
 				6C86B8FE1396C744009F6FE6 /* GTMNSData+zlib.h in Headers */,
 				6C86B9041396C744009F6FE6 /* MACollectionUtilities.h in Headers */,
 				6C86B9061396C744009F6FE6 /* NilCategories.h in Headers */,
-				6C86B9081396C744009F6FE6 /* NSArray-Utilities.h in Headers */,
+				6C86B9081396C744009F6FE6 /* NSArray+Filtering.h in Headers */,
 				6C86B90A1396C744009F6FE6 /* NSArray+Linq.h in Headers */,
-				6C86B90C1396C744009F6FE6 /* NSArrayHelper.h in Headers */,
+				6C86B90C1396C744009F6FE6 /* NSArray+PSFoundation.h in Headers */,
 				6C86B90E1396C744009F6FE6 /* NSData+CommonCrypto.h in Headers */,
 				6C86B9101396C744009F6FE6 /* NSData+MTAdditions.h in Headers */,
 				6C86B9121396C744009F6FE6 /* NSData+RSHexDump.h in Headers */,
@@ -1659,8 +1653,7 @@
 				6C86B91A1396C744009F6FE6 /* NSDictionary+CGStructs.h in Headers */,
 				6C86B91E1396C744009F6FE6 /* NSError+SCMethods.h in Headers */,
 				6C86B9201396C744009F6FE6 /* NSFileManager+PSFoundation.h in Headers */,
-				6C86B9261396C744009F6FE6 /* NSMutableArray+MTShuffle.h in Headers */,
-				6C86B9281396C744009F6FE6 /* NSMutableArray+SCQueue.h in Headers */,
+				6C86B9281396C744009F6FE6 /* NSArray+Structures.h in Headers */,
 				6C86B92A1396C744009F6FE6 /* NSString+URL.h in Headers */,
 				6C86B92C1396C744009F6FE6 /* NSNotification+PSFoundation.h in Headers */,
 				6C86B92E1396C744009F6FE6 /* NSNumber+PSFoundation.h in Headers */,
@@ -1895,9 +1888,9 @@
 				6C86B8FF1396C744009F6FE6 /* GTMNSData+zlib.m in Sources */,
 				6C86B9051396C744009F6FE6 /* MACollectionUtilities.m in Sources */,
 				6C86B9071396C744009F6FE6 /* NilCategories.m in Sources */,
-				6C86B9091396C744009F6FE6 /* NSArray-Utilities.m in Sources */,
+				6C86B9091396C744009F6FE6 /* NSArray+Filtering.m in Sources */,
 				6C86B90B1396C744009F6FE6 /* NSArray+Linq.m in Sources */,
-				6C86B90D1396C744009F6FE6 /* NSArrayHelper.m in Sources */,
+				6C86B90D1396C744009F6FE6 /* NSArray+PSFoundation.m in Sources */,
 				6C86B90F1396C744009F6FE6 /* NSData+CommonCrypto.m in Sources */,
 				6C86B9111396C744009F6FE6 /* NSData+MTAdditions.m in Sources */,
 				6C86B9131396C744009F6FE6 /* NSData+RSHexDump.m in Sources */,
@@ -1907,8 +1900,7 @@
 				6C86B91B1396C744009F6FE6 /* NSDictionary+CGStructs.m in Sources */,
 				6C86B91F1396C744009F6FE6 /* NSError+SCMethods.m in Sources */,
 				6C86B9211396C744009F6FE6 /* NSFileManager+PSFoundation.m in Sources */,
-				6C86B9271396C744009F6FE6 /* NSMutableArray+MTShuffle.m in Sources */,
-				6C86B9291396C744009F6FE6 /* NSMutableArray+SCQueue.m in Sources */,
+				6C86B9291396C744009F6FE6 /* NSArray+Structures.m in Sources */,
 				6C86B92B1396C744009F6FE6 /* NSString+URL.m in Sources */,
 				6C86B92D1396C744009F6FE6 /* NSNotification+PSFoundation.m in Sources */,
 				6C86B92F1396C744009F6FE6 /* NSNumber+PSFoundation.m in Sources */,

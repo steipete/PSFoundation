@@ -10,17 +10,12 @@
 // Collections ////////////////////////////////////////////////////////////////////////////////////
 
 // BlocksKit backwards-compatibility
-#import "NSArray+Linq.h"
 #import "MACollectionUtilities.h"
+#import "NSArray+Linq.h"
 
-// a variety of basic utilities
-#import "NSMutableArray+SCQueue.h"
-#import "NSMutableArray+MTShuffle.h"
-#import "NSArrayHelper.h"
-
-// arrayBySortingStrings, firstObject, uniqueMembers, map, collect, reject, removeFirstObject, reverse,
-// scramble, Stack-Tools like pop, pull, objectUsingPredicate
-#import "NSArray-Utilities.h"
+#import "NSArray+PSFoundation.h"
+#import "NSArray+Structures.h"
+#import "NSArray+Filtering.h"
 
 // encode and decode UIKit geometry in a dictionary
 #import "NSDictionary+CGStructs.h"
