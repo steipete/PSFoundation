@@ -9,16 +9,18 @@
 #include "PSMacros+Collections.h"
 #include "PSMacros+Geometry.h"
 
-// compiler help
-#define INVALIDATE_TIMER(__TIMER) { [__TIMER invalidate]; __TIMER = nil; }
-#define VERIFIED_CLASS(className) ((className *) NSClassFromString(@"" # className))
-
 static inline BOOL IsEmpty(id thing) {
-    if ([thing respondsToSelector:@selector(isEmpty)]) {
+    if ([thing respondsToSelector:@selector(isEmpty)])
         return [thing isEmpty];
-    }
 	return (!thing);
 }
+
+// compiler help
+#define PSInvalidateTimer(t) { [t invalidate]; t = nil; }
+#define INVALIDATE_TIMER(__TIMER) PSInvalidateTimer(__TIMER)
+
+#define PSVerifiedClass(c) ((c *) NSClassFromString(@"" # c))
+#define VERIFIED_CLASS(className) PSVerifiedClass(className)
 
 // file management
 #define NSDocumentsFolder() [NSFileManager documentsFolder]

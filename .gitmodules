@@ -28,3 +28,6 @@
 [submodule "PSFoundation/External/TDSemiModal"]
 	path = PSFoundation/External/TDSemiModal
 	url = git://github.com/zwaldowski/TDSemiModal.git
+[submodule "PSFoundation/External/MagicalRecord"]
+	path = PSFoundation/External/MagicalRecord
+	url = git://github.com/zwaldowski/MagicalRecord.git

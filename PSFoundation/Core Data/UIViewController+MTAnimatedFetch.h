@@ -7,10 +7,10 @@
 //
 //  Taken from Book More iPhone 3 Development
 //  Chapter 2: The Anatomy of Core Data, Page 29ff
+//
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-
 
 @interface UIViewController (MTAnimatedFetch)
 
