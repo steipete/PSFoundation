@@ -61,6 +61,15 @@ static char landscapeFrameKey;
     objc_setAssociatedObject(self, &landscapeFrameKey, landscapeFrameValue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+
+- (CGRect)frameForInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
+        return self.portraitFrame;
+    } else {
+        return self.landscapeFrame;
+    }
+}
+
 - (void)animateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     [UIView animateWithDuration:duration animations:^{
         [self setFrameForInterfaceOrientation:toInterfaceOrientation];
