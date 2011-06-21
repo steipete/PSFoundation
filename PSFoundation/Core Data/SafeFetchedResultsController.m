@@ -64,13 +64,13 @@
 	id object;
 	NSIndexPath *indexPath;
 	NSFetchedResultsChangeType changeType;
-	NSIndexPath *newIndexPath;
+	NSIndexPath *toIndexPath;
 }
 
 @property (nonatomic, retain) id object;
 @property (nonatomic, retain) NSIndexPath *indexPath;
 @property (nonatomic, assign) NSFetchedResultsChangeType changeType;
-@property (nonatomic, retain) NSIndexPath *newIndexPath;
+@property (nonatomic, retain) NSIndexPath *toIndexPath;
 
 - (id)initWithObject:(id)object
            indexPath:(NSIndexPath *)indexPath
@@ -262,7 +262,7 @@
 
 		for (SafeObjectChange *objectChange in insertedObjects)
 		{
-			[self addIndexPath:objectChange.newIndexPath toDictionary:objectInsertDict];
+			[self addIndexPath:objectChange.toIndexPath toDictionary:objectInsertDict];
 		}
 		for (SafeObjectChange *objectChange in deletedObjects)
 		{
@@ -271,7 +271,7 @@
 		for (SafeObjectChange *objectChange in movedObjects)
 		{
 			[self addIndexPath:objectChange.indexPath toDictionary:objectDeleteDict];
-			[self addIndexPath:objectChange.newIndexPath toDictionary:objectInsertDict];
+			[self addIndexPath:objectChange.toIndexPath toDictionary:objectInsertDict];
 		}
 
 		for (SafeObjectChange *objectChange in updatedObjects)
@@ -281,7 +281,7 @@
 				DDLogInfo(@"Processing %@", objectChange);
 			}
 
-			if (objectChange.newIndexPath == nil)
+			if (!objectChange.toIndexPath)
 			{
 				NSIndexPath *indexPath = objectChange.indexPath;
 
@@ -330,7 +330,7 @@
 
 				if (numChangedSections > 0 || numChangedObjects > 0)
 				{
-					objectChange.newIndexPath = objectChange.indexPath;
+					objectChange.toIndexPath = objectChange.indexPath;
 				}
 			}
 		}
@@ -378,7 +378,7 @@
 
 - (void)notifyDelegateOfObjectChange:(SafeObjectChange *)objectChange
 {
-	SEL selector = @selector(controller:didChangeObject:atIndexPath:forChangeType:newIndexPath:);
+	SEL selector = @selector(controller:didChangeObject:atIndexPath:forChangeType:toIndexPath:);
 
 	if ([safeDelegate respondsToSelector:selector])
 	{
@@ -386,7 +386,7 @@
 		         didChangeObject:objectChange.object
 		             atIndexPath:objectChange.indexPath
 		           forChangeType:objectChange.changeType
-		            newIndexPath:objectChange.newIndexPath];
+		            newIndexPath:objectChange.toIndexPath];
 	}
 }
 
@@ -620,7 +620,7 @@
 @synthesize object;
 @synthesize indexPath;
 @synthesize changeType;
-@synthesize newIndexPath;
+@synthesize toIndexPath;
 
 - (id)initWithObject:(id)anObject
            indexPath:(NSIndexPath *)anIndexPath
@@ -632,7 +632,7 @@
 		self.object = anObject;
 		self.indexPath = anIndexPath;
 		self.changeType = aChangeType;
-		self.newIndexPath = aNewIndexPath;
+		self.toIndexPath = aNewIndexPath;
 	}
 	return self;
 }
@@ -662,14 +662,14 @@
 	return [NSString stringWithFormat:@"<SafeObjectChange changeType(%@) indexPath(%@) newIndexPath(%@)>",
 			[self changeTypeString],
 			[self stringFromIndexPath:indexPath],
-			[self stringFromIndexPath:newIndexPath]];
+			[self stringFromIndexPath:toIndexPath]];
 }
 
 - (void)dealloc
 {
 	self.object = nil;
 	self.indexPath = nil;
-	self.newIndexPath = nil;
+	self.toIndexPath = nil;
 
 	[super dealloc];
 }
