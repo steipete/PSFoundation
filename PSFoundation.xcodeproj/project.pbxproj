@@ -31,6 +31,8 @@
 		6C4015B513B05D78001FC822 /* NSPersistentStore+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015A313B05D78001FC822 /* NSPersistentStore+ActiveRecord.m */; };
 		6C4015B613B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015A413B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.h */; };
 		6C4015B713B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015A513B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m */; };
+		6C4015BE13B05F86001FC822 /* PSScrollContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015BC13B05F86001FC822 /* PSScrollContentView.h */; };
+		6C4015BF13B05F86001FC822 /* PSScrollContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015BD13B05F86001FC822 /* PSScrollContentView.m */; };
 		6C5A77091398987A00A74A82 /* NSManagedObject+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */; };
 		6C5A770B1398987C00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8881396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		6C5A770C1398987F00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -375,6 +377,8 @@
 		6C4015A313B05D78001FC822 /* NSPersistentStore+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStore+ActiveRecord.m"; sourceTree = "<group>"; };
 		6C4015A413B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+ActiveRecord.h"; sourceTree = "<group>"; };
 		6C4015A513B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+ActiveRecord.m"; sourceTree = "<group>"; };
+		6C4015BC13B05F86001FC822 /* PSScrollContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSScrollContentView.h; sourceTree = "<group>"; };
+		6C4015BD13B05F86001FC822 /* PSScrollContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSScrollContentView.m; sourceTree = "<group>"; };
 		6C75067A139F3BC10092D6C4 /* PSMacros+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSMacros+Geometry.h"; sourceTree = "<group>"; };
 		6C86B3791396AAE7009F6FE6 /* libPSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86B37C1396AAE7009F6FE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -881,6 +885,8 @@
 				6C86B46C1396B118009F6FE6 /* SCFooterLabel.m */,
 				6C86B46F1396B118009F6FE6 /* SMModelObject.h */,
 				6C86B4701396B118009F6FE6 /* SMModelObject.m */,
+				6C4015BC13B05F86001FC822 /* PSScrollContentView.h */,
+				6C4015BD13B05F86001FC822 /* PSScrollContentView.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1754,6 +1760,7 @@
 				6C231C0F139AAF310056E1D5 /* MTSplashScreenDelegate.h in Headers */,
 				6C231C19139AB0690056E1D5 /* UIView+MTRotation.h in Headers */,
 				6CED59BE1398195C00E3F38D /* Appirater.h in Headers */,
+				6C4015BE13B05F86001FC822 /* PSScrollContentView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1995,6 +2002,7 @@
 				6CED5A0B1398289200E3F38D /* NYXImagesHelper.m in Sources */,
 				6C231C0E139AAF310056E1D5 /* MTSplashScreen.m in Sources */,
 				6C231C1A139AB0690056E1D5 /* UIView+MTRotation.m in Sources */,
+				6C4015BF13B05F86001FC822 /* PSScrollContentView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
