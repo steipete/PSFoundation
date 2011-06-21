@@ -1,3 +1,11 @@
+//
+//  SMModelObject.m
+//  PSFoundation
+//
+//  Copyright (c) 2010 Nick Farina.
+//  Licensed under MIT.
+//
+
 #import "SMModelObject.h"
 #import <objc/runtime.h>
 
@@ -85,7 +93,11 @@ static NSMutableDictionary *keyNames = nil, *nillableKeyNames = nil;
 }
 
 // We implement the NSFastEnumeration protocol to behave like an NSDictionary - the enumerated values are our property (key) names.
-- (NSUInteger) countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len {
+#if __has_feature(objc_arc)
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])stackbuf count:(NSUInteger)len {
+#else
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len {
+#endif
 	return [[self allKeys] countByEnumeratingWithState:state objects:stackbuf count:len];
 }
 
@@ -111,7 +123,7 @@ static NSMutableDictionary *keyNames = nil, *nillableKeyNames = nil;
 // Must override hash as well, this is taken directly from RMModelObject, basically
 // classes with the same layout return the same number.
 - (NSUInteger)hash {
-	return (NSUInteger)[self allKeys];
+	return [[self allKeys] hash];
 }
 
 - (void)writeLineBreakToString:(NSMutableString *)string withTabs:(NSUInteger)tabCount {
