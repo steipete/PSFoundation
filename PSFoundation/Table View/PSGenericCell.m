@@ -18,9 +18,8 @@
 }
 
 /// @override
-- (PSGenericView *)initCellView {
-  //[self doesNotRecognizeSelector:_cmd];
-  return [PSGenericView new];
+- (id)initCellView {
+    return nil;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -62,7 +61,10 @@
 
 - (PSGenericView *)cellView {
   if (!_cellView) {
-    _cellView = [self initCellView];
+      _cellView = (PSGenericView *)[self initCellView];
+      
+      if (!_cellView)
+          _cellView = [PSGenericView new];
   }
   return _cellView;
 }
