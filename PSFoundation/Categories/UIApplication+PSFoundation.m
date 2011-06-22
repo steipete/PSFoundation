@@ -23,8 +23,8 @@
         
 		CABasicAnimation* fadeAnimation = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
 		fadeAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-		fadeAnimation.fromValue = (id)oldBackgroundColor.CGColor;
-		fadeAnimation.toValue = (id)newBackgroundColor.CGColor;
+		fadeAnimation.fromValue = objc_unretainedObject(oldBackgroundColor.CGColor);
+		fadeAnimation.toValue = objc_unretainedObject(newBackgroundColor.CGColor);
 		fadeAnimation.fillMode = kCAFillModeForwards;
 		fadeAnimation.removedOnCompletion = NO;
 		[self.keyWindow.layer addAnimation:fadeAnimation forKey:@"fadeAnimation"];
