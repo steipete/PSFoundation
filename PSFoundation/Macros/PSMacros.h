@@ -62,16 +62,20 @@ static inline BOOL IsEmpty(id thing) {
 // for function pass entering
 #define DDLogFunction() DDLogInfo(@"-- logged --");
 
-// http://www.alexcurylo.com/blog/2010/09/24/the-great-dealloc-debate/
-#if DEBUG
-#define MCRelease(x) do { [x release]; } while (0)
-#else
-#define MCRelease(x) [x release], x = nil
-#endif
-// always nil out for viewDidUnload!
-#define MCReleaseNil(x) [x release], x = nil
-#define MCReleaseViewNil(x) do { [x removeFromSuperview], [x release], x = nil; } while (0)
+#if PS_SHOULD_DEALLOC
+    #if DEBUG
+    #define MCRelease(x) do { [x release]; } while (0)
+    #else
+    #define MCRelease(x) [x release], x = nil
+    #endif
 
+    #define MCReleaseNil(x) [x release], x = nil
+    #define MCReleaseViewNil(x) do { [x removeFromSuperview], [x release], x = nil; } while (0)
+#else
+    #define MCRelease(x)
+    #define MCReleaseNil(x)
+    #define MCReleaseViewNil(x)
+#endif
 
 #if defined(TARGET_IPHONE_SIMULATOR) && defined(DEBUG)
 #define PSSimulateMemoryWarning() CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)@"UISimulatedMemoryWarningNotification", NULL, NULL, true);
