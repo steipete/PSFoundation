@@ -13,6 +13,33 @@
 //  appreciated but not required.
 //
 
+#if __has_feature(objc_arc)
+
+#define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \
+\
+static classname *sharedInstance = nil; \
+\
++ (classname *)sharedInstance { \
+static dispatch_once_t pred; \
+if (sharedInstance) return sharedInstance; \
+dispatch_once(&pred, ^{ sharedInstance = [[super allocWithZone:NULL] init]; }); \
+return sharedInstance; \
+} \
+\
++ (classname *)shared##classname { \
+return [self sharedInstance]; \
+} \
+\
++ (id)allocWithZone:(NSZone *)zone { \
+return [self sharedInstance]; \
+} \
+\
+- (id)copyWithZone:(NSZone *)zone { \
+return self; \
+}
+
+#else
+
 #define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \
 \
 static classname *sharedInstance = nil; \
@@ -50,3 +77,5 @@ return NSUIntegerMax; \
 - (id)autorelease { \
 return self; \
 }
+
+#endif
