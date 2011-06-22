@@ -139,17 +139,12 @@ __VA_ARGS__ \
 #if __has_feature(objc_arc)
 
 #define AUTORELEASEPOOL(...) @autoreleasepool { do {__VA_ARGS__} while(0); }
-#define _ps_strong_property strong
-#define _ps_weak_property weak
 
 #else
 
 #define AUTORELEASEPOOL(...) NSAutoreleasePool *pool = [NSAutoreleasePool new]; \
                              do {__VA_ARGS__} while(0); \
                              [pool drain];
-
-#define _ps_strong_property retain
-#define _ps_weak_property assign
 
 #ifndef __unsafe_unretained // compatibility for places where we use plain old id
 #define __unsafe_unretained
