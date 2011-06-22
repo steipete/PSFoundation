@@ -22,7 +22,7 @@ static classname *sharedInstance = nil; \
 + (classname *)sharedInstance { \
 static dispatch_once_t pred; \
 if (sharedInstance) return sharedInstance; \
-dispatch_once(&pred, ^{ sharedInstance = [[super allocWithZone:NULL] init]; }); \
+dispatch_once(&pred, ^{ sharedInstance = [[super alloc] init]; }); \
 return sharedInstance; \
 } \
 \
@@ -30,12 +30,8 @@ return sharedInstance; \
 return [self sharedInstance]; \
 } \
 \
-+ (id)allocWithZone:(NSZone *)zone { \
++ (id)alloc { \
 return [self sharedInstance]; \
-} \
-\
-- (id)copyWithZone:(NSZone *)zone { \
-return self; \
 }
 
 #else
