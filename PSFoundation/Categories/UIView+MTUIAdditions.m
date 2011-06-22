@@ -150,9 +150,14 @@
 
 - (void)setGradientBackgroundWithStartColor:(UIColor *)startColor endColor:(UIColor *)endColor {
 	CAGradientLayer *gradient = [CAGradientLayer layer];
-
-	gradient.frame = self.bounds;
-	gradient.colors = [NSArray arrayWithObjects:(id)[startColor CGColor], (id)[endColor CGColor], nil];
+    
+    gradient.frame = self.bounds;
+    
+    CFArrayRef colors = CFARRAY([startColor CGColor], [endColor CGColor]);
+    
+    gradient.colors = objc_unretainedObject(colors);
+    
+    CFRelease(colors);
 
 	[self.layer insertSublayer:gradient atIndex:0];
 }
