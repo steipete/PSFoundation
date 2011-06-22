@@ -21,12 +21,12 @@ NSString* const kReachabilityChangedNotification = @"SCNetworkReachabilityChange
 
 static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info) {
     NSCAssert(info, @"info was NULL in Reachability callback!");
-    BOOL classCheck = [(NSObject*)info isKindOfClass:[Reachability class]];
+    Reachability *infoObject = objc_unretainedObject(info);
+    BOOL classCheck = [infoObject isKindOfClass:[Reachability class]];
     NSCAssert(classCheck, @"info was the WRONG CLASS in Reachability callback!");
     
     NSAutoreleasePool *pool = [NSAutoreleasePool new];
-    Reachability *theInfo = (Reachability *)info;
-    [[NSNotificationCenter defaultCenter] postNotificationName:kReachabilityChangedNotification object:theInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kReachabilityChangedNotification object:infoObject];
     [pool release];
 }
 
