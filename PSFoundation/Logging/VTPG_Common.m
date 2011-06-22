@@ -1,9 +1,14 @@
+// 
+//  VTPG_Common.m
+//
+//  Copyright (c) 2008-2010, Vincent Gable.
+//  http://vincentgable.com
+//
+//  Based off http://www.dribin.org/dave/blog/archives/2008/09/22/convert_to_nsstring/
+//
+
 #import "VTPG_Common.h"
-// Copyright (c) 2008-2010, Vincent Gable.
-// http://vincentgable.com
-//
-//based off http://www.dribin.org/dave/blog/archives/2008/09/22/convert_to_nsstring/
-//
+
 static BOOL TypeCodeIsCharArray(const char *typeCode){
 	int lastCharOffset = strlen(typeCode) - 1;
 	int secondToLastCharOffset = lastCharOffset - 1 ;
