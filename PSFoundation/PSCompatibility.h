@@ -68,8 +68,6 @@ __VA_ARGS__ \
 }
 #define IS_LT_IOS50 (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iOS_5_0)
 
-
-
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40200
 #define IF_IOS42_OR_GREATER(...) \
 if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_4_2) { \
@@ -136,3 +134,34 @@ __VA_ARGS__ \
 #endif
 
 #define isIPad() [[UIDevice currentDevice] isTablet]
+
+// TODO:  Add post-WWDC compatibility macros when that release comes out
+#if __has_feature(objc_arc)
+
+#define AUTORELEASEPOOL(...) @autoreleasepool { do {__VA_ARGS__} while(0); }
+#define _ps_strong_property strong
+#define _ps_weak_property weak
+
+#else
+
+#define AUTORELEASEPOOL(...) NSAutoreleasePool *pool = [NSAutoreleasePool new]; \
+                             do {__VA_ARGS__} while(0); \
+                             [pool drain];
+
+#define _ps_strong_property retain
+#define _ps_weak_property assign
+
+#ifndef __unsafe_unretained // compatibility for places where we use plain old id
+#define __unsafe_unretained
+#endif
+
+#ifndef objc_retainedObject // source compatibility with pre-5.0.
+static __inline NS_RETURNS_RETAINED id __ps_objc_retainedObject(void *CF_CONSUMED pointer) { return (id)pointer; }
+static __inline NS_RETURNS_NOT_RETAINED id __ps_objc_unretainedObject(void *pointer) { return (id)pointer; }
+static __inline CF_RETURNS_NOT_RETAINED void *__ps_objc_unretainedPointer(id object) { return (void *)object; }
+#define objc_retainedObject __ps_objc_retainedObject
+#define objc_unretainedObject __ps_objc_unretainedObject
+#define objc_unretainedPointer __ps_objc_unretainedPointer
+#endif
+
+#endif
