@@ -446,7 +446,7 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
             }
             
             if (val)
-                [finalString appendFormat:@"c", val->escapeSequence];
+                [finalString appendFormat:@"%s", val->escapeSequence];
             else
                 [finalString appendFormat:@"&#%d;", buffer[i]];
         } else {
