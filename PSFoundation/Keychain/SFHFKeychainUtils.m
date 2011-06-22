@@ -19,28 +19,26 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 
 + (NSString *)getPasswordForUsername:(NSString *)username andServiceName:(NSString *)serviceName error:(NSError **)error {
     if (!username || !serviceName) {
-        if (error) {
+        if (error)
             *error = [NSError errorWithDomain:SFHFKeychainUtilsErrorDomain code:-2000 description:@"Username or service name not given.  Cannot retrieve item."];
-        }
-        return NO;
+        return nil;
     }
     
-    if (error) {
+    if (error)
         *error = nil;
-    }
     
     NSArray *keys = [NSArray arrayWithObjects:(NSString* )kSecClass, kSecAttrAccount, kSecAttrService, nil];
     NSArray *objs = [NSArray arrayWithObjects:(NSString *)kSecClassGenericPassword, username, serviceName, nil];
     NSDictionary *query = [NSDictionary dictionaryWithObjects:objs forKeys:keys];
+    CFIndex capacity = query.count + 1;
     
-    NSDictionary *attributeResult = nil;
-    NSMutableDictionary *attributeQuery = [query mutableCopy];
-    [attributeQuery setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnAttributes];
+    CFMutableDictionaryRef attributeQuery = CFDictionaryCreateMutableCopy(kCFAllocatorDefault, capacity, (CFDictionaryRef)query);
+    CFDictionaryAddValue(attributeQuery, kSecReturnAttributes, kCFBooleanTrue);
+    CFTypeRef attributeResult;
+        
+    OSStatus status = SecItemCopyMatching(attributeQuery, &attributeResult);
     
-    OSStatus status = SecItemCopyMatching((CFDictionaryRef)attributeQuery, (CFTypeRef *)&attributeResult);
-    
-    [attributeResult release];
-    [attributeQuery release];
+    CFRelease(attributeQuery);
     
     if (status != noErr) {
         if (error && status != errSecItemNotFound) {
@@ -48,15 +46,16 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
         }
         return nil;
     }
+
+    CFMutableDictionaryRef passwordQuery = CFDictionaryCreateMutableCopy(kCFAllocatorDefault, capacity, (CFDictionaryRef)query);
+    CFDictionaryAddValue(passwordQuery, kSecReturnData, kCFBooleanTrue);
+    CFTypeRef resultData;
     
-    NSData *resultData = nil;
-    NSMutableDictionary *passwordQuery = [query mutableCopy];
-    [passwordQuery setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
+    status = SecItemCopyMatching(passwordQuery, &resultData);
     
-    status = SecItemCopyMatching((CFDictionaryRef)passwordQuery, (CFTypeRef *)&resultData);
+    CFRelease(passwordQuery);
     
-    [resultData autorelease];
-    [passwordQuery release];
+    NSString *ret = nil;
     
     if (status != noErr) {
         if (status == errSecItemNotFound) {
@@ -73,6 +72,7 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
             if (error)
                 *error = [NSError errorWithDomain:SFHFKeychainUtilsErrorDomain code:status description:@"Unknown error in retrieving password data."];
         }
+        CFRelease(resultData);
         return nil;
     }
     
@@ -82,12 +82,13 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 		// Set the -1999 error so the code above us can prompt the user again.
         if (error)
             *error = [NSError errorWithDomain:SFHFKeychainUtilsErrorDomain code:-1999 description:@"Password data not retrievable for key.  Please try again."];
-        return nil;
     } else {
-        return [[[NSString alloc] initWithData:resultData encoding:NSUTF8StringEncoding] autorelease];
+        NSData *result = objc_unretainedObject(resultData);
+        ret = [[[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding] autorelease];
+        CFRelease(resultData);
     }
     
-    return nil;
+    return ret;
 }
 
 + (BOOL)storeUsername:(NSString *)username andPassword:(NSString *)password forServiceName:(NSString *)serviceName updateExisting:(BOOL)updateExisting error:(NSError **)error {
