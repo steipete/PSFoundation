@@ -13,8 +13,8 @@
 
 @synthesize alertView = view_;
 
-+ (id)alertWithTitle:(NSString *)title; {
-    return [[[self alloc] initWithTitle:title message:nil] autorelease];
++ (id)alertWithTitle:(NSString *)title {
+    return [self alertWithTitle:title message:nil];
 }
 
 + (id)alertWithTitle:(NSString *)title message:(NSString *)message; {
@@ -24,8 +24,9 @@
 - (id)initWithTitle:(NSString *)title message:(NSString *)message {
     if ((self = [super init])) {
         view_ = [[UIAlertView alloc] initWithTitle:title message:message];
+        id instance = self;
         view_.didDismissBlock = ^(NSUInteger selectedIndex) {
-            [self release];
+            [instance release];
         };
     }
     
@@ -38,12 +39,12 @@
     [super dealloc];
 }
 
-- (void)setCancelButtonWithTitle:(NSString *)title block:(void (^)())block {
+- (void)setCancelButtonWithTitle:(NSString *)title block:(BKBlock)block {
     assert([title length] > 0 && "cannot set empty button title");
     [view_ setCancelButtonWithTitle:title handler:block];
 }
 
-- (void)addButtonWithTitle:(NSString *)title block:(void (^)())block {
+- (void)addButtonWithTitle:(NSString *)title block:(BKBlock)block {
     assert([title length] > 0 && "cannot add button with empty title");
     [view_ addButtonWithTitle:title handler:block];
 }

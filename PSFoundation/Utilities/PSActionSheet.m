@@ -19,30 +19,30 @@
 - (id)initWithTitle:(NSString *)title {
     if ((self = [super init])) {
         sheet_ = [[UIActionSheet alloc] initWithTitle:title];
+        id instance = self;
         sheet_.didDismissBlock = ^(NSUInteger selectedIndex) {
-            [self release];
+            [instance release];
         };
     }
     return self;
 }
 
 - (void) dealloc {
-    sheet_.delegate = nil;
     MCReleaseNil(sheet_);
     [super dealloc];
 }
 
-- (void)setDestructiveButtonWithTitle:(NSString *)title block:(void (^)())block {
+- (void)setDestructiveButtonWithTitle:(NSString *)title block:(BKBlock)block {
     assert([title length] > 0 && "sheet destructive button title must not be empty");
     [self.sheet setDestructiveButtonWithTitle:title handler:block];
 }
 
-- (void)setCancelButtonWithTitle:(NSString *)title block:(void (^)())block {
+- (void)setCancelButtonWithTitle:(NSString *)title block:(BKBlock)block {
     assert([title length] > 0 && "sheet cancel button title must not be empty");
     [self.sheet setCancelButtonWithTitle:title handler:block];
 }
 
-- (void)addButtonWithTitle:(NSString *)title block:(void (^)())block {
+- (void)addButtonWithTitle:(NSString *)title block:(BKBlock)block {
     assert([title length] > 0 && "cannot add button with empty title");
     [self.sheet addButtonWithTitle:title handler:block];
 }

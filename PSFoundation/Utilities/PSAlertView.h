@@ -18,8 +18,8 @@ DEPRECATED_ATTRIBUTE @interface PSAlertView : NSObject {
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message;
 
-- (void)setCancelButtonWithTitle:(NSString *)title block:(void (^)())block;
-- (void)addButtonWithTitle:(NSString *)title block:(void (^)())block;
+- (void)setCancelButtonWithTitle:(NSString *)title block:(BKBlock)block;
+- (void)addButtonWithTitle:(NSString *)title block:(BKBlock)block;
 
 - (void)show;
 - (void)dismissWithClickedButtonIndex:(NSInteger)buttonIndex animated:(BOOL)animated;

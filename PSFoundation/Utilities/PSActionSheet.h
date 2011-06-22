@@ -17,9 +17,9 @@ DEPRECATED_ATTRIBUTE @interface PSActionSheet : NSObject {
 
 - (id)initWithTitle:(NSString *)title;
 
-- (void)setCancelButtonWithTitle:(NSString *) title block:(void (^)()) block;
-- (void)setDestructiveButtonWithTitle:(NSString *) title block:(void (^)()) block;
-- (void)addButtonWithTitle:(NSString *) title block:(void (^)()) block;
+- (void)setCancelButtonWithTitle:(NSString *) title block:(BKBlock) block;
+- (void)setDestructiveButtonWithTitle:(NSString *) title block:(BKBlock) block;
+- (void)addButtonWithTitle:(NSString *) title block:(BKBlock) block;
 
 - (void)showInView:(UIView *)view;
 - (void)showFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated;
