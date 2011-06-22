@@ -43,12 +43,27 @@
 #define LOG_MAX_QUEUE_SIZE 1000 // Should not exceed INT32_MAX
 
 #if GCD_MAYBE_AVAILABLE
-struct LoggerNode {
-	id <DDLogger> logger;
-	dispatch_queue_t loggerQueue;
-    struct LoggerNode * next;
-};
-typedef struct LoggerNode LoggerNode;
+@interface LoggerNode : NSObject
+
+@property (nonatomic, retain) id <DDLogger> logger;
+@property (nonatomic, retain) LoggerNode *next;
+@property (nonatomic, assign) dispatch_queue_t queue;
+
+@end
+
+@implementation LoggerNode
+@synthesize logger, next, queue;
+
+#if BK_SHOULD_DEALLOC
+- (void)dealloc {
+    self.logger = nil;
+    self.next = nil;
+    [super dealloc];
+}
+#endif
+
+@end
+
 #endif
 
 
@@ -131,7 +146,7 @@ typedef struct LoggerNode LoggerNode;
 			loggingQueue = dispatch_queue_create("cocoa.lumberjack", NULL);
 			loggingGroup = dispatch_group_create();
 
-			loggerNodes = NULL;
+			loggerNodes = nil;
 
 			queueSemaphore = dispatch_semaphore_create(LOG_MAX_QUEUE_SIZE);
 
@@ -578,8 +593,8 @@ functionStr:(NSString *)functionStr
 	// The numClasses method now tells us how many classes we have.
 	// So we can allocate our buffer, and get pointers to all the class definitions.
 
-	Class *classes = malloc(sizeof(Class) * numClasses);
-
+    Class classes[numClasses];
+        
 	numClasses = objc_getClassList(classes, numClasses);
 
 	// We can now loop through the classes, and test each one to see if it is a DDLogging class.
@@ -682,22 +697,19 @@ functionStr:(NSString *)functionStr
 		// Add to linked list of LoggerNode elements.
 		// Need to create loggerQueue if loggerNode doesn't provide one.
 
-		LoggerNode *loggerNode = malloc(sizeof(LoggerNode));
-		loggerNode->logger = [logger retain];
+		LoggerNode *node = [[LoggerNode new] autorelease];
+        node.logger = logger;
 
 		if ([logger respondsToSelector:@selector(loggerQueue)])
 		{
 			// Logger may be providing its own queue
 
-			loggerNode->loggerQueue = [logger loggerQueue];
+			node.queue = [logger loggerQueue];
 		}
 
-		if (loggerNode->loggerQueue)
-		{
-			dispatch_retain(loggerNode->loggerQueue);
-		}
-		else
-		{
+		if (node.queue) {
+			dispatch_retain(node.queue);
+		} else {
 			// Automatically create queue for the logger.
 			// Use the logger name as the queue name if possible.
 
@@ -707,11 +719,11 @@ functionStr:(NSString *)functionStr
 				loggerQueueName = [[logger loggerName] UTF8String];
 			}
 
-			loggerNode->loggerQueue = dispatch_queue_create(loggerQueueName, NULL);
+			node.queue = dispatch_queue_create(loggerQueueName, NULL);
 		}
 
-		loggerNode->next = loggerNodes;
-		loggerNodes = loggerNode;
+		node.next = loggerNodes;
+		loggerNodes = [node retain];
 
 	#endif
 	}
@@ -753,39 +765,38 @@ functionStr:(NSString *)functionStr
 		// - loggerQueue
 		// - loggerNode
 
-		LoggerNode *prevNode = NULL;
+		LoggerNode *prevNode = nil;
 		LoggerNode *currentNode = loggerNodes;
 
 		while (currentNode)
 		{
-			if (currentNode->logger == logger)
+			if (currentNode.logger == logger)
 			{
 				if (prevNode)
 				{
 					// LoggerNode had previous node pointing to it.
-					prevNode->next = currentNode->next;
+					prevNode.next = currentNode.next;
 				}
 				else
 				{
 					// LoggerNode was first in list. Update loggerNodes pointer.
-					loggerNodes = currentNode->next;
+					loggerNodes = currentNode.next;
 				}
 
-				[currentNode->logger release];
-				currentNode->logger = nil;
+				currentNode.logger = nil;
 
-				dispatch_release(currentNode->loggerQueue);
-				currentNode->loggerQueue = NULL;
+				dispatch_release(currentNode.queue);
+				currentNode.queue = NULL;
+                
+                currentNode.next = nil;
 
-				currentNode->next = NULL;
-
-				free(currentNode);
+                currentNode = nil;
 
 				break;
 			}
 
 			prevNode = currentNode;
-			currentNode = currentNode->next;
+			currentNode = currentNode.next;
 		}
 
 	#endif
@@ -824,22 +835,21 @@ functionStr:(NSString *)functionStr
 
 		while (currentNode)
 		{
-			if ([currentNode->logger respondsToSelector:@selector(willRemoveLogger)])
+			if ([currentNode.logger respondsToSelector:@selector(willRemoveLogger)])
 			{
-				[currentNode->logger willRemoveLogger];
+				[currentNode.logger willRemoveLogger];
 			}
 
-			nextNode = currentNode->next;
+			nextNode = currentNode.next;
+            
+            currentNode.logger = nil;
 
-			[currentNode->logger release];
-			currentNode->logger = nil;
+			dispatch_release(currentNode.queue);
+			currentNode.queue = NULL;
 
-			dispatch_release(currentNode->loggerQueue);
-			currentNode->loggerQueue = NULL;
+			currentNode.next = nil;
 
-			currentNode->next = NULL;
-
-			free(currentNode);
+            currentNode = nil;
 
 			currentNode = nextNode;
 		}
@@ -894,16 +904,14 @@ functionStr:(NSString *)functionStr
 			while (currentNode)
 			{
 				dispatch_block_t loggerBlock = ^{
-					NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-					[currentNode->logger logMessage:logMessage];
-
-					[pool release];
+                    AUTORELEASEPOOL(
+                        [currentNode.logger logMessage:logMessage];
+                    );
 				};
 
-				dispatch_group_async(loggingGroup, currentNode->loggerQueue, loggerBlock);
+				dispatch_group_async(loggingGroup, currentNode.queue, loggerBlock);
 
-				currentNode = currentNode->next;
+				currentNode = currentNode.next;
 			}
 
 			dispatch_group_wait(loggingGroup, DISPATCH_TIME_FOREVER);
@@ -917,16 +925,14 @@ functionStr:(NSString *)functionStr
 			while (currentNode)
 			{
 				dispatch_block_t loggerBlock = ^{
-					NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-					[currentNode->logger logMessage:logMessage];
-
-					[pool release];
+                    AUTORELEASEPOOL(
+                        [currentNode.logger logMessage:logMessage];
+                    );
 				};
 
-				dispatch_sync(currentNode->loggerQueue, loggerBlock);
+				dispatch_sync(currentNode.queue, loggerBlock);
 
-				currentNode = currentNode->next;
+				currentNode = currentNode.next;
 			}
 		}
 
