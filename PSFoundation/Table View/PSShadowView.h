@@ -20,6 +20,7 @@
 }
 
 + (PSShadowView *)viewWithSubview:(UIView *)view;
++ (CAGradientLayer *)shadowAsInverse:(BOOL)yes;
 
 @property (nonatomic, assign, getter=isTopShadow) BOOL topShadow;
 @property (nonatomic, assign, getter=isBottomShadow) BOOL bottomShadow;

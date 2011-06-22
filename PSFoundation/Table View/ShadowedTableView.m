@@ -5,158 +5,83 @@
 //  Created by Matt Gallagher on 2009/08/21.
 //  Copyright 2009 Matt Gallagher. All rights reserved.
 //
+// http://cocoawithlove.com/2009/08/adding-shadow-effects-to-uitableview.html
+//
 
 #import "ShadowedTableView.h"
+#import "PSShadowView.h"
 
 #define SHADOW_HEIGHT 20.0
 #define SHADOW_INVERSE_HEIGHT 10.0
 #define SHADOW_RATIO (SHADOW_INVERSE_HEIGHT / SHADOW_HEIGHT)
 
-// http://cocoawithlove.com/2009/08/adding-shadow-effects-to-uitableview.html
 @implementation ShadowedTableView
 
-//
-// shadowAsInverse:
-//
-// Create a shadow layer
-//
-// Parameters:
-//    inverse - if YES then shadow fades upwards, otherwise shadow fades downwards
-//
-// returns the constructed shadow layer
-//
-- (CAGradientLayer *)shadowAsInverse:(BOOL)inverse
-{
-	CAGradientLayer *newShadow = [[[CAGradientLayer alloc] init] autorelease];
-	CGRect newShadowFrame =
-		CGRectMake(0, 0, self.frame.size.width,
-			inverse ? SHADOW_INVERSE_HEIGHT : SHADOW_HEIGHT);
-	newShadow.frame = newShadowFrame;
-	CGColorRef darkColor =
-		[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:
-			inverse ? (SHADOW_INVERSE_HEIGHT / SHADOW_HEIGHT) * 0.5 : 0.5].CGColor;
-	CGColorRef lightColor =
-		[self.backgroundColor colorWithAlphaComponent:0.0].CGColor;
-	newShadow.colors =
-		[NSArray arrayWithObjects:
-			(id)(inverse ? lightColor : darkColor),
-			(id)(inverse ? darkColor : lightColor),
-		nil];
-	return newShadow;
-}
+@synthesize originShadow = _originShadow, topShadow = _topShadow, bottomShadow = _bottomShadow;
 
-//
-// layoutSubviews
-//
-// Override to layout the shadows when cells are laid out.
-//
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
 	[super layoutSubviews];
-	
-	//
+
 	// Construct the origin shadow if needed
-	//
-	if (!originShadow)
-	{
-		originShadow = [self shadowAsInverse:NO];
-		[self.layer insertSublayer:originShadow atIndex:0];
-	}
-	else if (![[self.layer.sublayers objectAtIndex:0] isEqual:originShadow])
-	{
-		[self.layer insertSublayer:originShadow atIndex:0];
+	if (!_originShadow) {
+		self.originShadow = [PSShadowView shadowAsInverse:NO];
+		[self.layer insertSublayer:_originShadow atIndex:0];
+	} else if (![[self.layer.sublayers objectAtIndex:0] isEqual:_originShadow]) {
+		[self.layer insertSublayer:_originShadow atIndex:0];
 	}
 	
 	[CATransaction begin];
 	[CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
 
-	//
 	// Stretch and place the origin shadow
-	//
-	CGRect originShadowFrame = originShadow.frame;
-	originShadowFrame.size.width = self.frame.size.width;
-	originShadowFrame.origin.y = self.contentOffset.y;
-	originShadow.frame = originShadowFrame;
+	_originShadow.frame = CGRectMake(0, self.contentOffset.y, self.frame.size.width, SHADOW_HEIGHT);
 	
 	[CATransaction commit];
 	
 	NSArray *indexPathsForVisibleRows = [self indexPathsForVisibleRows];
-	if ([indexPathsForVisibleRows count] == 0)
-	{
-		[topShadow removeFromSuperlayer];
-		[topShadow release];
-		topShadow = nil;
-		[bottomShadow removeFromSuperlayer];
-		[bottomShadow release];
-		bottomShadow = nil;
+	if (!indexPathsForVisibleRows.count) {
+		[_topShadow removeFromSuperlayer];
+		[_bottomShadow removeFromSuperlayer];
+        self.topShadow = nil;
+        self.bottomShadow = nil;
 		return;
 	}
 	
 	NSIndexPath *firstRow = [indexPathsForVisibleRows objectAtIndex:0];
-	if ([firstRow section] == 0 && [firstRow row] == 0)
-	{
+	if (!firstRow.section == 0 && !firstRow.row) {
 		UIView *cell = [self cellForRowAtIndexPath:firstRow];
-		if (!topShadow)
-		{
-			topShadow = [[self shadowAsInverse:YES] retain];
-			[cell.layer insertSublayer:topShadow atIndex:0];
+		if (!_topShadow) {
+			self.topShadow = [PSShadowView shadowAsInverse:YES];
+			[cell.layer insertSublayer:_topShadow atIndex:0];
+		} else if ([cell.layer.sublayers indexOfObjectIdenticalTo:_topShadow]) {
+			[cell.layer insertSublayer:_topShadow atIndex:0];
 		}
-		else if ([cell.layer.sublayers indexOfObjectIdenticalTo:topShadow] != 0)
-		{
-			[cell.layer insertSublayer:topShadow atIndex:0];
-		}
-
-		CGRect shadowFrame = topShadow.frame;
-		shadowFrame.size.width = cell.frame.size.width;
-		shadowFrame.origin.y = -SHADOW_INVERSE_HEIGHT;
-		topShadow.frame = shadowFrame;
-	}
-	else
-	{
-		[topShadow removeFromSuperlayer];
-		[topShadow release];
-		topShadow = nil;
+		_topShadow.frame = CGRectMake(0, -SHADOW_INVERSE_HEIGHT, cell.frame.size.width, SHADOW_INVERSE_HEIGHT);
+	} else {
+		[_topShadow removeFromSuperlayer];
+        self.topShadow = nil;
 	}
 
 	NSIndexPath *lastRow = [indexPathsForVisibleRows lastObject];
-	if ([lastRow section] == [self numberOfSections] - 1 &&
-		[lastRow row] == [self numberOfRowsInSection:[lastRow section]] - 1)
-	{
-		UIView *cell =
-			[self cellForRowAtIndexPath:lastRow];
-		if (!bottomShadow)
-		{
-			bottomShadow = [[self shadowAsInverse:NO] retain];
-			[cell.layer insertSublayer:bottomShadow atIndex:0];
+	if (lastRow.section == self.numberOfSections - 1 && lastRow.row == [self numberOfRowsInSection:lastRow.section] - 1) {
+		UIView *cell = [self cellForRowAtIndexPath:lastRow];
+		if (!_bottomShadow) {
+			self.bottomShadow = [PSShadowView shadowAsInverse:NO];
+			[cell.layer insertSublayer:_bottomShadow atIndex:0];
+		} else if ([cell.layer.sublayers indexOfObjectIdenticalTo:_bottomShadow]) {
+			[cell.layer insertSublayer:_bottomShadow atIndex:0];
 		}
-		else if ([cell.layer.sublayers indexOfObjectIdenticalTo:bottomShadow] != 0)
-		{
-			[cell.layer insertSublayer:bottomShadow atIndex:0];
-		}
-
-		CGRect shadowFrame = bottomShadow.frame;
-		shadowFrame.size.width = cell.frame.size.width;
-		shadowFrame.origin.y = cell.frame.size.height;
-		bottomShadow.frame = shadowFrame;
-	}
-	else
-	{
-		[bottomShadow removeFromSuperlayer];
-		[bottomShadow release];
-		bottomShadow = nil;
+		_bottomShadow.frame = CGRectMake(0, cell.frame.size.height, cell.frame.size.width, SHADOW_HEIGHT);
+	} else {
+		[_bottomShadow removeFromSuperlayer];
+        self.bottomShadow = nil;
 	}
 }
 
-//
-// dealloc
-//
-// Releases instance memory.
-//
-- (void)dealloc
-{
-	[topShadow release];
-	[bottomShadow release];
-
+- (void)dealloc {
+    self.originShadow = nil;
+    self.topShadow = nil;
+    self.bottomShadow = nil;
 	[super dealloc];
 }
 

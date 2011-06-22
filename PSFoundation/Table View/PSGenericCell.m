@@ -18,7 +18,7 @@
 }
 
 /// @override
-- (PSGenericView *)initCellView {
+- (id)initCellView {
   //[self doesNotRecognizeSelector:_cmd];
   return [PSGenericView new];
 }

@@ -17,25 +17,21 @@
 @property (nonatomic, retain) CAGradientLayer *bottomShadowLayer;
 @end
 
-
 @implementation PSShadowView
 
-@synthesize topShadowLayer = _topShadowLayer;
-@synthesize bottomShadowLayer = _bottomShadowLayer;
-@synthesize topShadow = _topShadow;
-@synthesize bottomShadow = _bottomShadow;
+@synthesize topShadowLayer, bottomShadowLayer, topShadow, bottomShadow;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark static
 
 + (PSShadowView *)viewWithSubview:(UIView *)view {
-  PSShadowView *shadowView = [[[[self class] alloc] init] autorelease];
-  shadowView.topShadow = YES;
-  shadowView.bounds = view.bounds;
-  shadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-  [shadowView addSubview:view];
-  return shadowView;
+    PSShadowView *shadowView = [[[[self class] alloc] init] autorelease];
+    shadowView.topShadow = YES;
+    shadowView.bounds = view.bounds;
+    shadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [shadowView addSubview:view];
+    return shadowView;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -43,22 +39,20 @@
 #pragma mark private
 
 // borrowed from ShadowTableView
-- (CAGradientLayer *)shadowAsInverse:(BOOL)inverse {
-	CAGradientLayer *newShadow = [[[CAGradientLayer alloc] init] autorelease];
-	CGRect newShadowFrame =
-  CGRectMake(0, 0, self.frame.size.width,
-             inverse ? SHADOW_INVERSE_HEIGHT : SHADOW_HEIGHT);
-	newShadow.frame = newShadowFrame;
-	CGColorRef darkColor =
-  [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:
-   inverse ? (SHADOW_INVERSE_HEIGHT / SHADOW_HEIGHT) * 0.6 : 0.6].CGColor;
++ (CAGradientLayer *)shadowAsInverse:(BOOL)inverse {
+    CAGradientLayer *newShadow = [CAGradientLayer layer];
+    
+	CGColorRef darkColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:
+                            inverse ? (SHADOW_INVERSE_HEIGHT / SHADOW_HEIGHT) * 0.6 : 0.6].CGColor;
 	CGColorRef lightColor = [UIColor clearColor].CGColor;
-                          //[self.backgroundColor colorWithAlphaComponent:0.0].CGColor;
-	newShadow.colors =
-  [NSArray arrayWithObjects:
-   (id)(inverse ? lightColor : darkColor),
-   (id)(inverse ? darkColor : lightColor),
-   nil];
+    
+    CFArrayRef colors = CFARRAY((inverse ? lightColor : darkColor),
+                                (inverse ? darkColor : lightColor));
+    
+    newShadow.colors = objc_unretainedObject(colors);
+    
+    CFRelease(colors);
+
 	return newShadow;
 }
 
@@ -66,15 +60,9 @@
 #pragma mark -
 #pragma mark NSObject
 
-- (id)initWithFrame:(CGRect)frame {
-  if ((self = [super initWithFrame:frame])) {
-  }
-  return self;
-}
-
 - (void)dealloc {
-  MCRelease(_topShadowLayer);
-  MCRelease(_bottomShadowLayer);
+    self.topShadowLayer = nil;
+    self.bottomShadowLayer = nil;
 
   [super dealloc];
 }
@@ -84,8 +72,8 @@
 #pragma mark UIView
 
 - (void)setFrame:(CGRect)rect {
-  [super setFrame:rect];
-  [self setNeedsDisplay];
+    [super setFrame:rect];
+    [self setNeedsDisplay];
 }
 
 // layoutSubviews
@@ -95,46 +83,32 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 
-  if (self.isTopShadow) {
-    if (!self.topShadowLayer)
-    {
-      self.topShadowLayer = [self shadowAsInverse:YES];
-      [self.layer addSublayer:self.topShadowLayer];
-    }
-    else if ([self.layer.sublayers indexOfObjectIdenticalTo:self.topShadowLayer] != 0)
-    {
-      [self.layer addSublayer:self.topShadowLayer];
-    }
-
-    CGRect shadowFrame = self.topShadowLayer.frame;
-    shadowFrame.size.width = self.frame.size.width;
-    shadowFrame.origin.y = -SHADOW_INVERSE_HEIGHT;
-    self.topShadowLayer.frame = shadowFrame;
-  }else {
-    [self.topShadowLayer removeFromSuperlayer];
-    self.topShadowLayer = nil;
-  }
-
-
-  if (self.isBottomShadow) {
-    if (!self.bottomShadowLayer)
-    {
-      self.bottomShadowLayer = [self shadowAsInverse:NO];
-      [self.layer insertSublayer:self.bottomShadowLayer atIndex:0];
-    }
-    else if ([self.layer.sublayers indexOfObjectIdenticalTo:self.bottomShadowLayer] != 0)
-    {
-      [self.layer insertSublayer:self.bottomShadowLayer atIndex:0];
+    if (self.isTopShadow) {
+        if (!self.topShadowLayer) {
+            self.topShadowLayer = [PSShadowView shadowAsInverse:YES];
+            [self.layer addSublayer:self.topShadowLayer];
+        } else if ([self.layer.sublayers indexOfObjectIdenticalTo:self.topShadowLayer] != 0) {
+            [self.layer addSublayer:self.topShadowLayer];
+        }
+        self.topShadowLayer.frame = CGRectMake(0, -SHADOW_INVERSE_HEIGHT, self.frame.size.width, SHADOW_INVERSE_HEIGHT);
+    } else {
+        [self.topShadowLayer removeFromSuperlayer];
+        self.topShadowLayer = nil;
     }
 
-    CGRect shadowFrame = self.bottomShadowLayer.frame;
-    shadowFrame.size.width = self.frame.size.width;
-    shadowFrame.origin.y = self.frame.size.height;
-    self.bottomShadowLayer.frame = shadowFrame;
-  }else {
-    [self.bottomShadowLayer removeFromSuperlayer];
-    self.bottomShadowLayer = nil;
-  }
+
+    if (self.isBottomShadow) {
+        if (!self.bottomShadowLayer) {
+            self.bottomShadowLayer = [PSShadowView shadowAsInverse:NO];
+            [self.layer insertSublayer:self.bottomShadowLayer atIndex:0];
+        } else if ([self.layer.sublayers indexOfObjectIdenticalTo:self.bottomShadowLayer] != 0) {
+            [self.layer insertSublayer:self.bottomShadowLayer atIndex:0];
+        }
+        self.bottomShadowLayer.frame = CGRectMake(0, self.frame.size.height, self.frame.size.width, SHADOW_HEIGHT);
+    } else {
+        [self.bottomShadowLayer removeFromSuperlayer];
+        self.bottomShadowLayer = nil;
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -142,13 +116,13 @@
 #pragma mark Properties
 
 - (void)setTopShadow:(BOOL)flag {
-  _topShadow = flag;
-  [self setNeedsLayout];
+    topShadow = flag;
+    [self setNeedsLayout];
 }
 
 - (void)setBottomShadow:(BOOL)flag {
-  _bottomShadow = flag;
-  [self setNeedsLayout];
+    bottomShadow = flag;
+    [self setNeedsLayout];
 }
 
 @end

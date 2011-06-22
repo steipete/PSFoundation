@@ -10,10 +10,9 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface ShadowedTableView : UITableView
-{
-	CAGradientLayer *originShadow;
-	CAGradientLayer *topShadow;
-	CAGradientLayer *bottomShadow;
-}
+
+@property (nonatomic, retain) CAGradientLayer *originShadow;
+@property (nonatomic, retain) CAGradientLayer *topShadow;
+@property (nonatomic, retain) CAGradientLayer *bottomShadow;
 
 @end
