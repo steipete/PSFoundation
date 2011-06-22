@@ -10,6 +10,7 @@
 
 @interface SoundEffect : NSObject {
     SystemSoundID _soundID;
+    NSTimeInterval _length;
 }
 
 + (id)soundEffectWithContentsOfFile:(NSString *)aPath;

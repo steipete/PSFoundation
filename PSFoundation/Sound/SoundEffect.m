@@ -7,47 +7,55 @@
 //
 
 #import "SoundEffect.h"
+#import <AudioToolbox/AudioToolbox.h>
 #import "NSObject+BlocksKit.h"
 
 @implementation SoundEffect
 
 + (id)soundEffectWithContentsOfFile:(NSString *)aPath {
-    if (!aPath.empty)
-        return [[[SoundEffect alloc] initWithContentsOfFile:aPath] autorelease];
-    return nil;
+    if (aPath.empty)
+        return nil;
+    
+    return PS_AUTORELEASE([[SoundEffect alloc] initWithContentsOfFile:aPath]);
 }
 
 - (id)initWithContentsOfFile:(NSString *)path {
-    if ((self = [super init])) {
-        if (!path.empty) {
-            NSURL *aFileURL = [NSURL fileURLWithPath:path isDirectory:NO];
-            if (!aFileURL) {
-                SystemSoundID aSoundID;
-                OSStatus error = AudioServicesCreateSystemSoundID((CFURLRef)aFileURL, &aSoundID);
-                
-                if (error == kAudioServicesNoError) { // success
-                    _soundID = aSoundID;
-                } else {
-                    DDLogError(@"Error %d loading sound at path: %@", error, path);
-                    [self release];
-                    return nil;
-                }
-            } else {
-                DDLogError(@"NSURL is nil for path: %@", path);
-                [self release];
-                return nil;
-            }
-        }
+    if (path.empty)
+        return nil;
+    
+    NSURL *aFileURL = [NSURL fileURLWithPath:path isDirectory:NO];
+    
+    if (aFileURL.empty)
+        return nil;
+    
+    SystemSoundID aSoundID;
+    OSStatus error = AudioServicesCreateSystemSoundID((CFURLRef)aFileURL, &aSoundID);
+    
+    if (error != kAudioServicesNoError) {
+        DDLogError(@"Error %d loading sound at path: %@", error, path);
+        return nil;
     }
+    
+    AudioFileID fileID;
+    OSStatus result = AudioFileOpenURL((CFURLRef)aFileURL, kAudioFileReadPermission, 0, &fileID);
+    NSTimeInterval seconds;
+    UInt32 propertySize = sizeof(seconds);
+    result = AudioFileGetProperty(fileID, kAudioFilePropertyEstimatedDuration, &propertySize, &seconds);
+    AudioFileClose(fileID);
+    
+    self = [super init];
+    _soundID = aSoundID;
+    _length = seconds + 0.2;
     return self;
 }
 
 -(void)dealloc {
-    // to do:  find the length of the audio clip, so it has time to play in an autoreleased situation
     [NSObject performBlock:^(void) {
         AudioServicesDisposeSystemSoundID(_soundID);
-    } afterDelay:3.0];
+    } afterDelay:_length];
+#if PS_SHOULD_DEALLOC
     [super dealloc];
+#endif
 }
 
 - (void)play {
@@ -59,12 +67,12 @@ static void SoundEffectAutoDestruction(SystemSoundID soundID, void *userInfo) {
 }
 
 + (void)playSoundEffectWithContentsOfFile:(NSString *)path {
-    if (!path.empty) {
-        SoundEffect *instance = [[SoundEffect alloc] initWithContentsOfFile:path];
+    if (path.empty)
+        return;
+
+        SoundEffect *instance = [SoundEffect soundEffectWithContentsOfFile:path];
         AudioServicesAddSystemSoundCompletion(instance->_soundID, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode, SoundEffectAutoDestruction, NULL);
         [instance play];
-        [instance autorelease];
-    }
 }
 
 + (void)vibrate {
