@@ -90,8 +90,7 @@
                 }
 
                 NSUInteger indices[2] = {newSectionLocation, 0};
-                newIndexPath = [[[NSIndexPath alloc] initWithIndexes:indices length:2] autorelease];
-
+                newIndexPath = [NSIndexPath indexPathWithIndexes:indices length:2];
             }
         }
 
