@@ -32,107 +32,10 @@
  * This means you can pass it multiple variables just like NSLog.
 **/
 
-
-// Can we use Grand Central Dispatch?
-//
-// This question is actually composed of two parts:
-// 1. Is it available to the compiler?
-// 2. Is it available to the runtime?
-//
-// For example, if we are building a universal iPad/iPhone app,
-// our base SDK may be iOS 4, but our deployment target would be iOS 3.2.
-// In this case we can compile against the GCD libraries (which are available starting with iOS 4),
-// but we can only use them at runtime if running on iOS 4 or later.
-// If running on an iPad using iOS 3.2, we need to use runtime checks for backwards compatibility.
-//
-// The solution is to use a combination of compile-time and run-time macros.
-//
-// Note that when the minimum supported SDK supports GCD
-// the run-time checks will be compiled out during optimization.
-
-#if TARGET_OS_IPHONE
-
-  // Compiling for iPod/iPhone/iPad
-
-  #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000 // 4.0 supported
-
-    #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 40000 // 4.0 supported and required
-
-      #define IS_GCD_AVAILABLE      YES
-      #define GCD_MAYBE_AVAILABLE   1
-      #define GCD_MAYBE_UNAVAILABLE 0
-
-    #else                                         // 4.0 supported but not required
-
-      #ifndef NSFoundationVersionNumber_iPhoneOS_4_0
-        #define NSFoundationVersionNumber_iPhoneOS_4_0 751.32
-      #endif
-
-      #define IS_GCD_AVAILABLE     (NSFoundationVersionNumber >= NSFoundationVersionNumber_iPhoneOS_4_0)
-      #define GCD_MAYBE_AVAILABLE   1
-      #define GCD_MAYBE_UNAVAILABLE 1
-
-    #endif
-
-  #else                                        // 4.0 not supported
-
-    #define IS_GCD_AVAILABLE      NO
-    #define GCD_MAYBE_AVAILABLE   0
-    #define GCD_MAYBE_UNAVAILABLE 1
-
-  #endif
-
-#else
-
-  // Compiling for Mac OS X
-
-  #if MAC_OS_X_VERSION_MAX_ALLOWED >= 1060 // 10.6 supported
-
-    #if MAC_OS_X_VERSION_MIN_REQUIRED >= 1060 // 10.6 supported and required
-
-      #define IS_GCD_AVAILABLE      YES
-      #define GCD_MAYBE_AVAILABLE   1
-      #define GCD_MAYBE_UNAVAILABLE 0
-
-    #else                                     // 10.6 supported but not required
-
-      #ifndef NSFoundationVersionNumber10_6
-        #define NSFoundationVersionNumber10_6 751.00
-      #endif
-
-      #define IS_GCD_AVAILABLE     (NSFoundationVersionNumber >= NSFoundationVersionNumber10_6)
-      #define GCD_MAYBE_AVAILABLE   1
-      #define GCD_MAYBE_UNAVAILABLE 1
-
-    #endif
-
-  #else                                    // 10.6 not supported
-
-    #define IS_GCD_AVAILABLE      NO
-    #define GCD_MAYBE_AVAILABLE   0
-    #define GCD_MAYBE_UNAVAILABLE 1
-
-  #endif
-
-#endif
-
-/*
-// Uncomment for quick temporary test to see if it builds for older OS targets
-#undef IS_GCD_AVAILABLE
-#undef GCD_MAYBE_AVAILABLE
-#undef GCD_MAYBE_UNAVAILABLE
-
-#define IS_GCD_AVAILABLE      NO
-#define GCD_MAYBE_AVAILABLE   0
-#define GCD_MAYBE_UNAVAILABLE 1
-*/
-
 @class DDLogMessage;
 
 @protocol DDLogger;
 @protocol DDLogFormatter;
-
-
 
 #define DISPLAY_DETAILS 0
 
@@ -278,27 +181,12 @@ NSString *ExtractFileNameWithoutExtension(const char *filePath, BOOL copy);
 
 @interface DDLog : NSObject
 
-#if GCD_MAYBE_AVAILABLE
-
 /**
  * Provides access to the underlying logging queue.
  * This may be helpful to Logger classes for things like thread synchronization.
 **/
 
 + (dispatch_queue_t)loggingQueue;
-
-#endif
-
-#if GCD_MAYBE_UNAVAILABLE
-
-/**
- * Provides access to the underlying logging thread.
- * This may be helpful to Logger classes for things like thread synchronization.
-**/
-
-+ (NSThread *)loggingThread;
-
-#endif
 
 /**
  * Logging Primitive.
@@ -388,8 +276,6 @@ functionStr:(NSString *)functionStr
 - (void)didAddLogger;
 - (void)willRemoveLogger;
 
-#if GCD_MAYBE_AVAILABLE
-
 /**
  * When Grand Central Dispatch is available
  * each logger is executed concurrently with respect to the other loggers.
@@ -405,8 +291,6 @@ functionStr:(NSString *)functionStr
  * This may be helpful for debugging or profiling reasons.
 **/
 - (NSString *)loggerName;
-
-#endif
 
 @end
 
@@ -557,13 +441,9 @@ functionStr:(NSString *)functionStr
  * and they can ACCESS THE FORMATTER VARIABLE DIRECTLY from within their logMessage method!
 **/
 
-@interface DDAbstractLogger : NSObject <DDLogger>
-{
+@interface DDAbstractLogger : NSObject <DDLogger> {
 	id <DDLogFormatter> formatter;
-
-#if GCD_MAYBE_AVAILABLE
 	dispatch_queue_t loggerQueue;
-#endif
 }
 
 - (id <DDLogFormatter>)logFormatter;

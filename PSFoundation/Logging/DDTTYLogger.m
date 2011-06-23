@@ -34,10 +34,9 @@ static DDTTYLogger *sharedInstance;
 
 - (id)init
 {
-	if (sharedInstance != nil)
-	{
-		[self release];
-		return nil;
+	if (sharedInstance != nil) {
+        PS_RELEASE(self);
+        return nil;
 	}
 	
 	if ((self = [super init]))
