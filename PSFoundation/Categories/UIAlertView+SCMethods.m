@@ -11,48 +11,32 @@
 @implementation UIAlertView (SCMethods)
 
 + (UIAlertView *)alertViewFromError:(NSError *)error {
-  
-  UIAlertView *result = [[[UIAlertView alloc] initWithTitle:[error localizedFailureReason]
-                                                    message:[error localizedDescription]
-                                                   delegate:nil
-                                          cancelButtonTitle:NSLocalizedString(@"OK", @"")
-                                          otherButtonTitles:nil] autorelease];
-  return result;
+    PS_RETURN_AUTORELEASED([[UIAlertView alloc] initWithTitle:[error localizedFailureReason]
+                                                      message:[error localizedDescription]
+                                                     delegate:nil
+                                            cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                                            otherButtonTitles:nil]);
 }
 
 + (void)showWithError:(NSError *)error {
-  [[[[UIAlertView alloc] initWithTitle:LocalizedString(@"Error")
-                               message:[error localizedDescription]
-                              delegate:nil
-                     cancelButtonTitle:NSLocalizedString(@"OK", @"")
-                     otherButtonTitles:nil] autorelease] show];
+    return [self showWithTitle:LocalizedString(@"Error") message:[error localizedDescription]];
 }
 
 + (void)showWithMessage:(NSString *)message {
-  
-  [[[[UIAlertView alloc] initWithTitle:nil
-                               message:message
-                              delegate:nil
-                     cancelButtonTitle:NSLocalizedString(@"OK", @"")
-                     otherButtonTitles:nil] autorelease] show];
+    return [self showWithTitle:nil message:message];
 }
 
 + (void)showWithTitle:(NSString *)title {
-  
-  [[[[UIAlertView alloc] initWithTitle:title
-                               message:nil
-                              delegate:nil
-                     cancelButtonTitle:NSLocalizedString(@"OK", @"")
-                     otherButtonTitles:nil] autorelease] show];
+    return [self showWithTitle:title message:nil];
 }
 
 + (void)showWithTitle:(NSString *)title message:(NSString *)message {
-  
-  [[[[UIAlertView alloc] initWithTitle:title
-                               message:message
-                              delegate:nil
-                     cancelButtonTitle:NSLocalizedString(@"OK", @"")
-                     otherButtonTitles:nil] autorelease] show];
+    UIAlertView __ps_autoreleasing *view = PS_AUTORELEASE([[UIAlertView alloc] initWithTitle:title
+                                                                                    message:message
+                                                                                   delegate:nil
+                                                                          cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                                                                          otherButtonTitles:nil]);
+    [view show];
 }
 
 + (void)showWithTitle:(NSString *)title message:(NSString *)message error:(NSError *)error {

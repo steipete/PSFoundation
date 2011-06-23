@@ -14,43 +14,36 @@
 @implementation NSString (PSStringURL)
 
 - (NSString *)URLEncodedString {
-    NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                           (CFStringRef)self,
+    PS_RETURN_AUTORELEASED(NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                           ps_unretainedPointer(self),
                                                                            NULL,
                                                                            CFSTR("!*'();:@&=+$,/?%#[]<>"),
-                                                                           kCFStringEncodingUTF8);
-    [result autorelease];
-    return result;
+                                                                           kCFStringEncodingUTF8)));
 }
 
-- (NSString*)URLDecodedString {
-    NSString *result = (NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
-                                                                                           (CFStringRef)self,
+- (NSString *)URLDecodedString {
+    PS_RETURN_AUTORELEASED(NSMakeCollectable(CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
+                                                                                           ps_unretainedPointer(self),
                                                                                            CFSTR(""),
-                                                                                           kCFStringEncodingUTF8);
-    [result autorelease];
-    return result;
+                                                                                           kCFStringEncodingUTF8)));
 }
 
 - (NSString *)URLEncodedParameterString {
-    NSString *result = self;
     NSString *firstPass = NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                    (CFStringRef)self,
+                                                                                    ps_unretainedPointer(self),
                                                                                     CFSTR(" "),
                                                                                     CFSTR(":/=,!$&'()*+;[]@#?"),
                                                                                     kCFStringEncodingUTF8));
     if (firstPass) {
         NSMutableString *secondPass = [firstPass mutableCopy];
-        [firstPass release];
+        PS_RELEASE_NIL(firstPass);
         [secondPass replaceOccurrencesOfString:@" "
                                     withString:@"+"
                                        options:0
                                          range:NSMakeRange(0, secondPass.length)];
-        result = [secondPass copy];
-        [secondPass release];
-        [result autorelease];
+        PS_RETURN_AUTORELEASED(secondPass);
     }
-	return result;
+	return self;
 }
 
 - (NSString *)URLDecodedParameterString {
@@ -94,13 +87,14 @@
 }
 
 - (NSString *)removeQuotes {
-	NSUInteger length = self.length;
-	NSString *ret = self;
+	NSString __ps_autoreleasing *ret = PS_AUTORELEASE([self copy]);
+        
 	if ([self characterAtIndex:0] == '"') {
 		ret = [ret substringFromIndex:1];
 	}
-	if ([self characterAtIndex:length - 1] == '"') {
-		ret = [ret substringToIndex:length - 2];
+    
+	if ([self characterAtIndex:self.length - 1] == '"') {
+		ret = [ret substringToIndex:self.length - 2];
 	}
 	
 	return ret;

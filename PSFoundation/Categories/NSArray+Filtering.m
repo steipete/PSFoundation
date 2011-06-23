@@ -17,12 +17,12 @@
 @implementation NSArray (PSArrayAlgebra)
 
 - (id)uniqueMembers {
-	NSMutableArray *copy = [[self mutableCopy] autorelease];
+	NSMutableArray __ps_autoreleasing *copy = [self mutableCopy];
 	for (id object in self) {
 		[copy removeObjectIdenticalTo:object];
 		[copy addObject:object];
 	}
-	return copy;
+	return PS_AUTORELEASE(copy);
 }
 
 - (id) unionWithArray:(NSArray *)anArray {
@@ -31,36 +31,36 @@
 }
 
 - (id)intersectionWithArray:(NSArray *)anArray {
-	NSMutableArray *copy = [[self mutableCopy] autorelease];
+	NSMutableArray __ps_autoreleasing *copy = [self mutableCopy];
 	for (id object in self)
 		if (![anArray containsObject:object])
 			[copy removeObjectIdenticalTo:object];
-	return [copy uniqueMembers];
+	return PS_AUTORELEASE([copy uniqueMembers]);
 }
 
 - (id)intersectionWithSet:(NSSet *)anSet {
-	NSMutableArray *copy = [[self mutableCopy] autorelease];
+	NSMutableArray __ps_autoreleasing *copy = [self mutableCopy];
 	for (id object in self)
 		if (![anSet containsObject:object])
 			[copy removeObjectIdenticalTo:object];
-	return [copy uniqueMembers];
+	return PS_AUTORELEASE([copy uniqueMembers]);
 }
 
 // http://en.wikipedia.org/wiki/Complement_(set_theory)
 - (id)complementWithArray:(NSArray *)anArray {
-	NSMutableArray *copy = [[self mutableCopy] autorelease];
+	NSMutableArray __ps_autoreleasing *copy = [self mutableCopy];
 	for (id object in self)
 		if ([anArray containsObject:object])
 			[copy removeObjectIdenticalTo:object];
-	return [copy uniqueMembers];
+	return PS_AUTORELEASE([copy uniqueMembers]);
 }
 
 - (id)complementWithSet:(NSSet *)anSet {
-	NSMutableArray *copy = [[self mutableCopy] autorelease];
+	NSMutableArray __ps_autoreleasing *copy = [self mutableCopy];
 	for (id object in self)
 		if ([anSet containsObject:object])
 			[copy removeObjectIdenticalTo:object];
-	return [copy uniqueMembers];
+	return PS_AUTORELEASE([copy uniqueMembers]);
 }
 
 @end
@@ -71,18 +71,22 @@
     NSMutableArray *resorted = [self mutableCopy];
     [resorted reverse];
     
-    id ret = [[[self class] alloc] initWithArray:resorted];
-    [resorted release];
-    return [ret autorelease];
+    id ret = [[self class] arrayWithArray:resorted];
+    
+    PS_RELEASE_NIL(resorted);
+    
+    return ret;
 }
 
 - (id)arrayByShuffling {
     NSMutableArray *shuffled = [self mutableCopy];
     [shuffled shuffle];
     
-    id ret = [[[self class] alloc] initWithArray:shuffled];
-    [shuffled release];
-    return [ret autorelease];
+    id ret = [[self class] arrayWithArray:shuffled];
+    
+    PS_RELEASE_NIL(shuffled);
+    
+    return ret;
 }
 
 @end

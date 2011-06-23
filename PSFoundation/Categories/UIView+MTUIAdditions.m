@@ -155,7 +155,7 @@
     
     CFArrayRef colors = CFARRAY([startColor CGColor], [endColor CGColor]);
     
-    gradient.colors = objc_unretainedObject(colors);
+    gradient.colors = ps_unretainedObject(colors);
     
     CFRelease(colors);
 

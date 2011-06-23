@@ -126,10 +126,7 @@
 }
 
 - (BOOL)isTablet {
-    IF_3_2_OR_GREATER(
-        return ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad);
-    );
-    return NO;
+    return ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad);
 }
 
 @end

@@ -16,7 +16,7 @@
 
 - (NSString*)stringByTruncatingToWidth:(CGFloat)width withFont:(UIFont *)font {
     // Create copy that will be the returned result
-    NSMutableString *truncatedString = [[self mutableCopy] autorelease];
+    NSMutableString __ps_autoreleasing *truncatedString = PS_AUTORELEASE([self mutableCopy]);
     
     // Make sure string is longer than requested width
     if ([self sizeWithFont:font].width > width) {
@@ -52,37 +52,34 @@
 }
 
 - (NSString *)stringByTruncatingToLength:(NSUInteger)length direction:(NSTruncateStringPosition)truncateFrom withEllipsisString:(NSString *)anEllipsis {
-	NSMutableString *result = [[NSMutableString alloc] initWithString:self];
-	NSString *immutableResult;
+	NSMutableString *result = [self mutableCopy];
+	NSString __ps_autoreleasing *immutableResult = nil;
     
-	if([result length] <= length) {
-		[result release];
+	if (result.length <= length)
 		return self;
-	}
     
 	NSUInteger charactersEachSide = length / 2;
     
-	NSString * first;
-	NSString * last;
+	NSString *first = nil, *last = nil;
     
 	switch(truncateFrom) {
 		case NSTruncateStringPositionStart:
 			[result insertString:anEllipsis atIndex:[result length] - length + [anEllipsis length] ];
 			immutableResult  = [[result substringFromIndex:[result length] - length] copy];
-			[result release];
-			return [immutableResult autorelease];
+			PS_RELEASE_NIL(result);
+			return PS_AUTORELEASE(immutableResult);
 		case NSTruncateStringPositionMiddle:
 			first = [result substringToIndex:charactersEachSide - [anEllipsis length]+1];
 			last = [result substringFromIndex:[result length] - charactersEachSide];
 			immutableResult = [[[NSArray arrayWithObjects:first, last, NULL] componentsJoinedByString:anEllipsis] copy];
-			[result release];
-			return [immutableResult autorelease];
+			PS_RELEASE_NIL(result);
+			return PS_AUTORELEASE(immutableResult);
 		default:
 		case NSTruncateStringPositionEnd:
 			[result insertString:anEllipsis atIndex:length - [anEllipsis length]];
 			immutableResult  = [[result substringToIndex:length] copy];
-			[result release];
-			return [immutableResult autorelease];
+			PS_RELEASE_NIL(result);
+			return PS_AUTORELEASE(immutableResult);
 	}
 }
 

@@ -8,11 +8,10 @@
 
 #import "NSObject+Utilities.h"
 
-
 @implementation NSObject (Utilities)
 
 + (id) make {
-	return [[[[self class] alloc] init] autorelease];
+    PS_RETURN_AUTORELEASED([[[self class] alloc] init]);
 }
 
 - (void) performSelector: (SEL) selector afterDelay: (NSTimeInterval) delay {

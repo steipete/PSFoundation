@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+MTUIAdditions.h"
+#import "NSObject+AssociatedObjects.h"
 #import <objc/runtime.h>
 
 ////////////////////////////////////////////////////////////////////////
@@ -24,7 +25,7 @@ static char oldBarButtonItemKey;
     UIActivityIndicatorView *activityView = nil;
     
     if (oldActivityView == nil) { 
-        UIActivityIndicatorView *activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+        UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         
         activityView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
         
@@ -64,21 +65,25 @@ static char oldBarButtonItemKey;
 
 - (void)showLoadingIndicatorInNavigationBar {
     // initing the loading view
-    UIView *backgroundView = [[[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, 24.f, 26.f)] autorelease];
-    UIActivityIndicatorView *activityView = [[[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.f, 2.f, 20.f, 20.f)] autorelease];
+    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, 24.f, 26.f)];
+    UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0.f, 2.f, 20.f, 20.f)];
     
     [backgroundView addSubview:activityView];
     [activityView startAnimating];
     
-    if (self.navigationItem.rightBarButtonItem != nil) {
-        objc_setAssociatedObject(self, &oldBarButtonItemKey, self.navigationItem.rightBarButtonItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:backgroundView] autorelease];
+    if (self.navigationItem.rightBarButtonItem)
+        [self associateValue:self.navigationItem.rightBarButtonItem withKey:&oldBarButtonItemKey];
+    
+    self.navigationItem.rightBarButtonItem = PS_AUTORELEASE([[UIBarButtonItem alloc] initWithCustomView:backgroundView]);
+    
+    #if !PS_HAS_ARC
+    [activityView release];
+    [backgroundView release];
+    #endif
 }
 
 - (void)hideLoadingIndicatorInNavigationBar {
-    UIBarButtonItem *oldItem = (UIBarButtonItem *)objc_getAssociatedObject(self, &oldBarButtonItemKey);
+    UIBarButtonItem *oldItem = [self associatedValueForKey:&oldBarButtonItemKey];
     self.navigationItem.rightBarButtonItem = oldItem;
 }
 

@@ -27,13 +27,13 @@ static NSMutableDictionary *UIImageCache;
     return [self initWithContentsOfFile:path];
 }
 
-+ (UIImage*)imageWithContentsOfResolutionIndependentFile:(NSString *)path {
-    return [[[UIImage alloc] initWithContentsOfResolutionIndependentFile:path] autorelease];
++ (UIImage *)imageWithContentsOfResolutionIndependentFile:(NSString *)path {
+    PS_RETURN_AUTORELEASED([[UIImage alloc] initWithContentsOfResolutionIndependentFile:path]);
 }
 
 
 + (id)cachedImageWithContentsOfFile:(NSString *)path {
-    id result = nil;
+    id __ps_autoreleasing result = nil;
     @synchronized(UIImageCache) {
         if (!UIImageCache)
             UIImageCache = [[NSMutableDictionary alloc] init];
@@ -42,10 +42,10 @@ static NSMutableDictionary *UIImageCache;
             if (result)
                 return result;
         }
-        result = [[[UIImage alloc] initWithContentsOfResolutionIndependentFile:path] autorelease];
-        if(result) [UIImageCache setObject:result forKey:path];
+        result = [[UIImage alloc] initWithContentsOfResolutionIndependentFile:path];
+        if (result) [UIImageCache setObject:result forKey:path];
     }
-    return result;
+    return PS_AUTORELEASE(result);
 }
 
 

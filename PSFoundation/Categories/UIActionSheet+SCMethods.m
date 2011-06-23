@@ -33,11 +33,11 @@
 
 + (UIActionSheet *)_actionSheetWithMessage:(NSString *)message {
 	
-	return [[[UIActionSheet alloc] initWithTitle:message
+	return PS_AUTORELEASE([[UIActionSheet alloc] initWithTitle:message
 										delegate:nil
 							   cancelButtonTitle:NSLocalizedString(@"OK", @"")
 						  destructiveButtonTitle:nil
-							   otherButtonTitles:nil] autorelease];
+							   otherButtonTitles:nil]);
 }
 
 @end

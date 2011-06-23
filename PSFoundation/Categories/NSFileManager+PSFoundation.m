@@ -81,10 +81,9 @@
 - (void)getContentsAtPath:(NSString *)path handler:(void (^)(NSData *data, NSError *error))handler {
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	dispatch_async(queue, ^{
-		NSFileHandle *fh = [[NSFileHandle fileHandleForReadingAtPath:path] retain];
+		NSFileHandle *fh = [NSFileHandle fileHandleForReadingAtPath:path];
 		NSError *error = nil;
-		
-		NSMutableData *data = [[NSMutableData data] retain];
+		NSMutableData *data = [NSMutableData data];
 		
 		// create a GCD source using the file descriptor, which will respond whenever the descriptor fires
 		dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, [fh fileDescriptor], 0, queue);
@@ -102,11 +101,11 @@
 			if(eof){
 				dispatch_async(dispatch_get_main_queue(), ^{
 					handler(data, error);
-					[data release];
+                    PS_RELEASE(data);
 				});
 				
 				dispatch_source_cancel(source);
-				[fh release];
+                PS_RELEASE(fh);
 			}
 		});
 		dispatch_resume(source);

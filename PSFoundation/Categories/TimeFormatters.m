@@ -97,6 +97,7 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
 
 @implementation IntervalFormatter
 @synthesize style;
+
 - (NSString *) stringForObjectValue:(NSNumber *)minutesValue {
     if (minutesValue == nil)
         return @"";
@@ -127,13 +128,14 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
         }
             
         case kIntervalFormatterDecimalStyle: {
-            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+            NSNumberFormatter *formatter = [NSNumberFormatter new];
             [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
             [formatter setMultiplier:[NSNumber numberWithFloat:(1.0f / 60.0f)]];
             [formatter setMaximumFractionDigits:2];
             [formatter setMinimumFractionDigits:1];
             str = [formatter stringFromNumber:minutesValue];
-            [formatter release];
+            
+            PS_RELEASE_NIL(formatter);
             break;
         }
             
@@ -141,36 +143,40 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
         case kIntervalFormatterLongStyle: {
             float integralPart;
             NSInteger seconds = floorf(modff(minutes, &integralPart) * 60.0f);
-            IntervalComponentsFormatter *formatter = [[IntervalComponentsFormatter alloc] init];
-            NSDateComponents *components = [[NSDateComponents alloc] init];
+            IntervalComponentsFormatter *formatter = [IntervalComponentsFormatter new];
+            NSDateComponents *components = [NSDateComponents new];
             [components setHour:hours];
             [components setMinute:hourMinutes];
             [components setSecond:seconds];
             str = [formatter stringForObjectValue:components];
-            [components release];
-            [formatter release];
+            
+            PS_RELEASE_NIL(components);
+            PS_RELEASE_NIL(formatter);
             break;
         }
     }
     
     return str;
 }
+
 @end
 
 
 @implementation DateComponentsFormatter
+
 @synthesize dateStyle, timeStyle;
 
 - (void) dealloc {
-    [formatter release];
-    [super dealloc];
-    
+    PS_RELEASE_NIL(formatter);
+    PS_DEALLOC();
 }
 
 - (NSString *) stringForObjectValue:(NSDateComponents *)components {
-    if (formatter == nil) formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateStyle:dateStyle];
-    [formatter setTimeStyle:timeStyle];
+    if (!formatter)
+        formatter = [NSDateFormatter new];
+    formatter.dateStyle = self.dateStyle;
+    formatter.timeStyle = self.timeStyle;
+    
     NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:components];
     return [formatter stringFromDate:date];
 }
@@ -186,13 +192,13 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
     NSInteger minutes = [components minute];
     NSInteger seconds = [components second];
     
-    NSNumber *daysValue = [[NSNumber alloc] initWithInteger:days];
-    NSNumber *hoursValue = [[NSNumber alloc] initWithInteger:hours];
-    NSNumber *minutesValue = [[NSNumber alloc] initWithInteger:minutes];
+    NSNumber *daysValue = [NSNumber numberWithInteger:days];
+    NSNumber *hoursValue = [NSNumber numberWithInteger:hours];
+    NSNumber *minutesValue = [NSNumber numberWithInteger:minutes];
     
-    DaysFormatter *daysFormatter = [[DaysFormatter alloc] init];
-    HoursFormatter *hoursFormatter = [[HoursFormatter alloc] init];
-    MinutesFormatter *minutesFormatter = [[MinutesFormatter alloc] init];
+    DaysFormatter *daysFormatter = [DaysFormatter new];
+    HoursFormatter *hoursFormatter = [HoursFormatter new];
+    MinutesFormatter *minutesFormatter = [MinutesFormatter new];
     
     daysFormatter.style = style;
     hoursFormatter.style = style;
@@ -205,8 +211,7 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
     
     if (noDays && noHours && minutes == 0 && !noSeconds) {
         formatKey = Str_TimeComponentsSubMinute_M;
-        [minutesValue release];
-        minutesValue = [[NSNumber alloc] initWithInteger:1];
+        minutesValue = [NSNumber numberWithInteger:1];
     } else if (noDays && noHours) {
         formatKey = Str_TimeComponents_M;
     } else if (noDays) {
@@ -220,12 +225,11 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
                                                [hoursFormatter stringForObjectValue:hoursValue], 
                                                [daysFormatter stringForObjectValue:daysValue]);
     
+    #if !PS_HAS_ARC
     [minutesFormatter release];
     [hoursFormatter release];
     [daysFormatter release];
-    [minutesValue release];
-    [hoursValue release];
-    [daysValue release];
+    #endif
     
     return text;
 }
@@ -233,7 +237,9 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
 
 
 @implementation MinutesFormatter
+
 @synthesize style;
+
 - (NSString *) stringForObjectValue:(NSNumber *)value {
     NSInteger mins = [value integerValue];
     NSString *formatKey = nil;
@@ -246,11 +252,14 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
     }
     return LocalizedStringWithFormat(formatKey, mins);
 }
+
 @end
 
 
 @implementation HoursFormatter
+
 @synthesize style;
+
 - (NSString *) stringForObjectValue:(NSNumber *)value {
     NSInteger hrs = [value integerValue];
     NSString *formatKey = nil;
@@ -263,14 +272,18 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
     }
     return LocalizedStringWithFormat(formatKey, hrs);
 }
+
 @end
 
 
 @implementation DaysFormatter
+
 @synthesize style;
+
 - (NSString *) stringForObjectValue:(NSNumber *)value {
     NSInteger days = [value integerValue];
     NSString *format = LocalizedString(days == 1 ? Str_TimeComponentDay_D : Str_TimeComponentDays_D);
     return [NSString stringWithFormat:format, days];
 }
+
 @end

@@ -18,13 +18,12 @@ static char *kNavigationBarBackgroundKey = "UINavigationBarCustomBackgroundImage
 - (void)setBackgroundImage:(UIImage *)backgroundImage {
     UIImageView *background = [self associatedValueForKey:kNavigationBarBackgroundKey];
     if (!background && backgroundImage) {
-        background = [[UIImageView alloc] init];
+        background = [[UIImageView alloc] initWithImage:backgroundImage];
         background.frame = self.bounds;
         background.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self addSubview:background];
         [self sendSubviewToBack:background];
         [self associateValue:background withKey:kNavigationBarBackgroundKey];
-        [background release];
     } else if (background && !backgroundImage) {
         [background removeFromSuperview];
         [self associateValue:nil withKey:kNavigationBarBackgroundKey];

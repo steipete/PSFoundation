@@ -12,13 +12,13 @@
 
 @implementation NSString (PSStringHTML)
 
-- (NSString *)ps_flattenHTML; {
+- (NSString *)ps_flattenHTML {
     NSMutableString *mutableString = [NSMutableString stringWithString:self];
     NSRange r;
     while ((r = [mutableString rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
         [mutableString replaceCharactersInRange:r withString:@" "];
-
-    return [[mutableString copy] autorelease];
+    
+    PS_RETURN_AUTORELEASED([mutableString copy]);
 }
 
 - (NSString *)trimWhitespace {
@@ -408,7 +408,7 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
     
     // this block is common between GTMNSString+HTML and GTMNSString+XML but
     // it's so short that it isn't really worth trying to share.
-    const unichar *buffer = CFStringGetCharactersPtr((CFStringRef)self);
+    const unichar *buffer = CFStringGetCharactersPtr(ps_unretainedPointer(self));
     if (!buffer) {
         // We want this buffer to be autoreleased.
         NSMutableData *data = [NSMutableData dataWithLength:self.length * sizeof(UniChar)];
@@ -430,6 +430,7 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
     }
     
     unichar *buffer2 = (unichar *)[data2 mutableBytes];
+    PS_RELEASE_NIL(data2);
     
     NSUInteger buffer2Length = 0;
     
@@ -439,7 +440,7 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
                                      sizeof(HTMLEscapeMap), EscapeMapCompare);
         if (val) {
             if (buffer2Length) {
-                CFStringAppendCharacters((CFMutableStringRef)finalString,
+                CFStringAppendCharacters((CFMutableStringRef)ps_unretainedPointer(finalString),
                                          buffer2,
                                          buffer2Length);
                 buffer2Length = 0;
@@ -454,12 +455,14 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
             buffer2Length += 1;
         }
     }
+    
     if (buffer2Length) {
-        CFStringAppendCharacters((CFMutableStringRef)finalString,
+        CFStringAppendCharacters((CFMutableStringRef)ps_unretainedPointer(finalString),
                                  buffer2,
                                  buffer2Length);
     }
-    return finalString;
+    
+    PS_RETURN_AUTORELEASED(finalString);
 }
 
 - (NSString *)gtm_stringByUnescapingFromHTML {

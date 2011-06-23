@@ -7,13 +7,13 @@
 //
 
 #import "NSDate+PSFoundation.h"
+#import "NSObject+Utilities.h"
 
 @implementation NSDate (PSFoundation)
 
 static NSDateFormatter *dateFormatter = nil;
 
-- (NSString *)prettyDateWithReference:(NSDate *)reference relativeMonth:(BOOL)relativeMonth
-{
+- (NSString *)prettyDateWithReference:(NSDate *)reference relativeMonth:(BOOL)relativeMonth {
   float diff = [reference timeIntervalSinceDate:self];
   float distance = floor(diff);
 
@@ -42,8 +42,8 @@ static NSDateFormatter *dateFormatter = nil;
     return [NSString stringWithFormat:@"%d %@", (int)distance, ((int)distance == 1) ? NSLocalizedString(@"month", @"") : NSLocalizedString(@"months", @"")];
   }
   else {
-    if (dateFormatter == nil) {
-      dateFormatter = [[NSDateFormatter alloc] init];
+    if (!dateFormatter) {
+      dateFormatter = [NSDateFormatter new];
       [dateFormatter setDateStyle:NSDateFormatterShortStyle];
       [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
     }
@@ -59,56 +59,46 @@ static NSDateFormatter *dateFormatter = nil;
   return [self prettyDateWithReference:[NSDate date] relativeMonth:NO];
 }
 
-
 - (NSString *)dateStringWithStyle:(NSDateFormatterStyle)style {
-  NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
-  [dateFormatter setDateStyle:style];
-  return [dateFormatter stringFromDate:self];
+    NSDateFormatter *dateFormatter = [NSDateFormatter make];
+    [dateFormatter setDateStyle:style];
+    return [dateFormatter stringFromDate:self];
 }
 
 - (NSString *)dateStringWithStyle:(NSDateFormatterStyle)style time:(NSDateFormatterStyle)timeStyle {
-  NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+  NSDateFormatter *dateFormatter = [NSDateFormatter make];
   [dateFormatter setDateStyle:style];
   [dateFormatter setTimeStyle:timeStyle];
   return [dateFormatter stringFromDate:self];
 }
 
 + (NSDate *)ps_todayMidnight {
-  NSDate *today = [NSDate date];
-
-  NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDate *today = [NSDate date];
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
 
   NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
   NSDateComponents *components = [gregorian components:unitFlags fromDate:today];
   components.hour = 0;
   components.minute = 0;
 
-  NSDate *todayMidnight = [gregorian dateFromComponents:components];
-  [gregorian release];
-
-  return todayMidnight;
+  return [gregorian dateFromComponents:components];
 }
 
 // http://stackoverflow.com/questions/181459/is-there-a-better-way-to-find-midnight-tomorrow
 + (NSDate *)ps_tomorrowMidnight {
-  NSDate *today = [NSDate date];
+    NSDate *today = [NSDate date];
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
 
-  NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [NSDateComponents make];
+    components.day = 1;
+    NSDate *tomorrow = [gregorian dateByAddingComponents:components toDate:today options:0];
 
-  NSDateComponents *components = [[NSDateComponents alloc] init];
-  components.day = 1;
-  NSDate *tomorrow = [gregorian dateByAddingComponents:components toDate:today options:0];
-  [components release];
+    NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    components = [gregorian components:unitFlags fromDate:tomorrow];
+    components.hour = 0;
+    components.minute = 0;
 
-  NSUInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
-  components = [gregorian components:unitFlags fromDate:tomorrow];
-  components.hour = 0;
-  components.minute = 0;
-
-  NSDate *tomorrowMidnight = [gregorian dateFromComponents:components];
-
-  [gregorian release];
-  return tomorrowMidnight;
+    return [gregorian dateFromComponents:components];
 }
 
 // All intervals taken from Google

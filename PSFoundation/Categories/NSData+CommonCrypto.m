@@ -61,16 +61,13 @@ NSString * const kCommonCryptoErrorDomain = @"CommonCryptoErrorDomain";
 			break;
 	}
 
-	NSMutableDictionary * userInfo = [[NSMutableDictionary alloc] init];
+	NSMutableDictionary * userInfo = [NSMutableDictionary dictionary];
 	[userInfo setObject: description forKey: NSLocalizedDescriptionKey];
 
-	if ( reason != nil )
+	if (reason)
 		[userInfo setObject: reason forKey: NSLocalizedFailureReasonErrorKey];
 
-	NSError * result = [NSError errorWithDomain: kCommonCryptoErrorDomain code: status userInfo: userInfo];
-	[userInfo release];
-
-	return ( result );
+	return [NSError errorWithDomain: kCommonCryptoErrorDomain code: status userInfo: userInfo];
 }
 
 @end
@@ -383,9 +380,9 @@ static void FixKeyLengths( CCAlgorithm algorithm, NSMutableData * keyData, NSMut
 		ivData = [[iv dataUsingEncoding: NSUTF8StringEncoding] mutableCopy];
 	else
 		ivData = (NSMutableData *) [iv mutableCopy];	// data or nil
-
-	[keyData autorelease];
-	[ivData autorelease];
+    
+    PS_DO_AUTORELEASE(keyData);
+    PS_DO_AUTORELEASE(ivData);
 
 	// ensure correct lengths for key and iv data, based on algorithms
 	FixKeyLengths( algorithm, keyData, ivData );
@@ -456,8 +453,8 @@ static void FixKeyLengths( CCAlgorithm algorithm, NSMutableData * keyData, NSMut
 	else
 		ivData = (NSMutableData *) [iv mutableCopy];	// data or nil
 
-	[keyData autorelease];
-	[ivData autorelease];
+	PS_DO_AUTORELEASE(keyData);
+    PS_DO_AUTORELEASE(ivData);
 
 	// ensure correct lengths for key and iv data, based on algorithms
 	FixKeyLengths( algorithm, keyData, ivData );

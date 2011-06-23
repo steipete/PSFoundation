@@ -7,13 +7,14 @@
 //
 
 #import "UILabel+PSFoundation.h"
+#import "NSObject+Utilities.h"
 
 @implementation UILabel(PSLib)
 
 + (UILabel *)labelWithText:(NSString *)text {
-  UILabel *label = [[[UILabel alloc] init] autorelease];
-  label.text = text;
-  return label;
+    UILabel *label = [UILabel make];
+    label.text = text;
+    return label;
 }
 
 @end

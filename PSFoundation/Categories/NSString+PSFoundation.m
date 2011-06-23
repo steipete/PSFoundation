@@ -19,10 +19,12 @@ int const GGCharacterIsNotADigit = 10;
 @implementation NSString (PSFoundation)
 
 + (NSString *)stringWithUUID {
-	CFUUIDRef uuidObj = CFUUIDCreate(nil);
-	NSString *UUIDstring = (NSString*)CFUUIDCreateString(nil, uuidObj);
-	CFRelease(uuidObj);
-	return [UUIDstring autorelease];
+	CFUUIDRef uuid = CFUUIDCreate(nil);
+    CFStringRef string = CFUUIDCreateString(nil, uuid);
+    NSString *value = [[NSString alloc] initWithString:ps_unretainedObject(string)];
+    CFRelease(string);
+    CFRelease(uuid);
+    PS_RETURN_AUTORELEASED(value);
 }
 
 - (BOOL)containsString:(NSString *)string {
@@ -43,8 +45,8 @@ int const GGCharacterIsNotADigit = 10;
 
 - (NSComparisonResult)compareToVersionString:(NSString *)version {
 	// Break version into fields (separated by '.')
-	NSMutableArray *leftFields  = [[NSMutableArray alloc] initWithArray:[self  componentsSeparatedByString:@"."]];
-	NSMutableArray *rightFields = [[NSMutableArray alloc] initWithArray:[version componentsSeparatedByString:@"."]];
+    NSMutableArray *rightFields = [NSMutableArray arrayWithArray:[self componentsSeparatedByString:@"."]];
+    NSMutableArray *leftFields = [NSMutableArray arrayWithArray:[version componentsSeparatedByString:@"."]];
 	
 	// Implict ".0" in case version doesn't have the same number of '.'
 	if ([leftFields count] < [rightFields count]) {
@@ -58,17 +60,12 @@ int const GGCharacterIsNotADigit = 10;
 	}
 	
 	// Do a numeric comparison on each field
-	for (NSUInteger i = 0; i < [leftFields count]; i++) {
+	for (NSUInteger i = 0; i < leftFields.count; i++) {
 		NSComparisonResult result = [[leftFields objectAtIndex:i] compare:[rightFields objectAtIndex:i] options:NSNumericSearch];
-		if (result != NSOrderedSame) {
-			[leftFields release];
-			[rightFields release];
+		if (result != NSOrderedSame)
 			return result;
-		}
 	}
 	
-	[leftFields release];
-	[rightFields release];	
 	return NSOrderedSame;
 }
 
@@ -80,12 +77,12 @@ int const GGCharacterIsNotADigit = 10;
 
 - (NSString *)md5 {
     NSData *sum = [[self dataUsingEncoding:NSUTF8StringEncoding] MD5Sum];
-    return [[[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding] autorelease];
+    PS_RETURN_AUTORELEASED([[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding]);
 }
 
 - (NSString *)sha1 {
     NSData *sum = [[self dataUsingEncoding:NSUTF8StringEncoding] SHA1Hash];
-    return [[[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding] autorelease];
+    PS_RETURN_AUTORELEASED([[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding]);
 }
 
 - (NSString *)base64 {

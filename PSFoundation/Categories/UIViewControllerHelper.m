@@ -37,34 +37,29 @@
 		if(![viewController wantsFullScreenLayout]) {
 			
 			CGRect frame = self.view.bounds;
-			if(isLandscape) {
+			if(isLandscape)
 				frame.origin.y = [UIApplication sharedApplication].statusBarFrame.size.width;
-			} else {
+			else
 				frame.origin.y = [UIApplication sharedApplication].statusBarFrame.size.height;
-			}
 			
 			frame.size.height -= frame.origin.y;
 			viewController.view.frame = frame;
-		} else {
+		} else
 			viewController.view.frame = self.view.bounds;
-		}
-	} else {
+	} else
 		viewController.view.frame = self.view.bounds;
-	}
 	
 	viewController.view.alpha = 0.0f;
 	
 	[self.view addSubview:viewController.view];
 	
 	[viewController viewWillAppear:YES];
-	
-	[UIView beginAnimations:@"presentPopUpViewController" context:viewController];
-	[UIView setAnimationDelegate:self];
-	[UIView setAnimationDidStopSelector:@selector(presentedPopUpViewController:finished:viewController:)];
-	viewController.view.alpha = 1.0f;
-	[UIView commitAnimations];
-	
-	[viewController retain];
+    
+    [UIView animateWithDuration:0.5 animations:^(void) {
+        viewController.view.alpha = 1.0f;
+    } completion:^(BOOL finished) {
+        [viewController viewDidAppear:YES];
+    }];
 }
 
 - (void)presentedPopUpViewController:(id)name finished:(id)finished viewController:(UIViewController*)viewController {
@@ -77,13 +72,15 @@
 
 - (void)dismissPopUpViewController:(UIViewController<PopUpViewControllerDelegate>*)viewController {
 	[viewController viewWillDisappear:YES];
-	
-	[UIView beginAnimations:@"dismissPopUpViewController" context:viewController];
-	[UIView setAnimationDelegate:self];
-	[UIView setAnimationDidStopSelector:@selector(dismissedPopUpViewController:finished:viewController:)];
-	viewController.view.alpha = 0.0f;
-	[UIView commitAnimations];
-	
+    
+    [UIView animateWithDuration:0.5 animations:^(void) {
+        viewController.view.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [viewController.view removeFromSuperview];
+        [viewController viewDidDisappear:YES];
+        PS_RELEASE(viewController);
+    }];
+
 	if([self isKindOfClass:[UINavigationController class]]) {
 		if([((UINavigationController*)self).topViewController.view isKindOfClass:[UIScrollView class]]) {
 			((UIScrollView*)((UINavigationController*)self).topViewController.view).scrollsToTop = YES;
@@ -92,12 +89,6 @@
 		}
 		
 	}
-}
-
-- (void)dismissedPopUpViewController:(id)name finished:(id)finished viewController:(UIViewController*)viewController {
-	[viewController.view removeFromSuperview];
-	[viewController viewDidDisappear:YES];
-	[viewController release];
 }
 
 @end

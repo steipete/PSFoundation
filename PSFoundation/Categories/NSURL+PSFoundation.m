@@ -18,8 +18,8 @@
 
 - (NSString *)baseString {
 	// Let's see if we can build it, it'll be the most accurate
-	if([self scheme] && [self host]) {
-		NSMutableString* baseString = [[NSMutableString alloc] initWithString:@""];
+	if ([self scheme] && [self host]) {
+		NSMutableString *baseString = [NSMutableString string];
 		
 		[baseString appendFormat:@"%@://", [self scheme]];
 		
@@ -39,12 +39,9 @@
 		
 		[baseString appendString:@"/"];
 		
-		return [baseString autorelease];
-	}
-	
-	// Oh Well, time to strip it down
-	else {
-		NSString* baseString = [self absoluteString];
+		return baseString;
+	} else {
+		NSString *baseString = [self absoluteString];
 		
 		if(![[self path] isEqualToString:@"/"]) {
 			baseString = [baseString stringByReplacingOccurrencesOfString:[self path] withString:@""];

@@ -138,15 +138,4 @@
 	return result;
 }
 
-#if kPSDetailedUIViewDescription
-- (NSString *)description {
-	UIView* topView = (UIView *) self;
-	int	indentLevel = 0;
-	NSMutableString* result = [[[NSMutableString alloc] init] autorelease];
-
-	[self describeOne:result view:topView indent:indentLevel];
-	return result;
-}
-#endif
-
 @end

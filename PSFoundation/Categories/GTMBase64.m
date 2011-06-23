@@ -148,41 +148,40 @@ static const char kWebSafeBase64DecodeChars[] = {
 }
 
 +(NSString *)stringByEncodingData:(NSData *)data {
-    NSString *result = nil;
     NSData *converted = [self baseEncode:[data bytes]
                                   length:[data length]
                                  charset:kBase64EncodeChars
                                   padded:YES];
-    if (converted) {
-        result = [[[NSString alloc] initWithData:converted
-                                        encoding:NSASCIIStringEncoding] autorelease];
-    }
-    return result;
+    
+    if (!converted)
+        return nil;
+    
+    return PS_AUTORELEASE([[NSString alloc] initWithData:converted
+                                                encoding:NSASCIIStringEncoding]);
 }
 
 +(NSString *)stringByEncodingBytes:(const void *)bytes length:(NSUInteger)length {
-    NSString *result = nil;
     NSData *converted = [self baseEncode:bytes
                                   length:length
                                  charset:kBase64EncodeChars
                                   padded:YES];
-    if (converted) {
-        result = [[[NSString alloc] initWithData:converted
-                                        encoding:NSASCIIStringEncoding] autorelease];
-    }
-    return result;
+    if (!converted)
+        return nil;
+    
+    return PS_AUTORELEASE([[NSString alloc] initWithData:converted
+                                                encoding:NSASCIIStringEncoding]);
 }
 
-+(NSData *)decodeString:(NSString *)string {
-    NSData *result = nil;
++ (NSData *)decodeString:(NSString *)string {
     NSData *data = [string dataUsingEncoding:NSASCIIStringEncoding];
-    if (data) {
-        result = [self baseDecode:[data bytes]
-                           length:[data length]
-                          charset:kBase64DecodeChars
-                   requirePadding:YES];
-    }
-    return result;
+    
+    if (!data)
+        return nil;
+    
+    return [self baseDecode:[data bytes]
+                     length:[data length]
+                    charset:kBase64DecodeChars
+             requirePadding:YES];
 }
 
 #pragma mark Modified Base64
@@ -220,43 +219,42 @@ static const char kWebSafeBase64DecodeChars[] = {
 
 +(NSString *)stringByWebSafeEncodingData:(NSData *)data
                                   padded:(BOOL)padded {
-    NSString *result = nil;
     NSData *converted = [self baseEncode:[data bytes]
                                   length:[data length]
                                  charset:kWebSafeBase64EncodeChars
                                   padded:padded];
-    if (converted) {
-        result = [[[NSString alloc] initWithData:converted
-                                        encoding:NSASCIIStringEncoding] autorelease];
-    }
-    return result;
+    if (!converted)
+        return nil;
+    
+    return PS_AUTORELEASE([[NSString alloc] initWithData:converted
+                                        encoding:NSASCIIStringEncoding]);
 }
 
 +(NSString *)stringByWebSafeEncodingBytes:(const void *)bytes
                                    length:(NSUInteger)length
                                    padded:(BOOL)padded {
-    NSString *result = nil;
     NSData *converted = [self baseEncode:bytes
                                   length:length
                                  charset:kWebSafeBase64EncodeChars
                                   padded:padded];
-    if (converted) {
-        result = [[[NSString alloc] initWithData:converted
-                                        encoding:NSASCIIStringEncoding] autorelease];
-    }
-    return result;
+    
+    if (!converted)
+        return nil;
+    
+    return PS_AUTORELEASE([[NSString alloc] initWithData:converted
+                                                encoding:NSASCIIStringEncoding]);
 }
 
 +(NSData *)webSafeDecodeString:(NSString *)string {
-    NSData *result = nil;
     NSData *data = [string dataUsingEncoding:NSASCIIStringEncoding];
-    if (data) {
-        result = [self baseDecode:[data bytes]
+    
+    if (!data)
+        return nil;
+    
+    return [self baseDecode:[data bytes]
                            length:[data length]
                           charset:kWebSafeBase64DecodeChars
                    requirePadding:NO];
-    }
-    return result;
 }
 
 #pragma mark Private funcions
