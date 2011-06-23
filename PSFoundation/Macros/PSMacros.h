@@ -61,6 +61,7 @@ static inline BOOL IsEmpty(id thing) {
 
 // for function pass entering
 #define DDLogFunction() DDLogInfo(@"-- logged --");
+#define HOLogPing NSLog(@"%s", __PRETTY_FUNCTION__);
 
 #if PS_HAS_ARC
     #define PS_RELEASE(x)
