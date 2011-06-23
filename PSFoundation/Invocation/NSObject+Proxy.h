@@ -1,12 +1,12 @@
 //
 //  NSObject+Proxy.h
-//  
+//  PSFoundation
 //
-//  Created by Corey Floyd.
-//  Borrowed From Steve Degutis and Peter Hosey, with a splash of me
+//  Includes code by the following:
+//   - Corey Floyd.
+//   - Steve Degutis.
+//   - Peter Hosey.
 //
-
-#import <UIKit/UIKit.h>
 
 @interface NSObject (SDStuff)
 

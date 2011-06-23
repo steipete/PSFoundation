@@ -1,10 +1,16 @@
+//
+//  NSObject+Proxy.m
+//  PSFoundation
+//
+//  Includes code by the following:
+//   - Corey Floyd.
+//   - Steve Degutis.
+//   - Peter Hosey.
+//
 
 #import "NSObject+Proxy.h"
 
-
 /****************************************************************************/
-
-
 
 @interface SDNextRunloopProxy : NSObject {
 	id target;
@@ -13,27 +19,27 @@
 
 @end
 
-
 @implementation SDNextRunloopProxy
 
 - (id) initWithTarget:(id)newTarget {
 	if ((self = [super init])) {
-		target = [newTarget retain];
+		target = PS_RETAIN(newTarget);
 	}
 	return self;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-	invocation = [anInvocation retain];
+	invocation = PS_RETAIN(anInvocation);
 	[invocation retainArguments];
 	[self performSelector:@selector(performSelectorAtNextRunloop) withObject:nil afterDelay:0.0];
 }
 
 - (void) performSelectorAtNextRunloop {
 	[invocation invokeWithTarget:target];
-	[target release];
-	[invocation release];
-	[self release];
+    
+    PS_RELEASE(target);
+    PS_RELEASE(invocation);
+    PS_RELEASE(self);
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
@@ -57,23 +63,24 @@
 
 - (id) initWithTarget:(id)newTarget delay:(float)time{
 	if ((self = [super init])) {
-		target = [newTarget retain];
+		target = PS_RETAIN(newTarget);
 		delay = time;
 	}
 	return self;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-	invocation = [anInvocation retain];
+	invocation = PS_RETAIN(anInvocation);
 	[invocation retainArguments];
 	[self performSelector:@selector(performSelectorWithDelay) withObject:nil afterDelay:delay];
 }
 
 - (void) performSelectorWithDelay {
 	[invocation invokeWithTarget:target];
-	[target release];
-	[invocation release];
-	[self release];
+    
+    PS_RELEASE(target);
+    PS_RELEASE(invocation);
+    PS_RELEASE(self);
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
@@ -84,26 +91,27 @@
 
 /****************************************************************************/
 
-@interface PRHMainThreadPerformingProxy : NSProxy
-{
+@interface PRHMainThreadPerformingProxy : NSProxy {
 	id realObject;
 }
 
-- (id) initWithRealObject:(id)newRealObject;
+- (id)initWithRealObject:(id)newRealObject;
 
 @end
 
 @implementation PRHMainThreadPerformingProxy
 
-- (id) initWithRealObject:(id)newRealObject {
+- (id)initWithRealObject:(id)newRealObject {
 	//This is a direct subclass of NSProxy, so no super message!
-	realObject = [newRealObject retain];
+	realObject = PS_RETAIN(newRealObject);
 	return self;
 }
+
 - (void) dealloc {
-	[realObject release];
-	[super dealloc];
+    PS_RELEASE_NIL(realObject);
+	PS_DEALLOC();
 }
+
 - (void) finalize {
 	realObject = nil;
 	[super finalize];
@@ -133,12 +141,11 @@
 	return [[SDNextRunloopProxy alloc] initWithTarget:self];
 }
 
-- (id) proxyWithDelay:(float)time{
-	
+- (id) proxyWithDelay:(float)time {
 	return [[FJSDelayProxy alloc] initWithTarget:self delay:time];
 }
 
 - (id) performOnMainThreadProxy {
-	return [[[PRHMainThreadPerformingProxy alloc] initWithRealObject:self] autorelease];
+    PS_RETURN_AUTORELEASED([[PRHMainThreadPerformingProxy alloc] initWithRealObject:self]);
 }
 @end

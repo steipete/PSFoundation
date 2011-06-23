@@ -35,15 +35,12 @@
 	}
 }
 
-+ (void)rearrangeView:(UIView*)mainView accordingToNib:(NSString*)nibName usingClass:(Class) aClass
-{
++ (void)rearrangeView:(UIView*)mainView accordingToNib:(NSString*)nibName usingClass:(Class)aClass {
 	// load the nib using our controller class and rearrange the view
-	UIViewController* controller = [[aClass alloc] initWithNibName: nibName bundle:[NSBundle bundleForClass: aClass]];
+	UIViewController __ps_autoreleasing *controller = PS_AUTORELEASE([[aClass alloc] initWithNibName: nibName bundle:[NSBundle bundleForClass: aClass]]);
 	UIView* sourceView = controller.view;
 	
 	[self rearrangeView: mainView accordingTo: sourceView];
-	
-	[controller release];
 }
 
 + (void)rearrangeView:(UIView*)mainView toMode:(UIInterfaceOrientation)orientation usingLandscapeNib:(NSString*)landscapeName portraitNib:(NSString*)portraitNib controllerClass:(Class) aClass

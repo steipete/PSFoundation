@@ -58,17 +58,15 @@
  */
 
 #import "DDInvocationGrabber.h"
-
+#import "NSObject+Utilities.h"
 
 @implementation DDInvocationGrabber
 
-+ (id)invocationGrabber
-{
-    return([[[self alloc] init] autorelease]);
++ (id)invocationGrabber {
+    PS_RETURN_AUTORELEASED([DDInvocationGrabber alloc]);
 }
 
-- (id)init
-{
+- (id)init {
     _target = nil;
     _invocation = nil;
     _forwardInvokesOnMainThread = NO;
@@ -78,12 +76,10 @@
     return self;
 }
 
-- (void)dealloc
-{
-    [self setTarget:NULL];
-    [self setInvocation:NULL];
-    //
-    [super dealloc];
+- (void)dealloc {
+    PS_RELEASE_NIL(_target);
+    PS_RELEASE_NIL(_invocation);
+    PS_DEALLOC();
 }
 
 #pragma mark -
@@ -97,8 +93,8 @@
 {
     if (_target != inTarget)
 	{
-        [_target autorelease];
-        _target = [inTarget retain];
+        PS_RELEASE(_target);
+        _target = PS_RETAIN(inTarget);
 	}
 }
 
@@ -109,15 +105,13 @@
 
 - (void)setInvocation:(NSInvocation *)inInvocation
 {
-    if (_invocation != inInvocation)
-	{
-        [_invocation autorelease];
-        _invocation = [inInvocation retain];
+    if (_invocation != inInvocation) {
+        PS_RELEASE(_invocation);
+        _target = PS_RETAIN(inInvocation);
 	}
 }
 
-- (BOOL)forwardInvokesOnMainThread;
-{
+- (BOOL)forwardInvokesOnMainThread; {
     return _forwardInvokesOnMainThread;
 }
 
