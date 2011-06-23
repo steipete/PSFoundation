@@ -23,16 +23,16 @@
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-  if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
-    self.cellView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self addSubview:self.cellView];
-  }
-  return self;
+    if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) {
+        self.cellView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self addSubview:self.cellView];
+    }
+    return self;
 }
 
 - (void)dealloc {
-  MCRelease(_cellView);
-  [super dealloc];
+    PS_RELEASE_VIEW_NIL(_cellView);
+    PS_DEALLOC();
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {

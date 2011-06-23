@@ -17,24 +17,22 @@
     return self;
 }
 
-- (void)dealloc
-{
-	[_accessoryColor release];
-	[_highlightedColor release];
-    [super dealloc];
+- (void)dealloc {
+    PS_RELEASE_NIL(_accessoryColor);
+    PS_RELEASE_NIL(_highlightedColor);
+    PS_DEALLOC();
 }
 
 + (DTCustomColoredAccessory *)accessoryWithColor:(UIColor *)color {
 	return [self accessoryWithColor:color type:DTCustomColoredAccessoryTypeRight];
 }
 
-+ (DTCustomColoredAccessory *)accessoryWithColor:(UIColor *)color type:(DTCustomColoredAccessoryType)type
-{
-	DTCustomColoredAccessory *ret = [[[DTCustomColoredAccessory alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)] autorelease];
-	ret.accessoryColor = color;
-    ret.type = type;
-
-	return ret;
++ (DTCustomColoredAccessory *)accessoryWithColor:(UIColor *)color type:(DTCustomColoredAccessoryType)type {
+    DTCustomColoredAccessory *accessory = [[DTCustomColoredAccessory alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
+	accessory.accessoryColor = color;
+    accessory.type = type;
+    
+    PS_RETURN_AUTORELEASED(accessory);
 }
 
 - (void)drawRect:(CGRect)rect
@@ -114,8 +112,7 @@
 
 - (UIColor *)accessoryColor
 {
-	if (!_accessoryColor)
-	{
+	if (!_accessoryColor) {
 		return [UIColor blackColor];
 	}
 
@@ -124,8 +121,7 @@
 
 - (UIColor *)highlightedColor
 {
-	if (!_highlightedColor)
-	{
+	if (!_highlightedColor) {
 		return [UIColor whiteColor];
 	}
 

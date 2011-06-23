@@ -27,12 +27,12 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
     if (error)
         *error = nil;
     
-    NSArray *keys = [NSArray arrayWithObjects:(NSString* )kSecClass, kSecAttrAccount, kSecAttrService, nil];
-    NSArray *objs = [NSArray arrayWithObjects:(NSString *)kSecClassGenericPassword, username, serviceName, nil];
+    NSArray *keys = [NSArray arrayWithObjects:(NSString *)ps_unretainedObject(kSecClass), kSecAttrAccount, kSecAttrService, nil];
+    NSArray *objs = [NSArray arrayWithObjects:(NSString *)ps_unretainedObject(kSecClassGenericPassword), username, serviceName, nil];
     NSDictionary *query = [NSDictionary dictionaryWithObjects:objs forKeys:keys];
     CFIndex capacity = query.count + 1;
     
-    CFMutableDictionaryRef attributeQuery = CFDictionaryCreateMutableCopy(kCFAllocatorDefault, capacity, (CFDictionaryRef)query);
+    CFMutableDictionaryRef attributeQuery = CFDictionaryCreateMutableCopy(kCFAllocatorDefault, capacity, ps_unretainedPointer(query));
     CFDictionaryAddValue(attributeQuery, kSecReturnAttributes, kCFBooleanTrue);
     CFTypeRef attributeResult;
         
@@ -47,15 +47,13 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
         return nil;
     }
 
-    CFMutableDictionaryRef passwordQuery = CFDictionaryCreateMutableCopy(kCFAllocatorDefault, capacity, (CFDictionaryRef)query);
+    CFMutableDictionaryRef passwordQuery = CFDictionaryCreateMutableCopy(kCFAllocatorDefault, capacity, ps_unretainedPointer(query));
     CFDictionaryAddValue(passwordQuery, kSecReturnData, kCFBooleanTrue);
     CFTypeRef resultData;
     
     status = SecItemCopyMatching(passwordQuery, &resultData);
     
     CFRelease(passwordQuery);
-    
-    NSString *ret = nil;
     
     if (status != noErr) {
         if (status == errSecItemNotFound) {
@@ -83,12 +81,16 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
         if (error)
             *error = [NSError errorWithDomain:SFHFKeychainUtilsErrorDomain code:-1999 description:@"Password data not retrievable for key.  Please try again."];
     } else {
-        NSData *result = objc_unretainedObject(resultData);
-        ret = [[[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding] autorelease];
+        NSData *result = ps_unretainedObject(resultData);
+        
+        NSString *string = [[NSString alloc] initWithData:result encoding:NSUTF8StringEncoding];
+        
         CFRelease(resultData);
+        
+        PS_RETURN_AUTORELEASED(string);
     }
     
-    return ret;
+    return nil;
 }
 
 + (BOOL)storeUsername:(NSString *)username andPassword:(NSString *)password forServiceName:(NSString *)serviceName updateExisting:(BOOL)updateExisting error:(NSError **)error {
@@ -134,28 +136,28 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
 		// Update the existing item.
         
         if (updateExisting && ![existingPassword isEqualToString:password]) {
-            NSArray *keys = [NSArray arrayWithObjects:(NSString *)kSecClass, kSecAttrService,
+            NSArray *keys = [NSArray arrayWithObjects:(NSString *)ps_unretainedObject(kSecClass), kSecAttrService,
                              kSecAttrLabel, kSecAttrAccount, nil];
-            NSArray *objs = [NSArray arrayWithObjects:(NSString *)kSecClassGenericPassword, serviceName, 
+            NSArray *objs = [NSArray arrayWithObjects:(NSString *)ps_unretainedObject(kSecClassGenericPassword), serviceName, 
                              serviceName, username, nil];
             
             NSDictionary *query = [NSDictionary dictionaryWithObjects:objs forKeys:keys];
             NSDictionary *update = [NSDictionary dictionaryWithObject:[password dataUsingEncoding:NSUTF8StringEncoding]
-                                                               forKey:(NSString *)kSecValueData];
+                                                               forKey:(NSString *)ps_unretainedObject(kSecValueData)];
             
-            status = SecItemUpdate((CFDictionaryRef)query, (CFDictionaryRef)update);
+            status = SecItemUpdate(ps_unretainedPointer(query), ps_unretainedPointer(update));
         }
     } else {
 		// No existing entry (or an existing, improperly entered, and therefore now
 		// deleted, entry).  Create a new entry.
         
-        NSArray *keys = [NSArray arrayWithObjects:(NSString *)kSecClass, kSecAttrService, kSecAttrLabel, 
+        NSArray *keys = [NSArray arrayWithObjects:(NSString *)ps_unretainedObject(kSecClass), kSecAttrService, kSecAttrLabel, 
                          kSecAttrAccount, kSecValueData, nil];
-        NSArray *objs = [NSArray arrayWithObjects:(NSString *)kSecClassGenericPassword, serviceName, serviceName,
+        NSArray *objs = [NSArray arrayWithObjects:(NSString *)ps_unretainedObject(kSecClassGenericPassword), serviceName, serviceName,
                          username, [password dataUsingEncoding:NSUTF8StringEncoding], nil];
         NSDictionary *query = [NSDictionary dictionaryWithObjects:objs forKeys:keys];
         
-        status = SecItemAdd((CFDictionaryRef)query, NULL);
+        status = SecItemAdd(ps_unretainedPointer(query), NULL);
     }
     
     if (status != noErr) {
@@ -180,13 +182,13 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
         *error = nil;
     }
     
-    NSArray *keys = [NSArray arrayWithObjects:(NSString *)kSecClass, kSecAttrAccount,
+    NSArray *keys = [NSArray arrayWithObjects:(NSString *)ps_unretainedObject(kSecClass), kSecAttrAccount,
                      kSecAttrService, kSecReturnAttributes, nil];
-    NSArray *objs = [NSArray arrayWithObjects:(NSString *)kSecClassGenericPassword, username,
+    NSArray *objs = [NSArray arrayWithObjects:(NSString *)ps_unretainedObject(kSecClassGenericPassword), username,
                      serviceName, kCFBooleanTrue, nil];
     NSDictionary *query = [NSDictionary dictionaryWithObjects:objs forKeys:keys];
     
-    OSStatus status = SecItemDelete((CFDictionaryRef)query);
+    OSStatus status = SecItemDelete(ps_unretainedPointer(query));
     
     if (status != noErr) {
         if (error)

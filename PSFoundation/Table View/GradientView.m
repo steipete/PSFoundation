@@ -21,7 +21,7 @@
     CFArrayRef colors = CFARRAY([UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0].CGColor,
                                 [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.0].CGColor);
     
-    gradientLayer.colors = objc_unretainedObject(colors);
+    gradientLayer.colors = ps_unretainedObject(colors);
     
     CFRelease(colors);
     

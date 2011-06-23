@@ -29,8 +29,8 @@
 }
 
 - (void)dealloc {
-	MCRelease(backgroundImage);
-	[super dealloc];
+	PS_RELEASE_NIL(backgroundImage);
+    PS_DEALLOC();
 }
 
 - (BOOL) isOpaque {

@@ -7,6 +7,7 @@
 //
 
 #import "PSShadowView.h"
+#import "NSObject+Utilities.h"
 
 #define SHADOW_HEIGHT 20.0
 #define SHADOW_INVERSE_HEIGHT 10.0
@@ -26,7 +27,7 @@
 #pragma mark static
 
 + (PSShadowView *)viewWithSubview:(UIView *)view {
-    PSShadowView *shadowView = [[[[self class] alloc] init] autorelease];
+    PSShadowView *shadowView = [PSShadowView make];
     shadowView.topShadow = YES;
     shadowView.bounds = view.bounds;
     shadowView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -49,7 +50,7 @@
     CFArrayRef colors = CFARRAY((inverse ? lightColor : darkColor),
                                 (inverse ? darkColor : lightColor));
     
-    newShadow.colors = objc_unretainedObject(colors);
+    newShadow.colors = ps_unretainedObject(colors);
     
     CFRelease(colors);
 
@@ -61,10 +62,10 @@
 #pragma mark NSObject
 
 - (void)dealloc {
-    self.topShadowLayer = nil;
-    self.bottomShadowLayer = nil;
-
-  [super dealloc];
+    PS_RELEASE_NIL(_topShadowLayer);
+    PS_RELEASE_NIL(_bottomShadowLayer);
+    
+    PS_DEALLOC();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

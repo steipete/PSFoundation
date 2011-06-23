@@ -13,10 +13,7 @@
 @implementation SoundEffect
 
 + (id)soundEffectWithContentsOfFile:(NSString *)aPath {
-    if (aPath.empty)
-        return nil;
-    
-    return PS_AUTORELEASE([[SoundEffect alloc] initWithContentsOfFile:aPath]);
+    PS_RETURN_AUTORELEASED([[SoundEffect alloc] initWithContentsOfFile:aPath]);
 }
 
 - (id)initWithContentsOfFile:(NSString *)path {
@@ -29,7 +26,7 @@
         return nil;
     
     SystemSoundID aSoundID;
-    OSStatus error = AudioServicesCreateSystemSoundID((CFURLRef)aFileURL, &aSoundID);
+    OSStatus error = AudioServicesCreateSystemSoundID(ps_unretainedPointer(aFileURL), &aSoundID);
     
     if (error != kAudioServicesNoError) {
         DDLogError(@"Error %d loading sound at path: %@", error, path);
@@ -37,10 +34,10 @@
     }
     
     AudioFileID fileID;
-    OSStatus result = AudioFileOpenURL((CFURLRef)aFileURL, kAudioFileReadPermission, 0, &fileID);
+    AudioFileOpenURL(ps_unretainedPointer(aFileURL), kAudioFileReadPermission, 0, &fileID);
     NSTimeInterval seconds;
     UInt32 propertySize = sizeof(seconds);
-    result = AudioFileGetProperty(fileID, kAudioFilePropertyEstimatedDuration, &propertySize, &seconds);
+    AudioFileGetProperty(fileID, kAudioFilePropertyEstimatedDuration, &propertySize, &seconds);
     AudioFileClose(fileID);
     
     self = [super init];
@@ -53,9 +50,7 @@
     [NSObject performBlock:^(void) {
         AudioServicesDisposeSystemSoundID(_soundID);
     } afterDelay:_length];
-#if PS_SHOULD_DEALLOC
-    [super dealloc];
-#endif
+    PS_DEALLOC();
 }
 
 - (void)play {
@@ -70,9 +65,9 @@ static void SoundEffectAutoDestruction(SystemSoundID soundID, void *userInfo) {
     if (path.empty)
         return;
 
-        SoundEffect *instance = [SoundEffect soundEffectWithContentsOfFile:path];
-        AudioServicesAddSystemSoundCompletion(instance->_soundID, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode, SoundEffectAutoDestruction, NULL);
-        [instance play];
+    SoundEffect *instance = [SoundEffect soundEffectWithContentsOfFile:path];
+    AudioServicesAddSystemSoundCompletion(instance->_soundID, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode, SoundEffectAutoDestruction, NULL);
+    [instance play];
 }
 
 + (void)vibrate {

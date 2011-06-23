@@ -21,22 +21,20 @@ NSString* const kReachabilityChangedNotification = @"SCNetworkReachabilityChange
 
 static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info) {
     NSCAssert(info, @"info was NULL in Reachability callback!");
-    Reachability *infoObject = objc_unretainedObject(info);
+    Reachability *infoObject = ps_unretainedObject(info);
     BOOL classCheck = [infoObject isKindOfClass:[Reachability class]];
     NSCAssert(classCheck, @"info was the WRONG CLASS in Reachability callback!");
     
-    NSAutoreleasePool *pool = [NSAutoreleasePool new];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kReachabilityChangedNotification object:infoObject];
-    [pool release];
+    PS_AUTORELEASEPOOL([[NSNotificationCenter defaultCenter] postNotificationName:kReachabilityChangedNotification object:infoObject]);
 }
 
 - (void)dealloc {
     [self stopNotifier];
-    if (reachabilityRef) {
+    
+    if (reachabilityRef)
 		CFRelease(reachabilityRef);
-        reachabilityRef = NULL;
-    }
-    [super dealloc];
+    
+    PS_DEALLOC();
 }
 
 - (Reachability *)initWithReachability:(SCNetworkReachabilityRef)ref {
@@ -48,16 +46,20 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
 + (Reachability *)reachabilityWithHostName:(NSString *)hostName {
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, [hostName UTF8String]);
-    if (reachability)
-        return [[[self alloc] initWithReachability:reachability] autorelease];
-    return nil;
+    
+    if (!reachability)
+        return nil;
+    
+    PS_RETURN_AUTORELEASED([[self alloc] initWithReachability:reachability]);
 }
 
 + (Reachability *)reachabilityWithAddress:(const struct sockaddr_in*)hostAddress {
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(NULL, (const struct sockaddr*)hostAddress);
-    if (reachability)
-        return [[[self alloc] initWithReachability:reachability] autorelease];
-    return nil;
+    
+    if (!reachability)
+        return nil;
+    
+    PS_RETURN_AUTORELEASED([[self alloc] initWithReachability:reachability]);
 }
 
 + (Reachability *)reachabilityForInternetConnection {
@@ -79,7 +81,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 }
 
 - (BOOL)startNotifier {
-    SCNetworkReachabilityContext context = {0, self, NULL, NULL, NULL};
+    SCNetworkReachabilityContext context = {0, (void*)ps_unretainedPointer(self), NULL, NULL, NULL};
     if (SCNetworkReachabilitySetCallback(reachabilityRef, ReachabilityCallback, &context))
         if (SCNetworkReachabilityScheduleWithRunLoop(reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode))
             return YES;
@@ -100,15 +102,10 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     NetworkStatus retVal = NotReachable;
     
-    if (!(flags & kSCNetworkReachabilityFlagsConnectionRequired))
-        retVal = ReachableViaWiFi;
-
-    IF_3_2_OR_GREATER(
-        if (!(flags & kSCNetworkReachabilityFlagsConnectionOnDemand) || !(flags & kSCNetworkReachabilityFlagsConnectionOnTraffic)) {
-            if (!(flags & kSCNetworkReachabilityFlagsInterventionRequired))
+    if (!(flags & kSCNetworkReachabilityFlagsConnectionOnDemand) || !(flags & kSCNetworkReachabilityFlagsConnectionOnTraffic)) {
+        if (!(flags & kSCNetworkReachabilityFlagsInterventionRequired))
                 retVal = ReachableViaWiFi;
-        }
-    )
+    }
     
     IF_IOS(
         if (flags & kSCNetworkReachabilityFlagsIsWWAN)
@@ -174,15 +171,10 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
     NetworkStatus retVal = NotReachable;
     
-    if (!(flags & kSCNetworkReachabilityFlagsConnectionRequired))
-        retVal = ReachableViaWiFi;
-    
-    IF_3_2_OR_GREATER(
-      if (!(flags & kSCNetworkReachabilityFlagsConnectionOnDemand) || !(flags & kSCNetworkReachabilityFlagsConnectionOnTraffic)) {
-          if (!(flags & kSCNetworkReachabilityFlagsInterventionRequired))
-              retVal = ReachableViaWiFi;
-      }
-    )
+    if (!(flags & kSCNetworkReachabilityFlagsConnectionOnDemand) || !(flags & kSCNetworkReachabilityFlagsConnectionOnTraffic)) {
+        if (!(flags & kSCNetworkReachabilityFlagsInterventionRequired))
+            retVal = ReachableViaWiFi;
+    }
     
     IF_IOS(
         if (flags & kSCNetworkReachabilityFlagsIsWWAN)

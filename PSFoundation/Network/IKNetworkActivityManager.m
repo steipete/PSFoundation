@@ -29,8 +29,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(IKNetworkActivityManager)
 }
 
 - (void)dealloc {
-    [users release];
-    [super dealloc];
+    PS_RELEASE_NIL(users);
+    PS_DEALLOC();
 }
 
 

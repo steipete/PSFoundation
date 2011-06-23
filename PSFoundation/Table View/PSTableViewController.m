@@ -77,9 +77,7 @@
 #pragma mark NSObject
 
 - (id)init {
-    if((self = [self initWithStyle:UITableViewStylePlain])) {
-    }
-    return self;
+    return [self initWithStyle:UITableViewStylePlain];
 }
 
 - (id)initWithStyle:(UITableViewStyle)tableViewStyle {
@@ -90,12 +88,11 @@
 }
 
 - (void)dealloc {
-    [tableView setDelegate:nil];
-    [tableView setDataSource:nil];
-    MCRelease(tableView);
-    MCRelease(lastSelectedIndexPath_);
-
-    [super dealloc];
+    tableView.delegate = nil;
+    tableView.dataSource = nil;
+    PS_RELEASE_NIL(tableView);
+    PS_RELEASE_NIL(lastSelectedIndexPath_);
+    PS_DEALLOC();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,7 +123,7 @@
 }
 
 - (void)viewDidUnload {
-    MCReleaseNil(tableView);
+    PS_RELEASE_VIEW_NIL(tableView);
     [super viewDidUnload];
 }
 
@@ -172,15 +169,14 @@
 
 // can be overridden!
 - (UITableView *)createTableView {
-    UITableView *newTableView;
+    UITableView __ps_autoreleasing *newTableView;
 
-    if (useShadows) {
-        newTableView = [[[ShadowedTableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle] autorelease];
-    }else {
-        newTableView = [[[UITableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle] autorelease];
-    }
+    if (useShadows)
+        newTableView = [[ShadowedTableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
+    else
+        newTableView = [[UITableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
 
-    return newTableView;
+    return PS_AUTORELEASE(newTableView);
 }
 
 - (UITableView *)tableView {
@@ -189,13 +185,13 @@
 
 - (void)setTableView:(UITableView *)newTableView {
     if ([tableView isEqual:newTableView])
-    {
         return;
-    }
-    [tableView release];
-    tableView = [newTableView retain];
-    [tableView setDelegate:self];
-    [tableView setDataSource:self];
+    
+    PS_RELEASE(tableView);
+    
+    tableView = PS_RETAIN(newTableView);
+    tableView.delegate = self;
+    tableView.dataSource = self;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

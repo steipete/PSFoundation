@@ -79,10 +79,10 @@
 }
 
 - (void)dealloc {
-    self.originShadow = nil;
-    self.topShadow = nil;
-    self.bottomShadow = nil;
-	[super dealloc];
+    PS_RELEASE_NIL(_originShadow);
+    PS_RELEASE_NIL(_topShadow);
+    PS_RELEASE_NIL(_bottomShadow);
+    PS_DEALLOC();
 }
 
 
