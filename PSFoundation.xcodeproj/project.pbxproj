@@ -31,12 +31,14 @@
 		6C4015B513B05D78001FC822 /* NSPersistentStore+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015A313B05D78001FC822 /* NSPersistentStore+ActiveRecord.m */; };
 		6C4015B613B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015A413B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.h */; };
 		6C4015B713B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015A513B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m */; };
-		6C4015BE13B05F86001FC822 /* PSScrollContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015BC13B05F86001FC822 /* PSScrollContentView.h */; };
+		6C4015BE13B05F86001FC822 /* PSScrollContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015BC13B05F86001FC822 /* PSScrollContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4015BF13B05F86001FC822 /* PSScrollContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015BD13B05F86001FC822 /* PSScrollContentView.m */; };
 		6C5A77091398987A00A74A82 /* NSManagedObject+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */; };
 		6C5A770B1398987C00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8881396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		6C5A770C1398987F00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5A770D1398988000A74A82 /* NSManagedObject+AutoDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8851396C744009F6FE6 /* NSManagedObject+AutoDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C5FF96913B3AF8200DB1DA9 /* UIImage+Blurring.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5FF96713B3AF8200DB1DA9 /* UIImage+Blurring.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C5FF96A13B3AF8200DB1DA9 /* UIImage+Blurring.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5FF96813B3AF8200DB1DA9 /* UIImage+Blurring.m */; };
 		6C75067B139F3BC10092D6C4 /* PSMacros+Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C75067A139F3BC10092D6C4 /* PSMacros+Geometry.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B37D1396AAE7009F6FE6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C86B37C1396AAE7009F6FE6 /* Foundation.framework */; };
 		6C86B4071396B0CD009F6FE6 /* SoundEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B3D21396B0CD009F6FE6 /* SoundEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -59,8 +61,6 @@
 		6C86B47E1396B118009F6FE6 /* PSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B44D1396B118009F6FE6 /* PSTableViewController.m */; };
 		6C86B47F1396B118009F6FE6 /* ShadowedTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B44E1396B118009F6FE6 /* ShadowedTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4801396B118009F6FE6 /* ShadowedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B44F1396B118009F6FE6 /* ShadowedTableView.m */; };
-		6C86B4811396B118009F6FE6 /* TDBadgedCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4501396B118009F6FE6 /* TDBadgedCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B4821396B118009F6FE6 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4511396B118009F6FE6 /* TDBadgedCell.m */; };
 		6C86B4831396B118009F6FE6 /* UACellBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4521396B118009F6FE6 /* UACellBackgroundView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4841396B118009F6FE6 /* UACellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4531396B118009F6FE6 /* UACellBackgroundView.m */; };
 		6C86B4871396B118009F6FE6 /* GradientButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4571396B118009F6FE6 /* GradientButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -98,8 +98,6 @@
 		6C86B4D21396B175009F6FE6 /* DDNSLoggerLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4BC1396B175009F6FE6 /* DDNSLoggerLogger.m */; };
 		6C86B4D31396B175009F6FE6 /* DDTTYLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4BD1396B175009F6FE6 /* DDTTYLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4D41396B175009F6FE6 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4BE1396B175009F6FE6 /* DDTTYLogger.m */; };
-		6C86B4D51396B175009F6FE6 /* HOLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4BF1396B175009F6FE6 /* HOLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B4D61396B175009F6FE6 /* HOLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4C01396B175009F6FE6 /* HOLog.m */; };
 		6C86B4D71396B175009F6FE6 /* LoggerClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4C21396B175009F6FE6 /* LoggerClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4D81396B175009F6FE6 /* LoggerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4C31396B175009F6FE6 /* LoggerClient.m */; };
 		6C86B4D91396B175009F6FE6 /* LoggerCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4C41396B175009F6FE6 /* LoggerCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -350,6 +348,8 @@
 		6CED5A0A1398289200E3F38D /* NYXImagesHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59FA1398289100E3F38D /* NYXImagesHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6CED5A0B1398289200E3F38D /* NYXImagesHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CED59FB1398289100E3F38D /* NYXImagesHelper.m */; };
 		6CED5A0C1398289200E3F38D /* NYXImagesUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CED59FC1398289100E3F38D /* NYXImagesUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CF8790513B1C00900ADD560 /* TDBadgedCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CF8790313B1C00900ADD560 /* TDBadgedCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6CF8790613B1C00900ADD560 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8790413B1C00900ADD560 /* TDBadgedCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -379,6 +379,11 @@
 		6C4015A513B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+ActiveRecord.m"; sourceTree = "<group>"; };
 		6C4015BC13B05F86001FC822 /* PSScrollContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSScrollContentView.h; sourceTree = "<group>"; };
 		6C4015BD13B05F86001FC822 /* PSScrollContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSScrollContentView.m; sourceTree = "<group>"; };
+		6C5FF94413B39D3A00DB1DA9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		6C5FF94613B39D3A00DB1DA9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		6C5FF94913B39D3A00DB1DA9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		6C5FF96713B3AF8200DB1DA9 /* UIImage+Blurring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blurring.h"; sourceTree = "<group>"; };
+		6C5FF96813B3AF8200DB1DA9 /* UIImage+Blurring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Blurring.m"; sourceTree = "<group>"; };
 		6C75067A139F3BC10092D6C4 /* PSMacros+Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSMacros+Geometry.h"; sourceTree = "<group>"; };
 		6C86B3791396AAE7009F6FE6 /* libPSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86B37C1396AAE7009F6FE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -403,8 +408,6 @@
 		6C86B44D1396B118009F6FE6 /* PSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTableViewController.m; sourceTree = "<group>"; };
 		6C86B44E1396B118009F6FE6 /* ShadowedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowedTableView.h; sourceTree = "<group>"; };
 		6C86B44F1396B118009F6FE6 /* ShadowedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowedTableView.m; sourceTree = "<group>"; };
-		6C86B4501396B118009F6FE6 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
-		6C86B4511396B118009F6FE6 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
 		6C86B4521396B118009F6FE6 /* UACellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UACellBackgroundView.h; sourceTree = "<group>"; };
 		6C86B4531396B118009F6FE6 /* UACellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UACellBackgroundView.m; sourceTree = "<group>"; };
 		6C86B4571396B118009F6FE6 /* GradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
@@ -443,8 +446,6 @@
 		6C86B4BC1396B175009F6FE6 /* DDNSLoggerLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDNSLoggerLogger.m; sourceTree = "<group>"; };
 		6C86B4BD1396B175009F6FE6 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
 		6C86B4BE1396B175009F6FE6 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
-		6C86B4BF1396B175009F6FE6 /* HOLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HOLog.h; sourceTree = "<group>"; };
-		6C86B4C01396B175009F6FE6 /* HOLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HOLog.m; sourceTree = "<group>"; };
 		6C86B4C21396B175009F6FE6 /* LoggerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerClient.h; path = NSLogger/LoggerClient.h; sourceTree = "<group>"; };
 		6C86B4C31396B175009F6FE6 /* LoggerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoggerClient.m; path = NSLogger/LoggerClient.m; sourceTree = "<group>"; };
 		6C86B4C41396B175009F6FE6 /* LoggerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerCommon.h; path = NSLogger/LoggerCommon.h; sourceTree = "<group>"; };
@@ -699,6 +700,8 @@
 		6CED59FA1398289100E3F38D /* NYXImagesHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYXImagesHelper.h; sourceTree = "<group>"; };
 		6CED59FB1398289100E3F38D /* NYXImagesHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYXImagesHelper.m; sourceTree = "<group>"; };
 		6CED59FC1398289100E3F38D /* NYXImagesUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYXImagesUtilities.h; sourceTree = "<group>"; };
+		6CF8790313B1C00900ADD560 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDBadgedCell.h; path = "External/TDBadgedCell/TDBadgedCell (xcode project)/TDBadgedCell.h"; sourceTree = "<group>"; };
+		6CF8790413B1C00900ADD560 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDBadgedCell.m; path = "External/TDBadgedCell/TDBadgedCell (xcode project)/TDBadgedCell.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -768,6 +771,9 @@
 			isa = PBXGroup;
 			children = (
 				6C86B37C1396AAE7009F6FE6 /* Foundation.framework */,
+				6C5FF94413B39D3A00DB1DA9 /* SenTestingKit.framework */,
+				6C5FF94613B39D3A00DB1DA9 /* UIKit.framework */,
+				6C5FF94913B39D3A00DB1DA9 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -853,8 +859,6 @@
 				6C86B44D1396B118009F6FE6 /* PSTableViewController.m */,
 				6C86B44E1396B118009F6FE6 /* ShadowedTableView.h */,
 				6C86B44F1396B118009F6FE6 /* ShadowedTableView.m */,
-				6C86B4501396B118009F6FE6 /* TDBadgedCell.h */,
-				6C86B4511396B118009F6FE6 /* TDBadgedCell.m */,
 				6C86B4521396B118009F6FE6 /* UACellBackgroundView.h */,
 				6C86B4531396B118009F6FE6 /* UACellBackgroundView.m */,
 			);
@@ -917,8 +921,6 @@
 				6C86B4BC1396B175009F6FE6 /* DDNSLoggerLogger.m */,
 				6C86B4BD1396B175009F6FE6 /* DDTTYLogger.h */,
 				6C86B4BE1396B175009F6FE6 /* DDTTYLogger.m */,
-				6C86B4BF1396B175009F6FE6 /* HOLog.h */,
-				6C86B4C01396B175009F6FE6 /* HOLog.m */,
 				6C86B4C21396B175009F6FE6 /* LoggerClient.h */,
 				6C86B4C31396B175009F6FE6 /* LoggerClient.m */,
 				6C86B4C41396B175009F6FE6 /* LoggerCommon.h */,
@@ -1013,6 +1015,7 @@
 		6C86B80B1396B4FC009F6FE6 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				6CF8790113B1BFFF00ADD560 /* TDBadgedCell */,
 				6CED59951398195C00E3F38D /* appirater */,
 				6CED5929139817BB00E3F38D /* EGOCache */,
 				6CED5953139817BB00E3F38D /* EGOImageLoading */,
@@ -1563,6 +1566,8 @@
 		6CED59EC1398289100E3F38D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				6C5FF96713B3AF8200DB1DA9 /* UIImage+Blurring.h */,
+				6C5FF96813B3AF8200DB1DA9 /* UIImage+Blurring.m */,
 				6CED59ED1398289100E3F38D /* UIImage+Filtering.h */,
 				6CED59EE1398289100E3F38D /* UIImage+Filtering.m */,
 				6CED59EF1398289100E3F38D /* UIImage+Masking.h */,
@@ -1589,6 +1594,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		6CF8790113B1BFFF00ADD560 /* TDBadgedCell */ = {
+			isa = PBXGroup;
+			children = (
+				6CF8790313B1C00900ADD560 /* TDBadgedCell.h */,
+				6CF8790413B1C00900ADD560 /* TDBadgedCell.m */,
+			);
+			name = TDBadgedCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1606,7 +1620,6 @@
 				6C86B47B1396B118009F6FE6 /* PSShadowView.h in Headers */,
 				6C86B47D1396B118009F6FE6 /* PSTableViewController.h in Headers */,
 				6C86B47F1396B118009F6FE6 /* ShadowedTableView.h in Headers */,
-				6C86B4811396B118009F6FE6 /* TDBadgedCell.h in Headers */,
 				6C86B4831396B118009F6FE6 /* UACellBackgroundView.h in Headers */,
 				6C86B4871396B118009F6FE6 /* GradientButton.h in Headers */,
 				6C86B4891396B118009F6FE6 /* LRPopoverManager.h in Headers */,
@@ -1628,7 +1641,6 @@
 				6C86B4CF1396B175009F6FE6 /* DDLog.h in Headers */,
 				6C86B4D11396B175009F6FE6 /* DDNSLoggerLogger.h in Headers */,
 				6C86B4D31396B175009F6FE6 /* DDTTYLogger.h in Headers */,
-				6C86B4D51396B175009F6FE6 /* HOLog.h in Headers */,
 				6C86B4D71396B175009F6FE6 /* LoggerClient.h in Headers */,
 				6C86B4D91396B175009F6FE6 /* LoggerCommon.h in Headers */,
 				6C86B4DA1396B175009F6FE6 /* PSDDFormatter.h in Headers */,
@@ -1761,6 +1773,8 @@
 				6C231C19139AB0690056E1D5 /* UIView+MTRotation.h in Headers */,
 				6CED59BE1398195C00E3F38D /* Appirater.h in Headers */,
 				6C4015BE13B05F86001FC822 /* PSScrollContentView.h in Headers */,
+				6C5FF96913B3AF8200DB1DA9 /* UIImage+Blurring.h in Headers */,
+				6CF8790513B1C00900ADD560 /* TDBadgedCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1863,7 +1877,6 @@
 				6C86B47C1396B118009F6FE6 /* PSShadowView.m in Sources */,
 				6C86B47E1396B118009F6FE6 /* PSTableViewController.m in Sources */,
 				6C86B4801396B118009F6FE6 /* ShadowedTableView.m in Sources */,
-				6C86B4821396B118009F6FE6 /* TDBadgedCell.m in Sources */,
 				6C86B4841396B118009F6FE6 /* UACellBackgroundView.m in Sources */,
 				6C86B4881396B118009F6FE6 /* GradientButton.m in Sources */,
 				6C86B48A1396B118009F6FE6 /* LRPopoverManager.m in Sources */,
@@ -1880,7 +1893,6 @@
 				6C86B4D01396B175009F6FE6 /* DDLog.m in Sources */,
 				6C86B4D21396B175009F6FE6 /* DDNSLoggerLogger.m in Sources */,
 				6C86B4D41396B175009F6FE6 /* DDTTYLogger.m in Sources */,
-				6C86B4D61396B175009F6FE6 /* HOLog.m in Sources */,
 				6C86B4D81396B175009F6FE6 /* LoggerClient.m in Sources */,
 				6C86B4DB1396B175009F6FE6 /* PSDDFormatter.m in Sources */,
 				6C86B4DD1396B175009F6FE6 /* VTPG_Common.m in Sources */,
@@ -2003,6 +2015,8 @@
 				6C231C0E139AAF310056E1D5 /* MTSplashScreen.m in Sources */,
 				6C231C1A139AB0690056E1D5 /* UIView+MTRotation.m in Sources */,
 				6C4015BF13B05F86001FC822 /* PSScrollContentView.m in Sources */,
+				6CF8790613B1C00900ADD560 /* TDBadgedCell.m in Sources */,
+				6C5FF96A13B3AF8200DB1DA9 /* UIImage+Blurring.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2032,6 +2046,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ARC_MIGRATION = donothing;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -2039,7 +2055,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2048,12 +2065,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ARC_MIGRATION = donothing;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -2069,7 +2089,6 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
-				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
 		};
@@ -2084,7 +2103,6 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
-				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Release;
 		};
