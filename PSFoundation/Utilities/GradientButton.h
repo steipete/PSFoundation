@@ -29,23 +29,23 @@ typedef enum PSGradientButtonStyle {
 
 // These two arrays define the gradient that will be used
 // when the button is in UIControlStateNormal
-@property (nonatomic, retain) NSArray *normalGradientColors;     // colors
-@property (nonatomic, retain) NSArray *normalGradientLocations;  // relative locations
+@property (nonatomic, ps_strong) NSArray *normalGradientColors;     // colors
+@property (nonatomic, ps_strong) NSArray *normalGradientLocations;  // relative locations
 
 // These two arrays define the gradient that will be used
 // when the button is in UIControlStateHighlighted
-@property (nonatomic, retain) NSArray *highlightGradientColors;     // colors
-@property (nonatomic, retain) NSArray *highlightGradientLocations;  // relative locations
+@property (nonatomic, ps_strong) NSArray *highlightGradientColors;     // colors
+@property (nonatomic, ps_strong) NSArray *highlightGradientLocations;  // relative locations
 
 // This defines the corner radius of the button
 @property (nonatomic) CGFloat cornerRadius;
 
 // This defines the size and color of the stroke
 @property (nonatomic) CGFloat strokeWeight;
-@property (nonatomic, retain) UIColor *strokeColor;
+@property (nonatomic, ps_strong) UIColor *strokeColor;
 
 
-@property (nonatomic, assign) PSGradientButtonStyle style;
+@property (nonatomic) PSGradientButtonStyle style;
 
 - (void)useAlertStyle DEPRECATED_ATTRIBUTE;
 - (void)useRedDeleteStyle DEPRECATED_ATTRIBUTE;

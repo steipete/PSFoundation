@@ -29,16 +29,17 @@
 
 - (CGGradientRef)normalGradient {
     if (normalGradient == NULL) {
-        int locCount = [normalGradientLocations count];
+        
+        NSUInteger locCount = normalGradientLocations.count;
         CGFloat locations[locCount];
-        for (int i = 0; i < [normalGradientLocations count]; i++)
+        for (int i = 0; i < locCount; i++)
         {
             NSNumber *location = [normalGradientLocations objectAtIndex:i];
             locations[i] = [location floatValue];
         }
+        
         CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
-
-        normalGradient = CGGradientCreateWithColors(space, (CFArrayRef)normalGradientColors, locations);
+        normalGradient = CGGradientCreateWithColors(space, (CFArrayRef)ps_unretainedPointer(normalGradientColors), locations);
         CGColorSpaceRelease(space);
     }
     return normalGradient;
@@ -46,15 +47,17 @@
 
 - (CGGradientRef)highlightGradient {
     if (highlightGradient == NULL) {
-        CGFloat locations[[highlightGradientLocations count]];
-        for (int i = 0; i < [highlightGradientLocations count]; i++)
+        
+        NSUInteger locCount = highlightGradientLocations.count;
+        CGFloat locations[locCount];
+        for (int i = 0; i < locCount; i++)
         {
             NSNumber *location = [highlightGradientLocations objectAtIndex:i];
             locations[i] = [location floatValue];
         }
+        
         CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
-
-        highlightGradient = CGGradientCreateWithColors(space, (CFArrayRef)highlightGradientColors, locations);
+        highlightGradient = CGGradientCreateWithColors(space, (CFArrayRef)ps_unretainedPointer(highlightGradientColors), locations);
         CGColorSpaceRelease(space);
     }
     return highlightGradient;
@@ -72,7 +75,7 @@
         switch (aStyle) {
             default: case GradientButtonCustomStyle:
                 self.normalGradientColors = nil;
-                self.highlightGradientColors = nil;
+                self.highlightGradientColors = nil; 
                 self.normalGradientLocations = nil;
                 self.highlightGradientLocations = nil;
             break;
@@ -251,17 +254,17 @@
                 break;
             }
         }
-
+        
         if (normalColors) {
-            self.normalGradientColors = objc_unretainedObject(normalColors);
+            self.normalGradientColors = (NSArray *)ps_unretainedObject(normalColors);
             CFRelease(normalColors);
         }
         
         if (highlightColors) {
-            self.highlightGradientColors = (NSArray *)objc_unretainedObject(highlightColors);
+            self.highlightGradientColors = (NSArray *)ps_unretainedObject(normalColors);
             CFRelease(highlightColors);
         }
-        
+            
         UIColor *normalTextColor = [UIColor whiteColor],
                 *highlightTextColor = [UIColor whiteColor];
         
@@ -460,6 +463,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [super encodeWithCoder:encoder];
+
     [encoder encodeObject:self.normalGradientColors forKey:@"normalGradientColors"];
     [encoder encodeObject:self.normalGradientLocations forKey:@"normalGradientLocations"];
     [encoder encodeObject:self.highlightGradientColors forKey:@"highlightGradientColors"];
@@ -471,8 +475,8 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     if ((self = [super initWithCoder:decoder])) {
         self.normalGradientColors = [decoder decodeObjectForKey:@"normalGradientColors"];
-        self.normalGradientLocations = [decoder decodeObjectForKey:@"normalGradientLocations"];
         self.highlightGradientColors = [decoder decodeObjectForKey:@"highlightGradientColors"];
+        self.normalGradientLocations = [decoder decodeObjectForKey:@"normalGradientLocations"];
         self.highlightGradientLocations = [decoder decodeObjectForKey:@"highlightGradientLocations"];
         self.strokeWeight = [[decoder decodeObjectForKey:@"strokeWeight"] floatValue];
         self.strokeColor = [decoder decodeObjectForKey:@"strokeColor"];
@@ -486,18 +490,18 @@
 #pragma mark -
 
 - (void)dealloc {
-    [normalGradientColors release];
-    [normalGradientLocations release];
-    [highlightGradientColors release];
-    [highlightGradientLocations release];
-    [strokeColor release];
-
     if (normalGradient != NULL)
         CGGradientRelease(normalGradient);
     if (highlightGradient != NULL)
         CGGradientRelease(highlightGradient);
-
-    [super dealloc];
+    
+    PS_RELEASE_NIL(normalGradientColors);
+    PS_RELEASE_NIL(highlightGradientColors);
+    PS_RELEASE_NIL(highlightGradientLocations);
+    PS_RELEASE_NIL(highlightGradientLocations);
+    PS_RELEASE_NIL(strokeColor);
+    
+    PS_DEALLOC();
 }
 
 @end
