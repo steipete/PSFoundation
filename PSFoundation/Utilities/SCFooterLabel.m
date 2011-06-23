@@ -24,7 +24,6 @@
 @implementation SCFooterLabel
 
 - (id)init {
-
 	if ((self = [super init])) {
 		[self __initializeComponent];
 	}
@@ -33,24 +32,17 @@
 }
 
 - (id)initWithFrame:(CGRect)frame {
-
 	if ((self = [super initWithFrame:frame])) {
-
 		[self __initializeComponent];
 	}
-
 	return self;
 }
 
 - (id)initWithText:(NSString *)footerText {
-
 	if ((self = [super initWithFrame:CGRectMake(0, 0, 320, 100)])) {
-
 		[self __initializeComponent];
-
 		self.text = footerText;
 	}
-
 	return self;
 }
 
@@ -67,29 +59,12 @@
 	self.textColor = RGBCOLOR(77, 87, 107);
 }
 
-- (void)dealloc {
-
-    [super dealloc];
-}
-
 - (CGFloat)heightForCurrentText {
+	CGFloat result = 0, width = CGRectGetWidth(self.frame);
 
-	CGFloat width = CGRectGetWidth(self.frame);
-
-	CGFloat result;
-
-	NSString *text = self.text;
-
-	if (text.empty) {
-
-		result = 0;
-
-	} else {
-
-		result = [text sizeWithFont:self.font constrainedToSize:CGSizeMake(width, kMaxLabelHeight)
-					  lineBreakMode:self.lineBreakMode].height;
-		result += kVerticalMargin;
-	}
+	if (self.text)
+		result = [self.text sizeWithFont:self.font constrainedToSize:CGSizeMake(width, kMaxLabelHeight)
+					  lineBreakMode:self.lineBreakMode].height + kVerticalMargin;
 
 	return result;
 }

@@ -14,19 +14,12 @@
 #import "MTSplashScreenDelegate.h"
 
 
-@interface MTSplashScreen : UIViewController {
-    UIImage *splashImage_;
-    BOOL showsStatusBarOnDismissal_;
-    NSTimeInterval delay_;
-    id<MTSplashScreenDelegate> delegate_;
-}
+@interface MTSplashScreen : UIViewController
 
-
-@property (nonatomic, retain) UIImage *splashImage;
+@property (nonatomic, ps_strong) UIImage *splashImage;
 @property (nonatomic, assign) BOOL showsStatusBarOnDismissal;
-@property (nonatomic, assign) id<MTSplashScreenDelegate> delegate;
+@property (nonatomic, ps_weak) id<MTSplashScreenDelegate> delegate;
 @property (nonatomic, assign) NSTimeInterval delay;
-
 
 + (MTSplashScreen *)splashScreen;
 

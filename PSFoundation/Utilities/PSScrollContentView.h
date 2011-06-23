@@ -12,11 +12,9 @@
  * A contentView of a ScrollView that can have non-scaling subviews like 
  * the pins on a MKMapView
  */
-@interface PSScrollContentView : UIView {
-    NSMutableSet *nonScalingSubviews_;
-}
+@interface PSScrollContentView : UIView
 
-@property (nonatomic, readonly, retain) NSMutableSet *nonScalingSubviews;
+@property (nonatomic, readonly, ps_strong) NSMutableSet *nonScalingSubviews;
 
 - (void)addNonScalingSubview:(UIView *)view;
 

@@ -9,30 +9,26 @@
 #import "PSScrollContentView.h"
 
 @interface PSScrollContentView ()
-
 - (void)adjustSubviewsForTransform:(CGAffineTransform)transform;
-
 @end
 
 @implementation PSScrollContentView
 
-@synthesize nonScalingSubviews = nonScalingSubviews_;
+@synthesize nonScalingSubviews;
 
 - (void)dealloc {
-    MCRelease(nonScalingSubviews_);
-    
-    [super dealloc];
+    PS_RELEASE_NIL(nonScalingSubviews);
+    PS_DEALLOC();
 }
 
 #pragma mark -
 #pragma mark Accessors
 
 - (NSMutableSet *)nonScalingSubviews {
-    if (nonScalingSubviews_ == nil) {
-        nonScalingSubviews_ = [[NSMutableSet alloc] init];
-    }
+    if (!nonScalingSubviews)
+        nonScalingSubviews = [NSMutableSet new];
     
-    return nonScalingSubviews_;
+    return nonScalingSubviews;
 }
 
 - (void)addNonScalingSubview:(UIView *)view {
@@ -43,12 +39,10 @@
 #pragma mark -
 #pragma mark (Non-)Scaling support
 
-
 - (void)setTransform:(CGAffineTransform)transform {
     [super setTransform:transform];
     [self adjustSubviewsForTransform:transform];
 }
-
 
 - (void)adjustSubviewsForTransform:(CGAffineTransform)transform {
     CGAffineTransform inversion = CGAffineTransformInvert(transform);

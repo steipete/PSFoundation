@@ -17,7 +17,7 @@
   NSDictionary *settings = [NSDictionary dictionaryWithContentsOfFile:[settingsBundle stringByAppendingPathComponent:file]];
   NSArray *preferences = [settings objectForKey:@"PreferenceSpecifiers"];
 
-  NSMutableDictionary *defaultsToRegister = [[NSMutableDictionary alloc] initWithCapacity:[preferences count]];
+  NSMutableDictionary *defaultsToRegister = [NSMutableDictionary dictionaryWithCapacity:preferences.count];
   for(NSDictionary *prefSpecification in preferences) {
     NSString *key = [prefSpecification objectForKey:@"Key"];
     id defaultValue = [prefSpecification objectForKey:@"DefaultValue"];
@@ -28,7 +28,6 @@
 
   // http://stackoverflow.com/questions/2076816/how-to-register-user-defaults-using-nsuserdefaults-without-overwriting-existing-v
   [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsToRegister];
-  [defaultsToRegister release];
 }
 
 + (void)registerDefaultsFromSettingsBundle {

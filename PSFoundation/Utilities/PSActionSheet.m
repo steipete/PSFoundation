@@ -13,23 +13,26 @@
 @synthesize sheet = sheet_;
 
 + (id)sheetWithTitle:(NSString *)title {
-    return [[[self alloc] initWithTitle:title] autorelease];
+    PS_RETURN_AUTORELEASED([[self alloc] initWithTitle:title]);
 }
 
 - (id)initWithTitle:(NSString *)title {
     if ((self = [super init])) {
         sheet_ = [[UIActionSheet alloc] initWithTitle:title];
+        
+        #if !PS_HAS_ARC
         id instance = self;
         sheet_.didDismissBlock = ^(NSUInteger selectedIndex) {
             [instance release];
         };
+        #endif
     }
     return self;
 }
 
-- (void) dealloc {
-    MCReleaseNil(sheet_);
-    [super dealloc];
+- (void)dealloc{
+    PS_RELEASE_NIL(sheet_);
+    PS_DEALLOC();
 }
 
 - (void)setDestructiveButtonWithTitle:(NSString *)title block:(BKBlock)block {
@@ -48,18 +51,18 @@
 }
 
 - (void)showInView:(UIView *)view {
-  [sheet_ showInView:view];
-  [self retain];
+    [sheet_ showInView:view];
+    PS_DO_RETAIN(self);
 }
 
 - (void)showFromBarButtonItem:(UIBarButtonItem *)item animated:(BOOL)animated {
-  [sheet_ showFromBarButtonItem:item animated:animated];
-  [self retain];
+    [sheet_ showFromBarButtonItem:item animated:animated];
+    PS_DO_RETAIN(self);
 }
 
 - (void)showFromRect:(CGRect)rect inView:(UIView *)view animated:(BOOL)animated {
-  [sheet_ showFromRect:rect inView:view animated:animated];
-  [self retain];
+    [sheet_ showFromRect:rect inView:view animated:animated];
+    PS_DO_RETAIN(self);
 }
 
 @end

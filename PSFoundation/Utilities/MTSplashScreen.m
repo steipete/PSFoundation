@@ -12,14 +12,11 @@
 
 #import "MTSplashScreen.h"
 #import "MTUniversalHelper.h"
-
+#import "UIViewControllerHelper.h"
 
 @implementation MTSplashScreen
 
-@synthesize splashImage = splashImage_;
-@synthesize showsStatusBarOnDismissal = showsStatusBarOnDismissal_;
-@synthesize delegate = delegate_;
-@synthesize delay = delay_;
+@synthesize splashImage, showsStatusBarOnDismissal, delegate, delay;
 
 ////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -27,24 +24,19 @@
 ////////////////////////////////////////////////////////////////////////
 
 + (MTSplashScreen *)splashScreen {
-    MTSplashScreen *splashScreen = [[[MTSplashScreen alloc] initWithNibName:nil bundle:nil] autorelease];
-    
-    return splashScreen;
+    PS_RETURN_AUTORELEASED([[MTSplashScreen alloc] initWithNibName:nil bundle:nil]);
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
+    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
         self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        delay_ = 0.;
-    }
     
     return self;
 }
 
 - (void)dealloc {
-    MCRelease(splashImage_);
-    
-    [super dealloc];
+    PS_RELEASE_NIL(splashImage);
+    PS_DEALLOC();
 }
 
 ////////////////////////////////////////////////////////////////////////
@@ -53,7 +45,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 - (void)loadView {
-    UIImageView *iv = [[[UIImageView alloc] initWithImage:self.splashImage] autorelease];
+    UIImageView *iv = PS_AUTORELEASE([[UIImageView alloc] initWithImage:self.splashImage]);
     
     iv.autoresizingMask = UIViewAutoresizingFlexibleWidth |  UIViewAutoresizingFlexibleHeight;
     iv.contentMode = UIViewContentModeBottom;
@@ -108,7 +100,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 - (UIImage *)splashImage {
-    if (splashImage_ == nil) {
+    if (!splashImage) {
         if (isIPad()) {
             // first try orientation-specific launch images
             if (PSAppStatusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) {
@@ -129,12 +121,12 @@
         }
         
         // iPhone, or still no image found on iPad -> use Default.png
-        if (splashImage_ == nil) {
+        if (!splashImage) {
             self.splashImage = [UIImage imageNamed:@"Default.png"];
         }
     }
     
-    return splashImage_;
+    return splashImage;
 }
 
 ////////////////////////////////////////////////////////////////////////

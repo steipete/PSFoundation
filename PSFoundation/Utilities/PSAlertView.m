@@ -17,26 +17,28 @@
     return [self alertWithTitle:title message:nil];
 }
 
-+ (id)alertWithTitle:(NSString *)title message:(NSString *)message; {
-    return [[[self alloc] initWithTitle:title message:message] autorelease];
++ (id)alertWithTitle:(NSString *)title message:(NSString *)message {
+    PS_RETURN_AUTORELEASED([[self alloc] initWithTitle:title message:message]);
 }
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message {
     if ((self = [super init])) {
         view_ = [[UIAlertView alloc] initWithTitle:title message:message];
+        
+        #if !PS_HAS_ARC
         id instance = self;
         view_.didDismissBlock = ^(NSUInteger selectedIndex) {
             [instance release];
         };
+        #endif
     }
     
     return self;
 }
 
 - (void)dealloc {
-    view_.delegate = nil;
-    MCReleaseNil(view_);
-    [super dealloc];
+    PS_RELEASE_NIL(view_);
+    PS_DEALLOC();
 }
 
 - (void)setCancelButtonWithTitle:(NSString *)title block:(BKBlock)block {

@@ -21,14 +21,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSStatusBarSaver);
 
 - (id)init {
   if ((self = [super init])) {
-    [[self class] captureStatusBar];
+      [[self class] captureStatusBar];
   }
   return self;
-}
-
-- (void)dealloc {
-
-  [super dealloc];
 }
 
 + (void)captureStatusBarAndSetTo:(UIStatusBarStyle)newStyle {
