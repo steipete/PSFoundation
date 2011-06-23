@@ -16,8 +16,8 @@ static inline BOOL IsEmpty(id thing) {
 }
 
 // compiler help
-#define PSInvalidateTimer(t) { [t invalidate]; t = nil; }
-#define INVALIDATE_TIMER(__TIMER) PSInvalidateTimer(__TIMER)
+#define PS_INVALID(t)  [t invalidate]; t = nil
+#define INVALIDATE_TIMER(__TIMER) PS_INVALID(__TIMER)
 
 #define PSVerifiedClass(c) ((c *) NSClassFromString(@"" # c))
 #define VERIFIED_CLASS(className) PSVerifiedClass(className)
