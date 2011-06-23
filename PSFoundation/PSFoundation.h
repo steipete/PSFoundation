@@ -7,6 +7,7 @@
 #import "DDLog.h"
 #import "SynthesizeSingleton.h"
 #import "PSMacros.h"
+#import "PSCompatibility.h"
 #import "NYXImagesHelper.h"
 #import "PSCategories.h"
 

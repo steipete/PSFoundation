@@ -81,39 +81,11 @@ __VA_ARGS__ \
 #define IS_GT_IOS42 0
 #endif
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
 #define IF_IOS4_OR_GREATER(...) \
 if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_4_0) { \
 __VA_ARGS__ \
 }
 #define IS_GTE_IOS4 (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_4_0)
-#else
-#define IF_IOS4_OR_GREATER(...)
-#define IS_GTE_IOS4 0
-#endif
-
-#define IF_PRE_IOS4(...)  \
-if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iOS_4_0) { \
-__VA_ARGS__ \
-}
-#define IS_LT_IOS4 (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iOS_4_0)
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 32000
-#define IF_3_2_OR_GREATER(...) \
-if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_3_2) { \
-__VA_ARGS__ \
-}
-#define IS_GTE_IOS32 (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iPhoneOS_3_2)
-#else
-#define IF_3_2_OR_GREATER(...)
-#define IS_GTE_IOS32 0
-#endif
-
-#define IF_PRE_3_2(...) \
-if (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_3_2) { \
-__VA_ARGS__ \
-}
-#define IS_LT_IOS32 (kCFCoreFoundationVersionNumber < kCFCoreFoundationVersionNumber_iPhoneOS_3_2)
 
 // special addition for Chameleon support: http://chameleonproject.org/
 #if TARGET_IPHONE_SIMULATOR
@@ -136,7 +108,6 @@ __VA_ARGS__ \
 #define isIPad() [[UIDevice currentDevice] isTablet]
 
 #define PS_HAS_ARC __has_feature(objc_arc)
-
 
 #if PS_HAS_ARC
     #define PS_AUTORELEASEPOOL(...) @autoreleasepool { do {__VA_ARGS__;} while(0); }
@@ -174,9 +145,9 @@ __VA_ARGS__ \
     #define PS_RETURN_AUTORELEASED(...) do { \
     return [__VA_ARGS__ autorelease]; \
     } while (0)
-
-    static __inline NS_RETURNS_RETAINED id __ps_objc_retainedObject(void *CF_CONSUMED pointer) { return (id)pointer; }
-    static __inline NS_RETURNS_NOT_RETAINED id __ps_objc_unretainedObject(void *pointer) { return (id)pointer; }
+    typedef const void* objc_objectptr_t;
+    static __inline NS_RETURNS_RETAINED id __ps_objc_retainedObject(objc_objectptr_t CF_CONSUMED pointer) { return (id)pointer; }
+    static __inline NS_RETURNS_NOT_RETAINED id __ps_objc_unretainedObject(objc_objectptr_t pointer) { return (id)pointer; }
     static __inline CF_RETURNS_NOT_RETAINED void *__ps_objc_unretainedPointer(id object) { return (void *)object; }
     #define ps_retainedObject __ps_objc_retainedObject
     #define ps_unretainedObject __ps_objc_unretainedObject
