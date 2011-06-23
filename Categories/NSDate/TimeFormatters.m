@@ -92,6 +92,8 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
 // "TimeComponentAbbrMinutes_M" = "%d mins";
 
 
+NSString *LocStr(NSString *const key);
+
 // Localized string accessor
 NSString *LocStr(NSString *const key) {
     return [[NSBundle mainBundle] localizedStringForKey:key value:nil table:nil];

@@ -77,4 +77,4 @@ __VA_ARGS__ \
 #endif
 
 
-BOOL isIPad();
+BOOL isIPad(void);
