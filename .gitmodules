@@ -31,3 +31,6 @@
 [submodule "PSFoundation/External/MagicalRecord"]
 	path = PSFoundation/External/MagicalRecord
 	url = git://github.com/zwaldowski/MagicalRecord.git
+[submodule "PSFoundation/External/TDBadgedCell"]
+	path = PSFoundation/External/TDBadgedCell
+	url = git://github.com/tmdvs/TDBadgedCell.git
