@@ -1,4 +1,4 @@
-//
+//;
 //  PSMacros-Collections.h
 //  PSFoundation
 //
@@ -22,10 +22,12 @@
 #define DICT(...) MADictionaryWithKeysAndObjects(IDARRAY(__VA_ARGS__), IDCOUNT(__VA_ARGS__) / 2)
 
 #define IDARRAY(...) ((id[]){ __VA_ARGS__ })
+#define CFTYPEARRAY(...) ((CFTypeRef[]){ __VA_ARGS__ })
 #define IDCOUNT(...) (sizeof(IDARRAY(__VA_ARGS__)) / sizeof(id))
+#define CFTYPECOUNT(...) (sizeof(CFTYPEARRAY(__VA_ARGS__)) / sizeof(CFTypeRef))
 
-#define CFARRAY(...) CFArrayCreate(kCFAllocatorDefault, ((CFTypeRef[]){ __VA_ARGS__ }), (sizeof((CFTypeRef[]){ __VA_ARGS__ }) / sizeof(CFTypeRef)), NULL);
-#define CFSET(...) CFSetCreate(kCFAllocatorDefault, IDARRAY(__VA_ARGS__), IDCOUNT(__VA_ARGS__), NULL);
+#define CFARRAY(...) CFArrayCreate(kCFAllocatorDefault, CFTYPEARRAY(__VA_ARGS__), CFTYPECOUNT(__VA_ARGS__), NULL)
+#define CFSET(...) CFSetCreate(kCFAllocatorDefault, CFTYPEARRAY(__VA_ARGS__), CFTYPECOUNT(__VA_ARGS__), NULL)
 
 #define EACH_WRAPPER(...) (^{ __block CFMutableDictionaryRef MA_eachTable = nil; \
 (void)MA_eachTable; \
@@ -46,7 +48,6 @@ NS_INLINE NSDictionary *MADictionaryWithKeysAndObjects(id *keysAndObjs, NSUInteg
     
     return [NSDictionary dictionaryWithObjects: objs forKeys: keys count: count];
 }
-
 
 // collection shortcuts
 #define XDEFAULT(_value, _default) ([[NSNull null] isEqual:(_value)] ? (_default) : (_value))

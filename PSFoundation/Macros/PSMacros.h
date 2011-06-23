@@ -62,27 +62,30 @@ static inline BOOL IsEmpty(id thing) {
 // for function pass entering
 #define DDLogFunction() DDLogInfo(@"-- logged --");
 
-#if PS_SHOULD_DEALLOC
-    #if DEBUG
-    #define MCRelease(x) do { [x release]; } while (0)
-    #else
-    #define MCRelease(x) [x release], x = nil
-    #endif
-
-    #define MCReleaseNil(x) [x release], x = nil
-    #define MCReleaseViewNil(x) do { [x removeFromSuperview], [x release], x = nil; } while (0)
+#if PS_HAS_ARC
+    #define PS_RELEASE(x)
+    #define PS_RELEASE_NIL(x) x = nil
+    #define PS_RELEASE_VIEW_NIL(x) [x removeFromSuperview], x = nil
 #else
-    #define MCRelease(x)
-    #define MCReleaseNil(x)
-    #define MCReleaseViewNil(x)
+    #if DEBUG
+        #define PS_RELEASE(x) do { [x release]; } while (0);
+    #else
+        #define PS_RELEASE(x) [x release], x = nil
+    #endif
+    #define PS_RELEASE_NIL(x) [x release], x = nil
+    #define PS_RELEASE_VIEW_NIL(x) do { [x removeFromSuperview], [x release], x = nil; } while (0)
 #endif
+
+// compatibility
+#define MCRelease(x) PS_RELEASE(x)
+#define MCReleaseNil(x) PS_RELEASE_NIL(x)
+#define MCReleaseViewNil(x) PS_RELEASE_VIEW_NIL(x)
 
 #if defined(TARGET_IPHONE_SIMULATOR) && defined(DEBUG)
 #define PSSimulateMemoryWarning() CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)@"UISimulatedMemoryWarningNotification", NULL, NULL, true);
 #else
 #define PSSimulateMemoryWarning()
 #endif
-
 
 // http://code.google.com/p/cocoalumberjack/wiki/XcodeTricks - compiles most log messages out of the release build, but not all!
 #ifdef DEBUG
@@ -175,8 +178,8 @@ __VA_ARGS__;                            \
 #define $B(value) XBOOL(value)
 #define $S(...)   [NSString stringWithFormat: __VA_ARGS__]
 
-#define XMCOPY(_obj) [[_obj mutableCopy] autorelease]
-#define xcopy(_obj) [[_obj copy] autorelease]
+#define XMCOPY(_obj) PS_AUTORELEASE([_obj mutableCopy])
+#define XCOPY(_obj) PS_AUTORELEASE([_obj copy])
 
 // sorting
 #define XLT(a,b) ([a compare:b] == NSOrderedAscending)
@@ -196,7 +199,7 @@ __VA_ARGS__;                            \
 #define XAPPLYSEL(target, sel)  if([target respondsToSelector:sel]) { [(id)target performSelector:sel]; }
 #define XAPPLYSEL1(target, sel, obj)  if([target respondsToSelector:sel]) { [(id)target performSelector:sel withObject:obj]; }
 
-#define XDATA2UTF8STRING(data) [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]
+#define XDATA2UTF8STRING(data) PS_AUTORELEASE([[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding])
 #define XUTF8STRING2DATA(s) [s dataUsingEncoding:NSUTF8StringEncoding]
 
 // user defaults

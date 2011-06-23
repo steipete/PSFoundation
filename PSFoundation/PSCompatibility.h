@@ -135,28 +135,50 @@ __VA_ARGS__ \
 
 #define isIPad() [[UIDevice currentDevice] isTablet]
 
-// TODO:  Add post-WWDC compatibility macros when that release comes out
-#if __has_feature(objc_arc)
+#define PS_HAS_ARC __has_feature(objc_arc)
 
-#define AUTORELEASEPOOL(...) @autoreleasepool { do {__VA_ARGS__} while(0); }
 
+#if PS_HAS_ARC
+    #define PS_AUTORELEASEPOOL(...) @autoreleasepool { do {__VA_ARGS__;} while(0); }
+    #define PS_DO_RETAIN(o)
+    #define PS_RETAIN(o) o
+    #define PS_DO_AUTORELEASE(o)
+    #define PS_AUTORELEASE(o) o
+    #define PS_DEALLOC()
+    #define __ps_unsafe_unretained __unsafe_unretained
+    #define __ps_autoreleasing __autoreleasing
+    #define __ps_strong __strong
+    #define __ps_weak __weak
+    #define ps_weak weak
+    #define ps_strong strong
+    #define PS_RETURN_AUTORELEASED(...) do { \
+    id __autoreleasing instance = __VA_ARGS__; \
+    return instance; \
+    } while (0)
+    #define ps_retainedObject objc_retainedObject
+    #define ps_unretainedObject objc_unretainedObject
+    #define ps_unretainedPointer objc_unretainedPointer
 #else
+    #define PS_AUTORELEASEPOOL(...) NSAutoreleasePool *pool = [NSAutoreleasePool new]; do {__VA_ARGS__;} while(0); [pool drain]
+    #define PS_RETAIN(o) [o retain]
+    #define PS_DO_RETAIN(o) [o retain]
+    #define PS_AUTORELEASE(o) [o autorelease]
+    #define PS_DO_AUTORELEASE(o) [o autorelease]
+    #define PS_DEALLOC() [super dealloc]
+    #define __ps_unsafe_unretained
+    #define __ps_autoreleasing
+    #define __ps_strong
+    #define __ps_weak
+    #define ps_weak assign
+    #define ps_strong retain
+    #define PS_RETURN_AUTORELEASED(...) do { \
+    return [__VA_ARGS__ autorelease]; \
+    } while (0)
 
-#define AUTORELEASEPOOL(...) NSAutoreleasePool *pool = [NSAutoreleasePool new]; \
-                             do {__VA_ARGS__} while(0); \
-                             [pool drain];
-
-#ifndef __unsafe_unretained // compatibility for places where we use plain old id
-#define __unsafe_unretained
-#endif
-
-#ifndef objc_retainedObject // source compatibility with pre-5.0.
-static __inline NS_RETURNS_RETAINED id __ps_objc_retainedObject(void *CF_CONSUMED pointer) { return (id)pointer; }
-static __inline NS_RETURNS_NOT_RETAINED id __ps_objc_unretainedObject(void *pointer) { return (id)pointer; }
-static __inline CF_RETURNS_NOT_RETAINED void *__ps_objc_unretainedPointer(id object) { return (void *)object; }
-#define objc_retainedObject __ps_objc_retainedObject
-#define objc_unretainedObject __ps_objc_unretainedObject
-#define objc_unretainedPointer __ps_objc_unretainedPointer
-#endif
-
+    static __inline NS_RETURNS_RETAINED id __ps_objc_retainedObject(void *CF_CONSUMED pointer) { return (id)pointer; }
+    static __inline NS_RETURNS_NOT_RETAINED id __ps_objc_unretainedObject(void *pointer) { return (id)pointer; }
+    static __inline CF_RETURNS_NOT_RETAINED void *__ps_objc_unretainedPointer(id object) { return (void *)object; }
+    #define ps_retainedObject __ps_objc_retainedObject
+    #define ps_unretainedObject __ps_objc_unretainedObject
+    #define ps_unretainedPointer __ps_objc_unretainedPointer
 #endif
