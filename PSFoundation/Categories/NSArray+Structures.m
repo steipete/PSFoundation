@@ -28,7 +28,7 @@
 - (id)dequeue {
 	if (self.empty) return nil;
     
-    id __ps_autoreleasing lastObject = PS_RETAIN([self lastObject]);
+    id lastObject = PS_RETAIN([self lastObject]);
 	[self removeLastObject];
 	return PS_AUTORELEASE(lastObject);
 }
@@ -56,7 +56,7 @@
 - (id)pull {
 	if (self.empty) return nil;
     
-    id __ps_autoreleasing firstObject = PS_RETAIN([self firstObject]);
+    id firstObject = PS_RETAIN([self firstObject]);
 	[self removeObjectAtIndex:0];
 	return PS_AUTORELEASE(firstObject);
 }

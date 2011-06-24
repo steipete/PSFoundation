@@ -332,7 +332,7 @@
 	CFRelease(fullStr);
 	CFRelease(uuid);
     
-    PS_RETURN_AUTORELEASED(string);
+    return PS_AUTORELEASE(string);
 }
 
 /**
@@ -404,34 +404,29 @@
 @synthesize maximumFileSize, rollingFrequency, logFileManager;
 
 - (id)init {
-	DDLogFileManagerDefault __ps_autoreleasing *defaultLogFileManager = PS_AUTORELEASE([DDLogFileManagerDefault new]);
-	
-	return [self initWithLogFileManager:defaultLogFileManager];
+	DDLogFileManagerDefault *defaultLogFileManager = [DDLogFileManagerDefault new];
+	return [self initWithLogFileManager:PS_AUTORELEASE(defaultLogFileManager)];
 }
 
-- (id)initWithLogFileManager:(id <DDLogFileManager>)aLogFileManager
-{
-	if ((self = [super init]))
-	{
+- (id)initWithLogFileManager:(id <DDLogFileManager>)aLogFileManager {
+	if ((self = [super init])) {
 		maximumFileSize = DEFAULT_LOG_MAX_FILE_SIZE;
 		rollingFrequency = DEFAULT_LOG_ROLLING_FREQUENCY;
-		
-		logFileManager = PS_RETAIN(aLogFileManager);
-		
+        PS_SET_RETAINED(logFileManager, aLogFileManager);
 		formatter = [DDLogFileFormatterDefault new];
 	}
 	return self;
 }
 
 - (void)dealloc {
-    PS_RELEASE_NIL(formatter);
-    PS_RELEASE_NIL(logFileManager);
-    PS_RELEASE_NIL(currentLogFileInfo);
+    PS_RELEASE(formatter);
+    PS_RELEASE(logFileManager);
+    PS_RELEASE(currentLogFileInfo);
 	
 	[currentLogFileHandle synchronizeFile];
 	[currentLogFileHandle closeFile];
     
-    PS_RELEASE_NIL(currentLogFileHandle);
+    PS_RELEASE(currentLogFileHandle);
     PS_INVALID(rollingTimer);
 	
 	PS_DEALLOC();
@@ -450,9 +445,7 @@
 	// but if we forget to do this, then this method should at least work properly.
         
     if (dispatch_get_current_queue() == loggerQueue)
-    {
         return maximumFileSize;
-    }
     
     __block unsigned long long result;
     
@@ -538,15 +531,14 @@
 	NSDate *logFileRollingDate = [NSDate dateWithTimeIntervalSinceReferenceDate:ti];
 	
 	NSLogVerbose(@"DDFileLogger: scheduleTimerToRollLogFileDueToAge");
-	
 	NSLogVerbose(@"DDFileLogger: logFileCreationDate: %@", logFileCreationDate);
 	NSLogVerbose(@"DDFileLogger: logFileRollingDate : %@", logFileRollingDate);
-	
-	rollingTimer = PS_RETAIN([NSTimer scheduledTimerWithTimeInterval:[logFileRollingDate timeIntervalSinceNow]
-	                                                 target:self
-	                                               selector:@selector(maybeRollLogFileDueToAge:)
-	                                               userInfo:nil
-	                                                repeats:NO]);
+    
+    PS_SET_RETAINED(rollingTimer, [NSTimer scheduledTimerWithTimeInterval:[logFileRollingDate timeIntervalSinceNow]
+                                                                   target:self
+                                                                 selector:@selector(maybeRollLogFileDueToAge:)
+                                                                 userInfo:nil
+                                                                  repeats:NO]);
 }
 
 - (void)rollLogFile {
@@ -616,76 +608,55 @@
  * 
  * Otherwise a new file is created and returned.
 **/
-- (DDLogFileInfo *)currentLogFileInfo
-{
-	if (currentLogFileInfo == nil)
-	{
+- (DDLogFileInfo *)currentLogFileInfo {
+	if (!currentLogFileInfo) {
 		NSArray *sortedLogFileInfos = [logFileManager sortedLogFileInfos];
 		
-		if ([sortedLogFileInfos count] > 0)
-		{
+		if (sortedLogFileInfos.count > 0) {
 			DDLogFileInfo *mostRecentLogFileInfo = [sortedLogFileInfos objectAtIndex:0];
 			
 			BOOL useExistingLogFile = YES;
 			BOOL shouldArchiveMostRecent = NO;
 			
-			if (mostRecentLogFileInfo.isArchived)
-			{
+			if (mostRecentLogFileInfo.isArchived) {
 				useExistingLogFile = NO;
 				shouldArchiveMostRecent = NO;
-			}
-			else if (mostRecentLogFileInfo.fileSize >= maximumFileSize)
-			{
+			} else if (mostRecentLogFileInfo.fileSize >= maximumFileSize) {
 				useExistingLogFile = NO;
 				shouldArchiveMostRecent = YES;
-			}
-			else if (mostRecentLogFileInfo.age >= rollingFrequency)
-			{
+			} else if (mostRecentLogFileInfo.age >= rollingFrequency) {
 				useExistingLogFile = NO;
 				shouldArchiveMostRecent = YES;
 			}
 			
 			if (useExistingLogFile) {
 				NSLogVerbose(@"DDFileLogger: Resuming logging with file %@", mostRecentLogFileInfo.fileName);
-				
-				currentLogFileInfo = PS_RETAIN(mostRecentLogFileInfo);;
-			} else {
-				if (shouldArchiveMostRecent)
-				{
+				PS_SET_RETAINED(currentLogFileInfo, mostRecentLogFileInfo);
+			} else if (shouldArchiveMostRecent) {
 					mostRecentLogFileInfo.isArchived = YES;
 					
 					if ([logFileManager respondsToSelector:@selector(didArchiveLogFile:)])
-					{
 						[logFileManager didArchiveLogFile:(mostRecentLogFileInfo.filePath)];
-					}
-				}
 			}
 		}
 		
-		if (currentLogFileInfo == nil)
-		{
+		if (!currentLogFileInfo) {
 			NSString *currentLogFilePath = [logFileManager createNewLogFile];
-			
 			currentLogFileInfo = [[DDLogFileInfo alloc] initWithFilePath:currentLogFilePath];
 		}
 	}
-	
 	return currentLogFileInfo;
 }
 
-- (NSFileHandle *)currentLogFileHandle
-{
-	if (currentLogFileHandle == nil)
-	{
+- (NSFileHandle *)currentLogFileHandle {
+	if (!currentLogFileHandle) {
 		NSString *logFilePath = [[self currentLogFileInfo] filePath];
 		
 		currentLogFileHandle = PS_RETAIN([NSFileHandle fileHandleForWritingAtPath:logFilePath]);
 		[currentLogFileHandle seekToEndOfFile];
 		
 		if (currentLogFileHandle)
-		{
 			[self scheduleTimerToRollLogFileDueToAge];
-		}
 	}
 	
 	return currentLogFileHandle;
@@ -740,18 +711,16 @@
 
 @synthesize filePath;
 
-@dynamic fileName;
 @dynamic fileAttributes;
 @dynamic creationDate;
 @dynamic modificationDate;
-@dynamic fileSize;
 @dynamic age;
 @dynamic isArchived;
 
 #pragma mark Lifecycle
 
 + (id)logFileWithPath:(NSString *)aFilePath {
-    PS_RETURN_AUTORELEASED([[DDLogFileInfo alloc] initWithFilePath:aFilePath]);
+    return PS_AUTORELEASE([[DDLogFileInfo alloc] initWithFilePath:aFilePath]);
 }
 
 - (id)initWithFilePath:(NSString *)aFilePath {
@@ -763,8 +732,6 @@
 
 - (void)dealloc {
     PS_RELEASE_NIL(filePath);
-    PS_RELEASE_NIL(fileName);
-	
 	PS_RELEASE_NIL(fileAttributes);
     
     PS_RELEASE_NIL(creationDate);
@@ -777,24 +744,18 @@
 #pragma mark Standard Info
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (NSDictionary *)fileAttributes
-{
-	if (fileAttributes == nil)
-	{
+- (NSDictionary *)fileAttributes {
+	if (!fileAttributes)
 		fileAttributes = PS_RETAIN([[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil]);
-	}
 	return fileAttributes;
 }
 
 - (NSString *)fileName {
-	if (!fileName)
-		fileName = PS_RETAIN([filePath lastPathComponent]);
-
-	return fileName;
+    return [filePath lastPathComponent];
 }
 
 - (NSDate *)modificationDate {
-	if (modificationDate == nil)
+	if (!modificationDate)
 		modificationDate = PS_RETAIN([[self fileAttributes] objectForKey:NSFileModificationDate]);
 	
 	return modificationDate;
@@ -822,7 +783,7 @@
                
                NSTimeInterval ti = seconds + (nanos / 1000000000.0);
                
-               creationDate = PS_RETAIN([NSDate dateWithTimeIntervalSince1970:ti]);
+               creationDate = [[NSDate alloc] initWithTimeIntervalSince1970:ti];
            } else {
                NSLogError(@"DDLogFileInfo: creationDate(%@): getattrlist result = %i", self.fileName, result);
            }        
@@ -835,18 +796,11 @@
 	return creationDate;
 }
 
-- (unsigned long long)fileSize
-{
-	if (fileSize == 0)
-	{
-		fileSize = [[[self fileAttributes] objectForKey:NSFileSize] unsignedLongLongValue];
-	}
-	
-	return fileSize;
+- (unsigned long long)fileSize {
+	return [[self.fileAttributes objectForKey:NSFileSize] unsignedLongLongValue];
 }
 
-- (NSTimeInterval)age
-{
+- (NSTimeInterval)age {
 	return [[self creationDate] timeIntervalSinceNow] * -1.0;
 }
 
@@ -901,7 +855,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void)reset {
-    PS_RELEASE_NIL(fileName);
     PS_RELEASE_NIL(fileAttributes);
     PS_RELEASE_NIL(creationDate);
     PS_RELEASE_NIL(modificationDate);
@@ -922,12 +875,9 @@
 		
 		NSError *error = nil;
 		if (![[NSFileManager defaultManager] moveItemAtPath:filePath toPath:newFilePath error:&error])
-		{
 			NSLogError(@"DDLogFileInfo: Error renaming file (%@): %@", self.fileName, error);
-		}
         
-        PS_RELEASE(filePath);
-		filePath = PS_RETAIN(newFilePath);
+        PS_SET_RETAINED(filePath, newFilePath);
 		
 		[self reset];
 	}

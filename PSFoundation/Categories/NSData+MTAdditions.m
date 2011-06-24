@@ -61,11 +61,11 @@
         CFRelease(img);
         CFRelease(dest);
                        
-        PS_RELEASE_NIL(exifDict);
-        PS_RELEASE_NIL(locDict);
-        PS_RELEASE_NIL(dateFormatter);
+        PS_RELEASE(exifDict);
+        PS_RELEASE(locDict);
+        PS_RELEASE(dateFormatter);
 
-        PS_RETURN_AUTORELEASED(newJPEGData);
+        return PS_AUTORELEASE(newJPEGData);
 	)
 
 	// functionality not available on 3.x, just return original data

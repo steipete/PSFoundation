@@ -11,7 +11,7 @@
 @implementation UIImageView (PSFoundation)
 
 + (UIImageView *)imageViewNamed:(NSString *)imageName {
-    PS_RETURN_AUTORELEASED([[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]]);
+    return PS_AUTORELEASE([[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]]);
 }
 
 @end

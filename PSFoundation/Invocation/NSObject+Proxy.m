@@ -23,13 +23,13 @@
 
 - (id) initWithTarget:(id)newTarget {
 	if ((self = [super init])) {
-		target = PS_RETAIN(newTarget);
+        PS_SET_RETAINED(target, newTarget);
 	}
 	return self;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-	invocation = PS_RETAIN(anInvocation);
+    PS_SET_RETAINED(invocation, anInvocation);
 	[invocation retainArguments];
 	[self performSelector:@selector(performSelectorAtNextRunloop) withObject:nil afterDelay:0.0];
 }
@@ -63,14 +63,14 @@
 
 - (id) initWithTarget:(id)newTarget delay:(float)time{
 	if ((self = [super init])) {
-		target = PS_RETAIN(newTarget);
+        PS_SET_RETAINED(target, newTarget);
 		delay = time;
 	}
 	return self;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-	invocation = PS_RETAIN(anInvocation);
+    PS_SET_RETAINED(invocation, anInvocation);
 	[invocation retainArguments];
 	[self performSelector:@selector(performSelectorWithDelay) withObject:nil afterDelay:delay];
 }
@@ -102,18 +102,17 @@
 @implementation PRHMainThreadPerformingProxy
 
 - (id)initWithRealObject:(id)newRealObject {
-	//This is a direct subclass of NSProxy, so no super message!
-	realObject = PS_RETAIN(newRealObject);
+	PS_SET_RETAINED(realObject, newRealObject);
 	return self;
 }
 
 - (void) dealloc {
-    PS_RELEASE_NIL(realObject);
+    PS_RELEASE(realObject);
 	PS_DEALLOC();
 }
 
 - (void) finalize {
-	realObject = nil;
+    PS_RELEASE_NIL(realObject);
 	[super finalize];
 }
 
@@ -146,6 +145,6 @@
 }
 
 - (id) performOnMainThreadProxy {
-    PS_RETURN_AUTORELEASED([[PRHMainThreadPerformingProxy alloc] initWithRealObject:self]);
+    return PS_AUTORELEASE([[PRHMainThreadPerformingProxy alloc] initWithRealObject:self]);
 }
 @end

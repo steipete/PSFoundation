@@ -44,8 +44,8 @@ static inline BOOL IsEmpty(id thing) {
 #define HEXCOLOR(c) XHEXCOLOR(c)
 #define HexToFloats(c) XHEXCOLOR(c).CGColor
 
-#define PSDegreesToRadian(x) (M_PI * (x) / 180.0)
-#define PSRadianToDegrees(x) (M_PI * 180.0 / (x))
+#define PSDegreesToRadian(x) (x * 0.017453293)
+#define PSRadianToDegrees(x) (x * 57.295779513)
 
 // Time Macros
 #define PSTimeIntervalMilliseconds(x) (NSTimeInterval)(x / 1000.)

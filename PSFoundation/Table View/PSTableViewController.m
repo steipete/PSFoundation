@@ -151,14 +151,12 @@
     // - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
     [self.tableView deselectRowAtIndexPath:self.lastSelectedIndexPath animated:YES];
 
-#if TARGET_IPHONE_SIMULATOR
-#ifdef DEBUG
+#if TARGET_IPHONE_SIMULATOR && defined(DEBUG)
     // If we are running in the simulator and it's the DEBUG target
     // then simulate a memory warning. Note that the DEBUG flag isn't
     // defined by default. To define it add this Preprocessor Macro for
     // the Debug target: DEBUG=1
     PSSimulateMemoryWarning();
-#endif
 #endif
 }
 
@@ -169,7 +167,7 @@
 
 // can be overridden!
 - (UITableView *)createTableView {
-    UITableView __ps_autoreleasing *newTableView;
+    UITableView *newTableView = nil;
 
     if (useShadows)
         newTableView = [[ShadowedTableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
@@ -186,10 +184,7 @@
 - (void)setTableView:(UITableView *)newTableView {
     if ([tableView isEqual:newTableView])
         return;
-    
-    PS_RELEASE(tableView);
-    
-    tableView = PS_RETAIN(newTableView);
+    PS_SET_RETAINED(tableView, newTableView);
     tableView.delegate = self;
     tableView.dataSource = self;
 }

@@ -11,7 +11,7 @@
 @implementation NSObject (Utilities)
 
 + (id) make {
-    PS_RETURN_AUTORELEASED([[[self class] alloc] init]);
+    return PS_AUTORELEASE([[[self class] alloc] init]);
 }
 
 - (void) performSelector: (SEL) selector afterDelay: (NSTimeInterval) delay {

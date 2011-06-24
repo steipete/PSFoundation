@@ -21,10 +21,8 @@ static __strong NSOperationQueue* cw_sharedOperationQueue = nil;
 }
 
 + (void)setSharedOperationQueue:(NSOperationQueue*)operationQueue {
-	if (operationQueue != cw_sharedOperationQueue) {
-        PS_RELEASE(cw_sharedOperationQueue);
-        cw_sharedOperationQueue = PS_RETAIN(operationQueue);
-    }
+    if ([operationQueue isEqual:cw_sharedOperationQueue])
+        PS_SET_RETAINED(cw_sharedOperationQueue, operationQueue);
 }
 
 @end
@@ -33,19 +31,19 @@ static __strong NSOperationQueue* cw_sharedOperationQueue = nil;
 @implementation NSObject (CWSharedQueue)
 
 - (NSInvocationOperation *)performSelectorInBackgroundQueue:(SEL)aSelector withObject:(id)arg {
-	NSInvocationOperation __ps_autoreleasing *operation = PS_AUTORELEASE([[NSInvocationOperation alloc] initWithTarget:self selector:aSelector object:arg]);
+	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:aSelector object:arg];
     [[NSOperationQueue sharedOperationQueue] addOperation:operation];
-	return operation;
+	return PS_AUTORELEASE(operation);
 }
 
 - (NSInvocationOperation *)performSelectorInBackgroundQueue:(SEL)aSelector withObject:(id)arg dependencies:(NSArray *)dependencies priority:(NSOperationQueuePriority)priority {
-	NSInvocationOperation __ps_autoreleasing *operation = PS_AUTORELEASE([[NSInvocationOperation alloc] initWithTarget:self selector:aSelector object:arg]);
+	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:aSelector object:arg];
     [operation setQueuePriority:priority];
     for (NSOperation* dependency in dependencies) {
         [operation addDependency:dependency]; 
     }
     [[NSOperationQueue sharedOperationQueue] addOperation:operation];
-	return operation;
+	return PS_AUTORELEASE(operation);
 }
 
 @end

@@ -13,24 +13,18 @@
 //  appreciated but not required.
 //
 
-#if __has_feature(objc_arc)
+#if PS_HAS_ARC
 
 #define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \
 \
-static classname *sharedInstance = nil; \
-\
 + (classname *)sharedInstance { \
-static dispatch_once_t pred; \
-if (sharedInstance) return sharedInstance; \
-dispatch_once(&pred, ^{ sharedInstance = [[super alloc] init]; }); \
+static classname *sharedInstance; \
+static dispatch_once_t done; \
+dispatch_once(&done, ^{ sharedInstance = [[[self class] alloc] init]; }); \
 return sharedInstance; \
 } \
 \
 + (classname *)shared##classname { \
-return [self sharedInstance]; \
-} \
-\
-+ (id)alloc { \
 return [self sharedInstance]; \
 }
 

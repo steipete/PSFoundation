@@ -24,7 +24,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 + (MTSplashScreen *)splashScreen {
-    PS_RETURN_AUTORELEASED([[MTSplashScreen alloc] initWithNibName:nil bundle:nil]);
+    return PS_AUTORELEASE([[MTSplashScreen alloc] initWithNibName:nil bundle:nil]);
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -35,7 +35,7 @@
 }
 
 - (void)dealloc {
-    PS_RELEASE_NIL(splashImage);
+    PS_DEALLOC_NIL(self.splashImage);
     PS_DEALLOC();
 }
 

@@ -87,7 +87,7 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
         
         CFRelease(resultData);
         
-        PS_RETURN_AUTORELEASED(string);
+        return PS_AUTORELEASE(string);
     }
     
     return nil;

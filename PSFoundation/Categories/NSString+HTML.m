@@ -18,7 +18,7 @@
     while ((r = [mutableString rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
         [mutableString replaceCharactersInRange:r withString:@" "];
     
-    PS_RETURN_AUTORELEASED([mutableString copy]);
+    return PS_AUTORELEASE([mutableString copy]);
 }
 
 - (NSString *)trimWhitespace {
@@ -403,7 +403,7 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
     if (self.empty)
         return self;
     
-    NSMutableString *finalString = [NSMutableString string];
+    NSMutableString *finalString = [NSMutableString new];
     NSMutableData *data2 = [NSMutableData dataWithCapacity:sizeof(unichar) * self.length];
     
     // this block is common between GTMNSString+HTML and GTMNSString+XML but
@@ -430,7 +430,7 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
     }
     
     unichar *buffer2 = (unichar *)[data2 mutableBytes];
-    PS_RELEASE_NIL(data2);
+    PS_RELEASE(data2);
     
     NSUInteger buffer2Length = 0;
     
@@ -462,7 +462,7 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
                                  buffer2Length);
     }
     
-    PS_RETURN_AUTORELEASED(finalString);
+    return PS_AUTORELEASE(finalString);
 }
 
 - (NSString *)gtm_stringByUnescapingFromHTML {

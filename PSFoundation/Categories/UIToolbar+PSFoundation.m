@@ -15,8 +15,8 @@
 #define kToolBarExtraMargin 7
 
 + (UIToolbar *)ps_customToolbarForView:(UIView *)view {
-    UIToolbar __ps_autoreleasing *toolbar = PS_AUTORELEASE([[UIToolbar alloc] initWithFrame:
-                           CGRectMake(0, view.size.height - kToolBarHeight, view.width, kToolBarHeight)]);
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:
+                           CGRectMake(0, view.size.height - kToolBarHeight, view.width, kToolBarHeight)];
     
     // UIToolbar has a weird margin. this *slightly* expands the toolbar to look consistent with the navbar
     toolbar.width = toolbar.width + kToolBarExtraMargin * 2;
@@ -24,7 +24,7 @@
     
     toolbar.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth; 
     [view addSubview:toolbar];
-    return toolbar;
+    return PS_AUTORELEASE(toolbar);
 }
 
 - (UIBarButtonItem *)itemWithTag:(NSInteger)tag {

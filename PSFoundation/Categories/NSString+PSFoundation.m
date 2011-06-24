@@ -24,7 +24,7 @@ int const GGCharacterIsNotADigit = 10;
     NSString *value = [[NSString alloc] initWithString:ps_unretainedObject(string)];
     CFRelease(string);
     CFRelease(uuid);
-    PS_RETURN_AUTORELEASED(value);
+    return PS_AUTORELEASE(value);
 }
 
 - (BOOL)containsString:(NSString *)string {
@@ -77,12 +77,12 @@ int const GGCharacterIsNotADigit = 10;
 
 - (NSString *)md5 {
     NSData *sum = [[self dataUsingEncoding:NSUTF8StringEncoding] MD5Sum];
-    PS_RETURN_AUTORELEASED([[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding]);
+    return PS_AUTORELEASE([[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding]);
 }
 
 - (NSString *)sha1 {
     NSData *sum = [[self dataUsingEncoding:NSUTF8StringEncoding] SHA1Hash];
-    PS_RETURN_AUTORELEASED([[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding]);
+    return PS_AUTORELEASE([[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding]);
 }
 
 - (NSString *)base64 {

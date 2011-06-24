@@ -16,7 +16,7 @@
 
 - (NSString*)stringByTruncatingToWidth:(CGFloat)width withFont:(UIFont *)font {
     // Create copy that will be the returned result
-    NSMutableString __ps_autoreleasing *truncatedString = PS_AUTORELEASE([self mutableCopy]);
+    NSMutableString *truncatedString = PS_AUTORELEASE([self mutableCopy]);
     
     // Make sure string is longer than requested width
     if ([self sizeWithFont:font].width > width) {
@@ -53,7 +53,7 @@
 
 - (NSString *)stringByTruncatingToLength:(NSUInteger)length direction:(NSTruncateStringPosition)truncateFrom withEllipsisString:(NSString *)anEllipsis {
 	NSMutableString *result = [self mutableCopy];
-	NSString __ps_autoreleasing *immutableResult = nil;
+	NSString *immutableResult = nil;
     
 	if (result.length <= length)
 		return self;

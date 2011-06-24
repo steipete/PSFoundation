@@ -31,8 +31,7 @@
     DTCustomColoredAccessory *accessory = [[DTCustomColoredAccessory alloc] initWithFrame:CGRectMake(0, 0, 15.0, 15.0)];
 	accessory.accessoryColor = color;
     accessory.type = type;
-    
-    PS_RETURN_AUTORELEASED(accessory);
+    return PS_AUTORELEASE(accessory);
 }
 
 - (void)drawRect:(CGRect)rect

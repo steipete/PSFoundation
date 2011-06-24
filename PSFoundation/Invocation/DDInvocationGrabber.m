@@ -62,126 +62,48 @@
 
 @implementation DDInvocationGrabber
 
+@synthesize invocation, target, forwardInvokesOnMainThread, waitUntilDone, invocationThread;
+
 + (id)invocationGrabber {
-    PS_RETURN_AUTORELEASED([DDInvocationGrabber alloc]);
+    return PS_AUTORELEASE([DDInvocationGrabber alloc]);
 }
 
-- (id)init {
-    _target = nil;
-    _invocation = nil;
-    _forwardInvokesOnMainThread = NO;
-    _invocationThread = nil;
-    _waitUntilDone = NO;
-    
++ (id)invocationGrabberWithTarget:(id)target {
+    return [[DDInvocationGrabber invocationGrabber] prepareWithInvocationTarget:target];
+}
+
+- (id)prepareWithInvocationTarget:(id)inTarget {
+    self.target = inTarget;
     return self;
 }
 
 - (void)dealloc {
-    PS_RELEASE_NIL(_target);
-    PS_RELEASE_NIL(_invocation);
+    PS_DEALLOC_NIL(self.target);
+    PS_DEALLOC_NIL(self.invocation);
+    PS_DEALLOC_NIL(self.invocationThread);
     PS_DEALLOC();
 }
 
-#pragma mark -
-
-- (id)target
-{
-    return _target;
-}
-
-- (void)setTarget:(id)inTarget
-{
-    if (_target != inTarget)
-	{
-        PS_RELEASE(_target);
-        _target = PS_RETAIN(inTarget);
-	}
-}
-
-- (NSInvocation *)invocation
-{
-    return _invocation;
-}
-
-- (void)setInvocation:(NSInvocation *)inInvocation
-{
-    if (_invocation != inInvocation) {
-        PS_RELEASE(_invocation);
-        _target = PS_RETAIN(inInvocation);
-	}
-}
-
-- (BOOL)forwardInvokesOnMainThread; {
-    return _forwardInvokesOnMainThread;
-}
-
-- (void)setForwardInvokesOnMainThread:(BOOL)forwardInvokesOnMainThread;
-{
-    _forwardInvokesOnMainThread = forwardInvokesOnMainThread;
-}
-
-#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
-- (void)setInvokesOnThread:(NSThread *)thread;
-{
-    _invocationThread = thread;
-}
-#endif
-
-- (BOOL)waitUntilDone;
-{
-    return _waitUntilDone;
-}
-
-- (void)setWaitUntilDone:(BOOL)waitUntilDone;
-{
-    _waitUntilDone = waitUntilDone;
-}
-
-#pragma mark -
-
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector
-{
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
     return [[self target] methodSignatureForSelector:selector];
 }
 
-- (void)forwardInvocation:(NSInvocation *)ioInvocation
-{
+- (void)forwardInvocation:(NSInvocation *)ioInvocation {
     [ioInvocation setTarget:[self target]];
     [self setInvocation:ioInvocation];
-    BOOL invokeOnOtherThread = _forwardInvokesOnMainThread || (_invocationThread != nil);
-    if (invokeOnOtherThread && !_waitUntilDone)
-    {
-        [_invocation retainArguments];
-    }
+    BOOL invokeOnOtherThread = forwardInvokesOnMainThread || invocationThread;
+    if (invokeOnOtherThread && !waitUntilDone)
+        [self.invocation retainArguments];
     
-    if (_forwardInvokesOnMainThread)
-    {
-        [_invocation performSelectorOnMainThread:@selector(invoke)
+    if (invokeOnOtherThread)
+        [invocation performSelectorOnMainThread:@selector(invoke)
                                       withObject:nil
-                                   waitUntilDone:_waitUntilDone];
-    }
-    
-#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_5)
-    if (_invocationThread != nil)
-    {
-        [_invocation performSelector:@selector(invoke)
-                            onThread:_invocationThread
+                                   waitUntilDone:waitUntilDone];
+    else
+        [invocation performSelector:@selector(invoke)
+                            onThread:invocationThread
                           withObject:nil
-                       waitUntilDone:_waitUntilDone];
-    }
-#endif
-}
-
-@end
-
-#pragma mark -
-
-@implementation DDInvocationGrabber (DDnvocationGrabber_Conveniences)
-
-- (id)prepareWithInvocationTarget:(id)inTarget
-{
-    [self setTarget:inTarget];
-    return(self);
+                       waitUntilDone:waitUntilDone];
 }
 
 @end

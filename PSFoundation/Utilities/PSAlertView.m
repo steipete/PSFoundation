@@ -18,7 +18,7 @@
 }
 
 + (id)alertWithTitle:(NSString *)title message:(NSString *)message {
-    PS_RETURN_AUTORELEASED([[self alloc] initWithTitle:title message:message]);
+    return PS_AUTORELEASE([[self alloc] initWithTitle:title message:message]);
 }
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message {

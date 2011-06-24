@@ -45,12 +45,13 @@
 	if (oldIndex == newIndex)
 		return;
     
-	id __strong item = PS_RETAIN([self objectAtIndex:oldIndex]);
+	id item = [self objectAtIndex:oldIndex];
     
 	if (newIndex == self.count) {
 		[self addObject:item];
 		[self removeObjectAtIndex:oldIndex];
 	} else {
+        PS_DO_RETAIN(item);
 		[self removeObjectAtIndex:oldIndex];
 		[self insertObject:item atIndex:newIndex];
         PS_RELEASE(item);

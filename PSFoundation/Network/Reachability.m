@@ -50,7 +50,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     if (!reachability)
         return nil;
     
-    PS_RETURN_AUTORELEASED([[self alloc] initWithReachability:reachability]);
+    return PS_AUTORELEASE([[self alloc] initWithReachability:reachability]);
 }
 
 + (Reachability *)reachabilityWithAddress:(const struct sockaddr_in*)hostAddress {
@@ -59,7 +59,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     if (!reachability)
         return nil;
     
-    PS_RETURN_AUTORELEASED([[self alloc] initWithReachability:reachability]);
+    return PS_AUTORELEASE([[self alloc] initWithReachability:reachability]);
 }
 
 + (Reachability *)reachabilityForInternetConnection {

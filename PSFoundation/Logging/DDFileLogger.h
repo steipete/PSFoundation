@@ -121,8 +121,7 @@
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@interface DDFileLogger : DDAbstractLogger <DDLogger>
-{
+@interface DDFileLogger : DDAbstractLogger <DDLogger> {
 	id <DDLogFileManager> logFileManager;
 	
 	DDLogFileInfo *currentLogFileInfo;
@@ -197,17 +196,11 @@
 // If you absolutely must get updated values,
 // you can invoke the reset method which will clear the cache.
 
-@interface DDLogFileInfo : NSObject
-{
+@interface DDLogFileInfo : NSObject {
 	NSString *filePath;
-	NSString *fileName;
-	
 	NSDictionary *fileAttributes;
-	
 	NSDate *creationDate;
 	NSDate *modificationDate;
-	
-	unsigned long long fileSize;
 }
 
 @property (nonatomic, readonly) NSString *filePath;

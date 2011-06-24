@@ -107,14 +107,14 @@
 }
 
 - (void)dealloc {
-    PS_RELEASE_NIL(insertedSections);
-    PS_RELEASE_NIL(deletedSections);
+    PS_RELEASE(insertedSections);
+    PS_RELEASE(deletedSections);
     
-    PS_RELEASE_NIL(insertedObjects);
-    PS_RELEASE_NIL(deletedObjects);
+    PS_RELEASE(insertedObjects);
+    PS_RELEASE(deletedObjects);
     
-    PS_RELEASE_NIL(updatedObjects);
-    PS_RELEASE_NIL(movedObjects);
+    PS_RELEASE(updatedObjects);
+    PS_RELEASE(movedObjects);
     
     PS_DEALLOC();
 }
@@ -126,19 +126,8 @@
 /**
  * Checks to see if there are unsafe changes in the current change set.
 **/
-- (BOOL)hasUnsafeChanges
-{
-	NSUInteger numSectionChanges = [insertedSections count] + [deletedSections count];
-
-	if (numSectionChanges > 1)
-	{
-		// Multiple section changes can still cause crashes in UITableView.
-		// This appears to be a bug in UITableView.
-
-		return YES;
-	}
-
-	return NO;
+- (BOOL)hasUnsafeChanges {
+	return (insertedSections.count + deletedSections.count > 1);
 }
 
 /**
@@ -150,17 +139,14 @@
 	NSNumber *sectionNumber = [NSNumber numberWithUnsignedInteger:indexPath.section];
 
 	NSMutableIndexSet *indexSet = [dictionary objectForKey:sectionNumber];
-	if (indexSet == nil)
-	{
+	if (!indexSet) {
 		indexSet = [NSMutableIndexSet indexSet];
 
 		[dictionary setObject:indexSet forKey:sectionNumber];
 	}
 
 	if (kSafeFetchDebug)
-	{
 		DDLogInfo(@"Adding index(%lu) to section(%@)", indexPath.row, sectionNumber);
-	}
 
 	[indexSet addIndex:indexPath.row];
 }
@@ -175,14 +161,14 @@
 	// we have to test to see if there are any insertions, deletions or moves that could
 	// have possibly affected the update.
 
-	NSUInteger numInsertedSections = insertedSections.count;
-	NSUInteger numDeletedSections  = deletedSections.count;
+    __block NSUInteger numInsertedSections = insertedSections.count;
+	__block NSUInteger numDeletedSections  = deletedSections.count;
 
-	NSUInteger numInsertedObjects = insertedObjects.count + movedObjects.count;
-	NSUInteger numDeletedObjects  = deletedObjects.count + movedObjects.count;
+	__block NSUInteger numInsertedObjects = insertedObjects.count + movedObjects.count;
+	__block NSUInteger numDeletedObjects  = deletedObjects.count + movedObjects.count;
 
-	NSUInteger numChangedSections = numInsertedSections + numDeletedSections;
-	NSUInteger numChangedObjects = numInsertedObjects + numDeletedObjects;
+	__block NSUInteger numChangedSections = numInsertedSections + numDeletedSections;
+	__block NSUInteger numChangedObjects = numInsertedObjects + numDeletedObjects;
 
 	if (numChangedSections > 0 || numChangedObjects > 0)
 	{
@@ -191,14 +177,14 @@
 
 		NSMutableIndexSet *sectionInsertSet = [NSMutableIndexSet indexSet];
 		NSMutableIndexSet *sectionDeleteSet = [NSMutableIndexSet indexSet];
-
-		for (SafeSectionChange *sectionChange in insertedSections) {
-			[sectionInsertSet addIndex:sectionChange.sectionIndex];
-		}
         
-		for (SafeSectionChange *sectionChange in deletedSections) {
-			[sectionDeleteSet addIndex:sectionChange.sectionIndex];
-		}
+        [insertedSections each:^(id change) {
+            [sectionInsertSet addIndex:[change sectionIndex]];
+        }];
+            
+        [deletedSections each:^(id change) {
+            [sectionDeleteSet addIndex:[change sectionIndex]];
+        }];
 
 		// Next we create dictionaries of index sets for the object changes.
 		//
@@ -247,81 +233,68 @@
 
 		NSMutableDictionary *objectInsertDict = [NSMutableDictionary dictionaryWithCapacity:numInsertedObjects];
 		NSMutableDictionary *objectDeleteDict = [NSMutableDictionary dictionaryWithCapacity:numDeletedObjects];
-
-		for (SafeObjectChange *objectChange in insertedObjects)
-		{
-			[self addIndexPath:objectChange.toIndexPath toDictionary:objectInsertDict];
-		}
-		for (SafeObjectChange *objectChange in deletedObjects)
-		{
-			[self addIndexPath:objectChange.indexPath toDictionary:objectDeleteDict];
-		}
-		for (SafeObjectChange *objectChange in movedObjects)
-		{
-			[self addIndexPath:objectChange.indexPath toDictionary:objectDeleteDict];
-			[self addIndexPath:objectChange.toIndexPath toDictionary:objectInsertDict];
-		}
-
-		for (SafeObjectChange *objectChange in updatedObjects)
-		{
+        
+        [insertedObjects each:^(id change) {
+            [self addIndexPath:[change toIndexPath] toDictionary:objectInsertDict];
+        }];
+        
+        [deletedObjects each:^(id change) {
+            [self addIndexPath:[change indexPath] toDictionary:objectDeleteDict];
+        }];
+        
+        [movedObjects each:^(id change) {
+			[self addIndexPath:[change indexPath] toDictionary:objectDeleteDict];
+			[self addIndexPath:[change toIndexPath] toDictionary:objectInsertDict];
+        }];
+        
+        [updatedObjects each:^(id change) {
 			if (kSafeFetchDebug)
-			{
-				DDLogInfo(@"Processing %@", objectChange);
-			}
-
-			if (!objectChange.toIndexPath)
-			{
-				NSIndexPath *indexPath = objectChange.indexPath;
-
+				DDLogInfo(@"Processing %@", change);
+            
+			if (![change toIndexPath]) {
+				NSIndexPath *indexPath = [change indexPath];
+                
 				// Determine if affected by section changes
-
+                
 				NSRange range = NSMakeRange(0 /*location*/, indexPath.section + 1 /*length*/);
-
+                
 				numInsertedSections = [sectionInsertSet countOfIndexesInRange:range];
 				numDeletedSections  = [sectionDeleteSet countOfIndexesInRange:range];
-
+                
 				// Determine if affected by object changes
-
+                
 				NSNumber *sectionNumber = [NSNumber numberWithUnsignedInteger:indexPath.section];
-
+                
 				range = NSMakeRange(0 /*location*/, indexPath.row + 1 /*length*/);
-
+                
 				numInsertedObjects = 0;
 				numDeletedObjects = 0;
-
+                
 				NSIndexSet *insertsInSameSection = [objectInsertDict objectForKey:sectionNumber];
 				if (insertsInSameSection)
-				{
 					numInsertedObjects = [insertsInSameSection countOfIndexesInRange:range];
-				}
-
+                
 				NSIndexSet *deletesInSameSection = [objectDeleteDict objectForKey:sectionNumber];
 				if (deletesInSameSection)
-				{
 					numDeletedObjects = [deletesInSameSection countOfIndexesInRange:range];
-				}
-
+                
 				// If the update might actually be a move,
 				// then alter the objectChange to reflect the possibility.
-
-				if (kSafeFetchDebug)
-				{
+                
+				if (kSafeFetchDebug) {
 					DDLogInfo(@"numInsertedSections: %lu", numInsertedSections);
 					DDLogInfo(@"numDeletedSections: %lu", numDeletedSections);
-
 					DDLogInfo(@"numInsertedObjects: %lu", numInsertedObjects);
 					DDLogInfo(@"numDeletedObjects: %lu", numDeletedObjects);
 				}
-
+                
 				numChangedSections = numInsertedSections + numDeletedSections;
 				numChangedObjects = numInsertedObjects + numDeletedObjects;
-
+                
 				if (numChangedSections > 0 || numChangedObjects > 0)
-				{
-					objectChange.toIndexPath = objectChange.indexPath;
-				}
+                    [change setToIndexPath:[change indexPath]];
 			}
-		}
+        }];
 	}
 
 	// One more example of a move causing a problem:
@@ -351,43 +324,35 @@
 #pragma mark Processing
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (void)notifyDelegateOfSectionChange:(SafeSectionChange *)sectionChange
-{
+- (void)notifyDelegateOfSectionChange:(SafeSectionChange *)sectionChange {
 	SEL selector = @selector(controller:didChangeSection:atIndex:forChangeType:);
 
 	if ([safeDelegate respondsToSelector:selector])
-	{
 		[safeDelegate controller:self
 		        didChangeSection:sectionChange.sectionInfo
 		                 atIndex:sectionChange.sectionIndex
 		           forChangeType:sectionChange.changeType];
-	}
 }
 
-- (void)notifyDelegateOfObjectChange:(SafeObjectChange *)objectChange
-{
+- (void)notifyDelegateOfObjectChange:(SafeObjectChange *)objectChange {
 	SEL selector = @selector(controller:didChangeObject:atIndexPath:forChangeType:toIndexPath:);
 
 	if ([safeDelegate respondsToSelector:selector])
-	{
 		[safeDelegate controller:self
 		         didChangeObject:objectChange.object
 		             atIndexPath:objectChange.indexPath
 		           forChangeType:objectChange.changeType
 		            newIndexPath:objectChange.toIndexPath];
-	}
 }
 
-- (void)processSectionChanges
-{
-	for (SafeSectionChange *sectionChange in insertedSections)
-	{
-		[self notifyDelegateOfSectionChange:sectionChange];
-	}
-	for (SafeSectionChange *sectionChange in deletedSections)
-	{
-		[self notifyDelegateOfSectionChange:sectionChange];
-	}
+- (void)processSectionChanges {
+    [insertedSections each:^(id sectionChange) {
+        [self notifyDelegateOfSectionChange:sectionChange];
+    }];
+    
+    [deletedSections each:^(id sectionChange) {
+        [self notifyDelegateOfSectionChange:sectionChange];
+    }];
 }
 
 
@@ -418,32 +383,30 @@
 - (void)processChanges {
 	if (kSafeFetchDebug) {
 		DDLogInfo(@"SafeFetchedResultsController: processChanges");
-
-		for (SafeSectionChange *sectionChange in insertedSections)
-		{
-			DDLogInfo(@"%@", sectionChange);
-		}
-		for (SafeSectionChange *sectionChange in deletedSections)
-		{
-			DDLogInfo(@"%@", sectionChange);
-		}
-
-		for (SafeObjectChange *objectChange in insertedObjects)
-		{
-			DDLogInfo(@"%@", objectChange);
-		}
-		for (SafeObjectChange *objectChange in deletedObjects)
-		{
-			DDLogInfo(@"%@", objectChange);
-		}
-		for (SafeObjectChange *objectChange in updatedObjects)
-		{
-			DDLogInfo(@"%@", objectChange);
-		}
-		for (SafeObjectChange *objectChange in movedObjects)
-		{
-			DDLogInfo(@"%@", objectChange);
-		}
+        
+        [insertedSections each:^(id change) {
+            DDLogInfo(@"%@", change);
+        }];
+        
+        [deletedSections each:^(id change) {
+            DDLogInfo(@"%@", change);
+        }];
+         
+        [insertedObjects each:^(id change) {
+            DDLogInfo(@"%@", change);
+        }];
+        
+        [deletedObjects each:^(id change) {
+            DDLogInfo(@"%@", change);
+        }];
+        
+        [updatedObjects each:^(id change) {
+            DDLogInfo(@"%@", change);
+        }];
+        
+        [movedObjects each:^(id change) {
+            DDLogInfo(@"%@", change);
+        }];
 	}
 
 	if ([self hasUnsafeChanges]) {
@@ -478,6 +441,7 @@
 	SafeSectionChange *sectionChange = [[SafeSectionChange alloc] initWithSectionInfo:sectionInfo
 	                                                                            index:sectionIndex
 	                                                                       changeType:changeType];
+    
 	NSMutableArray *sectionChanges = nil;
 
 	switch (changeType) {
@@ -486,7 +450,8 @@
 	}
 
 	[sectionChanges addObject:sectionChange];
-    PS_RELEASE_NIL(sectionChange);
+
+    PS_RELEASE(sectionChange);
 }
 
 - (void)controller:(NSFetchedResultsController *)controller
@@ -510,7 +475,8 @@
 	}
 
 	[objectChanges addObject:objectChange];
-	PS_RELEASE_NIL(objectChange);
+    
+	PS_RELEASE(objectChange);
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
@@ -540,7 +506,7 @@
 - (id)initWithSectionInfo:(id <NSFetchedResultsSectionInfo>)aSectionInfo
                     index:(NSUInteger)aSectionIndex
                changeType:(NSFetchedResultsChangeType)aChangeType {
-	if((self = [super init])) {
+	if ((self = [super init])) {
 		self.sectionInfo = aSectionInfo;
 		self.sectionIndex = aSectionIndex;
 		self.changeType = aChangeType;
@@ -559,11 +525,11 @@
 
 - (NSString *)description {
 	return [NSString stringWithFormat:@"<SafeSectionChange changeType(%@) index(%lu)>",
-			[self changeTypeString], sectionIndex];
+            [self changeTypeString], sectionIndex];
 }
 
 - (void)dealloc {
-	self.sectionInfo = nil;
+    PS_RELEASE(sectionInfo);
     PS_DEALLOC();
 }
 
@@ -580,10 +546,8 @@
 - (id)initWithObject:(id)anObject
            indexPath:(NSIndexPath *)anIndexPath
           changeType:(NSFetchedResultsChangeType)aChangeType
-        newIndexPath:(NSIndexPath *)aNewIndexPath
-{
-	if((self = [super init]))
-	{
+        newIndexPath:(NSIndexPath *)aNewIndexPath {
+	if((self = [super init])) {
 		self.object = anObject;
 		self.indexPath = anIndexPath;
 		self.changeType = aChangeType;
@@ -592,10 +556,8 @@
 	return self;
 }
 
-- (NSString *)changeTypeString
-{
-	switch (changeType)
-	{
+- (NSString *)changeTypeString {
+	switch (changeType) {
 		case NSFetchedResultsChangeInsert : return @"Insert";
 		case NSFetchedResultsChangeDelete : return @"Delete";
 		case NSFetchedResultsChangeMove   : return @"Move";
@@ -605,15 +567,13 @@
 	return nil;
 }
 
-- (NSString *)stringFromIndexPath:(NSIndexPath *)ip
-{
-	if (ip == nil) return @"nil";
+- (NSString *)stringFromIndexPath:(NSIndexPath *)ip {
+	if (!ip) return @"nil";
 
 	return [NSString stringWithFormat:@"[%lu,%lu]", ip.section, ip.row];
 }
 
-- (NSString *)description
-{
+- (NSString *)description {
 	return [NSString stringWithFormat:@"<SafeObjectChange changeType(%@) indexPath(%@) newIndexPath(%@)>",
 			[self changeTypeString],
 			[self stringFromIndexPath:indexPath],
@@ -621,11 +581,9 @@
 }
 
 - (void)dealloc {
-	self.object = nil;
-    
-	self.indexPath = nil;
-	self.toIndexPath = nil;
-
+    PS_RELEASE(object);
+    PS_RELEASE(indexPath);
+    PS_RELEASE(toIndexPath);
 	PS_DEALLOC();
 }
 

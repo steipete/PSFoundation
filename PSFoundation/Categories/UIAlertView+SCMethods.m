@@ -11,11 +11,11 @@
 @implementation UIAlertView (SCMethods)
 
 + (UIAlertView *)alertViewFromError:(NSError *)error {
-    PS_RETURN_AUTORELEASED([[UIAlertView alloc] initWithTitle:[error localizedFailureReason]
-                                                      message:[error localizedDescription]
-                                                     delegate:nil
-                                            cancelButtonTitle:NSLocalizedString(@"OK", @"")
-                                            otherButtonTitles:nil]);
+    return PS_AUTORELEASE([[UIAlertView alloc] initWithTitle:[error localizedFailureReason]
+                                                     message:[error localizedDescription]
+                                                    delegate:nil
+                                           cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                                           otherButtonTitles:nil]);
 }
 
 + (void)showWithError:(NSError *)error {
@@ -31,20 +31,20 @@
 }
 
 + (void)showWithTitle:(NSString *)title message:(NSString *)message {
-    UIAlertView __ps_autoreleasing *view = PS_AUTORELEASE([[UIAlertView alloc] initWithTitle:title
-                                                                                    message:message
-                                                                                   delegate:nil
-                                                                          cancelButtonTitle:NSLocalizedString(@"OK", @"")
-                                                                          otherButtonTitles:nil]);
+    UIAlertView *view = [[UIAlertView alloc] initWithTitle:title
+                                                   message:message
+                                                  delegate:nil
+                                         cancelButtonTitle:NSLocalizedString(@"OK", @"")
+                                         otherButtonTitles:nil];
     [view show];
+    PS_DO_AUTORELEASE(view);
 }
 
 + (void)showWithTitle:(NSString *)title message:(NSString *)message error:(NSError *)error {
-  NSString *messageWithError = message;
-  if (error) {
-    messageWithError = [NSString stringWithFormat:@"%@\n(%@)", message, [error localizedDescription]];
-  }
-  return [self showWithTitle:title message:messageWithError];
+    NSString *messageWithError = message;
+    if (error)
+        messageWithError = [NSString stringWithFormat:@"%@\n(%@)", message, [error localizedDescription]];
+    return [self showWithTitle:title message:messageWithError];
 }
 
 @end

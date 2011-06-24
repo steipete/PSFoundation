@@ -54,8 +54,8 @@
 @synthesize logger, next, queue;
 
 - (void)dealloc {
-    PS_RELEASE_NIL(logger);
-    PS_RELEASE_NIL(next);
+    PS_DEALLOC_NIL(self.logger);
+    PS_DEALLOC_NIL(self.next);
     PS_DEALLOC();
 }
 
@@ -270,20 +270,22 @@ functionStr:(NSString *)functionStr
 	if (format) {
 		va_start(args, format);
 
-		NSString __ps_autoreleasing *logMsg = [[NSString alloc] initWithFormat:format arguments:args];
-        NSString __ps_autoreleasing *logMsgComplete = [[NSString alloc] initWithFormat:@"%@ %@", functionStr, logMsg];
+		NSString *logMsg = [[NSString alloc] initWithFormat:format arguments:args];
+        NSString *logMsgComplete = [[NSString alloc] initWithFormat:@"%@ %@", functionStr, logMsg];
         PS_DO_AUTORELEASE(logMsg);
         PS_DO_AUTORELEASE(logMsgComplete);
         
-		DDLogMessage __ps_autoreleasing *logMessage = PS_AUTORELEASE([[DDLogMessage alloc] initWithLogMsg:logMsgComplete
+		DDLogMessage *logMessage = [[DDLogMessage alloc] initWithLogMsg:logMsgComplete
 		                                                          level:level
 		                                                           flag:flag
 		                                                        context:context
 		                                                           file:file
 		                                                       function:function
-		                                                           line:line]);
+		                                                           line:line];
 
 		[self queueLogMessage:logMessage synchronously:synchronous];
+        
+        PS_RELEASE(logMessage);
         
 		va_end(args);
 	}
@@ -414,15 +416,11 @@ functionStr:(NSString *)functionStr
     // Add to linked list of LoggerNode elements.
     // Need to create loggerQueue if loggerNode doesn't provide one.
 
-    LoggerNode __ps_autoreleasing *node = PS_AUTORELEASE([LoggerNode new]);
+    LoggerNode *node = [LoggerNode new];
     node.logger = logger;
 
     if ([logger respondsToSelector:@selector(loggerQueue)])
-    {
-        // Logger may be providing its own queue
-
         node.queue = [logger loggerQueue];
-    }
 
     if (node.queue) {
         dispatch_retain(node.queue);
@@ -432,19 +430,18 @@ functionStr:(NSString *)functionStr
 
         const char *loggerQueueName = NULL;
         if ([logger respondsToSelector:@selector(loggerName)])
-        {
             loggerQueueName = [[logger loggerName] UTF8String];
-        }
 
         node.queue = dispatch_queue_create(loggerQueueName, NULL);
     }
 
     node.next = loggerNodes;
-    loggerNodes = PS_RETAIN(node);
+    PS_SET_RETAINED(loggerNodes, node);
+    
+    PS_RELEASE(node);
 
-	if ([logger respondsToSelector:@selector(didAddLogger)]) {
+	if ([logger respondsToSelector:@selector(didAddLogger)])
 		[logger didAddLogger];
-	}
 }
 
 /**
@@ -647,23 +644,17 @@ NSString *ExtractFileNameWithoutExtension(const char *filePath, BOOL copy)
 		}
 	}
     
-    NSString __ps_autoreleasing *ret = nil;
+    NSString *ret = nil;
 
-	if (copy) {
+	if (copy)
         ret = [[NSString alloc] initWithBytes:subStr
                                        length:subLen
                                      encoding:NSUTF8StringEncoding];
-	} else {
-		// We can take advantage of the fact that __FILE__ is a string literal.
-		// Specifically, we don't need to waste time copying the string.
-		// We can just tell NSString to point to a range within the string literal.
-
+    else
 		ret = [[NSString alloc] initWithBytesNoCopy:subStr
                                              length:subLen
                                            encoding:NSUTF8StringEncoding
-                                      freeWhenDone:NO];
-	}
-    
+                                      freeWhenDone:NO];    
     return PS_AUTORELEASE(ret);
 }
 
@@ -700,28 +691,22 @@ NSString *ExtractFileNameWithoutExtension(const char *filePath, BOOL copy)
 	return self;
 }
 
-- (NSString *)threadID
-{
-	if (threadID == nil) {
+- (NSString *)threadID {
+	if (!threadID)
 		threadID = [[NSString alloc] initWithFormat:@"%x", machThreadID];
-	}
 
 	return threadID;
 }
 
 - (NSString *)fileName {
-	if (fileName == nil) {
+	if (!fileName)
 		fileName = PS_RETAIN(ExtractFileNameWithoutExtension(file, NO));
-	}
-
 	return fileName;
 }
 
 - (NSString *)methodName {
-	if (methodName == nil && function != NULL) {
+	if (!methodName && !function)
 		methodName = [[NSString alloc] initWithUTF8String:function];
-	}
-
 	return methodName;
 }
 
@@ -827,10 +812,10 @@ NSString *ExtractFileNameWithoutExtension(const char *filePath, BOOL copy)
 
     __block id <DDLogFormatter> result;
     dispatch_sync([DDLog loggingQueue], ^{
-        result = PS_RETAIN(formatter);
+        PS_SET_RETAINED(result, formatter);
     });
     
-    PS_RETURN_AUTORELEASED(result);
+    return PS_AUTORELEASE(result);
 }
 
 - (void)setLogFormatter:(id <DDLogFormatter>)logFormatter {
@@ -888,10 +873,8 @@ NSString *ExtractFileNameWithoutExtension(const char *filePath, BOOL copy)
     // In all other circumstances we need to go through the loggingQueue to get the proper value.
 
     dispatch_block_t block = ^{
-        if (formatter != logFormatter) {
-            PS_RELEASE(formatter);
-            formatter = PS_RETAIN(logFormatter);
-        }
+        if (formatter != logFormatter)
+            PS_SET_RETAINED(formatter, logFormatter);
     };
 
     if (dispatch_get_current_queue() == loggerQueue)

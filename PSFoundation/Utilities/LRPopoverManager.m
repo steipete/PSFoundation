@@ -30,8 +30,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(LRPopoverManager)
     [self dismissCurrentPopoverController:YES];
   
     if (pc != currentPopoverController) {
-        PS_RELEASE(currentPopoverController);
-        currentPopoverController = PS_RETAIN(pc);
+        PS_SET_RETAINED(currentPopoverController, pc);
         currentPopoverController.delegate = self;
     }
     

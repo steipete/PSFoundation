@@ -17,50 +17,54 @@
 @implementation NSArray (PSArrayAlgebra)
 
 - (id)uniqueMembers {
-	NSMutableArray __ps_autoreleasing *copy = [self mutableCopy];
-	for (id object in self) {
-		[copy removeObjectIdenticalTo:object];
-		[copy addObject:object];
-	}
-	return PS_AUTORELEASE(copy);
+    return [NSArray arrayWithArray:[NSSet setWithArray:self]];
 }
 
-- (id) unionWithArray:(NSArray *)anArray {
+- (id)unionWithArray:(NSArray *)anArray {
 	if (!anArray) return self;
 	return [[self arrayByAddingObjectsFromArray:anArray] uniqueMembers];
 }
 
 - (id)intersectionWithArray:(NSArray *)anArray {
-	NSMutableArray __ps_autoreleasing *copy = [self mutableCopy];
+	NSMutableArray *copy = [self mutableCopy];
 	for (id object in self)
 		if (![anArray containsObject:object])
 			[copy removeObjectIdenticalTo:object];
-	return PS_AUTORELEASE([copy uniqueMembers]);
+    
+    NSArray *ret = [copy uniqueMembers];
+    PS_RELEASE(copy);
+    return ret;
 }
 
 - (id)intersectionWithSet:(NSSet *)anSet {
-	NSMutableArray __ps_autoreleasing *copy = [self mutableCopy];
+	NSMutableArray *copy = [self mutableCopy];
 	for (id object in self)
 		if (![anSet containsObject:object])
 			[copy removeObjectIdenticalTo:object];
-	return PS_AUTORELEASE([copy uniqueMembers]);
+    NSArray *ret = [copy uniqueMembers];
+    PS_RELEASE(copy);
+    return ret;
 }
 
 // http://en.wikipedia.org/wiki/Complement_(set_theory)
 - (id)complementWithArray:(NSArray *)anArray {
-	NSMutableArray __ps_autoreleasing *copy = [self mutableCopy];
+	NSMutableArray *copy = [self mutableCopy];
 	for (id object in self)
 		if ([anArray containsObject:object])
 			[copy removeObjectIdenticalTo:object];
-	return PS_AUTORELEASE([copy uniqueMembers]);
+    NSArray *ret = [copy uniqueMembers];
+    PS_RELEASE(copy);
+    return ret;
 }
 
 - (id)complementWithSet:(NSSet *)anSet {
-	NSMutableArray __ps_autoreleasing *copy = [self mutableCopy];
+	NSMutableArray *copy = [self mutableCopy];
 	for (id object in self)
 		if ([anSet containsObject:object])
 			[copy removeObjectIdenticalTo:object];
-	return PS_AUTORELEASE([copy uniqueMembers]);
+    NSArray *ret = [copy uniqueMembers];
+    PS_RELEASE(copy);
+    return ret;
 }
 
 @end

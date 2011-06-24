@@ -14,15 +14,15 @@
 @implementation NSString (PSStringURL)
 
 - (NSString *)URLEncodedString {
-    PS_RETURN_AUTORELEASED(NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                           ps_unretainedPointer(self),
-                                                                           NULL,
-                                                                           CFSTR("!*'();:@&=+$,/?%#[]<>"),
-                                                                           kCFStringEncodingUTF8)));
+    return PS_AUTORELEASE(NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                                    ps_unretainedPointer(self),
+                                                                                    NULL,
+                                                                                    CFSTR("!*'();:@&=+$,/?%#[]<>"),
+                                                                                    kCFStringEncodingUTF8)));
 }
 
 - (NSString *)URLDecodedString {
-    PS_RETURN_AUTORELEASED(NSMakeCollectable(CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
+    return PS_AUTORELEASE(NSMakeCollectable(CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
                                                                                            ps_unretainedPointer(self),
                                                                                            CFSTR(""),
                                                                                            kCFStringEncodingUTF8)));
@@ -36,12 +36,12 @@
                                                                                     kCFStringEncodingUTF8));
     if (firstPass) {
         NSMutableString *secondPass = [firstPass mutableCopy];
-        PS_RELEASE_NIL(firstPass);
+        PS_RELEASE(firstPass);
         [secondPass replaceOccurrencesOfString:@" "
                                     withString:@"+"
                                        options:0
                                          range:NSMakeRange(0, secondPass.length)];
-        PS_RETURN_AUTORELEASED(secondPass);
+        return PS_AUTORELEASE(secondPass);
     }
 	return self;
 }
@@ -87,7 +87,7 @@
 }
 
 - (NSString *)removeQuotes {
-	NSString __ps_autoreleasing *ret = PS_AUTORELEASE([self copy]);
+	NSString *ret = PS_AUTORELEASE([self copy]);
         
 	if ([self characterAtIndex:0] == '"') {
 		ret = [ret substringFromIndex:1];

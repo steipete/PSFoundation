@@ -13,7 +13,7 @@
 @implementation SoundEffect
 
 + (id)soundEffectWithContentsOfFile:(NSString *)aPath {
-    PS_RETURN_AUTORELEASED([[SoundEffect alloc] initWithContentsOfFile:aPath]);
+    return PS_AUTORELEASE([[SoundEffect alloc] initWithContentsOfFile:aPath]);
 }
 
 - (id)initWithContentsOfFile:(NSString *)path {

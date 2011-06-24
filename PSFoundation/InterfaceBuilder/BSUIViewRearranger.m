@@ -37,7 +37,7 @@
 
 + (void)rearrangeView:(UIView*)mainView accordingToNib:(NSString*)nibName usingClass:(Class)aClass {
 	// load the nib using our controller class and rearrange the view
-	UIViewController __ps_autoreleasing *controller = PS_AUTORELEASE([[aClass alloc] initWithNibName: nibName bundle:[NSBundle bundleForClass: aClass]]);
+	UIViewController *controller = PS_AUTORELEASE([[aClass alloc] initWithNibName: nibName bundle:[NSBundle bundleForClass: aClass]]);
 	UIView* sourceView = controller.view;
 	
 	[self rearrangeView: mainView accordingTo: sourceView];

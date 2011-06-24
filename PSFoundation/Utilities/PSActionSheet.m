@@ -13,7 +13,7 @@
 @synthesize sheet = sheet_;
 
 + (id)sheetWithTitle:(NSString *)title {
-    PS_RETURN_AUTORELEASED([[self alloc] initWithTitle:title]);
+    return PS_AUTORELEASE([[self alloc] initWithTitle:title]);
 }
 
 - (id)initWithTitle:(NSString *)title {
