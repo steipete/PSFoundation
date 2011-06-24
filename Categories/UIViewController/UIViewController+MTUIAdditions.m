@@ -19,6 +19,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 static char oldBarButtonItemKey;
+static char cellKey;
 
 
 @implementation UIViewController (MTUIAdditions)
@@ -137,6 +138,20 @@ static char oldBarButtonItemKey;
 - (void)hideLoadingIndicatorInNavigationBar {
     UIBarButtonItem *oldItem = (UIBarButtonItem *)objc_getAssociatedObject(self, &oldBarButtonItemKey);
     self.navigationItem.rightBarButtonItem = oldItem;
+}
+
+- (void)showLoadingIndicatorInTableViewCell:(UITableViewCell *)cell {
+    UIActivityIndicatorView *activityIndicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
+    [activityIndicator startAnimating];
+    cell.accessoryView = activityIndicator;
+    
+    objc_setAssociatedObject(self, &cellKey, cell, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)hideLoadingIndicatorInTableViewCell {
+    UITableViewCell *cell = (UITableViewCell *)objc_getAssociatedObject(self, &cellKey);
+    
+    cell.accessoryView = nil;
 }
 
 @end
