@@ -379,7 +379,6 @@
 		6C4015A513B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+ActiveRecord.m"; sourceTree = "<group>"; };
 		6C4015BC13B05F86001FC822 /* PSScrollContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSScrollContentView.h; sourceTree = "<group>"; };
 		6C4015BD13B05F86001FC822 /* PSScrollContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSScrollContentView.m; sourceTree = "<group>"; };
-		6C5FF94413B39D3A00DB1DA9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		6C5FF94613B39D3A00DB1DA9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		6C5FF94913B39D3A00DB1DA9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		6C5FF96713B3AF8200DB1DA9 /* UIImage+Blurring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blurring.h"; sourceTree = "<group>"; };
@@ -771,7 +770,6 @@
 			isa = PBXGroup;
 			children = (
 				6C86B37C1396AAE7009F6FE6 /* Foundation.framework */,
-				6C5FF94413B39D3A00DB1DA9 /* SenTestingKit.framework */,
 				6C5FF94613B39D3A00DB1DA9 /* UIKit.framework */,
 				6C5FF94913B39D3A00DB1DA9 /* CoreGraphics.framework */,
 			);
@@ -2080,6 +2078,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/PSFoundation.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSFoundation/PSFoundation-Prefix.pch";
@@ -2087,6 +2086,7 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
 		};
@@ -2094,6 +2094,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/PSFoundation.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSFoundation/PSFoundation-Prefix.pch";
@@ -2101,6 +2102,7 @@
 				PRIVATE_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /../PSFoundation/PSFoundation;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Release;
 		};

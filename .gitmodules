@@ -9,7 +9,7 @@
 	url = git://github.com/zwaldowski/MBProgressHUD.git
 [submodule "PSFoundation/External/DSActivityView"]
 	path = PSFoundation/External/DSActivityView
-	url = git://github.com/joycodes/DSActivityView.git
+	url = git://github.com/zwaldowski/DSActivityView.git
 [submodule "PSFoundation/External/jrswizzle"]
 	path = PSFoundation/External/jrswizzle
 	url = git://github.com/zwaldowski/jrswizzle.git
