@@ -127,7 +127,7 @@ static char oldBarButtonItemKey;
     [backgroundView addSubview:activityView];
     [activityView startAnimating];
     
-    if (self.navigationItem.rightBarButtonItem != nil) {
+    if (self.navigationItem.rightBarButtonItem != nil && ![self.navigationItem.rightBarButtonItem isKindOfClass:[UIActivityIndicatorView class]]) {
         objc_setAssociatedObject(self, &oldBarButtonItemKey, self.navigationItem.rightBarButtonItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 
