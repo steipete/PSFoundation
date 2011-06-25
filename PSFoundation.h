@@ -10,6 +10,7 @@
 #import "PSMacros.h"
 #import "Categories/PSCategories.h"
 
+#import "PSReachability.h"
 #import "Reachability.h"
 #import "IKNetworkActivityManager.h"
 
