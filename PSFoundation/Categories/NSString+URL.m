@@ -14,29 +14,41 @@
 @implementation NSString (PSStringURL)
 
 - (NSString *)URLEncodedString {
-    return PS_AUTORELEASE(NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                    ps_unretainedPointer(self),
-                                                                                    NULL,
-                                                                                    CFSTR("!*'();:@&=+$,/?%#[]<>"),
-                                                                                    kCFStringEncodingUTF8)));
+    CFStringRef string = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                 ps_unretainedPointer(self),
+                                                                 NULL,
+                                                                 CFSTR("!*'();:@&=+$,/?%#[]<>"),
+                                                                 kCFStringEncodingUTF8);
+    if (string) {
+        NSString *ret = [[NSString alloc] initWithString:ps_unretainedObject(string)];
+        CFRelease(string);    
+        return PS_AUTORELEASE(ret);    
+    }
+    return nil;
 }
 
 - (NSString *)URLDecodedString {
-    return PS_AUTORELEASE(NSMakeCollectable(CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
-                                                                                           ps_unretainedPointer(self),
-                                                                                           CFSTR(""),
-                                                                                           kCFStringEncodingUTF8)));
+    CFStringRef string = CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
+                                                                                 ps_unretainedPointer(self),
+                                                                                 CFSTR(""),
+                                                                                 kCFStringEncodingUTF8);
+    if (string) {
+        NSString *ret = [[NSString alloc] initWithString:ps_unretainedObject(string)];
+        CFRelease(string);    
+        return PS_AUTORELEASE(ret);    
+    }
+    return nil;
 }
 
 - (NSString *)URLEncodedParameterString {
-    NSString *firstPass = NSMakeCollectable(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                    ps_unretainedPointer(self),
-                                                                                    CFSTR(" "),
-                                                                                    CFSTR(":/=,!$&'()*+;[]@#?"),
-                                                                                    kCFStringEncodingUTF8));
+    CFStringRef firstPass = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                 ps_unretainedPointer(self),
+                                                                 CFSTR(" "),
+                                                                 CFSTR(":/=,!$&'()*+;[]@#?"),
+                                                                 kCFStringEncodingUTF8);
     if (firstPass) {
-        NSMutableString *secondPass = [firstPass mutableCopy];
-        PS_RELEASE(firstPass);
+        NSMutableString *secondPass = [[NSMutableString alloc] initWithString:ps_unretainedObject(firstPass)];
+        CFRelease(firstPass);
         [secondPass replaceOccurrencesOfString:@" "
                                     withString:@"+"
                                        options:0

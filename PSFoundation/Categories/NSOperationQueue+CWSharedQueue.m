@@ -10,14 +10,16 @@
 
 @implementation NSOperationQueue (CWSharedQueue)
 
-static __strong NSOperationQueue* cw_sharedOperationQueue = nil;
+static NSOperationQueue *cw_sharedOperationQueue = nil;
 
 + (NSOperationQueue*)sharedOperationQueue {
-	if (!cw_sharedOperationQueue) {
-        cw_sharedOperationQueue = [NSOperationQueue new];
-        [cw_sharedOperationQueue setMaxConcurrentOperationCount:CW_DEFAULT_OPERATION_COUNT];
+    @synchronized(self) {
+        if (!cw_sharedOperationQueue) {
+            cw_sharedOperationQueue = [NSOperationQueue new];
+            [cw_sharedOperationQueue setMaxConcurrentOperationCount:CW_DEFAULT_OPERATION_COUNT];
+        }
+        return cw_sharedOperationQueue;
     }
-    return cw_sharedOperationQueue;
 }
 
 + (void)setSharedOperationQueue:(NSOperationQueue*)operationQueue {
