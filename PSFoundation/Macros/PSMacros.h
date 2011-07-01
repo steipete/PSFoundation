@@ -6,6 +6,7 @@
 //
 
 #import "NilCategories.h"
+#import "UIDevice+PSFoundation.h"
 #include "PSMacros+Collections.h"
 #include "PSMacros+Geometry.h"
 
@@ -64,10 +65,18 @@ static inline BOOL IsEmpty(id thing) {
 #define HOLogPing NSLog(@"%s", __PRETTY_FUNCTION__);
 
 #if PS_HAS_ARC
+    #define PS_AUTORELEASEPOOL(...) @autoreleasepool { do {__VA_ARGS__;} while(0); }
+    #define PS_SET_RETAINED(var, val) var = val
     #define PS_RELEASE(x)
     #define PS_RELEASE_NIL(x) x = nil
     #define PS_RELEASE_VIEW_NIL(x) [x removeFromSuperview], x = nil
 #else
+    #define PS_AUTORELEASEPOOL(...) NSAutoreleasePool *pool = [NSAutoreleasePool new]; do {__VA_ARGS__;} while(0); [pool drain]
+    #define PS_SET_RETAINED(var, val) { \
+    if (var) \
+    [var release]; \
+    var = [val retain]; \
+    }
     #if DEBUG
         #define PS_RELEASE(x) do { [x release]; } while (0);
     #else
@@ -143,15 +152,15 @@ __VA_ARGS__;                            \
 #endif
 
 // app shortcuts
-#define XNavigationController [[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)]
-#define XAppDelegate ((AppDelegate *)[[UIApplication sharedApplication] delegate])
-// compatibility
-#define MTApplicationDelegate XAppDelegate
-#define UIApp [UIApplication sharedApplication].delegate // deprectated
-#define tsPushAnimated(vc) [[[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)] pushViewController:vc animated:YES];
+#define XNavigationController   ((XRESPONDS(XAppDelegate, navigationController)) ? [[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)] : nil)
+#define XAppDelegate            ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+#define MTApplicationDelegate   XAppDelegate
+#define UIApp                   XAppDelegate
+#define tsPushAnimated(vc)      [[[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)] pushViewController:vc animated:YES]
+#define isIPad()                [[UIDevice currentDevice] isTablet]
 
 // defines
-#define XAPPVERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+#define XAPPVERSION() [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 
 // filepaths
 #define XFILPATH4DOCUMENT(_value) [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:_value]
@@ -166,12 +175,12 @@ __VA_ARGS__;                            \
 #define XRX(v) ([v isKindOfClass:[NSPredicate class]] ? v : [NSPredicate predicateWithFormat:@"SELF MATCHES %@", v])
 
 // value or nil
-#define XINT(value) (value ? [NSNumber numberWithInt:value] : [NSNumber numberWithInt:0])
-#define XFLOAT(value) (value ? [NSNumber numberWithDouble:(double)value] : [NSNumber numberWithDouble:(double)0.0])
-#define XBOOL(value) (value ? [NSNumber numberWithBool:value] : [NSNumber numberWithBool:NO])
-#define XNULL [NSNull null]
-#define $false ((NSNumber*)kCFBooleanFalse)
-#define $true  ((NSNumber*)kCFBooleanTrue)
+#define XINT(value)     (value ? [NSNumber numberWithInt:value] : [NSNumber numberWithInt:0])
+#define XFLOAT(value)   (value ? [NSNumber numberWithDouble:(double)value] : [NSNumber numberWithDouble:(double)0.0])
+#define XBOOL(value)    (value ? [NSNumber numberWithBool:value] : [NSNumber numberWithBool:NO])
+#define XNULL           [NSNull null]
+#define $false          [NSNumber numberWithBool:NO]
+#define $true           [NSNumber numberWithBool:YES]
 
 // even shorter versions
 #define $I(value) XINT(value)
@@ -188,34 +197,34 @@ __VA_ARGS__;                            \
 #define XEQ(a,b) ([a compare:b] == NSOrderedSame)
 
 // notification center
-#define XNC [NSNotificationCenter defaultCenter]
-#define XNCADD(n,sel) [[NSNotificationCenter defaultCenter] addObserver:self selector:sel name:n object:nil];
-#define XNCREMOVE [[NSNotificationCenter defaultCenter] removeObserver:self];
-#define XNCPOST(name) [[NSNotificationCenter defaultCenter] postNotificationName:name object:self];
+#define XNC             [NSNotificationCenter defaultCenter]
+#define XNCADD(n,sel)   [[NSNotificationCenter defaultCenter] addObserver:self selector:sel name:n object:nil];
+#define XNCREMOVE       [[NSNotificationCenter defaultCenter] removeObserver:self];
+#define XNCPOST(name)   [[NSNotificationCenter defaultCenter] postNotificationName:name object:self];
 
 // selector apply
-#define XAPPLY(target, sel)  if([(id)target respondsToSelector:@selector(sel)]) { [(id)target performSelector:@selector(sel)]; }
-#define XAPPLY1(target, sel, obj)  if([(id)target respondsToSelector:@selector(sel:)]) { [(id)target performSelector:@selector(sel:) withObject:obj]; }
-
-#define XAPPLYSEL(target, sel)  if([target respondsToSelector:sel]) { [(id)target performSelector:sel]; }
-#define XAPPLYSEL1(target, sel, obj)  if([target respondsToSelector:sel]) { [(id)target performSelector:sel withObject:obj]; }
+#define XRESPONDS(target, sel)          ([(id)target respondsToSelector:@selector(sel)])
+#define XAPPLY(target, sel)             if (XRESPONDS(target, sel)) { [(id)target performSelector:@selector(sel)]; }
+#define XAPPLY1(target, sel, obj)       if (XRESPONDS(target, sel)) { [(id)target performSelector:@selector(sel:) withObject:obj]; }
+#define XAPPLYSEL(target, sel)          if (XRESPONDS(target, sel)) { [(id)target performSelector:sel]; }
+#define XAPPLYSEL1(target, sel, obj)    if(XRESPONDS(target, sel)) { [(id)target performSelector:sel withObject:obj]; }
 
 #define XDATA2UTF8STRING(data) PS_AUTORELEASE([[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding])
 #define XUTF8STRING2DATA(s) [s dataUsingEncoding:NSUTF8StringEncoding]
 
 // user defaults
-#define XDEL_OBJECT(k) [[NSUserDefaults standardUserDefaults] removeObjectForKey:k];
-#define XGET_OBJECT(v) [[NSUserDefaults standardUserDefaults] objectForKey:v]
-#define XSET_OBJECT(k,v) [[NSUserDefaults standardUserDefaults] setObject:v forKey:k];
-#define XGET_STRING(v) [[NSUserDefaults standardUserDefaults] stringForKey:v]
-#define XSET_STRING(k,v) [[NSUserDefaults standardUserDefaults] setObject:v forKey:k];
-#define XGET_FLOAT(v) [[NSUserDefaults standardUserDefaults] floatForKey:v]
-#define XSET_FLOAT(k,v) [[NSUserDefaults standardUserDefaults] setFloat:v forKey:k];
-#define XGET_BOOL(v) [[NSUserDefaults standardUserDefaults] boolForKey:v]
-#define XSET_BOOL(k,v) [[NSUserDefaults standardUserDefaults] setBool:v forKey:k];
-#define XGET_INT(v) [[NSUserDefaults standardUserDefaults] integerForKey:v]
-#define XSET_INT(k,v) [[NSUserDefaults standardUserDefaults] setInteger:v forKey:k];
-#define XSYNC [[NSUserDefaults standardUserDefaults] synchronize];
+#define XDEL_OBJECT(k)      [[NSUserDefaults standardUserDefaults] removeObjectForKey:k]
+#define XGET_OBJECT(v)      [[NSUserDefaults standardUserDefaults] objectForKey:v]
+#define XSET_OBJECT(k,v)    [[NSUserDefaults standardUserDefaults] setObject:v forKey:k]
+#define XGET_STRING(v)      [[NSUserDefaults standardUserDefaults] stringForKey:v]
+#define XSET_STRING(k,v)    [[NSUserDefaults standardUserDefaults] setObject:v forKey:k]
+#define XGET_FLOAT(v)       [[NSUserDefaults standardUserDefaults] floatForKey:v]
+#define XSET_FLOAT(k,v)     [[NSUserDefaults standardUserDefaults] setFloat:v forKey:k]
+#define XGET_BOOL(v)        [[NSUserDefaults standardUserDefaults] boolForKey:v]
+#define XSET_BOOL(k,v)      [[NSUserDefaults standardUserDefaults] setBool:v forKey:k]
+#define XGET_INT(v)         [[NSUserDefaults standardUserDefaults] integerForKey:v]
+#define XSET_INT(k,v)       [[NSUserDefaults standardUserDefaults] setInteger:v forKey:k]
+#define XSYNC()             [[NSUserDefaults standardUserDefaults] synchronize]
 
 
 //	The following macro is for specifying property (ivar) names to KVC or KVO methods.

@@ -50,10 +50,13 @@ NS_INLINE NSDictionary *MADictionaryWithKeysAndObjects(id *keysAndObjs, NSUInteg
 }
 
 // collection shortcuts
-#define XDEFAULT(_value, _default) ([[NSNull null] isEqual:(_value)] ? (_default) : (_value))
-#define XFMT(...) [NSString stringWithFormat: __VA_ARGS__]
-#define XARRAY(...) [NSArray arrayWithObjects: __VA_ARGS__, nil]
-#define XSET(...) [NSSet setWithObjects: __VA_ARGS__, nil]
-#define XDICT(...) [NSDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
-#define XMARRAY(...) [NSMutableArray arrayWithObjects: __VA_ARGS__, nil]
-#define XMDICT(...) [NSMutableDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
+#define XDEFAULT(v, d)  ([[NSNull null] isEqual:(v)] ? (d) : (v))
+#define XSTR(...)       [NSString stringWithFormat:__VA_ARGS__]
+#define XMSTR(...)      [NSMutableString stringWithFormat:__VA_ARGS__]
+#define XFMT(...)       [NSString stringWithFormat:__VA_ARGS__]
+#define XARRAY(...)     [NSArray arrayWithObjects: __VA_ARGS__, nil]
+#define XMARRAY(...)    [NSMutableArray arrayWithObjects: __VA_ARGS__, nil]
+#define XSET(...)       [NSSet setWithObjects: __VA_ARGS__, nil]
+#define XMSET(...)      [NSMutableSet setWithObjects: __VA_ARGS__, nil]
+#define XDICT(...)      [NSDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
+#define XMDICT(...)     [NSMutableDictionary dictionaryWithObjectsAndKeys: __VA_ARGS__, nil]
