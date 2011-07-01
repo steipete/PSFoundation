@@ -14,22 +14,22 @@
 		6C231C0F139AAF310056E1D5 /* MTSplashScreenDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C231C0C139AAF310056E1D5 /* MTSplashScreenDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C231C19139AB0690056E1D5 /* UIView+MTRotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C231C17139AB0690056E1D5 /* UIView+MTRotation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C231C1A139AB0690056E1D5 /* UIView+MTRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C231C18139AB0690056E1D5 /* UIView+MTRotation.m */; };
-		6C4015A713B05D78001FC822 /* ActiveRecordHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159413B05D78001FC822 /* ActiveRecordHelpers.h */; };
+		6C4015A713B05D78001FC822 /* ActiveRecordHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159413B05D78001FC822 /* ActiveRecordHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4015A813B05D78001FC822 /* ActiveRecordHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C40159513B05D78001FC822 /* ActiveRecordHelpers.m */; };
-		6C4015A913B05D78001FC822 /* ARCoreDataAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159613B05D78001FC822 /* ARCoreDataAction.h */; };
+		6C4015A913B05D78001FC822 /* ARCoreDataAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159613B05D78001FC822 /* ARCoreDataAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4015AA13B05D78001FC822 /* ARCoreDataAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C40159713B05D78001FC822 /* ARCoreDataAction.m */; };
-		6C4015AB13B05D78001FC822 /* CoreData+ActiveRecordFetching.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159813B05D78001FC822 /* CoreData+ActiveRecordFetching.h */; };
-		6C4015AC13B05D78001FC822 /* NSFetchedResultsController+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159A13B05D78001FC822 /* NSFetchedResultsController+ActiveRecord.h */; };
+		6C4015AB13B05D78001FC822 /* CoreData+ActiveRecordFetching.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159813B05D78001FC822 /* CoreData+ActiveRecordFetching.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C4015AC13B05D78001FC822 /* NSFetchedResultsController+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159A13B05D78001FC822 /* NSFetchedResultsController+ActiveRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4015AD13B05D78001FC822 /* NSFetchedResultsController+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C40159B13B05D78001FC822 /* NSFetchedResultsController+ActiveRecord.m */; };
-		6C4015AE13B05D78001FC822 /* NSManagedObject+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159C13B05D78001FC822 /* NSManagedObject+ActiveRecord.h */; };
+		6C4015AE13B05D78001FC822 /* NSManagedObject+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159C13B05D78001FC822 /* NSManagedObject+ActiveRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4015AF13B05D78001FC822 /* NSManagedObject+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C40159D13B05D78001FC822 /* NSManagedObject+ActiveRecord.m */; };
-		6C4015B013B05D78001FC822 /* NSManagedObjectContext+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159E13B05D78001FC822 /* NSManagedObjectContext+ActiveRecord.h */; };
+		6C4015B013B05D78001FC822 /* NSManagedObjectContext+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C40159E13B05D78001FC822 /* NSManagedObjectContext+ActiveRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4015B113B05D78001FC822 /* NSManagedObjectContext+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C40159F13B05D78001FC822 /* NSManagedObjectContext+ActiveRecord.m */; };
-		6C4015B213B05D78001FC822 /* NSManagedObjectModel+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015A013B05D78001FC822 /* NSManagedObjectModel+ActiveRecord.h */; };
+		6C4015B213B05D78001FC822 /* NSManagedObjectModel+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015A013B05D78001FC822 /* NSManagedObjectModel+ActiveRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4015B313B05D78001FC822 /* NSManagedObjectModel+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015A113B05D78001FC822 /* NSManagedObjectModel+ActiveRecord.m */; };
-		6C4015B413B05D78001FC822 /* NSPersistentStore+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015A213B05D78001FC822 /* NSPersistentStore+ActiveRecord.h */; };
+		6C4015B413B05D78001FC822 /* NSPersistentStore+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015A213B05D78001FC822 /* NSPersistentStore+ActiveRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4015B513B05D78001FC822 /* NSPersistentStore+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015A313B05D78001FC822 /* NSPersistentStore+ActiveRecord.m */; };
-		6C4015B613B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015A413B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.h */; };
+		6C4015B613B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015A413B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4015B713B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015A513B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m */; };
 		6C4015BE13B05F86001FC822 /* PSScrollContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015BC13B05F86001FC822 /* PSScrollContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4015BF13B05F86001FC822 /* PSScrollContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015BD13B05F86001FC822 /* PSScrollContentView.m */; };
@@ -1784,7 +1784,6 @@
 				6C5A770D1398988000A74A82 /* NSManagedObject+AutoDescription.h in Headers */,
 				6C86B7D91396B2F8009F6FE6 /* PSFoundation_CoreData.h in Headers */,
 				6C86B9B71396CEA5009F6FE6 /* SafeFetchedResultsController.h in Headers */,
-				6C231C01139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h in Headers */,
 				6C4015A713B05D78001FC822 /* ActiveRecordHelpers.h in Headers */,
 				6C4015A913B05D78001FC822 /* ARCoreDataAction.h in Headers */,
 				6C4015AB13B05D78001FC822 /* CoreData+ActiveRecordFetching.h in Headers */,
@@ -1794,6 +1793,7 @@
 				6C4015B213B05D78001FC822 /* NSManagedObjectModel+ActiveRecord.h in Headers */,
 				6C4015B413B05D78001FC822 /* NSPersistentStore+ActiveRecord.h in Headers */,
 				6C4015B613B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.h in Headers */,
+				6C231C01139AAE5E0056E1D5 /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2045,6 +2045,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ARC_MIGRATION = donothing;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -2063,6 +2064,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ARC_MIGRATION = donothing;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -2078,7 +2080,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/PSFoundation.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSFoundation/PSFoundation-Prefix.pch";
@@ -2094,7 +2095,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/PSFoundation.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PSFoundation/PSFoundation-Prefix.pch";
