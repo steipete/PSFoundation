@@ -9,7 +9,8 @@
 //
 
 @interface NSArray (PSArrayStructures)
-- (id)firstObject;
+@property (nonatomic, readonly, getter = firstObject) id first;
+@property (nonatomic, readonly, getter = lastObject) id last;
 @end
 
 @interface NSMutableArray (PSArrayStructures)

@@ -17,6 +17,9 @@
     return [self objectAtIndex:0];
 }
 
+@dynamic last;
+
+
 @end
 
 @implementation NSMutableArray (PSArrayStructures)
