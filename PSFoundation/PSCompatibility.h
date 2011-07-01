@@ -9,8 +9,6 @@
 //   - http://blancer.com/tutorials/i-phone/72236/tips-tricks-for-conditional-ios3-ios3-2-and-ios4-code/
 //
 
-#import "UIDevice+PSFoundation.h"
-
 #ifndef kCFCoreFoundationVersionNumber_iPhoneOS_2_0
 #define kCFCoreFoundationVersionNumber_iPhoneOS_2_0 478.23
 #endif
@@ -105,20 +103,16 @@ __VA_ARGS__ \
 #define IF_DESKTOP(...) do {__VA_ARGS__} while(0);
 #endif
 
-#define isIPad() [[UIDevice currentDevice] isTablet]
-
 #define PS_HAS_ARC __has_feature(objc_arc)
 #define PS_HAS_WEAK_ARC __has_feature(objc_arc_weak)
 
 #if PS_HAS_ARC
-    #define PS_AUTORELEASEPOOL(...) @autoreleasepool { do {__VA_ARGS__;} while(0); }
     #define PS_DO_RETAIN(o)
     #define PS_RETAIN(o) o
     #define PS_DO_AUTORELEASE(o)
     #define PS_AUTORELEASE(o) o
     #define PS_DEALLOC()
     #define PS_DEALLOC_NIL(o) 
-    #define PS_SET_RETAINED(var, val) var = val
     #define __ps_unsafe_unretained __unsafe_unretained
     #define __ps_strong __strong
     #if PS_HAS_WEAK_ARC
@@ -132,18 +126,12 @@ __VA_ARGS__ \
     #define ps_unretainedObject objc_unretainedObject
     #define ps_unretainedPointer objc_unretainedPointer
 #else
-    #define PS_AUTORELEASEPOOL(...) NSAutoreleasePool *pool = [NSAutoreleasePool new]; do {__VA_ARGS__;} while(0); [pool drain]
     #define PS_RETAIN(o) [o retain]
     #define PS_DO_RETAIN(o) [o retain]
     #define PS_AUTORELEASE(o) [o autorelease]
     #define PS_DO_AUTORELEASE(o) [o autorelease]
     #define PS_DEALLOC() [super dealloc]
     #define PS_DEALLOC_NIL(o) o = nil
-    #define PS_SET_RETAINED(var, val) { \
-    if (var) \
-    [var release]; \
-    var = [val retain]; \
-    }
     #define __ps_unsafe_unretained
     #define __ps_strong
     #define __ps_weak

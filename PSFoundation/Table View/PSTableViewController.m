@@ -5,6 +5,9 @@
 //  Created by Peter Steinberger on 05.10.10.
 //  Copyright 2010 Peter Steinberger. All rights reserved.
 //
+//  References:
+//   - http://cocoawithlove.com/2009/03/recreating-uitableviewcontroller-to.html
+//
 
 #import "PSTableViewController.h"
 #import "ShadowedTableView.h"
@@ -12,7 +15,6 @@
 @interface PSTableViewController ()
 @end
 
-// http://cocoawithlove.com/2009/03/recreating-uitableviewcontroller-to.html
 @implementation PSTableViewController
 
 @synthesize tableViewStyle = _tableViewStyle;
@@ -99,19 +101,6 @@
 #pragma mark -
 #pragma mark UIView
 
-/*
- - (void)loadView {
- [super loadView];
-
- if (self.nibName) {
- NSAssert(tableView != nil, @"NIB file did not set tableView property.");
- return;
- }
-
- self.view = newTableView;
- self.tableView = newTableView;
- }*/
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -128,12 +117,12 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
     [self.tableView reloadData];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    [super viewWillAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -144,8 +133,6 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
     [self.tableView flashScrollIndicators];
     // you have to set self.lastSelectedIndexPath in
     // - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,6 +145,8 @@
     // the Debug target: DEBUG=1
     PSSimulateMemoryWarning();
 #endif
+
+    [super viewDidAppear:animated];
 }
 
 

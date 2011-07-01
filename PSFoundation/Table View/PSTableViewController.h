@@ -6,9 +6,6 @@
 //  Copyright 2010 Peter Steinberger. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-// custom reimplementation of UITableViewController for more flexibility
 @interface PSTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
   NSIndexPath *lastSelectedIndexPath_;
 
