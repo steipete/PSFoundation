@@ -37,7 +37,7 @@
 @end
 
 @implementation EGOImageView
-@synthesize imageURL, placeholderImage, delegate;
+@synthesize imageURL, placeholderImage, delegate, placeholderView;
 
 - (id)initWithPlaceholderImage:(UIImage*)anImage {
 	return [self initWithPlaceholderImage:anImage delegate:nil];	
@@ -124,7 +124,7 @@
 	if (self.placeholderView == nil) {
 		self.placeholderView = [[[UIImageView alloc] initWithFrame:self.bounds] autorelease];
 		self.placeholderView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-		self.placeholderView.image = anImage;
+		self.placeholderView.image = self.placeholderImage;
 
 		[self addSubview:self.placeholderView];
 	}
