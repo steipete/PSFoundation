@@ -1,20 +1,21 @@
 //
 //  PSMacros.h
+//  PSFoundation
 //
-//  Created by Peter Steinberger on 03.05.10.
-//  Contains stuff from Dirk Holtwick - thanks for sharing!
+//  Includes code by the following:
+//   - Vincent Gable.
+//   - Dirk Holtwick.
+//   - Peter Steinberger. 2010. MIT.
+//
+//  References:
+//   - http://www.dribin.org/dave/blog/archives/2008/09/22/convert_to_nsstring/
 //
 
-#import "NilCategories.h"
-#import "UIDevice+PSFoundation.h"
+#include "PSMacros+Compatibility.h"
+#include "PSMacros+ARC.h"
 #include "PSMacros+Collections.h"
 #include "PSMacros+Geometry.h"
-
-static inline BOOL IsEmpty(id thing) {
-    if ([thing respondsToSelector:@selector(isEmpty)])
-        return [thing isEmpty];
-	return (!thing);
-}
+#import "UIDevice+PSFoundation.h"
 
 // compiler help
 #define PS_INVALID(t)  [t invalidate]; t = nil
@@ -64,28 +65,6 @@ static inline BOOL IsEmpty(id thing) {
 #define DDLogFunction() DDLogInfo(@"-- logged --");
 #define HOLogPing NSLog(@"%s", __PRETTY_FUNCTION__);
 
-#if PS_HAS_ARC
-    #define PS_AUTORELEASEPOOL(...) @autoreleasepool { do {__VA_ARGS__;} while(0); }
-    #define PS_SET_RETAINED(var, val) var = val
-    #define PS_RELEASE(x)
-    #define PS_RELEASE_NIL(x) x = nil
-    #define PS_RELEASE_VIEW_NIL(x) [x removeFromSuperview], x = nil
-#else
-    #define PS_AUTORELEASEPOOL(...) NSAutoreleasePool *pool = [NSAutoreleasePool new]; do {__VA_ARGS__;} while(0); [pool drain]
-    #define PS_SET_RETAINED(var, val) { \
-    if (var) \
-    [var release]; \
-    var = [val retain]; \
-    }
-    #if DEBUG
-        #define PS_RELEASE(x) do { [x release]; } while (0);
-    #else
-        #define PS_RELEASE(x) [x release], x = nil
-    #endif
-    #define PS_RELEASE_NIL(x) [x release], x = nil
-    #define PS_RELEASE_VIEW_NIL(x) do { [x removeFromSuperview], [x release], x = nil; } while (0)
-#endif
-
 // compatibility
 #define MCRelease(x) PS_RELEASE(x)
 #define MCReleaseNil(x) PS_RELEASE_NIL(x)
@@ -99,9 +78,9 @@ static inline BOOL IsEmpty(id thing) {
 
 // http://code.google.com/p/cocoalumberjack/wiki/XcodeTricks - compiles most log messages out of the release build, but not all!
 #ifdef DEBUG
-static const int ddLogLevel = LOG_LEVEL_INFO;
+static const int ddLogLevel = ((1 << 0) | (1 << 1) | (1 << 2));
 #else
-static const int ddLogLevel = LOG_LEVEL_WARN;
+static const int ddLogLevel = ((1 << 0) | (1 << 1));
 #endif
 
 // wrap to have non-retaining self pointers in blocks: safeSelf(dispatch_async(myQ, ^{[self doSomething];});
@@ -130,6 +109,10 @@ __VA_ARGS__;                            \
   // block Log() macro
   #ifndef NO_LOG_MACROS
     #define NO_LOG_MACROS
+    #define Log(_X_)
+    #define LOG_NS(...)
+    #define LOG_FUNCTION()
+    #define MTLog(_X_)
   #endif
 
   #ifndef NS_BLOCK_ASSERTIONS
@@ -137,6 +120,19 @@ __VA_ARGS__;                            \
     #undef NSCAssert
     #define NSCAssert(condition, desc, ...) do { } while(0)
   #endif
+#else
+  #define Log(_X_) do{\
+  __typeof__(_X_) _Y_ = (_X_);\
+  const char * _TYPE_CODE_ = @encode(__typeof__(_X_));\
+   NSString *_STR_ = VTPG_DDToStringFromTypeAndValue(_TYPE_CODE_, &_Y_);\
+  if(_STR_)\
+    DDLogInfo(@"%s = %@", #_X_, _STR_);\
+  else\
+    DDLogInfo(@"Unknown _TYPE_CODE_: %s for expression %s in function %s, file %s, line %d", _TYPE_CODE_, #_X_, __func__, __FILE__, __LINE__);\
+  }while(0)
+  #define MTLog(_X_) Log(_X_)
+  #define LOG_NS(...) NSLog(__VA_ARGS__)
+  #define LOG_FUNCTION()	NSLog(@"%s", __func__)
 #endif
 
 // performance measurement

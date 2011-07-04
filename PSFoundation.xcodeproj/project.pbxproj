@@ -33,6 +33,8 @@
 		6C4015B713B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015A513B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m */; };
 		6C4015BE13B05F86001FC822 /* PSScrollContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C4015BC13B05F86001FC822 /* PSScrollContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C4015BF13B05F86001FC822 /* PSScrollContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C4015BD13B05F86001FC822 /* PSScrollContentView.m */; };
+		6C467B7513C185C000BD467A /* PSMacros+ARC.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C467B7413C185C000BD467A /* PSMacros+ARC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C467B7813C1861600BD467A /* PSMacros+Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C467B7713C1861600BD467A /* PSMacros+Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5A77091398987A00A74A82 /* NSManagedObject+AutoDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8861396C744009F6FE6 /* NSManagedObject+AutoDescription.m */; };
 		6C5A770B1398987C00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8881396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		6C5A770C1398987F00A74A82 /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8871396C744009F6FE6 /* NSManagedObjectContext+FetchedObjectFromURI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -83,7 +85,6 @@
 		6C86B4A01396B118009F6FE6 /* SMModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4701396B118009F6FE6 /* SMModelObject.m */; };
 		6C86B4A41396B129009F6FE6 /* PSMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4A21396B129009F6FE6 /* PSMacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4A51396B129009F6FE6 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4A31396B129009F6FE6 /* SynthesizeSingleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C86B4A81396B13F009F6FE6 /* PSCompatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4A61396B13E009F6FE6 /* PSCompatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4AF1396B14F009F6FE6 /* PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4AE1396B14F009F6FE6 /* PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4B11396B169009F6FE6 /* PSCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4B01396B169009F6FE6 /* PSCategories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C86B4C91396B175009F6FE6 /* ColorLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4B31396B175009F6FE6 /* ColorLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -379,6 +380,8 @@
 		6C4015A513B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+ActiveRecord.m"; sourceTree = "<group>"; };
 		6C4015BC13B05F86001FC822 /* PSScrollContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSScrollContentView.h; sourceTree = "<group>"; };
 		6C4015BD13B05F86001FC822 /* PSScrollContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSScrollContentView.m; sourceTree = "<group>"; };
+		6C467B7413C185C000BD467A /* PSMacros+ARC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSMacros+ARC.h"; sourceTree = "<group>"; };
+		6C467B7713C1861600BD467A /* PSMacros+Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSMacros+Compatibility.h"; sourceTree = "<group>"; };
 		6C5FF94613B39D3A00DB1DA9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		6C5FF94913B39D3A00DB1DA9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		6C5FF96713B3AF8200DB1DA9 /* UIImage+Blurring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Blurring.h"; sourceTree = "<group>"; };
@@ -429,7 +432,6 @@
 		6C86B4701396B118009F6FE6 /* SMModelObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMModelObject.m; sourceTree = "<group>"; };
 		6C86B4A21396B129009F6FE6 /* PSMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMacros.h; sourceTree = "<group>"; };
 		6C86B4A31396B129009F6FE6 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
-		6C86B4A61396B13E009F6FE6 /* PSCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCompatibility.h; sourceTree = "<group>"; };
 		6C86B4AA1396B145009F6FE6 /* PSFoundation_CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PSFoundation_CoreData.h; path = PSFoundation/PSFoundation_CoreData.h; sourceTree = SOURCE_ROOT; };
 		6C86B4AE1396B14F009F6FE6 /* PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation.h; sourceTree = "<group>"; };
 		6C86B4B01396B169009F6FE6 /* PSCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCategories.h; sourceTree = "<group>"; };
@@ -795,7 +797,6 @@
 				6C86B3D11396B0CD009F6FE6 /* Sound */,
 				6C86B3E71396B0CD009F6FE6 /* Universal */,
 				6C86B4B01396B169009F6FE6 /* PSCategories.h */,
-				6C86B4A61396B13E009F6FE6 /* PSCompatibility.h */,
 				6C86B4AA1396B145009F6FE6 /* PSFoundation_CoreData.h */,
 				6C86B4AE1396B14F009F6FE6 /* PSFoundation.h */,
 				6C86B37F1396AAE7009F6FE6 /* Supporting Files */,
@@ -900,6 +901,8 @@
 				6C86B4A31396B129009F6FE6 /* SynthesizeSingleton.h */,
 				6C86B85D1396B751009F6FE6 /* PSMacros+Collections.h */,
 				6C75067A139F3BC10092D6C4 /* PSMacros+Geometry.h */,
+				6C467B7413C185C000BD467A /* PSMacros+ARC.h */,
+				6C467B7713C1861600BD467A /* PSMacros+Compatibility.h */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -1630,7 +1633,6 @@
 				6C86B49F1396B118009F6FE6 /* SMModelObject.h in Headers */,
 				6C86B4A41396B129009F6FE6 /* PSMacros.h in Headers */,
 				6C86B4A51396B129009F6FE6 /* SynthesizeSingleton.h in Headers */,
-				6C86B4A81396B13F009F6FE6 /* PSCompatibility.h in Headers */,
 				6C86B4AF1396B14F009F6FE6 /* PSFoundation.h in Headers */,
 				6C86B4B11396B169009F6FE6 /* PSCategories.h in Headers */,
 				6C86B4C91396B175009F6FE6 /* ColorLog.h in Headers */,
@@ -1773,6 +1775,8 @@
 				6C4015BE13B05F86001FC822 /* PSScrollContentView.h in Headers */,
 				6C5FF96913B3AF8200DB1DA9 /* UIImage+Blurring.h in Headers */,
 				6CF8790513B1C00900ADD560 /* TDBadgedCell.h in Headers */,
+				6C467B7513C185C000BD467A /* PSMacros+ARC.h in Headers */,
+				6C467B7813C1861600BD467A /* PSMacros+Compatibility.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

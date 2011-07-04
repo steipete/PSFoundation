@@ -1,5 +1,5 @@
 //
-//  PSCompatibility.h
+//  PSMacros+Compatibility.h
 //  PSFoundation
 //
 //  Created by Peter Steinberger on 09.09.10.
@@ -103,45 +103,3 @@ __VA_ARGS__ \
 #define IF_DESKTOP(...) do {__VA_ARGS__} while(0);
 #endif
 
-#define PS_HAS_ARC __has_feature(objc_arc)
-#define PS_HAS_WEAK_ARC __has_feature(objc_arc_weak)
-
-#if PS_HAS_ARC
-    #define PS_DO_RETAIN(o)
-    #define PS_RETAIN(o) o
-    #define PS_DO_AUTORELEASE(o)
-    #define PS_AUTORELEASE(o) o
-    #define PS_DEALLOC()
-    #define PS_DEALLOC_NIL(o) 
-    #define __ps_unsafe_unretained __unsafe_unretained
-    #define __ps_strong __strong
-    #if PS_HAS_WEAK_ARC
-        #define __ps_weak __weak
-    #else
-        #define __ps_weak __unsafe_unretained
-    #endif
-    #define ps_weak weak
-    #define ps_strong strong
-    #define ps_retainedObject objc_retainedObject
-    #define ps_unretainedObject objc_unretainedObject
-    #define ps_unretainedPointer objc_unretainedPointer
-#else
-    #define PS_RETAIN(o) [o retain]
-    #define PS_DO_RETAIN(o) [o retain]
-    #define PS_AUTORELEASE(o) [o autorelease]
-    #define PS_DO_AUTORELEASE(o) [o autorelease]
-    #define PS_DEALLOC() [super dealloc]
-    #define PS_DEALLOC_NIL(o) o = nil
-    #define __ps_unsafe_unretained
-    #define __ps_strong
-    #define __ps_weak
-    #define ps_weak assign
-    #define ps_strong retain
-    typedef const void* objc_objectptr_t;
-    static __inline NS_RETURNS_RETAINED id __ps_objc_retainedObject(objc_objectptr_t CF_CONSUMED pointer) { return (id)pointer; }
-    static __inline NS_RETURNS_NOT_RETAINED id __ps_objc_unretainedObject(objc_objectptr_t pointer) { return (id)pointer; }
-    static __inline CF_RETURNS_NOT_RETAINED void *__ps_objc_unretainedPointer(id object) { return (void *)object; }
-    #define ps_retainedObject __ps_objc_retainedObject
-    #define ps_unretainedObject __ps_objc_unretainedObject
-    #define ps_unretainedPointer __ps_objc_unretainedPointer
-#endif

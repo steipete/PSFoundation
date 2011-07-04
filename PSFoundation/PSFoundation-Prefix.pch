@@ -7,9 +7,9 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import "PSCompatibility.h"
+#import "PSMacros.h"
 #import "DDLog.h"
 #import "SynthesizeSingleton.h"
-#import "PSMacros.h"
+#import "PSCategories.h"
 #endif
 
