@@ -9,17 +9,6 @@
 
 #import "VTPG_Common.h"
 
-static BOOL TypeCodeIsCharArray(const char *typeCode){
-	int lastCharOffset = strlen(typeCode) - 1;
-	int secondToLastCharOffset = lastCharOffset - 1 ;
-
-	BOOL isCharArray = typeCode[0] == '[' &&
-						typeCode[secondToLastCharOffset] == 'c' && typeCode[lastCharOffset] == ']';
-	for(int i = 1; i < secondToLastCharOffset; i++)
-		isCharArray = isCharArray && isdigit(typeCode[i]);
-	return isCharArray;
-}
-
 //since BOOL is #defined as a signed char, we treat the value as
 //a BOOL if it is exactly YES or NO, and a char otherwise.
 static NSString* VTPGStringFromBoolOrCharValue(BOOL boolOrCharvalue) {
@@ -75,7 +64,7 @@ NSString * VTPG_DDToStringFromTypeAndValue(const char * typeCode, void * value) 
 	IF_TYPE_MATCHES_INTERPRET_WITH_FORMAT(unsigned long long,@"%llu");
 	IF_TYPE_MATCHES_INTERPRET_WITH_FORMAT(float,@"%f");
 	IF_TYPE_MATCHES_INTERPRET_WITH_FORMAT(double,@"%f");
-	IF_TYPE_MATCHES_INTERPRET_WITH_FORMAT(__ps_unsafe_unretained id,@"%@");
+	IF_TYPE_MATCHES_INTERPRET_WITH_FORMAT(__unsafe_unretained id,@"%@");
 	IF_TYPE_MATCHES_INTERPRET_WITH_FORMAT(short,@"%hi");
 	IF_TYPE_MATCHES_INTERPRET_WITH_FORMAT(unsigned short,@"%hu");
 	IF_TYPE_MATCHES_INTERPRET_WITH_FORMAT(int,@"%i");
@@ -86,8 +75,12 @@ NSString * VTPG_DDToStringFromTypeAndValue(const char * typeCode, void * value) 
 	//C-strings
 	IF_TYPE_MATCHES_INTERPRET_WITH_FORMAT(char*, @"%s");
 	IF_TYPE_MATCHES_INTERPRET_WITH_FORMAT(const char*, @"%s");
-	if(TypeCodeIsCharArray(typeCode))
-		return [NSString stringWithFormat:@"%s", (char*)value];
+    
+	BOOL isCharArray = typeCode[0] == '[' && typeCode[strlen(typeCode) - 2] == 'c' && typeCode[strlen(typeCode) - 1] == ']';
+	for(int i = 1; i < strlen(typeCode) - 2; i++)
+		isCharArray = isCharArray && isdigit(typeCode[i]);
+	if (isCharArray)
+        return [NSString stringWithFormat:@"%s", (char*)value];
 
 	IF_TYPE_MATCHES_INTERPRET_WITH_FORMAT(void*,@"(void*)%p");
 

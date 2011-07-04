@@ -1,19 +1,15 @@
-/*
- *  UniversalMacros.m
- *  MTUniversal
- *
- *  Created by Matthias Tretter on 09.10.10.
- *  Copyright 2010 @myell0w. All rights reserved.
- *
- */
-
+//
+//  MTUniversalHelper.m
+//  PSFoundation
+//
+//  Created by Matthias Tretter on 09.10.10.
+//  Copyright 2010 @myell0w. All rights reserved.
+//
 
 #import "MTUniversalHelper.h"
-#import "PSCompatibility.h"
 
 #define kIPadAppendix			@"@iPad"
 #define kIPadLandscapeAppendix  @"-L"
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -64,8 +60,7 @@ NSString* MTDeviceSpecificImageNameForOrientationWithAppendix(NSString *imageNam
 
 NSString* MTNibName(NSString *name) {
 	// when on iPad, append "-iPad"
-	NSString *iPadAppendix = isIPad() ? kIPadAppendix : @"";
-	NSString *nibName = [NSString stringWithFormat:@"%@%@",name, iPadAppendix];
+	NSString *nibName = isIPad() ? name : [name stringByAppendingString:kIPadAppendix];
 
 	// fallback: no iPad-specific nib file? -> use iPhone-Nib
 	if([[NSBundle mainBundle] pathForResource:nibName ofType:@"nib"] == nil) {

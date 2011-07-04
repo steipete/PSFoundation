@@ -7,7 +7,6 @@
 #import "DDLog.h"
 #import "SynthesizeSingleton.h"
 #import "PSMacros.h"
-#import "PSCompatibility.h"
 #import "NYXImagesHelper.h"
 #import "PSCategories.h"
 
@@ -58,8 +57,6 @@
 #import "PSAlertView.h"
 #import "PSActionSheet.h"
 #import "LRPopoverManager.h"
-
-#import "PSCompatibility.h"
 
 // more logging stuff
 #import "DDTTYLogger.h"

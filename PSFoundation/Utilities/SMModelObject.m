@@ -95,7 +95,7 @@ static NSMutableDictionary *keyNames = nil, *nillableKeyNames = nil;
 }
 
 // We implement the NSFastEnumeration protocol to behave like an NSDictionary - the enumerated values are our property (key) names.
-- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __ps_unsafe_unretained [])stackbuf count:(NSUInteger)len {
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id __unsafe_unretained [])stackbuf count:(NSUInteger)len {
 	return [[self allKeys] countByEnumeratingWithState:state objects:stackbuf count:len];
 }
 
