@@ -28,7 +28,7 @@ static UIColor *gUnreadCellColors[5];
 */
 
 // Static cache of looked up color names. Used with +colorWithName:
-static NSMutableDictionary __ps_strong *colorNameCache = nil;
+static NSMutableDictionary *colorNameCache = nil;
 
 @interface UIColor (UIColor_Expanded_Support)
 + (UIColor *)searchForColorByName:(NSString *)cssColorName;

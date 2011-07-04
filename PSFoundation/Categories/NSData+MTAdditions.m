@@ -9,7 +9,6 @@
 #import "NSData+MTAdditions.h"
 #import <ImageIO/ImageIO.h>
 #import <CoreLocation/CoreLocation.h>
-#import "PSCompatibility.h"
 
 @implementation NSData (MTAdditions)
 

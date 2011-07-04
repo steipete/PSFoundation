@@ -1,15 +1,17 @@
-// UIImage+RoundedCorner.m
-// Created by Trevor Harmon on 9/20/09.
-// Free for personal or commercial use, with or without modification.
-// No warranty is expressed or implied.
-// Improved to work with retina display on iOS4 by Peter Steinberger
+//
+//  UIImage+RoundedCorner.m
+//  PSFoundation
+//
+//  Includes code by the following:
+//   - Trevor Harmon.     2009. Public domain.
+//   - Peter Steinberger. 2010. MIT.
+//
 
 #import "UIImage+RoundedCorner.h"
 #import "UIImage+Alpha.h"
-#import "PSCompatibility.h"
 
 // Private helper methods
-@interface UIImage ()
+@interface UIImage(RoundedCornerPrivate)
 - (void)addRoundedRectToPath:(CGRect)rect context:(CGContextRef)context ovalWidth:(CGFloat)ovalWidth ovalHeight:(CGFloat)ovalHeight;
 @end
 
