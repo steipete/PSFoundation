@@ -8,6 +8,8 @@
 //   - Wil Shipley.     2005.
 //
 
+BOOL IsEmpty(id thing);
+
 @interface NSObject (NilCategories)
 @property (nonatomic,readonly,getter=isEmpty) BOOL empty;
 @end

@@ -9,7 +9,12 @@
 //
 
 #import "NilCategories.h"
-//#import "VTPG_Common.h"
+
+BOOL IsEmpty(id thing) {
+    if ([thing respondsToSelector:@selector(isEmpty)])
+        return [thing isEmpty];
+	return (!thing);
+}
 
 @implementation NSObject (NilCategories)
 
