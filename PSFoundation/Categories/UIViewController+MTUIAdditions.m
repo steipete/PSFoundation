@@ -10,6 +10,9 @@
 #import "NSObject+AssociatedObjects.h"
 #import <objc/runtime.h>
 
+
+#define kMTActivityFadeDuration  0.3
+
 ////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Keys for associated objects
@@ -25,7 +28,7 @@ static char oldBarButtonItemKey;
     UIActivityIndicatorView *activityView = nil;
     
     if (oldActivityView == nil) { 
-        UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
         
         activityView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
         
@@ -48,8 +51,14 @@ static char oldBarButtonItemKey;
         }
     }
     
+    activityView.hidden = NO;
+    activityView.alpha = 0.0f;
     [self.view bringSubviewToFront:activityView];
     [activityView startAnimating];
+    
+    [UIView animateWithDuration:kMTActivityFadeDuration animations:^(void) {
+        activityView.alpha = 1.0f;
+    }];
 }
 
 - (void)hideLoadingIndicator {
@@ -59,7 +68,11 @@ static char oldBarButtonItemKey;
         [activityView stopAnimating];
     }
     
-    [activityView removeFromSuperview];
+    [UIView animateWithDuration:kMTActivityFadeDuration animations:^(void) {
+        [activityView setAlpha:0.0f];
+    } completion:^(BOOL finished) {
+        [activityView removeFromSuperview];
+    }];
 }
 
 
