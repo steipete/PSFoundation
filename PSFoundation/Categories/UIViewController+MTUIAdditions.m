@@ -8,8 +8,6 @@
 
 #import "UIViewController+MTUIAdditions.h"
 #import "NSObject+AssociatedObjects.h"
-#import <objc/runtime.h>
-
 
 #define kMTActivityFadeDuration  0.3
 #define kMTMaxActivityFrameWidth 37
@@ -20,6 +18,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 static char oldBarButtonItemKey;
+static char oldCellAccessoryViewKey;
 static char cellKey;
 
 
@@ -29,8 +28,8 @@ static char cellKey;
     id oldActivityView = [self.view viewWithTag:kMTActivityViewTag];
     UIActivityIndicatorView *activityView = nil;
     
-    if (oldActivityView == nil) { 
-        activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+    if (!oldActivityView) { 
+        activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         
         activityView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
         
@@ -45,6 +44,7 @@ static char cellKey;
         activityView.tag = kMTActivityViewTag;
         
         [self.view addSubview:activityView];
+        PS_RELEASE(activityView);
     } 
     // there is already a loading indicator showing
     else {
@@ -80,8 +80,8 @@ static char cellKey;
         activityFrame = CGRectIntegral(CGRectInset(activityFrame, (activityFrame.size.width-kMTMaxActivityFrameWidth)/2,(activityFrame.size.height - kMTMaxActivityFrameWidth)/2));
     }
     
-    if (oldActivityView == nil) { 
-        activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+    if (!oldActivityView) { 
+        activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         
         activityView.tag = kMTActivityViewTag;
     } 
@@ -93,8 +93,10 @@ static char cellKey;
     }
     
     activityView.frame = activityFrame;
-    [view.superview addSubview:activityView];
     activityView.autoresizingMask = view.autoresizingMask;
+    
+    [view.superview addSubview:activityView];
+    PS_RELEASE(activityView);
     
     view.alpha = 0.f;
     activityView.hidden = NO;
@@ -142,17 +144,21 @@ static char cellKey;
 }
 
 - (void)showLoadingIndicatorInTableViewCell:(UITableViewCell *)cell {
-    UIActivityIndicatorView *activityIndicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [activityIndicator startAnimating];
-    cell.accessoryView = activityIndicator;
     
-    objc_setAssociatedObject(self, &cellKey, cell, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    if (cell.accessoryView)
+        [self associateValue:cell.accessoryView withKey:&oldCellAccessoryViewKey];
+    
+    cell.accessoryView = activityIndicator;
+    PS_RELEASE(activityIndicator);
+    
+    [self associateValue:cell withKey:&cellKey];
 }
 
 - (void)hideLoadingIndicatorInTableViewCell {
-    UITableViewCell *cell = (UITableViewCell *)objc_getAssociatedObject(self, &cellKey);
-    
-    cell.accessoryView = nil;
+    UITableViewCell *cell = [self associatedValueForKey:&cellKey];
+    cell.accessoryView = [self associatedValueForKey:&oldCellAccessoryViewKey];
 }
 
 @end

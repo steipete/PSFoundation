@@ -45,7 +45,6 @@
     tableView.delegate = nil;
     tableView.dataSource = nil;
     PS_RELEASE_NIL(tableView);
-    PS_RELEASE_NIL(lastSelectedIndexPath_);
     PS_DEALLOC();
 }
 
