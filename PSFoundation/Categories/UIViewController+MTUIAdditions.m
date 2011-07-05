@@ -108,13 +108,13 @@ static char oldBarButtonItemKey;
 - (void)hideLoadingIndicator {
     id activityView = [self.view viewWithTag:kMTActivityViewTag];
     
-    if ([activityView isKindOfClass:[UIActivityIndicatorView class]]) {
-        [activityView stopAnimating];
-    }
-    
     [UIView animateWithDuration:kMTActivityFadeDuration animations:^(void) {
         [activityView setAlpha:0.0f];
     } completion:^(BOOL finished) {
+        if ([activityView isKindOfClass:[UIActivityIndicatorView class]]) {
+            [activityView stopAnimating];
+        }
+        
         [activityView removeFromSuperview];
     }];
 }
