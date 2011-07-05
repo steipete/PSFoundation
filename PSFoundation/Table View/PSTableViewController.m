@@ -13,66 +13,18 @@
 #import "ShadowedTableView.h"
 
 @interface PSTableViewController ()
+
+- (void)keyboardChanged:(NSNotification *)notification up:(BOOL)up;
+- (void)keyboardWillShow:(NSNotification *)notification;
+- (void)keyboardWillHide:(NSNotification *)notification;
+
 @end
 
 @implementation PSTableViewController
 
 @synthesize tableViewStyle = _tableViewStyle;
 @synthesize useShadows;
-@synthesize lastSelectedIndexPath = lastSelectedIndexPath_;
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark -
-#pragma mark Private
-
-- (void)keyboardChanged:(NSNotification *)notification up:(BOOL)up {
-    // don't move if search display controller is active
-    if (self.searchDisplayController.active) {
-        return;
-    }
-    
-    // if we are in a popover, don't change the size. popover manages this for us
-    // http://stackoverflow.com/questions/4191840/determine-if-a-view-is-inside-of-a-popover-view
-    // I *guess* this is appstore-safe, we'll see on the next submission
-    UIView *v = self.view;
-    for (;v.superview != nil; v=v.superview) {
-        if (!strcmp(object_getClassName(v), "UIPopoverView")) {
-            return;
-        }
-    }
-
-    NSDictionary* userInfo = [notification userInfo];
-
-    // Get animation info from userInfo
-    NSTimeInterval animationDuration;
-    UIViewAnimationCurve animationCurve;
-    CGRect keyboardEndFrame;
-
-    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
-    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
-    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
-
-    // Animate up or down
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:animationCurve];
-
-    CGRect newFrame = self.tableView.frame;
-    CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
-
-    newFrame.size.height -= keyboardFrame.size.height * (up? 1 : -1);
-    self.tableView.frame = newFrame;
-
-    [UIView commitAnimations];
-}
-
-- (void)keyboardWillShow:(NSNotification *)notification {
-    [self keyboardChanged:notification up:YES];
-}
-
-- (void)keyboardWillHide:(NSNotification *)notification {
-    [self keyboardChanged:notification up:NO];
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -134,9 +86,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self.tableView flashScrollIndicators];
-    // you have to set self.lastSelectedIndexPath in
-    // - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-    [self.tableView deselectRowAtIndexPath:self.lastSelectedIndexPath animated:YES];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 
 #if TARGET_IPHONE_SIMULATOR && defined(DEBUG)
     // If we are running in the simulator and it's the DEBUG target
@@ -180,7 +130,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
-#pragma mark Properties
+#pragma mark UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section {
     return 0;
@@ -188,6 +138,59 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark -
+#pragma mark Private
+
+- (void)keyboardChanged:(NSNotification *)notification up:(BOOL)up {
+    // don't move if search display controller is active
+    if (self.searchDisplayController.active) {
+        return;
+    }
+    
+    // if we are in a popover, don't change the size. popover manages this for us
+    // http://stackoverflow.com/questions/4191840/determine-if-a-view-is-inside-of-a-popover-view
+    // I *guess* this is appstore-safe, we'll see on the next submission
+    UIView *v = self.view;
+    for (;v.superview != nil; v=v.superview) {
+        if (!strcmp(object_getClassName(v), "UIPopoverView")) {
+            return;
+        }
+    }
+    
+    NSDictionary* userInfo = [notification userInfo];
+    
+    // Get animation info from userInfo
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    CGRect keyboardEndFrame;
+    
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    
+    // Animate up or down
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    
+    CGRect newFrame = self.tableView.frame;
+    CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame toView:nil];
+    
+    newFrame.size.height -= keyboardFrame.size.height * (up? 1 : -1);
+    self.tableView.frame = newFrame;
+    
+    [UIView commitAnimations];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    [self keyboardChanged:notification up:YES];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    [self keyboardChanged:notification up:NO];
 }
 
 
