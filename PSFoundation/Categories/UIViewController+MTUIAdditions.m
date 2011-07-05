@@ -128,15 +128,13 @@ static char oldBarButtonItemKey;
     [backgroundView addSubview:activityView];
     [activityView startAnimating];
     
-    if (self.navigationItem.rightBarButtonItem)
+    if (self.navigationItem.rightBarButtonItem && ![self.navigationItem.rightBarButtonItem isKindOfClass:[UIActivityIndicatorView class]])
         [self associateValue:self.navigationItem.rightBarButtonItem withKey:&oldBarButtonItemKey];
     
     self.navigationItem.rightBarButtonItem = PS_AUTORELEASE([[UIBarButtonItem alloc] initWithCustomView:backgroundView]);
-    
-    #if !PS_HAS_ARC
-    [activityView release];
-    [backgroundView release];
-    #endif
+
+    PS_RELEASE(activityView);
+    PS_RELEASE(backgroundView);
 }
 
 - (void)hideLoadingIndicatorInNavigationBar {
