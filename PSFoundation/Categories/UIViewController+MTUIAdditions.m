@@ -109,15 +109,13 @@ static char cellKey;
 - (void)hideLoadingIndicator {
     id activityView = [self.view viewWithTag:kMTActivityViewTag];
     
-    [UIView animateWithDuration:kMTActivityFadeDuration animations:^(void) {
-        [activityView setAlpha:0.0f];
-    } completion:^(BOOL finished) {
-        if ([activityView isKindOfClass:[UIActivityIndicatorView class]]) {
-            [activityView stopAnimating];
-        }
+    [activityView setAlpha:0.0f];
+    
+    if ([activityView isKindOfClass:[UIActivityIndicatorView class]]) {
+         [activityView stopAnimating];
+    }
         
-        [activityView removeFromSuperview];
-    }];
+    [activityView removeFromSuperview];
 }
 
 
