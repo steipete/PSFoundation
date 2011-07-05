@@ -1,12 +1,6 @@
 [submodule "PSFoundation/External/BlocksKit"]
 	path = PSFoundation/External/BlocksKit
 	url = git://github.com/zwaldowski/BlocksKit.git
-[submodule "PSFoundation/External/MAZeroingWeakRef"]
-	path = PSFoundation/External/MAZeroingWeakRef
-	url = git://github.com/zwaldowski/MAZeroingWeakRef.git
-[submodule "PSFoundation/External/MBProgressHUD"]
-	path = PSFoundation/External/MBProgressHUD
-	url = git://github.com/zwaldowski/MBProgressHUD.git
 [submodule "PSFoundation/External/DSActivityView"]
 	path = PSFoundation/External/DSActivityView
 	url = git://github.com/zwaldowski/DSActivityView.git
@@ -16,15 +10,9 @@
 [submodule "PSFoundation/External/EGOImageLoading"]
 	path = PSFoundation/External/EGOImageLoading
 	url = git://github.com/myell0w/EGOImageLoading.git
-[submodule "PSFoundation/External/EGOCache"]
-	path = PSFoundation/External/EGOCache
-	url = git://github.com/myell0w/EGOCache.git
 [submodule "PSFoundation/External/appirater"]
 	path = PSFoundation/External/appirater
 	url = git://github.com/zwaldowski/appirater.git
-[submodule "PSFoundation/External/NYXImagesUtilities"]
-	path = PSFoundation/External/NYXImagesUtilities
-	url = git://github.com/myell0w/NYXImagesUtilities.git
 [submodule "PSFoundation/External/TDSemiModal"]
 	path = PSFoundation/External/TDSemiModal
 	url = git://github.com/zwaldowski/TDSemiModal.git
@@ -34,3 +22,15 @@
 [submodule "PSFoundation/External/TDBadgedCell"]
 	path = PSFoundation/External/TDBadgedCell
 	url = git://github.com/zwaldowski/TDBadgedCell.git
+[submodule "PSFoundation/External/MAZeroingWeakRef"]
+	path = PSFoundation/External/MAZeroingWeakRef
+	url = git://github.com/zwaldowski/MAZeroingWeakRef.git
+[submodule "PSFoundation/External/MBProgressHUD"]
+	path = PSFoundation/External/MBProgressHUD
+	url = git://github.com/zwaldowski/MBProgressHUD.git
+[submodule "PSFoundation/External/NYXImagesUtilities"]
+	path = PSFoundation/External/NYXImagesUtilities
+	url = git://github.com/myell0w/NYXImagesUtilities.git
+[submodule "PSFoundation/External/EGOCache"]
+	path = PSFoundation/External/EGOCache
+	url = git://github.com/myell0w/EGOCache.git
