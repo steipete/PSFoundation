@@ -22,6 +22,7 @@
 #import "EGOImageView.h"
 #import "NYXImagesUtilities.h"
 
+#import "PSReachability.h"
 #import "Reachability.h"
 #import "IKNetworkActivityManager.h"
 
