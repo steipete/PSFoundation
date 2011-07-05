@@ -24,4 +24,8 @@
 // hides the right bar button item indicator
 - (void)hideLoadingIndicatorInNavigationBar;
 
+// shows the loading indicator in the accessory view of the cell
+- (void)showLoadingIndicatorInTableViewCell:(UITableViewCell *)cell;
+- (void)hideLoadingIndicatorInTableViewCell;
+
 @end
