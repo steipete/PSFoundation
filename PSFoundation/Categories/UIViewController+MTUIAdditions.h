@@ -16,6 +16,8 @@
 - (void)showLoadingIndicator;
 // hides the loading indicator and removes it from the view-hierarchy
 - (void)hideLoadingIndicator;
+// shows the loading indicator instead of another view, same position, same autoresizing
+- (void)showLoadingIndicatorInsteadOfView:(UIView *)view;
 
 // shows a loading indicator as the rightBarButtonItem
 - (void)showLoadingIndicatorInNavigationBar;
