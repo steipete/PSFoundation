@@ -326,7 +326,7 @@
 	CFStringRef fullStr = CFUUIDCreateString(NULL, uuid);
     CFStringRef shortStr = CFStringCreateWithSubstring(NULL, fullStr, CFRangeMake(0, 6));
     
-    NSString *string = [[NSString alloc] initWithString:(NSString *)ps_unretainedObject(shortStr)];
+    NSString *string = [[NSString alloc] initWithString:(__bridge NSString *)shortStr];
 	
     CFRelease(shortStr);
 	CFRelease(fullStr);

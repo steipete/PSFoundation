@@ -153,11 +153,7 @@
     
     gradient.frame = self.bounds;
     
-    CFArrayRef colors = CFARRAY([startColor CGColor], [endColor CGColor]);
-    
-    gradient.colors = ps_unretainedObject(colors);
-    
-    CFRelease(colors);
+    gradient.colors = [NSArray arrayWithObjects:(__bridge id)startColor.CGColor, (__bridge id)endColor.CGColor, nil];
 
 	[self.layer insertSublayer:gradient atIndex:0];
 }

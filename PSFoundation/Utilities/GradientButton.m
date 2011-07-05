@@ -39,7 +39,7 @@
         }
         
         CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
-        normalGradient = CGGradientCreateWithColors(space, (CFArrayRef)ps_unretainedPointer(normalGradientColors), locations);
+        normalGradient = CGGradientCreateWithColors(space, (__bridge CFArrayRef)normalGradientColors, locations);
         CGColorSpaceRelease(space);
     }
     return normalGradient;
@@ -57,7 +57,7 @@
         }
         
         CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
-        highlightGradient = CGGradientCreateWithColors(space, (CFArrayRef)ps_unretainedPointer(highlightGradientColors), locations);
+        highlightGradient = CGGradientCreateWithColors(space, (__bridge CFArrayRef)highlightGradientColors, locations);
         CGColorSpaceRelease(space);
     }
     return highlightGradient;
@@ -256,12 +256,12 @@
         }
         
         if (normalColors) {
-            self.normalGradientColors = (NSArray *)ps_unretainedObject(normalColors);
+            self.normalGradientColors = (__bridge NSArray *)normalColors;
             CFRelease(normalColors);
         }
         
         if (highlightColors) {
-            self.highlightGradientColors = (NSArray *)ps_unretainedObject(normalColors);
+            self.highlightGradientColors = (__bridge NSArray *)highlightColors;
             CFRelease(highlightColors);
         }
             

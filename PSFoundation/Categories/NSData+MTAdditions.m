@@ -22,7 +22,7 @@
         NSDateFormatter *dateFormatter = [NSDateFormatter new];
         [dateFormatter setDateFormat:@"yyyy:MM:dd HH:mm:ss"];
 
-        CGImageSourceRef img = CGImageSourceCreateWithData(ps_unretainedPointer(self), NULL);
+        CGImageSourceRef img = CGImageSourceCreateWithData((__bridge CFDataRef)self, NULL);
         CLLocationDegrees exifLatitude = location.coordinate.latitude;
         CLLocationDegrees exifLongitude = location.coordinate.longitude;
 
@@ -31,7 +31,7 @@
         [exifDict setObject:datetime forKey:(NSString *)kCGImagePropertyExifDateTimeOriginal];
         [exifDict setObject:datetime forKey:(NSString *)kCGImagePropertyExifDateTimeDigitized];
 
-        [locDict setObject:location.timestamp forKey:(NSString*)kCGImagePropertyGPSTimeStamp];
+        [locDict setObject:location.timestamp forKey:(NSString *)kCGImagePropertyGPSTimeStamp];
 
         if (exifLatitude < 0.0) {
             exifLatitude = exifLatitude*(-1);
@@ -49,12 +49,12 @@
             [locDict setObject:@"E" forKey:(NSString *)kCGImagePropertyGPSLongitudeRef];
         }
 
-        [locDict setObject:[NSNumber numberWithFloat:exifLongitude] forKey:(NSString*) kCGImagePropertyGPSLatitude];
+        [locDict setObject:[NSNumber numberWithFloat:exifLongitude] forKey:(NSString*)kCGImagePropertyGPSLatitude];
 
         NSDictionary *properties = XDICT(locDict, kCGImagePropertyGPSDictionary, exifDict, kCGImagePropertyExifDictionary);
-        CFMutableDataRef jpegData = (CFMutableDataRef)ps_unretainedPointer(newJPEGData);
+        CFMutableDataRef jpegData = (__bridge CFMutableDataRef)newJPEGData;
         CGImageDestinationRef dest = CGImageDestinationCreateWithData(jpegData, CGImageSourceGetType(img), 1, NULL);
-        CGImageDestinationAddImageFromSource(dest, img, 0, ps_unretainedPointer(properties));
+        CGImageDestinationAddImageFromSource(dest, img, 0, (__bridge CFDictionaryRef)properties);
         CGImageDestinationFinalize(dest);
 
         CFRelease(img);

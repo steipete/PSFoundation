@@ -529,7 +529,7 @@
 }
 
 - (void)dealloc {
-    PS_RELEASE(sectionInfo);
+    PS_DEALLOC_NIL(self.sectionInfo);
     PS_DEALLOC();
 }
 

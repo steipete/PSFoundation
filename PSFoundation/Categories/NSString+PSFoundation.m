@@ -20,9 +20,7 @@ int const GGCharacterIsNotADigit = 10;
 
 + (NSString *)stringWithUUID {
 	CFUUIDRef uuid = CFUUIDCreate(nil);
-    CFStringRef string = CFUUIDCreateString(nil, uuid);
-    NSString *value = [[NSString alloc] initWithString:ps_unretainedObject(string)];
-    CFRelease(string);
+    NSString *value = (__bridge NSString *)CFUUIDCreateString(nil, uuid);
     CFRelease(uuid);
     return PS_AUTORELEASE(value);
 }

@@ -29,10 +29,6 @@
     #endif
     #define ps_weak weak
     #define ps_strong strong
-
-    #define ps_retainedObject objc_retainedObject
-    #define ps_unretainedObject objc_unretainedObject
-    #define ps_unretainedPointer objc_unretainedPointer
 #else
     #define PS_RETAIN(o) [o retain]
     #define PS_DO_RETAIN(o) [o retain]
@@ -43,7 +39,7 @@
     #if DEBUG
     #define PS_RELEASE(x) do { [x release]; } while (0);
     #else
-    #define PS_RELEASE(x) [x release], x = nil
+    #define PS_RELEASE(x) [x release]
     #endif
     #define PS_RELEASE_NIL(x) [x release], x = nil
     #define PS_RELEASE_VIEW_NIL(x) do { [x removeFromSuperview], [x release], x = nil; } while (0)
@@ -60,20 +56,20 @@
     var = [val copy]; \
     }
 
-    define __ps_weak
+    #define __ps_weak
     #define __unsafe_unretained
     #define __strong
-    #define __weak
+    //#define __weak
     #define ps_weak assign
     #define ps_strong retain
 
+    #define __bridge
+    #define __bridge_transfer
+    #define __bridge_retained
+
     typedef const void* objc_objectptr_t;
-    static __inline NS_RETURNS_RETAINED id __ps_objc_retainedObject(objc_objectptr_t CF_CONSUMED pointer) { return (id)pointer; }
     static __inline NS_RETURNS_NOT_RETAINED id __ps_objc_unretainedObject(objc_objectptr_t pointer) { return (id)pointer; }
-    static __inline CF_RETURNS_NOT_RETAINED void *__ps_objc_unretainedPointer(id object) { return (void *)object; }
-    #define ps_retainedObject __ps_objc_retainedObject
     #define ps_unretainedObject __ps_objc_unretainedObject
-    #define ps_unretainedPointer __ps_objc_unretainedPointer
 #endif
 
 #endif

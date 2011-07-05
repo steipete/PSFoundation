@@ -21,7 +21,7 @@ NSString* const kReachabilityChangedNotification = @"SCNetworkReachabilityChange
 
 static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info) {
     NSCAssert(info, @"info was NULL in Reachability callback!");
-    Reachability *infoObject = ps_unretainedObject(info);
+    Reachability *infoObject = (__bridge id)info;
     BOOL classCheck = [infoObject isKindOfClass:[Reachability class]];
     NSCAssert(classCheck, @"info was the WRONG CLASS in Reachability callback!");
     
@@ -81,7 +81,7 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 }
 
 - (BOOL)startNotifier {
-    SCNetworkReachabilityContext context = {0, (void*)ps_unretainedPointer(self), NULL, NULL, NULL};
+    SCNetworkReachabilityContext context = {0, (__bridge void *)self, NULL, NULL, NULL};
     if (SCNetworkReachabilitySetCallback(reachabilityRef, ReachabilityCallback, &context))
         if (SCNetworkReachabilityScheduleWithRunLoop(reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode))
             return YES;

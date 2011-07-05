@@ -1,3 +1,8 @@
+//
+//  NSDictionary+CGStructs.h
+//  PSFoundation
+//
+
 @interface NSDictionary (CGStructs)
 
 - (CGPoint)pointForKey:(NSString *)key;

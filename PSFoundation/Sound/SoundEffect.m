@@ -26,7 +26,8 @@
         return nil;
     
     SystemSoundID aSoundID;
-    OSStatus error = AudioServicesCreateSystemSoundID(ps_unretainedPointer(aFileURL), &aSoundID);
+    CFURLRef url = (__bridge CFURLRef)aFileURL;
+    OSStatus error = AudioServicesCreateSystemSoundID(url, &aSoundID);
     
     if (error != kAudioServicesNoError) {
         DDLogError(@"Error %d loading sound at path: %@", error, path);
@@ -34,7 +35,7 @@
     }
     
     AudioFileID fileID;
-    AudioFileOpenURL(ps_unretainedPointer(aFileURL), kAudioFileReadPermission, 0, &fileID);
+    AudioFileOpenURL(url, kAudioFileReadPermission, 0, &fileID);
     NSTimeInterval seconds;
     UInt32 propertySize = sizeof(seconds);
     AudioFileGetProperty(fileID, kAudioFilePropertyEstimatedDuration, &propertySize, &seconds);

@@ -15,47 +15,39 @@
 
 - (NSString *)URLEncodedString {
     CFStringRef string = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                 ps_unretainedPointer(self),
+                                                                 (__bridge CFStringRef)self,
                                                                  NULL,
                                                                  CFSTR("!*'();:@&=+$,/?%#[]<>"),
                                                                  kCFStringEncodingUTF8);
-    if (string) {
-        NSString *ret = [[NSString alloc] initWithString:ps_unretainedObject(string)];
-        CFRelease(string);    
-        return PS_AUTORELEASE(ret);    
-    }
+    if (string)
+        return PS_AUTORELEASE((__bridge_transfer NSString *)string);
     return nil;
 }
 
 - (NSString *)URLDecodedString {
     CFStringRef string = CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
-                                                                                 ps_unretainedPointer(self),
+                                                                                 (__bridge CFStringRef)self,
                                                                                  CFSTR(""),
                                                                                  kCFStringEncodingUTF8);
-    if (string) {
-        NSString *ret = [[NSString alloc] initWithString:ps_unretainedObject(string)];
-        CFRelease(string);    
-        return PS_AUTORELEASE(ret);    
-    }
+    if (string)
+        return PS_AUTORELEASE((__bridge_transfer NSString *)string);
     return nil;
 }
 
 - (NSString *)URLEncodedParameterString {
     CFStringRef firstPass = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                 ps_unretainedPointer(self),
+                                                                 (__bridge CFStringRef)self,
                                                                  CFSTR(" "),
                                                                  CFSTR(":/=,!$&'()*+;[]@#?"),
                                                                  kCFStringEncodingUTF8);
     if (firstPass) {
-        NSMutableString *secondPass = [[NSMutableString alloc] initWithString:ps_unretainedObject(firstPass)];
+        CFMutableStringRef secondPass = CFStringCreateMutableCopy(kCFAllocatorDefault, CFStringGetLength(firstPass), firstPass);
         CFRelease(firstPass);
-        [secondPass replaceOccurrencesOfString:@" "
-                                    withString:@"+"
-                                       options:0
-                                         range:NSMakeRange(0, secondPass.length)];
-        return PS_AUTORELEASE(secondPass);
+        CFStringFindAndReplace(secondPass, (__bridge CFStringRef)@" ", (__bridge CFStringRef)@"+", CFRangeMake(0, CFStringGetLength(secondPass)), 0);
+        NSString *ret = (__bridge NSString *)secondPass;
+        return PS_AUTORELEASE(ret);
     }
-	return self;
+    return self;
 }
 
 - (NSString *)URLDecodedParameterString {

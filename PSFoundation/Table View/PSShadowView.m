@@ -43,16 +43,13 @@
 + (CAGradientLayer *)shadowAsInverse:(BOOL)inverse {
     CAGradientLayer *newShadow = [CAGradientLayer layer];
     
-	CGColorRef darkColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:
-                            inverse ? (SHADOW_INVERSE_HEIGHT / SHADOW_HEIGHT) * 0.6 : 0.6].CGColor;
+	CGColorRef darkColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:inverse ? (SHADOW_INVERSE_HEIGHT / SHADOW_HEIGHT) * 0.6 : 0.6].CGColor;
 	CGColorRef lightColor = [UIColor clearColor].CGColor;
-    
-    CFArrayRef colors = CFARRAY((inverse ? lightColor : darkColor),
-                                (inverse ? darkColor : lightColor));
-    
-    newShadow.colors = ps_unretainedObject(colors);
-    
-    CFRelease(colors);
+        
+    if (inverse)
+        newShadow.colors = ARRAY((__bridge id)lightColor, (__bridge id)darkColor);
+    else
+        newShadow.colors = ARRAY((__bridge id)darkColor, (__bridge id)lightColor);
 
 	return newShadow;
 }

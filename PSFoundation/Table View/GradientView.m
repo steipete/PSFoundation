@@ -18,12 +18,8 @@
 - (void)setupGradientLayer {
 	CAGradientLayer *gradientLayer = (CAGradientLayer *)self.layer;
     
-    CFArrayRef colors = CFARRAY([UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:1.0].CGColor,
-                                [UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.0].CGColor);
-    
-    gradientLayer.colors = ps_unretainedObject(colors);
-    
-    CFRelease(colors);
+    gradientLayer.colors = ARRAY((__bridge id)[UIColor colorWithRed:1.00 green:1.00 blue:1.00 alpha:1.0].CGColor,
+                                 (__bridge id)[UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1.0].CGColor);
     
 	self.backgroundColor = [UIColor clearColor];
 }
