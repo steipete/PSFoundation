@@ -47,7 +47,6 @@
 	if((self = [super initWithImage:anImage])) {
 		self.placeholderImage = anImage;
 		self.delegate = aDelegate;
-		[self showPlaceholderView];
 	}
 	
 	return self;
@@ -87,6 +86,8 @@
 - (void)cancelImageLoad {
 	[[EGOImageLoader sharedImageLoader] cancelLoadForURL:self.imageURL];
 	[[EGOImageLoader sharedImageLoader] removeObserver:self forURL:self.imageURL];
+	
+	[self hidePlaceholderView];
 }
 
 - (void)imageLoaderDidLoad:(NSNotification*)notification {

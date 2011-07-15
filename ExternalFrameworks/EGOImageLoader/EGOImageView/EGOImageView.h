@@ -33,7 +33,7 @@
 	NSURL* imageURL;
 	UIImage* placeholderImage;
 	id<EGOImageViewDelegate> delegate;
-	UIImageView *placeholderView_;
+	UIImageView *placeholderView;
 }
 - (id)initWithPlaceholderImage:(UIImage*)anImage; // delegate:nil
 - (id)initWithPlaceholderImage:(UIImage*)anImage delegate:(id<EGOImageViewDelegate>)aDelegate;
@@ -42,7 +42,7 @@
 
 @property(nonatomic,retain) NSURL* imageURL;
 @property(nonatomic,retain) UIImage* placeholderImage;
-@property(nonatomic,retain) id<EGOImageViewDelegate> delegate;
+@property(nonatomic,assign) id<EGOImageViewDelegate> delegate;
 @end
 
 @protocol EGOImageViewDelegate<NSObject>
