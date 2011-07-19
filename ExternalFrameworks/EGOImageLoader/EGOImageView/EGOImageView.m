@@ -124,9 +124,13 @@
 - (void)showPlaceholderView {
 	if (self.placeholderView == nil) {
 		self.placeholderView = [[[UIImageView alloc] initWithFrame:self.bounds] autorelease];
-		self.placeholderView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-		self.placeholderView.image = self.placeholderImage;
+	}
+	
+	self.placeholderView.frame = self.bounds;
+	self.placeholderView.autoresizingMask = self.autoresizingMask;
+	self.placeholderView.image = self.placeholderImage;
 
+	if (self.placeholderView.superview == nil) {
 		[self addSubview:self.placeholderView];
 	}
 }
