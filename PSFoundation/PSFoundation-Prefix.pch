@@ -4,12 +4,9 @@
 
 #ifdef __OBJC__
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
 
 #import "PSMacros.h"
-#import "DDLog.h"
+#import "PSFoundation+Logging.h"
 #import "SynthesizeSingleton.h"
-#import "PSCategories.h"
+#import "PSFoundation+Categories.h"
 #endif
-

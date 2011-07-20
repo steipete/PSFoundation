@@ -445,8 +445,8 @@
 	}
 
 	[sectionChanges addObject:sectionChange];
-
-    PS_RELEASE(sectionChange);
+    
+    [sectionChange release];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller
@@ -471,7 +471,7 @@
 
 	[objectChanges addObject:objectChange];
     
-	PS_RELEASE(objectChange);
+    [objectChange release];
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {

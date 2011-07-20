@@ -12,25 +12,26 @@
 
 /****************************************************************************/
 
-@interface SDNextRunloopProxy : NSObject {
-	id target;
-	NSInvocation *invocation;
-}
+@interface SDNextRunloopProxy : NSObject
+
+@property (nonatomic, retain) id target;
+@property (nonatomic, retain) NSInvocation *invocation;
 
 @end
 
 @implementation SDNextRunloopProxy
 
+@synthesize target, invocation;
+
 - (id) initWithTarget:(id)newTarget {
 	if ((self = [super init])) {
-        target = [newTarget retain];
+        self.target = newTarget;
 	}
 	return self;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    [invocation release];
-    invocation = [anInvocation retain];
+    self.invocation = anInvocation;
 	[invocation retainArguments];
 	[self performSelector:@selector(performSelectorAtNextRunloop) withObject:nil afterDelay:0.0];
 }
@@ -38,8 +39,8 @@
 - (void) performSelectorAtNextRunloop {
 	[invocation invokeWithTarget:target];
     
-    [target release];
-    [invocation release];
+    self.target = nil;
+    self.invocation = nil;
     [self release];
 }
 
@@ -52,35 +53,37 @@
 /****************************************************************************/
 
 
-@interface FJSDelayProxy : NSObject {
-	id target;
-	NSInvocation *invocation;
-	float delay;
-}
+@interface FJSDelayProxy : NSObject
+
+@property (nonatomic, retain) id target;
+@property (nonatomic, retain) NSInvocation *invocation;
+@property (nonatomic, assign) NSTimeInterval delay;
 
 @end
 
 @implementation FJSDelayProxy
 
+@synthesize target, invocation, delay;
+
 - (id) initWithTarget:(id)newTarget delay:(float)time{
 	if ((self = [super init])) {
-        target = [newTarget retain];
-		delay = time;
+        self.target = newTarget;
+		self.delay = time;
 	}
 	return self;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    [invocation release];
-    invocation = [anInvocation retain];
+    self.invocation = anInvocation;
 	[invocation retainArguments];
 	[self performSelector:@selector(performSelectorWithDelay) withObject:nil afterDelay:delay];
 }
 
 - (void) performSelectorWithDelay {
 	[invocation invokeWithTarget:target];
-    [target release];
-    [invocation release];
+    
+    self.target = nil;
+    self.invocation = nil;
     [self release];
 }
 
@@ -137,12 +140,13 @@
 
 
 @implementation NSObject (SDStuff)
+
 - (id) nextRunloopProxy {
-	return [[SDNextRunloopProxy alloc] initWithTarget:self];
+	return [[[SDNextRunloopProxy alloc] initWithTarget:self] autorelease];
 }
 
 - (id) proxyWithDelay:(float)time {
-	return [[FJSDelayProxy alloc] initWithTarget:self delay:time];
+	return [[[FJSDelayProxy alloc] initWithTarget:self delay:time] autorelease];
 }
 
 - (id) performOnMainThreadProxy {

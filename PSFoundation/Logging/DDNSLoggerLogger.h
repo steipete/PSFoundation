@@ -11,9 +11,4 @@
 
 + (DDNSLoggerLogger *)sharedInstance;
 
-// Inherited from DDAbstractLogger
-
-// - (id <DDLogFormatter>)logFormatter;
-// - (void)setLogFormatter:(id <DDLogFormatter>)formatter;
-
 @end

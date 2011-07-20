@@ -52,32 +52,30 @@
 }
 
 - (NSString *)stringByTruncatingToLength:(NSUInteger)length direction:(NSTruncateStringPosition)truncateFrom withEllipsisString:(NSString *)anEllipsis {
-	NSMutableString *result = [self mutableCopy];
-	NSString *immutableResult = nil;
-    
-	if (result.length <= length)
+    NSMutableString *result = [self mutableCopy];
+	
+    if (result.length <= length) {
+        [result release];
 		return self;
+    }
     
-	NSUInteger charactersEachSide = length / 2;
+	NSString *first = nil, *last = nil, *immutableResult = nil;
+    NSUInteger charactersEachSide = length / 2;
     
-	NSString *first = nil, *last = nil;
-    
-	switch(truncateFrom) {
-		case NSTruncateStringPositionStart:
-			[result insertString:anEllipsis atIndex:result.length - length + anEllipsis.length];
-			immutableResult = [[result substringFromIndex:result.length - length] retain];
-		case NSTruncateStringPositionMiddle:
-			first = [result substringToIndex:charactersEachSide - anEllipsis.length+1];
-			last = [result substringFromIndex:result.length - charactersEachSide];
-			immutableResult = [[ARRAY(first, last) componentsJoinedByString:anEllipsis] retain];
-		default:
-		case NSTruncateStringPositionEnd:
-			[result insertString:anEllipsis atIndex:length - anEllipsis.length];
-			immutableResult  = [[result substringToIndex:length] retain];
-	}
+    if (truncateFrom == NSTruncateStringPositionStart) {
+        [result insertString:anEllipsis atIndex:result.length - length + anEllipsis.length];
+        immutableResult = [result substringFromIndex:result.length - length];        
+    } else if (truncateFrom == NSTruncateStringPositionMiddle) {
+        first = [result substringToIndex:charactersEachSide - anEllipsis.length+1];
+        last = [result substringFromIndex:result.length - charactersEachSide];
+        immutableResult = [ARRAY(first, last) componentsJoinedByString:anEllipsis];        
+    } else {
+        [result insertString:anEllipsis atIndex:length - anEllipsis.length];
+        immutableResult = [result substringToIndex:length];        
+    }
     
     [result release];
-    return [immutableResult autorelease];
+    return immutableResult;
 }
 
 - (NSString *)stringWithMaxLength:(NSUInteger)maxLen {

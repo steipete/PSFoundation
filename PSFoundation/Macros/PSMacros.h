@@ -13,8 +13,6 @@
 
 #include "PSMacros+Compatibility.h"
 #include "PSMacros+Collections.h"
-#include "PSMacros+Geometry.h"
-#import "UIDevice+PSFoundation.h"
 
 // compiler help
 #define PS_INVALID(t)  [t invalidate]; t = nil
@@ -29,14 +27,6 @@
 #define PSBundleFolder() [NSFileManager bundleFolder]
 #define PSGetFullPath(_filePath_) [[NSBundle mainBundle] pathForResource:[_filePath_ lastPathComponent] ofType:nil inDirectory:[_filePath_ stringByDeletingLastPathComponent]]
 
-// color
-#define SETTINGS_TEXT_COLOR	RGBCOLOR(57, 85, 135)
-
-#define RGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
-#define RGBCGColor(r, g, b) RGBColor(r, g, b).CGColor
-#define HexColor(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0]
-#define HexColorAlpha(c, a) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:a]
-#define HexCGColor(c) HexColor(c).CGColor
 
 #define PSDegreesToRadian(x) (x * 0.017453293)
 #define PSRadianToDegrees(x) (x * 57.295779513)
@@ -51,23 +41,6 @@
 // Short hand NSLocalizedString
 #define _(s) NSLocalizedString(s,s)
 #define __(s,...) [NSString stringWithFormat:NSLocalizedString(s,s),##__VA_ARGS__]
-
-// for function pass entering
-#define DDLogFunction() DDLogInfo(@"-- logged --");
-#define HOLogPing NSLog(@"%s", __PRETTY_FUNCTION__);
-
-#if defined(TARGET_IPHONE_SIMULATOR) && defined(DEBUG)
-#define PSSimulateMemoryWarning() CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)@"UISimulatedMemoryWarningNotification", NULL, NULL, true);
-#else
-#define PSSimulateMemoryWarning()
-#endif
-
-// http://code.google.com/p/cocoalumberjack/wiki/XcodeTricks - compiles most log messages out of the release build, but not all!
-#ifdef DEBUG
-static const int ddLogLevel = ((1 << 0) | (1 << 1) | (1 << 2));
-#else
-static const int ddLogLevel = ((1 << 0) | (1 << 1));
-#endif
 
 // wrap to have non-retaining self pointers in blocks: safeSelf(dispatch_async(myQ, ^{[self doSomething];});
 // use with care! can lead to crashes if self suddelny vanishes...
@@ -92,26 +65,11 @@ __VA_ARGS__;                            \
     #define NDEBUG
   #endif
 
-  // block Log() macro
-  #define Log(_X_)
-    #define LOG_FUNCTION()
-
   #ifndef NS_BLOCK_ASSERTIONS
     #define NS_BLOCK_ASSERTIONS
     #undef NSCAssert
     #define NSCAssert(condition, desc, ...) do { } while(0)
   #endif
-#else
-  #define Log(_X_) do{\
-  __typeof__(_X_) _Y_ = (_X_);\
-  const char * _TYPE_CODE_ = @encode(__typeof__(_X_));\
-   NSString *_STR_ = VTPG_DDToStringFromTypeAndValue(_TYPE_CODE_, &_Y_);\
-  if(_STR_)\
-    DDLogInfo(@"%s = %@", #_X_, _STR_);\
-  else\
-    DDLogInfo(@"Unknown _TYPE_CODE_: %s for expression %s in function %s, file %s, line %d", _TYPE_CODE_, #_X_, __func__, __FILE__, __LINE__);\
-  }while(0)
-  #define LOG_FUNCTION()	NSLog(@"%s", __func__)
 #endif
 
 // performance measurement
@@ -148,19 +106,14 @@ __VA_ARGS__;                            \
 #define XSORT(arr,by,asc) [arr sortUsingDescriptors:[NSArray arrayWithObject:[[[NSSortDescriptor alloc] initWithKey:by ascending:asc] autorelease]]];
 #define XRX(v) ([v isKindOfClass:[NSPredicate class]] ? v : [NSPredicate predicateWithFormat:@"SELF MATCHES %@", v])
 
-// value or nil
-#define XINT(value)     (value ? [NSNumber numberWithInt:value] : [NSNumber numberWithInt:0])
-#define XFLOAT(value)   (value ? [NSNumber numberWithDouble:(double)value] : [NSNumber numberWithDouble:(double)0.0])
-#define XBOOL(value)    (value ? [NSNumber numberWithBool:value] : [NSNumber numberWithBool:NO])
-#define XNULL           [NSNull null]
-#define $false          [NSNumber numberWithBool:NO]
-#define $true           [NSNumber numberWithBool:YES]
-
-// even shorter versions
-#define $I(value) XINT(value)
-#define $F(value) XFLOAT(value)
-#define $B(value) XBOOL(value)
-#define $S(...)   [NSString stringWithFormat: __VA_ARGS__]
+// value shortcuts
+#define xfloat(val)     [NSNumber numberWithFloat:(val)]
+#define xint(val)       [NSNumber numberWithInt:(val)]
+#define xbool(val)      [NSNumber numberWithBool:(val)]
+#define xstr(...)       [NSString stringWithFormat:__VA_ARGS__]
+#define xnull           [NSNull null]
+#define xfalse          [NSNumber numberWithBool:NO]
+#define xtrue           [NSNumber numberWithBool:YES]
 
 #define XMCOPY(_obj)    [[_obj mutableCopy] autorelease]
 #define XCOPY(_obj)     [[_obj copy] autorelease]

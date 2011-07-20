@@ -71,7 +71,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSReachability);
         // perform initial setup
         NSNotification *notification = [NSNotification notificationWithName:kPSReachabilityChangedNotification 
                                                                      object:self 
-                                                                   userInfo:XDICT($I(self.currentNetworkStatus),kPSNetworkStatusKey)];
+                                                                   userInfo:XDICT(xint(self.currentNetworkStatus),kPSNetworkStatusKey)];
         [object performSelector:@selector(configureForNetworkStatus:) withObject:notification];
         
         DDLogVerbose(@"Object %@ was setup to use PSReachability", object);
