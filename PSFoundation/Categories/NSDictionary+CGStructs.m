@@ -11,7 +11,7 @@
 {
     CGPoint point = CGPointZero;
     NSDictionary *dictionary = [self valueForKey:key];
-    BOOL success = CGPointMakeWithDictionaryRepresentation((__bridge CFDictionaryRef)dictionary, &point);
+    BOOL success = CGPointMakeWithDictionaryRepresentation((CFDictionaryRef)dictionary, &point);
     if (!success)
       return CGPointZero;
     return point;
@@ -21,7 +21,7 @@
 {
     CGSize size = CGSizeZero;
     NSDictionary *dictionary = [self valueForKey:key];
-    BOOL success = CGSizeMakeWithDictionaryRepresentation((__bridge CFDictionaryRef)dictionary, &size);
+    BOOL success = CGSizeMakeWithDictionaryRepresentation((CFDictionaryRef)dictionary, &size);
     if (!success)
         return CGSizeZero;
     return size;
@@ -31,7 +31,7 @@
 {
     CGRect rect = CGRectZero;
     NSDictionary *dictionary = [self valueForKey:key];
-    BOOL success = CGRectMakeWithDictionaryRepresentation((__bridge CFDictionaryRef)dictionary, &rect);
+    BOOL success = CGRectMakeWithDictionaryRepresentation((CFDictionaryRef)dictionary, &rect);
     if (!success)
         return CGRectZero;
     return rect;
@@ -43,19 +43,19 @@
 
 - (void)setPoint:(CGPoint)value forKey:(NSString *)key {
     CFDictionaryRef dict = CGPointCreateDictionaryRepresentation(value);
-    [self setValue:(__bridge id)dict forKey:key];
+    [self setValue:(id)dict forKey:key];
     CFRelease(dict);
 }
 
 - (void)setSize:(CGSize)value forKey:(NSString *)key {
     CFDictionaryRef dict = CGSizeCreateDictionaryRepresentation(value);
-    [self setValue:(__bridge id)dict forKey:key];
+    [self setValue:(id)dict forKey:key];
     CFRelease(dict);
 }
 
 - (void)setRect:(CGRect)value forKey:(NSString *)key {
     CFDictionaryRef dict = CGRectCreateDictionaryRepresentation(value);
-    [self setValue:(__bridge id)dict forKey:key];
+    [self setValue:(id)dict forKey:key];
     CFRelease(dict);
 }
 

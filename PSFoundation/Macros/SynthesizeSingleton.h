@@ -13,23 +13,6 @@
 //  appreciated but not required.
 //
 
-#if PS_HAS_ARC
-
-#define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \
-\
-+ (classname *)sharedInstance { \
-static classname *sharedInstance; \
-static dispatch_once_t done; \
-dispatch_once(&done, ^{ sharedInstance = [[[self class] alloc] init]; }); \
-return sharedInstance; \
-} \
-\
-+ (classname *)shared##classname { \
-return [self sharedInstance]; \
-}
-
-#else
-
 #define SYNTHESIZE_SINGLETON_FOR_CLASS(classname) \
 \
 static classname *sharedInstance = nil; \
@@ -67,5 +50,3 @@ return NSUIntegerMax; \
 - (id)autorelease { \
 return self; \
 }
-
-#endif

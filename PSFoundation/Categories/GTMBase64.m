@@ -156,8 +156,7 @@ static const char kWebSafeBase64DecodeChars[] = {
     if (!converted)
         return nil;
     
-    return PS_AUTORELEASE([[NSString alloc] initWithData:converted
-                                                encoding:NSASCIIStringEncoding]);
+    return [[[NSString alloc] initWithData:converted encoding:NSASCIIStringEncoding] autorelease];
 }
 
 +(NSString *)stringByEncodingBytes:(const void *)bytes length:(NSUInteger)length {
@@ -168,8 +167,7 @@ static const char kWebSafeBase64DecodeChars[] = {
     if (!converted)
         return nil;
     
-    return PS_AUTORELEASE([[NSString alloc] initWithData:converted
-                                                encoding:NSASCIIStringEncoding]);
+    return [[[NSString alloc] initWithData:converted encoding:NSASCIIStringEncoding] autorelease];
 }
 
 + (NSData *)decodeString:(NSString *)string {
@@ -226,8 +224,7 @@ static const char kWebSafeBase64DecodeChars[] = {
     if (!converted)
         return nil;
     
-    return PS_AUTORELEASE([[NSString alloc] initWithData:converted
-                                        encoding:NSASCIIStringEncoding]);
+    return [[[NSString alloc] initWithData:converted encoding:NSASCIIStringEncoding] autorelease];
 }
 
 +(NSString *)stringByWebSafeEncodingBytes:(const void *)bytes
@@ -241,8 +238,7 @@ static const char kWebSafeBase64DecodeChars[] = {
     if (!converted)
         return nil;
     
-    return PS_AUTORELEASE([[NSString alloc] initWithData:converted
-                                                encoding:NSASCIIStringEncoding]);
+    return [[[NSString alloc] initWithData:converted encoding:NSASCIIStringEncoding] autorelease];
 }
 
 +(NSData *)webSafeDecodeString:(NSString *)string {

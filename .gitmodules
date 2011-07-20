@@ -24,13 +24,43 @@
 	url = git://github.com/zwaldowski/TDBadgedCell.git
 [submodule "PSFoundation/External/MAZeroingWeakRef"]
 	path = PSFoundation/External/MAZeroingWeakRef
-	url = git://github.com/zwaldowski/MAZeroingWeakRef.git
+	url = git://github.com/mikeash/MAZeroingWeakRef.git
 [submodule "PSFoundation/External/MBProgressHUD"]
 	path = PSFoundation/External/MBProgressHUD
-	url = git://github.com/zwaldowski/MBProgressHUD.git
+	url = git://github.com/jdg/MBProgressHUD.git
 [submodule "PSFoundation/External/NYXImagesUtilities"]
 	path = PSFoundation/External/NYXImagesUtilities
 	url = git://github.com/myell0w/NYXImagesUtilities.git
 [submodule "PSFoundation/External/EGOCache"]
 	path = PSFoundation/External/EGOCache
 	url = git://github.com/myell0w/EGOCache.git
+[submodule "PSFoundation/External/CocoaLumberjack"]
+	path = PSFoundation/External/CocoaLumberjack
+	url = git://github.com/robbiehanson/CocoaLumberjack.git
+[submodule "PSFoundation/External/NSLogger"]
+	path = PSFoundation/External/NSLogger
+	url = git://github.com/fpillet/NSLogger.git
+[submodule "PSFoundation/External/SMModelObject"]
+	path = PSFoundation/External/SMModelObject
+	url = https://github.com/nfarina/modelobject.git
+[submodule "PSFoundation UIKit/External/TDBadgedCell"]
+	path = PSFoundation UIKit/External/TDBadgedCell
+	url = git://github.com/tmdvs/TDBadgedCell.git
+[submodule "PSFoundation UIKit/External/TDSemiModal.git"]
+	path = PSFoundation UIKit/External/TDSemiModal.git
+	url = git://github.com/zwaldowski/TDSemiModal.git
+[submodule "PSFoundation UIKit/External/NYXImagesUtilities"]
+	path = PSFoundation UIKit/External/NYXImagesUtilities
+	url = git://github.com/myell0w/NYXImagesUtilities.git
+[submodule "PSFoundation UIKit/External/TDSemiModal"]
+	path = PSFoundation UIKit/External/TDSemiModal
+	url = git://github.com/zwaldowski/TDSemiModal.git
+[submodule "PSFoundation UIKit/External/MBProgressHUD"]
+	path = PSFoundation UIKit/External/MBProgressHUD
+	url = git://github.com/jdg/MBProgressHUD.git
+[submodule "PSFoundation UIKit/External/EGOImageLoading"]
+	path = PSFoundation UIKit/External/EGOImageLoading
+	url = git://github.com/myell0w/EGOImageLoading.git
+[submodule "PSFoundation UIKit/External/DSActivityView"]
+	path = PSFoundation UIKit/External/DSActivityView
+	url = git://github.com/joycodes/DSActivityView.git

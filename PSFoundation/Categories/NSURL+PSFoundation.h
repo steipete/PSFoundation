@@ -3,14 +3,17 @@
 //  PSFoundation
 //
 //  Includes code by the following:
+//   - Vincent Gable.      2009.
 //   - Shaun Harrison.     2009.  BSD.
 //   - Peter Steinberger.  2010.  MIT.
 //
 
 @interface NSURL (PSFoundation)
 
-- (BOOL) isEqualToURL:(NSURL*)otherURL;
++ (NSURL *)URLWithStringOrNil:(NSString *)URLString;
 
-@property (readonly) NSString *baseString;
+- (BOOL)isEqualToURL:(NSURL *)otherURL;
+
+@property (nonatomic, readonly) NSString *baseString;
 
 @end

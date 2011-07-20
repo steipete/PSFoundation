@@ -1,8 +1,9 @@
 //
-//  NSURL+PSFoundation.h
+//  NSURL+PSFoundation.m
 //  PSFoundation
 //
 //  Includes code by the following:
+//   - Vincent Gable.      2009.
 //   - Shaun Harrison.     2009.  BSD.
 //   - Peter Steinberger.  2010.  MIT.
 //
@@ -11,9 +12,14 @@
 
 @implementation NSURL (PSFoundation)
 
-- (BOOL) isEqualToURL:(NSURL*)otherURL {
-	return [[self absoluteURL] isEqual:[otherURL absoluteURL]] ||
-  ([self isFileURL] && [otherURL isFileURL] && [[self path] isEqual:[otherURL path]]);
++ (NSURL *)URLWithStringOrNil:(NSString *)URLString {
+    if (!URLString)
+        return nil;
+    return [NSURL URLWithString:URLString];
+}
+
+- (BOOL)isEqualToURL:(NSURL *)otherURL {
+	return [self.absoluteURL isEqual:otherURL.absoluteURL] || (self.isFileURL && otherURL.isFileURL && [self.path isEqualToString:otherURL.path]);
 }
 
 - (NSString *)baseString {

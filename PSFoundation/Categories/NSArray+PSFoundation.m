@@ -10,21 +10,14 @@
 
 @implementation NSArray (PSFoundation)
 
-+ (id)arrayWithAlphaNumericTitles {
-	return [self arrayWithAlphaNumericTitlesWithSearch:NO];
+- (BOOL)isEmpty {
+    return (self.count == 0);
 }
 
-+ (id)arrayWithAlphaNumericTitlesWithSearch:(BOOL)search {
-	if (search)
-        return [NSArray arrayWithObjects: @"{search}",
-				@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", 
-				@"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", 
-				@"W", @"X", @"Y", @"Z", @"#", nil];
-	else
-		return [NSArray arrayWithObjects:
-				@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", 
-				@"L", @"M", @"N", @"O", @"P", @"Q", @"R", @"S", @"T", @"U", @"V", 
-				@"W", @"X", @"Y", @"Z", @"#", nil];
+- (id)objectOrNilAtIndex:(NSUInteger)i {
+    if (i >= self.count)
+		return nil;
+	return [self objectAtIndex:i];
 }
 
 + (id)arrayWithSet:(NSSet*)set {
@@ -51,10 +44,10 @@
 		[self addObject:item];
 		[self removeObjectAtIndex:oldIndex];
 	} else {
-        PS_DO_RETAIN(item);
+        [item retain];
 		[self removeObjectAtIndex:oldIndex];
 		[self insertObject:item atIndex:newIndex];
-        PS_RELEASE(item);
+        [item release];
 	}
 }
 
@@ -66,5 +59,19 @@
     
     return [self moveObjectAtIndex:index toIndex:newIndex];
 }
+
+- (void)addObjectIfNotNil:(id)anObject {
+    if (anObject)
+        [self addObject:anObject];
+}
+
+- (BOOL)addObjectsFromArrayIfNotNil:(NSArray *)otherArray {
+    if (![otherArray isEmpty] && [otherArray isKindOfClass:[NSArray class]]) {
+        [self addObjectsFromArray:otherArray];
+        return YES;
+    }
+    return NO;
+}
+
 
 @end

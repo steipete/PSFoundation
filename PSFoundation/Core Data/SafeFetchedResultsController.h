@@ -20,7 +20,7 @@
 	NSMutableArray *movedObjects;
 }
 
-@property (nonatomic, ps_weak) id <SafeFetchedResultsControllerDelegate> safeDelegate;
+@property (nonatomic, assign) id <SafeFetchedResultsControllerDelegate> safeDelegate;
 
 @end
 

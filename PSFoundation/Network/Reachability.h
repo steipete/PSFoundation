@@ -8,7 +8,6 @@
 //   - Matthias Tretter.  2011.
 //
 
-#import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #include <netinet/in.h>
 
@@ -48,7 +47,7 @@ extern NSString* const kReachabilityChangedNotification;
 //WWAN may be available, but not active until a connection has been established.
 //WiFi may require a connection for VPN on Demand.
 @property (nonatomic, readonly, getter=isConnectionRequired) BOOL connectionRequired;
-- (BOOL) connectionRequired DEPRECATED_ATTRIBUTE;
+- (BOOL) connectionRequired;
 
 // The main direct test of reachability.
 @property (nonatomic, readonly, getter=isReachable) BOOL reachable;

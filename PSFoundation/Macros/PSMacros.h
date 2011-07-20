@@ -12,17 +12,13 @@
 //
 
 #include "PSMacros+Compatibility.h"
-#include "PSMacros+ARC.h"
 #include "PSMacros+Collections.h"
 #include "PSMacros+Geometry.h"
 #import "UIDevice+PSFoundation.h"
 
 // compiler help
 #define PS_INVALID(t)  [t invalidate]; t = nil
-#define INVALIDATE_TIMER(__TIMER) PS_INVALID(__TIMER)
-
-#define PSVerifiedClass(c) ((c *) NSClassFromString(@"" # c))
-#define VERIFIED_CLASS(className) PSVerifiedClass(className)
+#define PS_VERIFIED_CLASS(c) ((c *) NSClassFromString(@"" # c))
 
 // file management
 #define NSDocumentsFolder() [NSFileManager documentsFolder]
@@ -36,15 +32,11 @@
 // color
 #define SETTINGS_TEXT_COLOR	RGBCOLOR(57, 85, 135)
 
-#ifndef RGBCOLOR
-#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
-#endif
-
-#define RGBCGCOLOR(r,g,b) RGBCOLOR(r,g,b).CGColor
-#define XHEXCOLOR(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0]
-#define XHEXCOLOR_ALPHA(c, a) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:a]
-#define HEXCOLOR(c) XHEXCOLOR(c)
-#define HexToFloats(c) XHEXCOLOR(c).CGColor
+#define RGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define RGBCGColor(r, g, b) RGBColor(r, g, b).CGColor
+#define HexColor(c) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:1.0]
+#define HexColorAlpha(c, a) [UIColor colorWithRed:((c>>16)&0xFF)/255.0 green:((c>>8)&0xFF)/255.0 blue:(c&0xFF)/255.0 alpha:a]
+#define HexCGColor(c) HexColor(c).CGColor
 
 #define PSDegreesToRadian(x) (x * 0.017453293)
 #define PSRadianToDegrees(x) (x * 57.295779513)
@@ -57,18 +49,12 @@
 #define PSTimeIntervalDays(x) (NSTimeInterval)(x * 3600. * 24.)
 
 // Short hand NSLocalizedString
-#define LocalizedString(s) NSLocalizedString(s,s)
 #define _(s) NSLocalizedString(s,s)
-#define LocalizedStringWithFormat(s,...) [NSString stringWithFormat:NSLocalizedString(s,s),##__VA_ARGS__]
+#define __(s,...) [NSString stringWithFormat:NSLocalizedString(s,s),##__VA_ARGS__]
 
 // for function pass entering
 #define DDLogFunction() DDLogInfo(@"-- logged --");
 #define HOLogPing NSLog(@"%s", __PRETTY_FUNCTION__);
-
-// compatibility
-#define MCRelease(x) PS_RELEASE(x)
-#define MCReleaseNil(x) PS_RELEASE_NIL(x)
-#define MCReleaseViewNil(x) PS_RELEASE_VIEW_NIL(x)
 
 #if defined(TARGET_IPHONE_SIMULATOR) && defined(DEBUG)
 #define PSSimulateMemoryWarning() CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(), (CFStringRef)@"UISimulatedMemoryWarningNotification", NULL, NULL, true);
@@ -107,13 +93,8 @@ __VA_ARGS__;                            \
   #endif
 
   // block Log() macro
-  #ifndef NO_LOG_MACROS
-    #define NO_LOG_MACROS
-    #define Log(_X_)
-    #define LOG_NS(...)
+  #define Log(_X_)
     #define LOG_FUNCTION()
-    #define MTLog(_X_)
-  #endif
 
   #ifndef NS_BLOCK_ASSERTIONS
     #define NS_BLOCK_ASSERTIONS
@@ -130,8 +111,6 @@ __VA_ARGS__;                            \
   else\
     DDLogInfo(@"Unknown _TYPE_CODE_: %s for expression %s in function %s, file %s, line %d", _TYPE_CODE_, #_X_, __func__, __FILE__, __LINE__);\
   }while(0)
-  #define MTLog(_X_) Log(_X_)
-  #define LOG_NS(...) NSLog(__VA_ARGS__)
   #define LOG_FUNCTION()	NSLog(@"%s", __func__)
 #endif
 
@@ -149,10 +128,9 @@ __VA_ARGS__;                            \
 
 // app shortcuts
 #define XNavigationController   ((XRESPONDS(XAppDelegate, navigationController)) ? [[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)] : nil)
-#define XAppDelegate            ((AppDelegate *)[[UIApplication sharedApplication] delegate])
-#define MTApplicationDelegate   XAppDelegate
-#define UIApp                   XAppDelegate
-#define tsPushAnimated(vc)      [[[[UIApplication sharedApplication] delegate] performSelector:@selector(navigationController)] pushViewController:vc animated:YES]
+#define UIApp                   [UIApplication sharedApplication]
+#define XAppDelegate            [UIApp delegate]
+#define tsPushAnimated(vc)      [[[UIApp delegate] performSelector:@selector(navigationController)] pushViewController:vc animated:YES]
 #define isIPad()                [[UIDevice currentDevice] isTablet]
 
 // defines
@@ -184,8 +162,8 @@ __VA_ARGS__;                            \
 #define $B(value) XBOOL(value)
 #define $S(...)   [NSString stringWithFormat: __VA_ARGS__]
 
-#define XMCOPY(_obj) PS_AUTORELEASE([_obj mutableCopy])
-#define XCOPY(_obj) PS_AUTORELEASE([_obj copy])
+#define XMCOPY(_obj)    [[_obj mutableCopy] autorelease]
+#define XCOPY(_obj)     [[_obj copy] autorelease]
 
 // sorting
 #define XLT(a,b) ([a compare:b] == NSOrderedAscending)
@@ -205,8 +183,8 @@ __VA_ARGS__;                            \
 #define XAPPLYSEL(target, sel)          if (XRESPONDS(target, sel)) { [(id)target performSelector:sel]; }
 #define XAPPLYSEL1(target, sel, obj)    if(XRESPONDS(target, sel)) { [(id)target performSelector:sel withObject:obj]; }
 
-#define XDATA2UTF8STRING(data) PS_AUTORELEASE([[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding])
-#define XUTF8STRING2DATA(s) [s dataUsingEncoding:NSUTF8StringEncoding]
+#define XDATA2UTF8STRING(data)  [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]
+#define XUTF8STRING2DATA(s)     [s dataUsingEncoding:NSUTF8StringEncoding]
 
 // user defaults
 #define XDEL_OBJECT(k)      [[NSUserDefaults standardUserDefaults] removeObjectForKey:k]
@@ -221,7 +199,6 @@ __VA_ARGS__;                            \
 #define XGET_INT(v)         [[NSUserDefaults standardUserDefaults] integerForKey:v]
 #define XSET_INT(k,v)       [[NSUserDefaults standardUserDefaults] setInteger:v forKey:k]
 #define XSYNC()             [[NSUserDefaults standardUserDefaults] synchronize]
-
 
 //	The following macro is for specifying property (ivar) names to KVC or KVO methods.
 //	These methods generally take strings, but strings don't get checked for typos

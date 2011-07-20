@@ -107,16 +107,13 @@
 }
 
 - (void)dealloc {
-    PS_RELEASE(insertedSections);
-    PS_RELEASE(deletedSections);
-    
-    PS_RELEASE(insertedObjects);
-    PS_RELEASE(deletedObjects);
-    
-    PS_RELEASE(updatedObjects);
-    PS_RELEASE(movedObjects);
-    
-    PS_DEALLOC();
+    [insertedSections release];
+    [deletedSections release];
+    [insertedObjects release];
+    [deletedObjects release];
+    [updatedObjects release];
+    [movedObjects release];
+    [super dealloc];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -357,27 +354,25 @@
 
 
 - (void)processObjectChanges {
-    PS_AUTORELEASEPOOL(
-       // Check for and possibly fix the InsertSection or DeleteSection bug
-       [self fixUpdateBugs];
+    NSAutoreleasePool *pool = [NSAutoreleasePool new];
+    
+    // Check for and possibly fix the InsertSection or DeleteSection bug
+    [self fixUpdateBugs];
        
-       // Process object changes
-       for (SafeObjectChange *objectChange in insertedObjects) {
-           [self notifyDelegateOfObjectChange:objectChange];
-       }
+    // Process object changes
+    for (SafeObjectChange *objectChange in insertedObjects)
+        [self notifyDelegateOfObjectChange:objectChange];
        
-       for (SafeObjectChange *objectChange in deletedObjects) {
-           [self notifyDelegateOfObjectChange:objectChange];
-       }
+    for (SafeObjectChange *objectChange in deletedObjects)
+        [self notifyDelegateOfObjectChange:objectChange];
        
-       for (SafeObjectChange *objectChange in updatedObjects) {
-           [self notifyDelegateOfObjectChange:objectChange];
-       }
+    for (SafeObjectChange *objectChange in updatedObjects)
+        [self notifyDelegateOfObjectChange:objectChange];
        
-       for (SafeObjectChange *objectChange in movedObjects) {
-           [self notifyDelegateOfObjectChange:objectChange];
-       }
-    );
+    for (SafeObjectChange *objectChange in movedObjects)
+        [self notifyDelegateOfObjectChange:objectChange];
+    
+    [pool drain];
 }
 
 - (void)processChanges {
@@ -499,9 +494,7 @@
 
 @implementation SafeSectionChange
 
-@synthesize sectionInfo;
-@synthesize sectionIndex;
-@synthesize changeType;
+@synthesize sectionInfo, sectionIndex, changeType;
 
 - (id)initWithSectionInfo:(id <NSFetchedResultsSectionInfo>)aSectionInfo
                     index:(NSUInteger)aSectionIndex
@@ -529,8 +522,8 @@
 }
 
 - (void)dealloc {
-    PS_DEALLOC_NIL(self.sectionInfo);
-    PS_DEALLOC();
+    self.sectionInfo = nil;
+    [super dealloc];
 }
 
 @end
@@ -581,10 +574,10 @@
 }
 
 - (void)dealloc {
-    PS_RELEASE(object);
-    PS_RELEASE(indexPath);
-    PS_RELEASE(toIndexPath);
-	PS_DEALLOC();
+    self.object = nil;
+    self.indexPath = nil;
+    self.toIndexPath = nil;
+    [super dealloc];
 }
 
 @end

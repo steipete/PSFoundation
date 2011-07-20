@@ -41,7 +41,6 @@
 
 // Splash Screen
 #import "MTSplashScreen.h"
-#import "MTSplashScreenDelegate.h"
 
 // Universal
 #import "MTUniversalHelper.h"
@@ -55,8 +54,6 @@
 #import "NSObject+DDExtensions.h"
 #import "NSObject+Proxy.h"
 
-#import "PSAlertView.h"
-#import "PSActionSheet.h"
 #import "LRPopoverManager.h"
 
 // more logging stuff

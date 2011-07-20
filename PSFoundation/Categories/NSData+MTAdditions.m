@@ -22,7 +22,7 @@
         NSDateFormatter *dateFormatter = [NSDateFormatter new];
         [dateFormatter setDateFormat:@"yyyy:MM:dd HH:mm:ss"];
 
-        CGImageSourceRef img = CGImageSourceCreateWithData((__bridge CFDataRef)self, NULL);
+        CGImageSourceRef img = CGImageSourceCreateWithData((CFDataRef)self, NULL);
         CLLocationDegrees exifLatitude = location.coordinate.latitude;
         CLLocationDegrees exifLongitude = location.coordinate.longitude;
 
@@ -52,19 +52,18 @@
         [locDict setObject:[NSNumber numberWithFloat:exifLongitude] forKey:(NSString*)kCGImagePropertyGPSLatitude];
 
         NSDictionary *properties = XDICT(locDict, kCGImagePropertyGPSDictionary, exifDict, kCGImagePropertyExifDictionary);
-        CFMutableDataRef jpegData = (__bridge CFMutableDataRef)newJPEGData;
-        CGImageDestinationRef dest = CGImageDestinationCreateWithData(jpegData, CGImageSourceGetType(img), 1, NULL);
-        CGImageDestinationAddImageFromSource(dest, img, 0, (__bridge CFDictionaryRef)properties);
+        CGImageDestinationRef dest = CGImageDestinationCreateWithData((CFMutableDataRef)newJPEGData, CGImageSourceGetType(img), 1, NULL);
+        CGImageDestinationAddImageFromSource(dest, img, 0, (CFDictionaryRef)properties);
         CGImageDestinationFinalize(dest);
 
         CFRelease(img);
         CFRelease(dest);
                        
-        PS_RELEASE(exifDict);
-        PS_RELEASE(locDict);
-        PS_RELEASE(dateFormatter);
+        [exifDict release];
+        [locDict release];
+        [dateFormatter release];
 
-        return PS_AUTORELEASE(newJPEGData);
+        return [newJPEGData autorelease];
 	)
 
 	// functionality not available on 3.x, just return original data

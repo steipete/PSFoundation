@@ -65,7 +65,7 @@
 @synthesize invocation, target, forwardInvokesOnMainThread, waitUntilDone, invocationThread;
 
 + (id)invocationGrabber {
-    return PS_AUTORELEASE([DDInvocationGrabber alloc]);
+    return [[DDInvocationGrabber alloc] autorelease];
 }
 
 + (id)invocationGrabberWithTarget:(id)target {
@@ -78,10 +78,10 @@
 }
 
 - (void)dealloc {
-    PS_DEALLOC_NIL(self.target);
-    PS_DEALLOC_NIL(self.invocation);
-    PS_DEALLOC_NIL(self.invocationThread);
-    PS_DEALLOC();
+    self.target = nil;
+    self.invocation = nil;
+    self.invocationThread = nil;
+    [super dealloc];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {

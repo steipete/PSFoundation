@@ -6,9 +6,6 @@
 //  Copyright 2011 @myell0w. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-
 @interface NSDate (MTAdditions)
 
 - (NSInteger)daysSinceDate:(NSDate *)date;

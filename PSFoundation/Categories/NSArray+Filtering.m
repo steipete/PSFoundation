@@ -30,9 +30,8 @@
 	for (id object in self)
 		if (![anArray containsObject:object])
 			[copy removeObjectIdenticalTo:object];
-    
     NSArray *ret = [copy uniqueMembers];
-    PS_RELEASE(copy);
+    [copy release];
     return ret;
 }
 
@@ -42,7 +41,7 @@
 		if (![anSet containsObject:object])
 			[copy removeObjectIdenticalTo:object];
     NSArray *ret = [copy uniqueMembers];
-    PS_RELEASE(copy);
+    [copy release];
     return ret;
 }
 
@@ -53,7 +52,7 @@
 		if ([anArray containsObject:object])
 			[copy removeObjectIdenticalTo:object];
     NSArray *ret = [copy uniqueMembers];
-    PS_RELEASE(copy);
+    [copy release];
     return ret;
 }
 
@@ -63,7 +62,7 @@
 		if ([anSet containsObject:object])
 			[copy removeObjectIdenticalTo:object];
     NSArray *ret = [copy uniqueMembers];
-    PS_RELEASE(copy);
+    [copy release];
     return ret;
 }
 
@@ -74,23 +73,13 @@
 - (id)arrayByReversing {
     NSMutableArray *resorted = [self mutableCopy];
     [resorted reverse];
-    
-    id ret = [[self class] arrayWithArray:resorted];
-    
-    PS_RELEASE_NIL(resorted);
-    
-    return ret;
+    return [resorted autorelease];
 }
 
 - (id)arrayByShuffling {
     NSMutableArray *shuffled = [self mutableCopy];
     [shuffled shuffle];
-    
-    id ret = [[self class] arrayWithArray:shuffled];
-    
-    PS_RELEASE_NIL(shuffled);
-    
-    return ret;
+    return [shuffled autorelease];
 }
 
 @end
@@ -118,10 +107,6 @@
         
         [self exchangeObjectAtIndex:i-1 withObjectAtIndex:j];
     }
-}
-
-- (void)scramble {
-    [self shuffle];
 }
 
 @end

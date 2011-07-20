@@ -2,13 +2,17 @@
 //  NSObject+Utilities.h
 //  PSFoundation
 //
-//  Created by Peter Steinberger on 12.12.10.
-//  Licensed under MIT. All rights reserved.
+//  Includes code by the following:
+//   - Vincent Gable.      2009.
+//   - Peter Steinberger.  2010.  MIT.
+//   - Zachary Waldowski.  2011.  MIT.
 //
 
-@interface NSObject (Utilities)
+@interface NSObject (PSFoundation)
 
 + (id) make;
+
+@property (nonatomic,readonly,getter=isEmpty) BOOL empty;
 
 - (void) performSelector: (SEL) selector afterDelay: (NSTimeInterval) delay;
 

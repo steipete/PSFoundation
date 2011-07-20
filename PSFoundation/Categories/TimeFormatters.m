@@ -113,17 +113,17 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
             // I am not using a NSDateFormatter because this is not time-of-day;
             // hours may exceed 24.
             if (hours < 1)
-                str = LocalizedStringWithFormat(Str_ShortInterval_M, hourMinutes);
+                str = __(Str_ShortInterval_M, hourMinutes);
             else
-                str = LocalizedStringWithFormat(Str_ShortInterval_HM, hours, hourMinutes);
+                str = __(Str_ShortInterval_HM, hours, hourMinutes);
             break;
         }
             
         case kIntervalFormatterMediumStyle: {
             if (hours < 1)
-                str = LocalizedStringWithFormat(Str_MediumInterval_M, hourMinutes);
+                str = __(Str_MediumInterval_M, hourMinutes);
             else
-                str = LocalizedStringWithFormat(Str_MediumInterval_HM, hours, hourMinutes);
+                str = __(Str_MediumInterval_HM, hours, hourMinutes);
             break;
         }
             
@@ -134,8 +134,7 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
             [formatter setMaximumFractionDigits:2];
             [formatter setMinimumFractionDigits:1];
             str = [formatter stringFromNumber:minutesValue];
-            
-            PS_RELEASE_NIL(formatter);
+            [formatter release];
             break;
         }
             
@@ -150,8 +149,8 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
             [components setSecond:seconds];
             str = [formatter stringForObjectValue:components];
             
-            PS_RELEASE_NIL(components);
-            PS_RELEASE_NIL(formatter);
+            [components release];
+            [formatter release];
             break;
         }
     }
@@ -164,11 +163,11 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
 
 @implementation DateComponentsFormatter
 
-@synthesize dateStyle, timeStyle;
+@synthesize dateStyle, timeStyle, formatter;
 
 - (void) dealloc {
-    PS_RELEASE_NIL(formatter);
-    PS_DEALLOC();
+    self.formatter = nil;
+    [super dealloc];
 }
 
 - (NSString *) stringForObjectValue:(NSDateComponents *)components {
@@ -220,16 +219,14 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
         formatKey = Str_TimeComponents_MHD;
     }
     
-    NSString *text = LocalizedStringWithFormat(formatKey,
-                                               [minutesFormatter stringForObjectValue:minutesValue], 
-                                               [hoursFormatter stringForObjectValue:hoursValue], 
-                                               [daysFormatter stringForObjectValue:daysValue]);
+    NSString *text = __(formatKey,
+                        [minutesFormatter stringForObjectValue:minutesValue], 
+                        [hoursFormatter stringForObjectValue:hoursValue], 
+                        [daysFormatter stringForObjectValue:daysValue]);
     
-    #if !PS_HAS_ARC
     [minutesFormatter release];
     [hoursFormatter release];
     [daysFormatter release];
-    #endif
     
     return text;
 }
@@ -250,7 +247,7 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
         formatKey = (mins == 1 ? Str_TimeComponentMinute_M 
                      : Str_TimeComponentMinutes_M);
     }
-    return LocalizedStringWithFormat(formatKey, mins);
+    return __(formatKey, mins);
 }
 
 @end
@@ -270,7 +267,7 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
         formatKey = (hrs == 1 ? Str_TimeComponentHour_H 
                      : Str_TimeComponentHours_H);
     }
-    return LocalizedStringWithFormat(formatKey, hrs);
+    return __(formatKey, hrs);
 }
 
 @end
@@ -282,8 +279,7 @@ static NSString *const Str_TimeComponentAbbrMinutes_M    = @"TimeComponentAbbrMi
 
 - (NSString *) stringForObjectValue:(NSNumber *)value {
     NSInteger days = [value integerValue];
-    NSString *format = LocalizedString(days == 1 ? Str_TimeComponentDay_D : Str_TimeComponentDays_D);
-    return [NSString stringWithFormat:format, days];
+    return __((days == 1 ? Str_TimeComponentDay_D : Str_TimeComponentDays_D), days);
 }
 
 @end

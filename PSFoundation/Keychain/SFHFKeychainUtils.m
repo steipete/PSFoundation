@@ -29,8 +29,8 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
     
     CFMutableDictionaryRef query = CFDictionaryCreateMutable(kCFAllocatorDefault, 4, NULL, NULL);
     CFDictionaryAddValue(query, kSecClass, kSecClassGenericPassword);
-    CFDictionaryAddValue(query, kSecAttrAccount, (__bridge void *)username);
-    CFDictionaryAddValue(query, kSecAttrService, (__bridge void *)serviceName);
+    CFDictionaryAddValue(query, kSecAttrAccount, username);
+    CFDictionaryAddValue(query, kSecAttrService, serviceName);
     CFDictionaryAddValue(query, kSecReturnAttributes, kCFBooleanTrue);
     
     CFTypeRef attributeResult = NULL, resultData = NULL;
@@ -77,11 +77,11 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
         if (error)
             *error = [NSError errorWithDomain:SFHFKeychainUtilsErrorDomain code:-1999 description:@"Password data not retrievable for key.  Please try again."];
     } else {
-        NSString *string = [[NSString alloc] initWithData:(__bridge id)resultData encoding:NSUTF8StringEncoding];
+        NSString *string = [[NSString alloc] initWithData:(NSData *)resultData encoding:NSUTF8StringEncoding];
         
         CFRelease(resultData);
         
-        return PS_AUTORELEASE(string);
+        return [string autorelease];
     }
     
     return nil;
@@ -126,21 +126,21 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
     OSStatus status = noErr;
     CFMutableDictionaryRef query = CFDictionaryCreateMutable(kCFAllocatorDefault, 5, NULL, NULL);
     CFDictionaryAddValue(query, kSecClass, kSecClassGenericPassword);
-    CFDictionaryAddValue(query, kSecAttrService, (__bridge void *)serviceName);
-    CFDictionaryAddValue(query, kSecAttrLabel, (__bridge void *)serviceName);
-    CFDictionaryAddValue(query, kSecAttrAccount, (__bridge void *)username);
+    CFDictionaryAddValue(query, kSecAttrService, serviceName);
+    CFDictionaryAddValue(query, kSecAttrLabel, serviceName);
+    CFDictionaryAddValue(query, kSecAttrAccount,username);
     
     if (existingPassword) {
 		// We have an existing, properly entered item with a password.
 		// Update the existing item.
         if (updateExisting && ![existingPassword isEqualToString:password]) {
-            NSDictionary *update = [NSDictionary dictionaryWithObject:[password dataUsingEncoding:NSUTF8StringEncoding] forKey:(__bridge NSString *)kSecValueData];
-            status = SecItemUpdate(query, (__bridge CFDictionaryRef)update);
+            NSDictionary *update = [NSDictionary dictionaryWithObject:[password dataUsingEncoding:NSUTF8StringEncoding] forKey:(NSString *)kSecValueData];
+            status = SecItemUpdate(query, (CFDictionaryRef)update);
         }
     } else {
 		// No existing entry (or an existing, improperly entered, and therefore now
 		// deleted, entry).  Create a new entry.
-        CFDictionaryAddValue(query, kSecValueData, (__bridge void *)[password dataUsingEncoding:NSUTF8StringEncoding]);
+        CFDictionaryAddValue(query, kSecValueData, [password dataUsingEncoding:NSUTF8StringEncoding]);
         status = SecItemAdd(query, NULL);
     }
     
@@ -170,8 +170,8 @@ static NSString *SFHFKeychainUtilsErrorDomain = @"SFHFKeychainUtilsErrorDomain";
     
     CFMutableDictionaryRef query = CFDictionaryCreateMutable(kCFAllocatorDefault, 4, NULL, NULL);
     CFDictionaryAddValue(query, kSecClass, kSecClassGenericPassword);
-    CFDictionaryAddValue(query, kSecAttrAccount, (__bridge void *)username);
-    CFDictionaryAddValue(query, kSecAttrService, (__bridge void *)serviceName);
+    CFDictionaryAddValue(query, kSecAttrAccount, username);
+    CFDictionaryAddValue(query, kSecAttrService, serviceName);
     CFDictionaryAddValue(query, kSecReturnAttributes, kCFBooleanTrue);
     
     OSStatus status = SecItemDelete(query);

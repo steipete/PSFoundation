@@ -13,21 +13,20 @@
 static NSNumberFormatter *numberFormatter = nil;
 
 + (NSNumber *)numberWithString:(NSString *)string {
-  if(numberFormatter == nil) {
-    numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];    
-  }
+    if (!numberFormatter) {
+        numberFormatter = [NSNumberFormatter new];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];    
+    }
   
-  // more sanity checks
-  if (string) {
-    @try {
-      return [numberFormatter numberFromString:string];
+    // more sanity checks
+    if (string) {
+        @try {
+            return [numberFormatter numberFromString:string];
+        } @catch (NSException *e) {
+            DDLogError(@"NSNumberFormatter exception! parsing: %@", string);
+        }
     }
-    @catch (NSException * e) {
-      DDLogError(@"NSNumberFormatter exception! parsing: %@", string);
-    }
-  }
-  return nil;
+    return nil;
 }
 
 @end

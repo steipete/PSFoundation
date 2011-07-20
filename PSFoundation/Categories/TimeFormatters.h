@@ -15,46 +15,33 @@ typedef enum IntervalFormatterStyle {
 } IntervalFormatterStyle;
 
 
-@interface IntervalFormatter : NSFormatter {
-    IntervalFormatterStyle style;
-}
+@interface IntervalFormatter : NSFormatter
 @property (nonatomic, assign) IntervalFormatterStyle style;
 @end
 
 
-@interface DateComponentsFormatter : NSFormatter {
-    NSDateFormatter *formatter;
-    NSDateFormatterStyle dateStyle;
-    NSDateFormatterStyle timeStyle;
-}
+@interface DateComponentsFormatter : NSFormatter
+@property (nonatomic, retain) NSDateFormatter *formatter;
 @property (nonatomic, assign) NSDateFormatterStyle dateStyle;
 @property (nonatomic, assign) NSDateFormatterStyle timeStyle;
 @end
 
 
-@interface IntervalComponentsFormatter : NSFormatter {
-    IntervalFormatterStyle style;
-}
+@interface IntervalComponentsFormatter : NSFormatter
 @property (nonatomic, assign) IntervalFormatterStyle style;
 @end
 
 
-@interface MinutesFormatter : NSFormatter {
-    IntervalFormatterStyle style;
-}
+@interface MinutesFormatter : NSFormatter
 @property (nonatomic, assign) IntervalFormatterStyle style;
 @end
 
 
-@interface HoursFormatter : NSFormatter {
-    IntervalFormatterStyle style;
-}
+@interface HoursFormatter : NSFormatter
 @property (nonatomic, assign) IntervalFormatterStyle style;
 @end
 
 
-@interface DaysFormatter : NSFormatter {
-    IntervalFormatterStyle style;
-}
+@interface DaysFormatter : NSFormatter
 @property (nonatomic, assign) IntervalFormatterStyle style;
 @end

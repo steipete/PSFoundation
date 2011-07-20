@@ -6,7 +6,6 @@
 //  Copyright 2011 @myell0w. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "Reachability.h"
 
 // we define our own notification to be more independent of Reachability

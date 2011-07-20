@@ -41,7 +41,7 @@ static Logger *_DDNSLogger_logger = nil;
 
 - (id)init {
 	if (sharedInstance != nil) {
-        PS_RELEASE(self);
+        [self release];
 		return nil;
 	}
 

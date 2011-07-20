@@ -18,11 +18,15 @@ int const GGCharacterIsNotADigit = 10;
 
 @implementation NSString (PSFoundation)
 
+- (BOOL)isEmpty {
+    return !self.length || ![self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length;
+}
+
 + (NSString *)stringWithUUID {
 	CFUUIDRef uuid = CFUUIDCreate(nil);
-    NSString *value = (__bridge NSString *)CFUUIDCreateString(nil, uuid);
+    NSString *value = (NSString *)CFUUIDCreateString(nil, uuid);
     CFRelease(uuid);
-    return PS_AUTORELEASE(value);
+    return [value autorelease];
 }
 
 - (BOOL)containsString:(NSString *)string {
@@ -75,12 +79,12 @@ int const GGCharacterIsNotADigit = 10;
 
 - (NSString *)md5 {
     NSData *sum = [[self dataUsingEncoding:NSUTF8StringEncoding] MD5Sum];
-    return PS_AUTORELEASE([[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding]);
+    return [[[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding] autorelease];
 }
 
 - (NSString *)sha1 {
     NSData *sum = [[self dataUsingEncoding:NSUTF8StringEncoding] SHA1Hash];
-    return PS_AUTORELEASE([[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding]);
+    return [[[NSString alloc] initWithData:sum encoding:NSUTF8StringEncoding] autorelease];
 }
 
 - (NSString *)base64 {

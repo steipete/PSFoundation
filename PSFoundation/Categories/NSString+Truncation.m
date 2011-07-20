@@ -14,9 +14,9 @@
 
 @implementation NSString (Truncation)
 
-- (NSString*)stringByTruncatingToWidth:(CGFloat)width withFont:(UIFont *)font {
+- (NSString *)stringByTruncatingToWidth:(CGFloat)width withFont:(UIFont *)font {
     // Create copy that will be the returned result
-    NSMutableString *truncatedString = PS_AUTORELEASE([self mutableCopy]);
+    NSMutableString *truncatedString = [self mutableCopy];
     
     // Make sure string is longer than requested width
     if ([self sizeWithFont:font].width > width) {
@@ -39,7 +39,7 @@
         [truncatedString replaceCharactersInRange:range withString:ellipsis];
     }
     
-    return truncatedString;
+    return [truncatedString autorelease];
 }
 
 
@@ -64,23 +64,20 @@
     
 	switch(truncateFrom) {
 		case NSTruncateStringPositionStart:
-			[result insertString:anEllipsis atIndex:[result length] - length + [anEllipsis length] ];
-			immutableResult  = [[result substringFromIndex:[result length] - length] copy];
-			PS_RELEASE_NIL(result);
-			return PS_AUTORELEASE(immutableResult);
+			[result insertString:anEllipsis atIndex:result.length - length + anEllipsis.length];
+			immutableResult = [[result substringFromIndex:result.length - length] retain];
 		case NSTruncateStringPositionMiddle:
-			first = [result substringToIndex:charactersEachSide - [anEllipsis length]+1];
-			last = [result substringFromIndex:[result length] - charactersEachSide];
-			immutableResult = [[[NSArray arrayWithObjects:first, last, NULL] componentsJoinedByString:anEllipsis] copy];
-			PS_RELEASE_NIL(result);
-			return PS_AUTORELEASE(immutableResult);
+			first = [result substringToIndex:charactersEachSide - anEllipsis.length+1];
+			last = [result substringFromIndex:result.length - charactersEachSide];
+			immutableResult = [[ARRAY(first, last) componentsJoinedByString:anEllipsis] retain];
 		default:
 		case NSTruncateStringPositionEnd:
-			[result insertString:anEllipsis atIndex:length - [anEllipsis length]];
-			immutableResult  = [[result substringToIndex:length] copy];
-			PS_RELEASE_NIL(result);
-			return PS_AUTORELEASE(immutableResult);
+			[result insertString:anEllipsis atIndex:length - anEllipsis.length];
+			immutableResult  = [[result substringToIndex:length] retain];
 	}
+    
+    [result release];
+    return [immutableResult autorelease];
 }
 
 - (NSString *)stringWithMaxLength:(NSUInteger)maxLen {

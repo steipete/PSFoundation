@@ -23,13 +23,14 @@
 
 - (id) initWithTarget:(id)newTarget {
 	if ((self = [super init])) {
-        PS_SET_RETAINED(target, newTarget);
+        target = [newTarget retain];
 	}
 	return self;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    PS_SET_RETAINED(invocation, anInvocation);
+    [invocation release];
+    invocation = [anInvocation retain];
 	[invocation retainArguments];
 	[self performSelector:@selector(performSelectorAtNextRunloop) withObject:nil afterDelay:0.0];
 }
@@ -37,9 +38,9 @@
 - (void) performSelectorAtNextRunloop {
 	[invocation invokeWithTarget:target];
     
-    PS_RELEASE(target);
-    PS_RELEASE(invocation);
-    PS_RELEASE(self);
+    [target release];
+    [invocation release];
+    [self release];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
@@ -63,24 +64,24 @@
 
 - (id) initWithTarget:(id)newTarget delay:(float)time{
 	if ((self = [super init])) {
-        PS_SET_RETAINED(target, newTarget);
+        target = [newTarget retain];
 		delay = time;
 	}
 	return self;
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    PS_SET_RETAINED(invocation, anInvocation);
+    [invocation release];
+    invocation = [anInvocation retain];
 	[invocation retainArguments];
 	[self performSelector:@selector(performSelectorWithDelay) withObject:nil afterDelay:delay];
 }
 
 - (void) performSelectorWithDelay {
 	[invocation invokeWithTarget:target];
-    
-    PS_RELEASE(target);
-    PS_RELEASE(invocation);
-    PS_RELEASE(self);
+    [target release];
+    [invocation release];
+    [self release];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
@@ -102,17 +103,17 @@
 @implementation PRHMainThreadPerformingProxy
 
 - (id)initWithRealObject:(id)newRealObject {
-	PS_SET_RETAINED(realObject, newRealObject);
+    realObject = [newRealObject retain];
 	return self;
 }
 
 - (void) dealloc {
-    PS_RELEASE(realObject);
-	PS_DEALLOC();
+    [realObject release];
+    [super dealloc];
 }
 
 - (void) finalize {
-    PS_RELEASE_NIL(realObject);
+    [realObject release];
 	[super finalize];
 }
 
@@ -145,6 +146,6 @@
 }
 
 - (id) performOnMainThreadProxy {
-    return PS_AUTORELEASE([[PRHMainThreadPerformingProxy alloc] initWithRealObject:self]);
+    return [[[PRHMainThreadPerformingProxy alloc] initWithRealObject:self] autorelease];
 }
 @end

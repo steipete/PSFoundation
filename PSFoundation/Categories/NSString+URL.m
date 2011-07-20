@@ -15,37 +15,36 @@
 
 - (NSString *)URLEncodedString {
     CFStringRef string = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                 (__bridge CFStringRef)self,
+                                                                 (CFStringRef)self,
                                                                  NULL,
                                                                  CFSTR("!*'();:@&=+$,/?%#[]<>"),
                                                                  kCFStringEncodingUTF8);
     if (string)
-        return PS_AUTORELEASE((__bridge_transfer NSString *)string);
+        return [(NSString *)string autorelease];
     return nil;
 }
 
 - (NSString *)URLDecodedString {
     CFStringRef string = CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
-                                                                                 (__bridge CFStringRef)self,
+                                                                                 (CFStringRef)self,
                                                                                  CFSTR(""),
                                                                                  kCFStringEncodingUTF8);
     if (string)
-        return PS_AUTORELEASE((__bridge_transfer NSString *)string);
+        return [(NSString *)string autorelease];
     return nil;
 }
 
 - (NSString *)URLEncodedParameterString {
     CFStringRef firstPass = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                 (__bridge CFStringRef)self,
+                                                                 (CFStringRef)self,
                                                                  CFSTR(" "),
                                                                  CFSTR(":/=,!$&'()*+;[]@#?"),
                                                                  kCFStringEncodingUTF8);
     if (firstPass) {
         CFMutableStringRef secondPass = CFStringCreateMutableCopy(kCFAllocatorDefault, CFStringGetLength(firstPass), firstPass);
         CFRelease(firstPass);
-        CFStringFindAndReplace(secondPass, (__bridge CFStringRef)@" ", (__bridge CFStringRef)@"+", CFRangeMake(0, CFStringGetLength(secondPass)), 0);
-        NSString *ret = (__bridge NSString *)secondPass;
-        return PS_AUTORELEASE(ret);
+        CFStringFindAndReplace(secondPass, (CFStringRef)@" ", (CFStringRef)@"+", CFRangeMake(0, CFStringGetLength(secondPass)), 0);
+        return [(NSString *)secondPass autorelease];
     }
     return self;
 }
@@ -91,7 +90,7 @@
 }
 
 - (NSString *)removeQuotes {
-	NSString *ret = PS_AUTORELEASE([self copy]);
+	NSString *ret = [[self copy] autorelease];
         
 	if ([self characterAtIndex:0] == '"') {
 		ret = [ret substringFromIndex:1];

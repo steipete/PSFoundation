@@ -54,8 +54,8 @@
 }
 
 - (void)dealloc {
-    PS_RELEASE_NIL(dateFormatter);
-    PS_DEALLOC();
+    [dateFormatter release];
+    [super dealloc];
 }
 
 @end

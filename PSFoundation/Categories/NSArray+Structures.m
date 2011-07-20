@@ -31,9 +31,9 @@
 - (id)dequeue {
 	if (self.empty) return nil;
     
-    id lastObject = PS_RETAIN([self lastObject]);
+    id lastObject = [[self lastObject] retain];
 	[self removeLastObject];
-	return PS_AUTORELEASE(lastObject);
+	return [lastObject autorelease];
 }
 
 - (NSMutableArray *)push:(id)object {
@@ -59,9 +59,9 @@
 - (id)pull {
 	if (self.empty) return nil;
     
-    id firstObject = PS_RETAIN([self firstObject]);
+    id firstObject = [[self firstObject] retain];
 	[self removeObjectAtIndex:0];
-	return PS_AUTORELEASE(firstObject);
+	return [firstObject autorelease];
 }
 
 - (id)pullObject {

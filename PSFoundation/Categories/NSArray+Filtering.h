@@ -27,7 +27,6 @@
 @interface NSMutableArray (PSArrayResort)
 - (void)reverse;
 - (void)shuffle;
-- (void)scramble DEPRECATED_ATTRIBUTE;
 @end
 
 @interface NSArray (PSArraySorting)

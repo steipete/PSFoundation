@@ -35,10 +35,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSReachability);
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
     [reachability_ stopNotifier];
-    
-    PS_RELEASE(reachability_);
-    PS_RELEASE(hostAddress_);
-    PS_DEALLOC();
+    [reachability_ release];
+    [hostAddress_ release];
+    [super dealloc];
 }
 
 ////////////////////////////////////////////////////////////////////////

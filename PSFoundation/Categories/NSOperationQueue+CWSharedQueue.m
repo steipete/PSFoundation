@@ -23,8 +23,10 @@ static NSOperationQueue *cw_sharedOperationQueue = nil;
 }
 
 + (void)setSharedOperationQueue:(NSOperationQueue*)operationQueue {
-    if ([operationQueue isEqual:cw_sharedOperationQueue])
-        PS_SET_RETAINED(cw_sharedOperationQueue, operationQueue);
+    if ([operationQueue isEqual:cw_sharedOperationQueue]) {
+        [cw_sharedOperationQueue release];
+        cw_sharedOperationQueue = [operationQueue retain];
+    }
 }
 
 @end
@@ -35,7 +37,7 @@ static NSOperationQueue *cw_sharedOperationQueue = nil;
 - (NSInvocationOperation *)performSelectorInBackgroundQueue:(SEL)aSelector withObject:(id)arg {
 	NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:aSelector object:arg];
     [[NSOperationQueue sharedOperationQueue] addOperation:operation];
-	return PS_AUTORELEASE(operation);
+	return [operation autorelease];
 }
 
 - (NSInvocationOperation *)performSelectorInBackgroundQueue:(SEL)aSelector withObject:(id)arg dependencies:(NSArray *)dependencies priority:(NSOperationQueuePriority)priority {
@@ -45,7 +47,7 @@ static NSOperationQueue *cw_sharedOperationQueue = nil;
         [operation addDependency:dependency]; 
     }
     [[NSOperationQueue sharedOperationQueue] addOperation:operation];
-	return PS_AUTORELEASE(operation);
+	return [operation autorelease];
 }
 
 @end

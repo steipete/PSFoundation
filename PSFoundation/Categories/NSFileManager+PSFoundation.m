@@ -101,11 +101,11 @@
 			if(eof){
 				dispatch_async(dispatch_get_main_queue(), ^{
 					handler(data, error);
-                    PS_RELEASE(data);
+                    [data release];
 				});
 				
 				dispatch_source_cancel(source);
-                PS_RELEASE(fh);
+                [fh release];
 			}
 		});
 		dispatch_resume(source);
