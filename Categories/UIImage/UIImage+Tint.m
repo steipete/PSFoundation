@@ -11,31 +11,17 @@
 @implementation UIImage (MGTint)
 
 
-- (UIImage *)imageTintedWithColor:(UIColor *)color
-{
+- (UIImage *)imageTintedWithColor:(UIColor *)color {
 	// This method is designed for use with template images, i.e. solid-coloured mask-like images.
 	return [self imageTintedWithColor:color fraction:0.0]; // default to a fully tinted mask of the image.
 }
 
 
-- (UIImage *)imageTintedWithColor:(UIColor *)color fraction:(CGFloat)fraction
-{
+- (UIImage *)imageTintedWithColor:(UIColor *)color fraction:(CGFloat)fraction {
 	if (color) {
 		// Construct new image the same size as this one.
 		UIImage *image;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
-		IF_IOS4_OR_GREATER
-        (
-			UIGraphicsBeginImageContextWithOptions([self size], NO, 0.0); // 0.0 for scale means "scale for device's main screen".
-		)
-#else
-    IF_PRE_IOS4
-    (
-		if ([[[UIDevice currentDevice] systemVersion] floatValue] < 4.0) {
-			UIGraphicsBeginImageContext([self size]);
-        }
-    )
-#endif
+        UIGraphicsBeginImageContextWithOptions([self size], NO, 0.0); // 0.0 for scale means "scale for device's main screen".
 		CGRect rect = CGRectZero;
 		rect.size = [self size];
 

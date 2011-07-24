@@ -75,7 +75,7 @@ CGFloat RadiansToDegrees(CGFloat radians) {
     CGRect sourceRect, destRect;
     if (cropping) {
         destRect = CGRectMake(0, 0, targetWidth, targetHeight);
-        float destX, destY;
+        float destX = 0, destY = 0;
         if (resizeMethod == MGImageResizeCrop) {
             // Crop center
             destX = round((scaledWidth - targetWidth) / 2.0);
