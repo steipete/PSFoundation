@@ -109,6 +109,16 @@
     }
 }
 
+- (id)reversed {
+    [self reverse];
+    return self;
+}
+
+- (id)shuffled {
+    [self shuffle];
+    return self;
+}
+
 @end
 
 @implementation NSArray (PSArraySorting)

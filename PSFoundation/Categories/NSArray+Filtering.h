@@ -27,6 +27,9 @@
 @interface NSMutableArray (PSArrayResort)
 - (void)reverse;
 - (void)shuffle;
+@property (readonly) id reversed;
+@property (readonly) id shuffled;
+
 @end
 
 @interface NSArray (PSArraySorting)
