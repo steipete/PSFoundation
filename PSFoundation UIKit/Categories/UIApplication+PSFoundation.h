@@ -15,4 +15,9 @@
  */
 - (void)setApplicationStyle:(UIStatusBarStyle)style animated:(BOOL)animated;
 
+@property (nonatomic, assign) NSInteger networkActivityCount;
+
++ (void)incrementNetworkActivityCount;
++ (void)decrementNetworkActivityCount;
+
 @end

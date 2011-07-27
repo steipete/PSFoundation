@@ -7,10 +7,12 @@
 //
 
 #import "UIApplication+PSFoundation.h"
+#import "NSObject+AssociatedObjects.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation UIApplication (PSFoundation)
 
+static char *kApplicationNetworkCountKey = "UIApplicationNetworkUsersCount"; 
 
 - (void)setApplicationStyle:(UIStatusBarStyle)style animated:(BOOL)animated {
 	[self setStatusBarStyle:style animated:animated];
@@ -32,6 +34,29 @@
 	} else {
 		self.keyWindow.backgroundColor = newBackgroundColor;
 	}
+}
+
++ (void)incrementNetworkActivityCount {
+    [self sharedApplication].networkActivityCount++;
+}
+
++ (void)decrementNetworkActivityCount {
+    [self sharedApplication].networkActivityCount--;
+}
+
+- (void)setNetworkActivityCount:(NSInteger)count {
+    @synchronized (self) {
+        NSNumber *value = [NSNumber numberWithInteger:count];
+        [self associateValue:value withKey:kApplicationNetworkCountKey];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = (count > 0);
+    }
+}
+
+- (NSInteger)networkActivityCount {
+    @synchronized (self) {
+        NSNumber *value = [self associatedValueForKey:kApplicationNetworkCountKey];
+        return [value integerValue];
+    }    
 }
 
 @end
