@@ -5,7 +5,6 @@
 //  Includes code by the following:
 //   - Corey Floyd.
 //   - Steve Degutis.
-//   - Peter Hosey.
 //
 
 #import "NSObject+Proxy.h"
@@ -95,49 +94,6 @@
 
 /****************************************************************************/
 
-@interface PRHMainThreadPerformingProxy : NSProxy {
-	id realObject;
-}
-
-- (id)initWithRealObject:(id)newRealObject;
-
-@end
-
-@implementation PRHMainThreadPerformingProxy
-
-- (id)initWithRealObject:(id)newRealObject {
-    realObject = [newRealObject retain];
-	return self;
-}
-
-- (void) dealloc {
-    [realObject release];
-    [super dealloc];
-}
-
-- (void) finalize {
-    [realObject release];
-	[super finalize];
-}
-
-- (void) forwardInvocation:(NSInvocation *)invocation {
-	if (realObject) {
-		[invocation setTarget:realObject];
-		if (![invocation argumentsRetained])
-			[invocation retainArguments];
-		[invocation performSelectorOnMainThread:@selector(invoke) withObject:nil waitUntilDone:NO];
-	}
-}
-
-- (NSMethodSignature *) methodSignatureForSelector:(SEL)selector {
-	return [realObject methodSignatureForSelector:selector];
-}
-
-@end
-
-
-/****************************************************************************/
-
 
 @implementation NSObject (SDStuff)
 
@@ -149,7 +105,4 @@
 	return [[[FJSDelayProxy alloc] initWithTarget:self delay:time] autorelease];
 }
 
-- (id) performOnMainThreadProxy {
-    return [[[PRHMainThreadPerformingProxy alloc] initWithRealObject:self] autorelease];
-}
 @end
