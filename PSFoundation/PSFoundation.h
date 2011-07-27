@@ -21,8 +21,7 @@
 
 // Our projects/forks
 #import "PSReachability.h"
-#import "Reachability.h"
-#import "SFHFKeychainUtils.h"
+#import "PSKeychain.h"
 #import "TPAutoArchiver.h"
 
 // invocations & proxies

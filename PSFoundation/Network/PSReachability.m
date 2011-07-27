@@ -1,107 +1,189 @@
 //
 //  PSReachability.m
-//  WhereTU
+//  PSFoundation
 //
-//  Created by Tretter Matthias on 25.06.11.
-//  Copyright 2011 @myell0w. All rights reserved.
+//  Includes code by the following:
+//   - Apple Inc.         2010.  Apple Sample.
+//   - Andrew Donoho.     2009.  BSD.
+//   - Matthias Tretter.  2011.
 //
 
 #import "PSReachability.h"
-#import "PSFoundation.h"
 
 @interface PSReachability ()
-
-@property (nonatomic, retain, readwrite) Reachability *reachability;
-@property (nonatomic, assign, readwrite) NetworkStatus currentNetworkStatus;
-@property (nonatomic, copy, readwrite) NSString *hostAddress;
-
-- (void)reachabilityChanged:(NSNotification *)note;
-
+- (id)initWithReachability:(SCNetworkReachabilityRef)ref;
+- (NetworkStatus)networkStatusForFlags:(SCNetworkReachabilityFlags)flags;
 @end
+
+NSString* const kReachabilityChangedNotification = @"SCNetworkReachabilityChangedNotification";
 
 @implementation PSReachability
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(PSReachability);
-
-@synthesize reachability = reachability_;
-@synthesize currentNetworkStatus = currentNetworkStatus_;
-@synthesize hostAddress = hostAddress_;
-
-////////////////////////////////////////////////////////////////////////
-#pragma mark -
-#pragma mark Lifecycle
-////////////////////////////////////////////////////////////////////////
+static void PSReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, void* info) {
+    NSCAssert(info, @"info was NULL in Reachability callback!");
+    PSReachability *infoObject = (id)info;
+    BOOL classCheck = [infoObject isKindOfClass:[PSReachability class]];
+    NSCAssert(classCheck, @"info was the WRONG CLASS in Reachability callback!");
+    
+    NSAutoreleasePool *pool = [NSAutoreleasePool new];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kReachabilityChangedNotification object:infoObject];
+    [pool drain];
+}
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
-    [reachability_ stopNotifier];
-    [reachability_ release];
-    [hostAddress_ release];
+    [self stopNotifier];
+    
+    if (reachabilityRef)
+		CFRelease(reachabilityRef);
+    
     [super dealloc];
 }
 
-////////////////////////////////////////////////////////////////////////
-#pragma mark -
-#pragma mark Reachability
-////////////////////////////////////////////////////////////////////////
-
-- (void)startCheckingHostAddress:(NSString *)hostAddress {
-    self.hostAddress = hostAddress;
-    
-    // Listen for reachability changes
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reachabilityChanged:)
-                                                 name:kReachabilityChangedNotification object:nil];
-    
-    self.reachability = [Reachability reachabilityWithHostName:hostAddress];
-    self.currentNetworkStatus = self.reachability.currentReachabilityStatus; 
-    
-    // start continous updates
-    [self.reachability startNotifier];
+- (PSReachability *)initWithReachability:(SCNetworkReachabilityRef)ref {
+    if ((self = [super init])) {
+        reachabilityRef = ref;
+    }
+    return self;
 }
 
-- (void)setupReachabilityFor:(id)object {
-    if ([object respondsToSelector:@selector(configureForNetworkStatus:)]) {
-        // listen for PSReachability Notifications
-        [[NSNotificationCenter defaultCenter] addObserver:object
-                                                 selector:@selector(configureForNetworkStatus:)
-                                                     name:kPSReachabilityChangedNotification
-                                                   object:self];
-        
-        // perform initial setup
-        NSNotification *notification = [NSNotification notificationWithName:kPSReachabilityChangedNotification 
-                                                                     object:self 
-                                                                   userInfo:XDICT(xint(self.currentNetworkStatus),kPSNetworkStatusKey)];
-        [object performSelector:@selector(configureForNetworkStatus:) withObject:notification];
-        
-        DDLogVerbose(@"Object %@ was setup to use PSReachability", object);
-    } else {
-        DDLogVerbose(@"Object %@ isn't configured to use PSReachability", object);
-    }
++ (PSReachability *)reachabilityWithHostName:(NSString *)hostName {
+    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(NULL, [hostName UTF8String]);
+    
+    if (!reachability)
+        return nil;
+    
+    return [[[self alloc] initWithReachability:reachability] autorelease];
 }
 
-- (void)shutdownReachabilityFor:(id)object {
-    if ([object respondsToSelector:@selector(configureForNetworkStatus:)]) {
-        [[NSNotificationCenter defaultCenter] removeObserver:object name:kPSReachabilityChangedNotification object:self];
-    }
++ (PSReachability *)reachabilityWithAddress:(const struct sockaddr_in*)hostAddress {
+    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(NULL, (const struct sockaddr*)hostAddress);
+    
+    if (!reachability)
+        return nil;
+    
+    return [[[self alloc] initWithReachability:reachability] autorelease];
 }
 
-- (void)reachabilityChanged:(NSNotification *)note {
-    // get Reachability instance from notification
-	Reachability* reachability = [note object];
++ (PSReachability *)reachabilityForInternetConnection {
+    struct sockaddr_in zero;
+    bzero(&zero, sizeof(zero));
+    zero.sin_len = sizeof(zero);
+    zero.sin_family = AF_INET;
+    return [self reachabilityWithAddress:&zero];
+}
+
++ (PSReachability *)reachabilityForLocalWiFi {
+    struct sockaddr_in localWiFi;
+    bzero(&localWiFi, sizeof(localWiFi));
+    localWiFi.sin_len = sizeof(localWiFi);
+    localWiFi.sin_family = AF_INET;
+    localWiFi.sin_addr.s_addr = htonl(IN_LINKLOCALNETNUM);
     
-	// get current status
-	NetworkStatus newNetworkStatus = [reachability currentReachabilityStatus];
+    return [self reachabilityWithAddress:&localWiFi];
+}
+
+- (BOOL)startNotifier {
+    SCNetworkReachabilityContext context = {0, (void *)self, NULL, NULL, NULL};
+    if (SCNetworkReachabilitySetCallback(reachabilityRef, PSReachabilityCallback, &context))
+        if (SCNetworkReachabilityScheduleWithRunLoop(reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode))
+            return YES;
+    return NO;
+}
+
+- (void)stopNotifier {
+	if (reachabilityRef)
+		SCNetworkReachabilityUnscheduleFromRunLoop(reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+}
+
+- (NetworkStatus)currentReachabilityStatus {
+    NSAssert(reachabilityRef, @"currentReachabilityStatus not initialized property.");
+    SCNetworkReachabilityFlags flags = 0;
     
-    // if network status has changed, post notification
-    if (newNetworkStatus != self.currentNetworkStatus) {
-        self.currentNetworkStatus = newNetworkStatus;
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:kPSReachabilityChangedNotification
-                                                            object:self
-                                                          userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:newNetworkStatus] 
-                                                                                               forKey:kPSNetworkStatusKey]];
+    if (!(flags & kSCNetworkReachabilityFlagsReachable))
+        return NotReachable;
+    
+    NetworkStatus retVal = NotReachable;
+    
+    if (!(flags & kSCNetworkReachabilityFlagsConnectionOnDemand) || !(flags & kSCNetworkReachabilityFlagsConnectionOnTraffic)) {
+        if (!(flags & kSCNetworkReachabilityFlagsInterventionRequired))
+                retVal = ReachableViaWiFi;
     }
+    
+    IF_IOS(
+        if (flags & kSCNetworkReachabilityFlagsIsWWAN)
+           retVal = ReachableViaWWAN;
+    )
+    
+    return retVal;
+}
+
+- (BOOL)isConnectionRequired {
+    NSAssert(reachabilityRef, @"currentReachabilityStatus not initialized property.");
+    SCNetworkReachabilityFlags flags = 0;
+    if (SCNetworkReachabilityGetFlags(reachabilityRef, &flags))
+        return (flags & kSCNetworkReachabilityFlagsConnectionRequired);
+    return NO;
+}
+
+- (BOOL)connectionRequired {
+    return [self isConnectionRequired];
+}
+
+- (BOOL) isReachable {
+    return (self.status != NotReachable);
+}
+
+- (BOOL) isConnectionOnDemand {
+    NSAssert(reachabilityRef, @"currentReachabilityStatus not initialized property.");
+    
+    SCNetworkReachabilityFlags flags = self.flags;
+    return ((flags & kSCNetworkReachabilityFlagsConnectionRequired) && (flags & kSCNetworkReachabilityFlagsConnectionOnTraffic | kSCNetworkReachabilityFlagsConnectionOnDemand));
+}
+
+- (BOOL) isInterventionRequired {
+    NSAssert(reachabilityRef, @"currentReachabilityStatus not initialized property.");
+    
+    SCNetworkReachabilityFlags flags = self.flags;
+    return ((flags & kSCNetworkReachabilityFlagsConnectionRequired) && (flags & kSCNetworkReachabilityFlagsInterventionRequired));
+}
+
+- (BOOL) isReachableViaWWAN {
+    return (self.flags == ReachableViaWWAN);
+}
+
+- (BOOL) isReachableViaWiFi {
+    return (self.flags == ReachableViaWiFi);
+}
+
+- (SCNetworkReachabilityFlags)reachabilityFlags {
+    NSAssert(reachabilityRef, @"currentReachabilityStatus not initialized property.");
+    
+    SCNetworkReachabilityFlags flags = 0;
+    
+    if (SCNetworkReachabilityGetFlags(reachabilityRef, &flags)) {
+        return flags;
+    }
+    
+    return 0;
+}
+
+- (NetworkStatus)networkStatusForFlags:(SCNetworkReachabilityFlags)flags {
+    if (!(flags & kSCNetworkReachabilityFlagsReachable))
+        return NotReachable;
+    
+    NetworkStatus retVal = NotReachable;
+    
+    if (!(flags & kSCNetworkReachabilityFlagsConnectionOnDemand) || !(flags & kSCNetworkReachabilityFlagsConnectionOnTraffic)) {
+        if (!(flags & kSCNetworkReachabilityFlagsInterventionRequired))
+            retVal = ReachableViaWiFi;
+    }
+    
+    IF_IOS(
+        if (flags & kSCNetworkReachabilityFlagsIsWWAN)
+           retVal = ReachableViaWWAN;
+    )
+    
+    return retVal;
 }
 
 @end
