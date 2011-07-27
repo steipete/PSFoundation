@@ -1,23 +1,17 @@
 //
-//  NSData+CommonCrypto.h
+//  NSData+PSCommonCrypto.h
 //  PSFoundation
 //
-//  Created by Jim Dovey on 31.8.2008.
+//  Created by Jim Dovey on 31 Aug. 2008.
 //  Licensed under BSD.  All rights reserved.
 //
 
-#import <Foundation/NSData.h>
-#import <Foundation/NSError.h>
 #import <CommonCrypto/CommonCryptor.h>
 #import <CommonCrypto/CommonHMAC.h>
 
-extern NSString * const kCommonCryptoErrorDomain;
+extern NSString *const kCommonCryptoErrorDomain;
 
-@interface NSError (CommonCryptoErrorDomain)
-+ (NSError *) errorWithCCCryptorStatus: (CCCryptorStatus) status;
-@end
-
-@interface NSData (CommonDigest)
+@interface NSData (PSCommonDigest)
 
 - (NSData *) MD2Sum;
 - (NSData *) MD4Sum;
@@ -31,7 +25,7 @@ extern NSString * const kCommonCryptoErrorDomain;
 
 @end
 
-@interface NSData (CommonCryptor)
+@interface NSData (PSCommonCryptor)
 
 - (NSData *) AES256EncryptedDataUsingKey: (id) key error: (NSError **) error;
 - (NSData *) decryptedAES256DataUsingKey: (id) key error: (NSError **) error;
@@ -44,7 +38,7 @@ extern NSString * const kCommonCryptoErrorDomain;
 
 @end
 
-@interface NSData (LowLevelCommonCryptor)
+@interface NSData (PSCommonCryptorLow)
 
 - (NSData *) dataEncryptedUsingAlgorithm: (CCAlgorithm) algorithm
 									 key: (id) key		// data or string
@@ -74,7 +68,7 @@ extern NSString * const kCommonCryptoErrorDomain;
 
 @end
 
-@interface NSData (CommonHMAC)
+@interface NSData (PSCommonHMAC)
 
 - (NSData *) HMACWithAlgorithm: (CCHmacAlgorithm) algorithm;
 - (NSData *) HMACWithAlgorithm: (CCHmacAlgorithm) algorithm key: (id) key;

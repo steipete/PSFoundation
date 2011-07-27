@@ -1,19 +1,20 @@
 //
-//  NSData+CommonCrypto.m
+//  NSData+PSCommonCrypto.m
 //  PSFoundation
 //
-//  Created by Jim Dovey on 31.8.2008.
-//  Licensed under BSD.  All rights reserved.
-//
 
-#import "NSData+CommonCrypto.h"
+#import "NSData+PSCommonCrypto.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonCryptor.h>
 #import <CommonCrypto/CommonHMAC.h>
 
 NSString * const kCommonCryptoErrorDomain = @"CommonCryptoErrorDomain";
 
-@implementation NSError (CommonCryptoErrorDomain)
+@interface NSError (PSCommonCryptoError)
++ (NSError *) errorWithCCCryptorStatus: (CCCryptorStatus) status;
+@end
+
+@implementation NSError (PSCommonCryptoError)
 
 + (NSError *) errorWithCCCryptorStatus: (CCCryptorStatus) status
 {
@@ -73,7 +74,7 @@ NSString * const kCommonCryptoErrorDomain = @"CommonCryptoErrorDomain";
 
 #pragma mark -
 
-@implementation NSData (CommonDigest)
+@implementation NSData (PSCommonDigest)
 
 - (NSData *) MD2Sum
 {
@@ -133,7 +134,7 @@ NSString * const kCommonCryptoErrorDomain = @"CommonCryptoErrorDomain";
 
 @end
 
-@implementation NSData (CommonCryptor)
+@implementation NSData (PSCommonCryptor)
 
 - (NSData *) AES256EncryptedDataUsingKey: (id) key error: (NSError **) error
 {
@@ -302,7 +303,7 @@ static void FixKeyLengths( CCAlgorithm algorithm, NSMutableData * keyData, NSMut
 	[ivData setLength: [keyData length]];
 }
 
-@implementation NSData (LowLevelCommonCryptor)
+@implementation NSData (PSCommonCryptorLow)
 
 - (NSData *) _runCryptor: (CCCryptorRef) cryptor result: (CCCryptorStatus *) status
 {
@@ -478,7 +479,7 @@ static void FixKeyLengths( CCAlgorithm algorithm, NSMutableData * keyData, NSMut
 
 @end
 
-@implementation NSData (CommonHMAC)
+@implementation NSData (PSCommonHMAC)
 
 - (NSData *)HMACWithAlgorithm:(CCHmacAlgorithm)algorithm {
 	return [self HMACWithAlgorithm:algorithm key:nil];

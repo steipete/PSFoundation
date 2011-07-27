@@ -24,7 +24,7 @@
 	url = git://github.com/zwaldowski/TDBadgedCell.git
 [submodule "PSFoundation/External/MAZeroingWeakRef"]
 	path = PSFoundation/External/MAZeroingWeakRef
-	url = git://github.com/mikeash/MAZeroingWeakRef.git
+	url = git://github.com/zwaldowski/MAZeroingWeakRef.git
 [submodule "PSFoundation/External/MBProgressHUD"]
 	path = PSFoundation/External/MBProgressHUD
 	url = git://github.com/jdg/MBProgressHUD.git
@@ -33,7 +33,7 @@
 	url = git://github.com/myell0w/NYXImagesUtilities.git
 [submodule "PSFoundation/External/EGOCache"]
 	path = PSFoundation/External/EGOCache
-	url = git://github.com/myell0w/EGOCache.git
+	url = git://github.com/zwaldowski/EGOCache.git
 [submodule "PSFoundation/External/CocoaLumberjack"]
 	path = PSFoundation/External/CocoaLumberjack
 	url = git://github.com/robbiehanson/CocoaLumberjack.git
