@@ -17,15 +17,9 @@
 - (void)enqueue:(id)object;
 - (id)dequeue;
 
-- (NSMutableArray *)push:(id)object;
-- (NSMutableArray *)pushObject:(id)object;
-- (NSMutableArray *)pushObjects:(id)object, ...;
-
-- (id) pull;
-- (id) pullObject;
-
-- (id) pop;
-- (id) popObject;
+- (void)push:(id)object;
+- (id)pull;
+- (id)pop;
 
 - (void)removeFirstObject;
 @end

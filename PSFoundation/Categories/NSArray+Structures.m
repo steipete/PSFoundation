@@ -9,6 +9,7 @@
 //
 
 #import "NSArray+Structures.h"
+#import "NSArray+PSFoundation.h"
 
 @implementation NSArray (PSArrayStructures)
 
@@ -18,7 +19,6 @@
 }
 
 @dynamic last;
-
 
 @end
 
@@ -36,24 +36,8 @@
 	return [lastObject autorelease];
 }
 
-- (NSMutableArray *)push:(id)object {
+- (void)push:(id)object {
     [self addObject:object];
-	return self;	
-}
-
-- (NSMutableArray *)pushObject:(id)object {
-    return [self pushObject:object];
-}
-
-- (NSMutableArray *)pushObjects:(id)object, ... {
-	if (!object) return self;
-	va_list objects;
-	va_start(objects, object);
-    for (NSString *obj = object; object != nil; obj = va_arg(objects, id)) {
-        [self addObject:obj];
-    }
-	va_end(objects);
-	return self;
 }
 
 - (id)pull {
@@ -64,16 +48,8 @@
 	return [firstObject autorelease];
 }
 
-- (id)pullObject {
-	return [self pullObject];
-}
-
 - (id)pop {
 	return [self dequeue];
-}
-
-- (id) popObject {
-    return [self dequeue];
 }
 
 - (void)removeFirstObject {
