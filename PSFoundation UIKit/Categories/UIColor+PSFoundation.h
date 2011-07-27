@@ -12,6 +12,7 @@
 @interface UIColor (PSFoundation)
 
 @property (nonatomic, readonly) CGColorSpaceModel colorSpaceModel;
+@property (nonatomic, readonly) NSString *colorSpace;
 @property (nonatomic, readonly) BOOL canProvideRGBComponents;
 @property (nonatomic, readonly) CGFloat red; // Only valid if canProvideRGBComponents is YES
 @property (nonatomic, readonly) CGFloat green; // Only valid if canProvideRGBComponents is YES
@@ -19,8 +20,6 @@
 @property (nonatomic, readonly) CGFloat white; // Only valid if colorSpaceModel == kCGColorSpaceModelMonochrome
 @property (nonatomic, readonly) CGFloat alpha;
 @property (nonatomic, readonly) UInt32 rgbHex;
-
-- (NSString *)colorSpaceString;
 
 - (NSArray *)arrayFromRGBAComponents;
 
@@ -47,15 +46,18 @@
 - (NSString *)hexStringFromColor;
 
 + (UIColor *)randomColor;
-+ (UIColor *)colorWithString:(NSString *)stringToConvert;
-+ (UIColor *)colorWithRGBHex:(UInt32)hex;
-+ (UIColor *)colorWithHexString:(NSString *)stringToConvert;
 
++ (UIColor *)colorWithString:(NSString *)stringToConvert;
++ (UIColor *)colorWithHex:(UInt32)hex;
++ (UIColor *)colorWithHex:(UInt32)hex alpha:(CGFloat)alpha;
++ (UIColor *)colorWithHexString:(NSString *)str;
 + (UIColor *)colorWithName:(NSString *)cssColorName;
 
 + (UIColor*)navigationColorForTab:(int)tab;
 + (UIColor*)cellColorForTab:(int)tab;
-+ (UIColor*)cellLabelColor;
-+ (UIColor*)conversationBackground;
+
++ (UIColor *)settingsTextColor;
++ (UIColor* )cellLabelColor;
++ (UIColor *)conversationBackground;
 
 @end

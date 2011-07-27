@@ -2,8 +2,9 @@
 //  UIButton+Glossy.h
 //  PSFoundation
 //
-//  Created by Michael Heyeck.
-//  Licensed under BSD.  All rights reserved.
+//  Includes code by the following:
+//   - Michael Heyeck. BSD.
+//   - Erik Aigner.    Public domain.
 //
 //  References:
 //   - http://www.mlsite.net/blog/?page_id=372
@@ -19,6 +20,8 @@
 + (void)drawGlossyRect:(CGRect)rect withColor:(UIColor*)color withArrow:(BOOL)arrow inContext:(CGContextRef)context;
 - (void)setBackgroundToGlossyRectOfColor:(UIColor*)color withBorder:(BOOL)border withArrow:(BOOL)arrow forState:(UIControlState)state;
 - (void)setBackgroundToGlossyRectOfColor:(UIColor*)color withBorder:(BOOL)border forState:(UIControlState)state;
+
++ (UIButton *)alertButtonWithFrame:(CGRect)buttonFrame;
 
 @end
 

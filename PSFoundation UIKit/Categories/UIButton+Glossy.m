@@ -231,13 +231,11 @@ static void calc_glossy_color(void* info, const float* in, float* out)
   CGContextClosePath(context);					// End at TDC
 }
 
-+ (void)drawGlossyRect:(CGRect)rect withColor:(UIColor*)color inContext:(CGContextRef)context
-{
++ (void)drawGlossyRect:(CGRect)rect withColor:(UIColor*)color inContext:(CGContextRef)context {
   [[self class] drawGlossyRect:rect withColor:color withArrow:NO inContext:context];
 }
 
-+ (void)drawGlossyRect:(CGRect)rect withColor:(UIColor*)color withArrow:(BOOL)arrow inContext:(CGContextRef)context
-{
++ (void)drawGlossyRect:(CGRect)rect withColor:(UIColor*)color withArrow:(BOOL)arrow inContext:(CGContextRef)context {
   static const float EXP_COEFFICIENT	= 4.0;
   static const float REFLECTION_MAX	= 0.80;
   static const float REFLECTION_MIN	= 0.20;
@@ -358,6 +356,18 @@ static void calc_glossy_color(void* info, const float* in, float* out)
 - (void)setBackgroundToGlossyRectOfColor:(UIColor*)color withBorder:(BOOL)border forState:(UIControlState)state
 {
   [self setBackgroundToGlossyRectOfColor:color withBorder:border withArrow:NO forState:state];
+}
+
++ (UIButton *)alertButtonWithFrame:(CGRect)buttonFrame {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setFrame:buttonFrame];
+    [button setBackgroundToGlossyRectOfColor:PSColor(200, 0, 0) withBorder:YES forState:UIControlStateNormal];
+    [button setBackgroundToGlossyRectOfColor:PSColor(170, 0, 0) withBorder:YES forState:UIControlStateHighlighted];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setTitleShadowColor:PSColor(64, 64, 64) forState:UIControlStateNormal];
+    [[button titleLabel] setShadowOffset:CGSizeMake(0, -1)];
+    [[button titleLabel] setFont:[UIFont boldSystemFontOfSize:18.0]];
+    return button;
 }
 
 @end
