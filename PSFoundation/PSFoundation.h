@@ -12,20 +12,16 @@
 // Collections ////////////////////////////////////////////////////////////////////////////////////
 
 #import "NSArray+PSFoundation.h"
-#import "NSArray+Structures.h"
+#import "NSMutableArray+PSFoundation.h"
 #import "NSArray+Filtering.h"
-
 #import "NSDictionary+PSFoundation.h"
-#import "NSDictionary+CGStructs.h"
-
 #import "NSSet+PSFoundation.h"
 
 // NSData /////////////////////////////////////////////////////////////////////////////////////////
 
-#import "GTMBase64.h"
-#import "GTMNSData+zlib.h"
-#import "NSData+CommonCrypto.h"
-#import "NSData+MTAdditions.h"
+#import "NSData+PSBase64.h"
+#import "NSData+PSZlib.h"
+#import "NSData+PSCommonCrypto.h"
 
 // NSDate /////////////////////////////////////////////////////////////////////////////////////////
 

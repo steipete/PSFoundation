@@ -4,6 +4,9 @@
 //
 //  Includes code by the following:
 //   - Shaun Harrison.  2008.  MIT.
+//   - Aleks Nesterow.  2010.  MIT.
+//   - Pieter Omvlee.   2010.  Public domain.
+//   - Erica Sadun.     2009.  Public domain.
 //
 
 #import "NSObject+Utilities.h"
@@ -13,14 +16,7 @@
 + (id)arrayWithSet:(NSSet*)set;
 - (id)objectOrNilAtIndex:(NSUInteger)index;
 
-@end
-
-@interface NSMutableArray (PSFoundation)
-
--(void)moveObjectAtIndex:(NSUInteger)oldIndex toIndex:(NSUInteger)newIndex;
--(void)moveObject:(id)anObject toIndex:(NSUInteger)newIndex;
-
-- (void)addObjectIfNotNil:(id)anObject;
-- (BOOL)addObjectsFromArrayIfNotNil:(NSArray *)otherArray;
+@property (readonly, getter = firstObject) id first;
+@property (readonly, getter = lastObject) id last;
 
 @end

@@ -9,7 +9,8 @@
 //
 
 #import "NSArray+Filtering.h"
-#import "NSArray+Structures.h"
+#import "NSMutableArray+PSFoundation.h"
+#import "NSArray+PSFoundation.h"
 #import <time.h>
 #import <stdarg.h>
 
@@ -126,7 +127,7 @@
 - (id)objectUsingPredicate:(NSPredicate *)predicate {
     NSArray *filteredArray = [self filteredArrayUsingPredicate:predicate];
     if (filteredArray)
-        return [filteredArray firstObject];
+        return filteredArray.first;
     return nil;
 }
 

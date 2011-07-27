@@ -12,9 +12,17 @@
 
 @interface NSDictionary (PSFoundation)
 - (BOOL)containsObjectForKey:(id)key;
+
+- (CGPoint)pointForKey:(NSString *)key;
+- (CGSize)sizeForKey:(NSString *)key;
+- (CGRect)rectForKey:(NSString *)key;
 @end
 
 @interface NSMutableDictionary (PSFoundation)
 - (void)setObjectToObjectForKey:(id)key inDictionary:(NSDictionary *)otherDictionary;
 - (void)setObject:(id)anObject forKeyIfNotNil:(id)aKey;
+
+- (void)setPoint:(CGPoint)value forKey:(NSString *)key;
+- (void)setSize:(CGSize)value forKey:(NSString *)key;
+- (void)setRect:(CGRect)value forKey:(NSString *)key;
 @end
