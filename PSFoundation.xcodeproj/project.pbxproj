@@ -45,11 +45,7 @@
 		6C5D68D413C62D9B00CBDA8B /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8611396C744009F6FE6 /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D68D513C62D9B00CBDA8B /* NSData+CommonCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8711396C744009F6FE6 /* NSData+CommonCrypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D68D613C62D9B00CBDA8B /* NSData+MTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8731396C744009F6FE6 /* NSData+MTAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D68D713C62D9B00CBDA8B /* NSData+RSHexDump.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8751396C744009F6FE6 /* NSData+RSHexDump.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D68D813C62D9B00CBDA8B /* NSDate+Utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8771396C744009F6FE6 /* NSDate+Utilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D68D913C62D9B00CBDA8B /* NSDate+MTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8791396C744009F6FE6 /* NSDate+MTAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D68DA13C62D9B00CBDA8B /* NSDate+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B87B1396C744009F6FE6 /* NSDate+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D68DB13C62D9B00CBDA8B /* TimeFormatters.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8B71396C744009F6FE6 /* TimeFormatters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D68DC13C62D9B00CBDA8B /* NSError+SCMethods.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8811396C744009F6FE6 /* NSError+SCMethods.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D68DD13C62D9B00CBDA8B /* NSFileManager+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B8831396C744009F6FE6 /* NSFileManager+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D68DE13C62D9B00CBDA8B /* NSNotification+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B88F1396C744009F6FE6 /* NSNotification+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -112,7 +108,7 @@
 		6C5D691713C62D9B00CBDA8B /* DDInvocationGrabber.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5C11396B186009F6FE6 /* DDInvocationGrabber.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D691813C62D9B00CBDA8B /* NSObject+DDExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5C51396B186009F6FE6 /* NSObject+DDExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D691913C62D9B00CBDA8B /* NSObject+Proxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5C71396B186009F6FE6 /* NSObject+Proxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D691A13C62D9B00CBDA8B /* SFHFKeychainUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5CA1396B186009F6FE6 /* SFHFKeychainUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C5D691A13C62D9B00CBDA8B /* PSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B5CA1396B186009F6FE6 /* PSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D691B13C62D9B00CBDA8B /* ColorLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4B31396B175009F6FE6 /* ColorLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D691C13C62D9B00CBDA8B /* DDNSLoggerLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4BB1396B175009F6FE6 /* DDNSLoggerLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D691D13C62D9B00CBDA8B /* PSDDFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4C51396B175009F6FE6 /* PSDDFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -120,8 +116,7 @@
 		6C5D691F13C62D9B00CBDA8B /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4A31396B129009F6FE6 /* SynthesizeSingleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D692013C62D9B00CBDA8B /* PSMacros+Collections.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B85D1396B751009F6FE6 /* PSMacros+Collections.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D692113C62D9B00CBDA8B /* PSMacros+Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C467B7713C1861600BD467A /* PSMacros+Compatibility.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D692213C62D9B00CBDA8B /* PSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C579D8E13C2D305007A980C /* PSReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D692313C62D9B00CBDA8B /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B43F1396B118009F6FE6 /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C5D692313C62D9B00CBDA8B /* PSReachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B43F1396B118009F6FE6 /* PSReachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D692413C62D9B00CBDA8B /* PSFoundation+Categories.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4B01396B169009F6FE6 /* PSFoundation+Categories.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D692613C62D9B00CBDA8B /* PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C86B4AE1396B14F009F6FE6 /* PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D692713C62DC400CBDA8B /* TPAutoArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4F21396B185009F6FE6 /* TPAutoArchiver.m */; };
@@ -135,11 +130,7 @@
 		6C5D692F13C62DC400CBDA8B /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8621396C744009F6FE6 /* GTMNSData+zlib.m */; };
 		6C5D693013C62DC400CBDA8B /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8721396C744009F6FE6 /* NSData+CommonCrypto.m */; };
 		6C5D693113C62DC400CBDA8B /* NSData+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8741396C744009F6FE6 /* NSData+MTAdditions.m */; };
-		6C5D693213C62DC400CBDA8B /* NSData+RSHexDump.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8761396C744009F6FE6 /* NSData+RSHexDump.m */; };
-		6C5D693313C62DC400CBDA8B /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8781396C744009F6FE6 /* NSDate+Utilities.m */; };
-		6C5D693413C62DC400CBDA8B /* NSDate+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B87A1396C744009F6FE6 /* NSDate+MTAdditions.m */; };
 		6C5D693513C62DC400CBDA8B /* NSDate+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B87C1396C744009F6FE6 /* NSDate+PSFoundation.m */; };
-		6C5D693613C62DC400CBDA8B /* TimeFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8B81396C744009F6FE6 /* TimeFormatters.m */; };
 		6C5D693713C62DC400CBDA8B /* NSError+SCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8821396C744009F6FE6 /* NSError+SCMethods.m */; };
 		6C5D693813C62DC400CBDA8B /* NSFileManager+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8841396C744009F6FE6 /* NSFileManager+PSFoundation.m */; };
 		6C5D693913C62DC400CBDA8B /* NSNotification+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8901396C744009F6FE6 /* NSNotification+PSFoundation.m */; };
@@ -197,13 +188,12 @@
 		6C5D696D13C62DC400CBDA8B /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5C21396B186009F6FE6 /* DDInvocationGrabber.m */; };
 		6C5D696E13C62DC400CBDA8B /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5C61396B186009F6FE6 /* NSObject+DDExtensions.m */; };
 		6C5D696F13C62DC400CBDA8B /* NSObject+Proxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5C81396B186009F6FE6 /* NSObject+Proxy.m */; };
-		6C5D697013C62DC500CBDA8B /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5CB1396B186009F6FE6 /* SFHFKeychainUtils.m */; };
+		6C5D697013C62DC500CBDA8B /* PSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5CB1396B186009F6FE6 /* PSKeychain.m */; };
 		6C5D697113C62DC500CBDA8B /* PSFoundation+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D685613C62AA500CBDA8B /* PSFoundation+Logging.m */; };
 		6C5D697213C62DC500CBDA8B /* ColorLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4B41396B175009F6FE6 /* ColorLog.m */; };
 		6C5D697313C62DC500CBDA8B /* DDNSLoggerLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4BC1396B175009F6FE6 /* DDNSLoggerLogger.m */; };
 		6C5D697413C62DC500CBDA8B /* PSDDFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4C61396B175009F6FE6 /* PSDDFormatter.m */; };
-		6C5D697513C62DC500CBDA8B /* PSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C579D8F13C2D305007A980C /* PSReachability.m */; };
-		6C5D697613C62DC500CBDA8B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4401396B118009F6FE6 /* Reachability.m */; };
+		6C5D697613C62DC500CBDA8B /* PSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4401396B118009F6FE6 /* PSReachability.m */; };
 		6C5D6A6013C62E2200CBDA8B /* SMModelObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6A5613C62E2200CBDA8B /* SMModelObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6A6113C62E2200CBDA8B /* SMModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6A5713C62E2200CBDA8B /* SMModelObject.m */; };
 		6C5D6C5613C64E8300CBDA8B /* SKProduct+LocalizedPrice.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6A6C13C64E8100CBDA8B /* SKProduct+LocalizedPrice.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -216,8 +206,6 @@
 		6C5D6C5D13C64E8300CBDA8B /* UIApplication+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6A7313C64E8100CBDA8B /* UIApplication+PSFoundation.m */; };
 		6C5D6C5E13C64E8300CBDA8B /* UIButton+Glossy.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6A7413C64E8100CBDA8B /* UIButton+Glossy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6C5F13C64E8300CBDA8B /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6A7513C64E8100CBDA8B /* UIButton+Glossy.m */; };
-		6C5D6C6013C64E8300CBDA8B /* UIButton+Presets.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6A7613C64E8100CBDA8B /* UIButton+Presets.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D6C6113C64E8300CBDA8B /* UIButton+Presets.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6A7713C64E8100CBDA8B /* UIButton+Presets.m */; };
 		6C5D6C6213C64E8300CBDA8B /* UIColor+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6A7813C64E8100CBDA8B /* UIColor+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6C6313C64E8300CBDA8B /* UIColor+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6A7913C64E8100CBDA8B /* UIColor+PSFoundation.m */; };
 		6C5D6C6413C64E8300CBDA8B /* UIDevice+PSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6A7A13C64E8100CBDA8B /* UIDevice+PSFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -268,9 +256,6 @@
 		6C5D6C9113C64E8300CBDA8B /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6AA713C64E8100CBDA8B /* UIView+Sizes.m */; };
 		6C5D6C9213C64E8300CBDA8B /* UIViewController+MTUIAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6AA813C64E8100CBDA8B /* UIViewController+MTUIAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6C9313C64E8300CBDA8B /* UIViewController+MTUIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6AA913C64E8100CBDA8B /* UIViewController+MTUIAdditions.m */; };
-		6C5D6C9413C64E8300CBDA8B /* UIViewControllerHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6AAA13C64E8100CBDA8B /* UIViewControllerHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D6C9513C64E8300CBDA8B /* UIViewControllerHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6AAB13C64E8100CBDA8B /* UIViewControllerHelper.m */; };
-		6C5D6C9613C64E8300CBDA8B /* UIViewExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6AAC13C64E8100CBDA8B /* UIViewExtras.m */; };
 		6C5D6C9713C64E8300CBDA8B /* UIViewHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6AAD13C64E8100CBDA8B /* UIViewHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6C9813C64E8300CBDA8B /* UIViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6AAE13C64E8100CBDA8B /* UIViewHelper.m */; };
 		6C5D6C9D13C64E8300CBDA8B /* DSActivityView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6AE613C64E8100CBDA8B /* DSActivityView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -318,14 +303,12 @@
 		6C5D6CDD13C64E8300CBDA8B /* BSUIViewRearranger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C1813C64E8200CBDA8B /* BSUIViewRearranger.m */; };
 		6C5D6CDE13C64E8300CBDA8B /* UIView+CWNibLocalizations.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C1913C64E8200CBDA8B /* UIView+CWNibLocalizations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6CDF13C64E8300CBDA8B /* UIView+CWNibLocalizations.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C1A13C64E8200CBDA8B /* UIView+CWNibLocalizations.m */; };
-		6C5D6CE013C64E8300CBDA8B /* IKNetworkActivityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C1C13C64E8200CBDA8B /* IKNetworkActivityManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D6CE113C64E8300CBDA8B /* IKNetworkActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C1D13C64E8200CBDA8B /* IKNetworkActivityManager.m */; };
 		6C5D6CE213C64E8300CBDA8B /* SoundEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C1F13C64E8200CBDA8B /* SoundEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6CE313C64E8300CBDA8B /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2013C64E8200CBDA8B /* SoundEffect.m */; };
 		6C5D6CE413C64E8300CBDA8B /* DTCustomColoredAccessory.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C2213C64E8200CBDA8B /* DTCustomColoredAccessory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6CE513C64E8300CBDA8B /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2313C64E8200CBDA8B /* DTCustomColoredAccessory.m */; };
-		6C5D6CE613C64E8300CBDA8B /* GradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C2413C64E8200CBDA8B /* GradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D6CE713C64E8300CBDA8B /* GradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2513C64E8200CBDA8B /* GradientView.m */; };
+		6C5D6CE613C64E8300CBDA8B /* PSGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C2413C64E8200CBDA8B /* PSGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C5D6CE713C64E8300CBDA8B /* PSGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2513C64E8200CBDA8B /* PSGradientView.m */; };
 		6C5D6CE813C64E8300CBDA8B /* PSGenericCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C2613C64E8200CBDA8B /* PSGenericCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6CE913C64E8300CBDA8B /* PSGenericCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2713C64E8200CBDA8B /* PSGenericCell.m */; };
 		6C5D6CEA13C64E8300CBDA8B /* PSGenericView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C2813C64E8200CBDA8B /* PSGenericView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -338,8 +321,6 @@
 		6C5D6CF113C64E8300CBDA8B /* ShadowedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2F13C64E8200CBDA8B /* ShadowedTableView.m */; };
 		6C5D6CF213C64E8300CBDA8B /* UACellBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C3013C64E8200CBDA8B /* UACellBackgroundView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6CF313C64E8300CBDA8B /* UACellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C3113C64E8200CBDA8B /* UACellBackgroundView.m */; };
-		6C5D6CF413C64E8300CBDA8B /* MTUniversalHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C3313C64E8200CBDA8B /* MTUniversalHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D6CF513C64E8300CBDA8B /* MTUniversalHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C3413C64E8200CBDA8B /* MTUniversalHelper.m */; };
 		6C5D6CF613C64E8300CBDA8B /* GradientButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C3613C64E8200CBDA8B /* GradientButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6CF713C64E8300CBDA8B /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C3713C64E8200CBDA8B /* GradientButton.m */; };
 		6C5D6CF813C64E8300CBDA8B /* LRPopoverManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C3813C64E8200CBDA8B /* LRPopoverManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -372,11 +353,7 @@
 		6CC3D3A413C7956000FB15E6 /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8621396C744009F6FE6 /* GTMNSData+zlib.m */; };
 		6CC3D3A513C7956000FB15E6 /* NSData+CommonCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8721396C744009F6FE6 /* NSData+CommonCrypto.m */; };
 		6CC3D3A613C7956000FB15E6 /* NSData+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8741396C744009F6FE6 /* NSData+MTAdditions.m */; };
-		6CC3D3A713C7956000FB15E6 /* NSData+RSHexDump.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8761396C744009F6FE6 /* NSData+RSHexDump.m */; };
-		6CC3D3A813C7956000FB15E6 /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8781396C744009F6FE6 /* NSDate+Utilities.m */; };
-		6CC3D3A913C7956000FB15E6 /* NSDate+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B87A1396C744009F6FE6 /* NSDate+MTAdditions.m */; };
 		6CC3D3AA13C7956000FB15E6 /* NSDate+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B87C1396C744009F6FE6 /* NSDate+PSFoundation.m */; };
-		6CC3D3AB13C7956000FB15E6 /* TimeFormatters.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8B81396C744009F6FE6 /* TimeFormatters.m */; };
 		6CC3D3AC13C7956000FB15E6 /* NSError+SCMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8821396C744009F6FE6 /* NSError+SCMethods.m */; };
 		6CC3D3AD13C7956000FB15E6 /* NSFileManager+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8841396C744009F6FE6 /* NSFileManager+PSFoundation.m */; };
 		6CC3D3AE13C7956000FB15E6 /* NSNotification+PSFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B8901396C744009F6FE6 /* NSNotification+PSFoundation.m */; };
@@ -427,13 +404,12 @@
 		6CC3D3DB13C7956000FB15E6 /* DDInvocationGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5C21396B186009F6FE6 /* DDInvocationGrabber.m */; };
 		6CC3D3DC13C7956000FB15E6 /* NSObject+DDExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5C61396B186009F6FE6 /* NSObject+DDExtensions.m */; };
 		6CC3D3DD13C7956000FB15E6 /* NSObject+Proxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5C81396B186009F6FE6 /* NSObject+Proxy.m */; };
-		6CC3D3DE13C7956000FB15E6 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5CB1396B186009F6FE6 /* SFHFKeychainUtils.m */; };
+		6CC3D3DE13C7956000FB15E6 /* PSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B5CB1396B186009F6FE6 /* PSKeychain.m */; };
 		6CC3D3DF13C7956000FB15E6 /* PSFoundation+Logging.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D685613C62AA500CBDA8B /* PSFoundation+Logging.m */; };
 		6CC3D3E013C7956000FB15E6 /* ColorLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4B41396B175009F6FE6 /* ColorLog.m */; };
 		6CC3D3E113C7956000FB15E6 /* DDNSLoggerLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4BC1396B175009F6FE6 /* DDNSLoggerLogger.m */; };
 		6CC3D3E213C7956000FB15E6 /* PSDDFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4C61396B175009F6FE6 /* PSDDFormatter.m */; };
-		6CC3D3E313C7956000FB15E6 /* PSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C579D8F13C2D305007A980C /* PSReachability.m */; };
-		6CC3D3E413C7956000FB15E6 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4401396B118009F6FE6 /* Reachability.m */; };
+		6CC3D3E413C7956000FB15E6 /* PSReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C86B4401396B118009F6FE6 /* PSReachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -457,8 +433,6 @@
 		6C4015A413B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSPersistentStoreCoordinator+ActiveRecord.h"; sourceTree = "<group>"; };
 		6C4015A513B05D78001FC822 /* NSPersistentStoreCoordinator+ActiveRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSPersistentStoreCoordinator+ActiveRecord.m"; sourceTree = "<group>"; };
 		6C467B7713C1861600BD467A /* PSMacros+Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PSMacros+Compatibility.h"; sourceTree = "<group>"; };
-		6C579D8E13C2D305007A980C /* PSReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSReachability.h; sourceTree = "<group>"; };
-		6C579D8F13C2D305007A980C /* PSReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSReachability.m; sourceTree = "<group>"; };
 		6C5D658213C595A400CBDA8B /* LoggerClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerClient.h; sourceTree = "<group>"; };
 		6C5D658313C595A400CBDA8B /* LoggerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoggerClient.m; sourceTree = "<group>"; };
 		6C5D658413C595A400CBDA8B /* LoggerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoggerCommon.h; sourceTree = "<group>"; };
@@ -480,8 +454,6 @@
 		6C5D6A7313C64E8100CBDA8B /* UIApplication+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+PSFoundation.m"; sourceTree = "<group>"; };
 		6C5D6A7413C64E8100CBDA8B /* UIButton+Glossy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
 		6C5D6A7513C64E8100CBDA8B /* UIButton+Glossy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
-		6C5D6A7613C64E8100CBDA8B /* UIButton+Presets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Presets.h"; sourceTree = "<group>"; };
-		6C5D6A7713C64E8100CBDA8B /* UIButton+Presets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Presets.m"; sourceTree = "<group>"; };
 		6C5D6A7813C64E8100CBDA8B /* UIColor+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PSFoundation.h"; sourceTree = "<group>"; };
 		6C5D6A7913C64E8100CBDA8B /* UIColor+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PSFoundation.m"; sourceTree = "<group>"; };
 		6C5D6A7A13C64E8100CBDA8B /* UIDevice+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+PSFoundation.h"; sourceTree = "<group>"; };
@@ -532,9 +504,6 @@
 		6C5D6AA713C64E8100CBDA8B /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Sizes.m"; sourceTree = "<group>"; };
 		6C5D6AA813C64E8100CBDA8B /* UIViewController+MTUIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MTUIAdditions.h"; sourceTree = "<group>"; };
 		6C5D6AA913C64E8100CBDA8B /* UIViewController+MTUIAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MTUIAdditions.m"; sourceTree = "<group>"; };
-		6C5D6AAA13C64E8100CBDA8B /* UIViewControllerHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerHelper.h; sourceTree = "<group>"; };
-		6C5D6AAB13C64E8100CBDA8B /* UIViewControllerHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerHelper.m; sourceTree = "<group>"; };
-		6C5D6AAC13C64E8100CBDA8B /* UIViewExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExtras.m; sourceTree = "<group>"; };
 		6C5D6AAD13C64E8100CBDA8B /* UIViewHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewHelper.h; sourceTree = "<group>"; };
 		6C5D6AAE13C64E8100CBDA8B /* UIViewHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewHelper.m; sourceTree = "<group>"; };
 		6C5D6AE613C64E8100CBDA8B /* DSActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSActivityView.h; sourceTree = "<group>"; };
@@ -583,14 +552,12 @@
 		6C5D6C1813C64E8200CBDA8B /* BSUIViewRearranger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSUIViewRearranger.m; sourceTree = "<group>"; };
 		6C5D6C1913C64E8200CBDA8B /* UIView+CWNibLocalizations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CWNibLocalizations.h"; sourceTree = "<group>"; };
 		6C5D6C1A13C64E8200CBDA8B /* UIView+CWNibLocalizations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CWNibLocalizations.m"; sourceTree = "<group>"; };
-		6C5D6C1C13C64E8200CBDA8B /* IKNetworkActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IKNetworkActivityManager.h; sourceTree = "<group>"; };
-		6C5D6C1D13C64E8200CBDA8B /* IKNetworkActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IKNetworkActivityManager.m; sourceTree = "<group>"; };
 		6C5D6C1F13C64E8200CBDA8B /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
 		6C5D6C2013C64E8200CBDA8B /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
 		6C5D6C2213C64E8200CBDA8B /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
 		6C5D6C2313C64E8200CBDA8B /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
-		6C5D6C2413C64E8200CBDA8B /* GradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientView.h; sourceTree = "<group>"; };
-		6C5D6C2513C64E8200CBDA8B /* GradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientView.m; sourceTree = "<group>"; };
+		6C5D6C2413C64E8200CBDA8B /* PSGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGradientView.h; sourceTree = "<group>"; };
+		6C5D6C2513C64E8200CBDA8B /* PSGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGradientView.m; sourceTree = "<group>"; };
 		6C5D6C2613C64E8200CBDA8B /* PSGenericCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGenericCell.h; sourceTree = "<group>"; };
 		6C5D6C2713C64E8200CBDA8B /* PSGenericCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGenericCell.m; sourceTree = "<group>"; };
 		6C5D6C2813C64E8200CBDA8B /* PSGenericView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGenericView.h; sourceTree = "<group>"; };
@@ -603,8 +570,6 @@
 		6C5D6C2F13C64E8200CBDA8B /* ShadowedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowedTableView.m; sourceTree = "<group>"; };
 		6C5D6C3013C64E8200CBDA8B /* UACellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UACellBackgroundView.h; sourceTree = "<group>"; };
 		6C5D6C3113C64E8200CBDA8B /* UACellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UACellBackgroundView.m; sourceTree = "<group>"; };
-		6C5D6C3313C64E8200CBDA8B /* MTUniversalHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTUniversalHelper.h; sourceTree = "<group>"; };
-		6C5D6C3413C64E8200CBDA8B /* MTUniversalHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTUniversalHelper.m; sourceTree = "<group>"; };
 		6C5D6C3613C64E8200CBDA8B /* GradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
 		6C5D6C3713C64E8200CBDA8B /* GradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientButton.m; sourceTree = "<group>"; };
 		6C5D6C3813C64E8200CBDA8B /* LRPopoverManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LRPopoverManager.h; sourceTree = "<group>"; };
@@ -640,8 +605,8 @@
 		6C86B3791396AAE7009F6FE6 /* libPSFoundation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPSFoundation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86B37C1396AAE7009F6FE6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6C86B3801396AAE7009F6FE6 /* PSFoundation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PSFoundation-Prefix.pch"; sourceTree = "<group>"; };
-		6C86B43F1396B118009F6FE6 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		6C86B4401396B118009F6FE6 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		6C86B43F1396B118009F6FE6 /* PSReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSReachability.h; sourceTree = "<group>"; };
+		6C86B4401396B118009F6FE6 /* PSReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSReachability.m; sourceTree = "<group>"; };
 		6C86B4A21396B129009F6FE6 /* PSMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMacros.h; sourceTree = "<group>"; };
 		6C86B4A31396B129009F6FE6 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		6C86B4AE1396B14F009F6FE6 /* PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation.h; sourceTree = "<group>"; };
@@ -660,8 +625,8 @@
 		6C86B5C61396B186009F6FE6 /* NSObject+DDExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DDExtensions.m"; sourceTree = "<group>"; };
 		6C86B5C71396B186009F6FE6 /* NSObject+Proxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Proxy.h"; sourceTree = "<group>"; };
 		6C86B5C81396B186009F6FE6 /* NSObject+Proxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Proxy.m"; sourceTree = "<group>"; };
-		6C86B5CA1396B186009F6FE6 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
-		6C86B5CB1396B186009F6FE6 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		6C86B5CA1396B186009F6FE6 /* PSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSKeychain.h; sourceTree = "<group>"; };
+		6C86B5CB1396B186009F6FE6 /* PSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSKeychain.m; sourceTree = "<group>"; };
 		6C86B7AF1396B20F009F6FE6 /* libPSFoundation-CoreData.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPSFoundation-CoreData.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C86B8151396B56E009F6FE6 /* BKMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKMacros.h; sourceTree = "<group>"; };
 		6C86B8161396B56E009F6FE6 /* BlocksKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BlocksKit-Prefix.pch"; sourceTree = "<group>"; };
@@ -712,12 +677,6 @@
 		6C86B8721396C744009F6FE6 /* NSData+CommonCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+CommonCrypto.m"; sourceTree = "<group>"; };
 		6C86B8731396C744009F6FE6 /* NSData+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+MTAdditions.h"; sourceTree = "<group>"; };
 		6C86B8741396C744009F6FE6 /* NSData+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MTAdditions.m"; sourceTree = "<group>"; };
-		6C86B8751396C744009F6FE6 /* NSData+RSHexDump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+RSHexDump.h"; sourceTree = "<group>"; };
-		6C86B8761396C744009F6FE6 /* NSData+RSHexDump.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+RSHexDump.m"; sourceTree = "<group>"; };
-		6C86B8771396C744009F6FE6 /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
-		6C86B8781396C744009F6FE6 /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
-		6C86B8791396C744009F6FE6 /* NSDate+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MTAdditions.h"; sourceTree = "<group>"; };
-		6C86B87A1396C744009F6FE6 /* NSDate+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MTAdditions.m"; sourceTree = "<group>"; };
 		6C86B87B1396C744009F6FE6 /* NSDate+PSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+PSFoundation.h"; sourceTree = "<group>"; };
 		6C86B87C1396C744009F6FE6 /* NSDate+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+PSFoundation.m"; sourceTree = "<group>"; };
 		6C86B87D1396C744009F6FE6 /* NSDictionary+CGStructs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CGStructs.h"; sourceTree = "<group>"; };
@@ -758,8 +717,6 @@
 		6C86B8B01396C744009F6FE6 /* NSURL+PSFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+PSFoundation.m"; sourceTree = "<group>"; };
 		6C86B8B51396C744009F6FE6 /* NSString+Replacement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Replacement.h"; sourceTree = "<group>"; };
 		6C86B8B61396C744009F6FE6 /* NSString+Replacement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Replacement.m"; sourceTree = "<group>"; };
-		6C86B8B71396C744009F6FE6 /* TimeFormatters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeFormatters.h; sourceTree = "<group>"; };
-		6C86B8B81396C744009F6FE6 /* TimeFormatters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeFormatters.m; sourceTree = "<group>"; };
 		6C86B9B51396CEA4009F6FE6 /* SafeFetchedResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SafeFetchedResultsController.h; path = "PSFoundation/Core Data/SafeFetchedResultsController.h"; sourceTree = SOURCE_ROOT; };
 		6C86B9B61396CEA4009F6FE6 /* SafeFetchedResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SafeFetchedResultsController.m; path = "PSFoundation/Core Data/SafeFetchedResultsController.m"; sourceTree = SOURCE_ROOT; };
 		6C86BADC13970188009F6FE6 /* MANotificationCenterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MANotificationCenterAdditions.h; sourceTree = "<group>"; };
@@ -854,10 +811,8 @@
 				6C5D6AAF13C64E8100CBDA8B /* External */,
 				6C5D6C1213C64E8100CBDA8B /* Graphics */,
 				6C5D6C1613C64E8200CBDA8B /* Interface Builder */,
-				6C5D6C1B13C64E8200CBDA8B /* Network */,
 				6C5D6C1E13C64E8200CBDA8B /* Sound */,
 				6C5D6C2113C64E8200CBDA8B /* Table View */,
-				6C5D6C3213C64E8200CBDA8B /* Universal */,
 				6C5D6C3513C64E8200CBDA8B /* Utilities */,
 				6C5D685313C6298E00CBDA8B /* PSFoundation-UIKit.h */,
 				6C5D685913C62C1400CBDA8B /* PSMacros+UIKit.h */,
@@ -897,8 +852,6 @@
 				6C5D6A7313C64E8100CBDA8B /* UIApplication+PSFoundation.m */,
 				6C5D6A7413C64E8100CBDA8B /* UIButton+Glossy.h */,
 				6C5D6A7513C64E8100CBDA8B /* UIButton+Glossy.m */,
-				6C5D6A7613C64E8100CBDA8B /* UIButton+Presets.h */,
-				6C5D6A7713C64E8100CBDA8B /* UIButton+Presets.m */,
 				6C5D6A7813C64E8100CBDA8B /* UIColor+PSFoundation.h */,
 				6C5D6A7913C64E8100CBDA8B /* UIColor+PSFoundation.m */,
 				6C5D6A7A13C64E8100CBDA8B /* UIDevice+PSFoundation.h */,
@@ -949,9 +902,6 @@
 				6C5D6AA713C64E8100CBDA8B /* UIView+Sizes.m */,
 				6C5D6AA813C64E8100CBDA8B /* UIViewController+MTUIAdditions.h */,
 				6C5D6AA913C64E8100CBDA8B /* UIViewController+MTUIAdditions.m */,
-				6C5D6AAA13C64E8100CBDA8B /* UIViewControllerHelper.h */,
-				6C5D6AAB13C64E8100CBDA8B /* UIViewControllerHelper.m */,
-				6C5D6AAC13C64E8100CBDA8B /* UIViewExtras.m */,
 				6C5D6AAD13C64E8100CBDA8B /* UIViewHelper.h */,
 				6C5D6AAE13C64E8100CBDA8B /* UIViewHelper.m */,
 			);
@@ -1114,15 +1064,6 @@
 			path = "Interface Builder";
 			sourceTree = "<group>";
 		};
-		6C5D6C1B13C64E8200CBDA8B /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				6C5D6C1C13C64E8200CBDA8B /* IKNetworkActivityManager.h */,
-				6C5D6C1D13C64E8200CBDA8B /* IKNetworkActivityManager.m */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		6C5D6C1E13C64E8200CBDA8B /* Sound */ = {
 			isa = PBXGroup;
 			children = (
@@ -1137,8 +1078,8 @@
 			children = (
 				6C5D6C2213C64E8200CBDA8B /* DTCustomColoredAccessory.h */,
 				6C5D6C2313C64E8200CBDA8B /* DTCustomColoredAccessory.m */,
-				6C5D6C2413C64E8200CBDA8B /* GradientView.h */,
-				6C5D6C2513C64E8200CBDA8B /* GradientView.m */,
+				6C5D6C2413C64E8200CBDA8B /* PSGradientView.h */,
+				6C5D6C2513C64E8200CBDA8B /* PSGradientView.m */,
 				6C5D6C2613C64E8200CBDA8B /* PSGenericCell.h */,
 				6C5D6C2713C64E8200CBDA8B /* PSGenericCell.m */,
 				6C5D6C2813C64E8200CBDA8B /* PSGenericView.h */,
@@ -1153,15 +1094,6 @@
 				6C5D6C3113C64E8200CBDA8B /* UACellBackgroundView.m */,
 			);
 			path = "Table View";
-			sourceTree = "<group>";
-		};
-		6C5D6C3213C64E8200CBDA8B /* Universal */ = {
-			isa = PBXGroup;
-			children = (
-				6C5D6C3313C64E8200CBDA8B /* MTUniversalHelper.h */,
-				6C5D6C3413C64E8200CBDA8B /* MTUniversalHelper.m */,
-			);
-			path = Universal;
 			sourceTree = "<group>";
 		};
 		6C5D6C3513C64E8200CBDA8B /* Utilities */ = {
@@ -1266,10 +1198,8 @@
 		6C86B43E1396B118009F6FE6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				6C579D8E13C2D305007A980C /* PSReachability.h */,
-				6C579D8F13C2D305007A980C /* PSReachability.m */,
-				6C86B43F1396B118009F6FE6 /* Reachability.h */,
-				6C86B4401396B118009F6FE6 /* Reachability.m */,
+				6C86B43F1396B118009F6FE6 /* PSReachability.h */,
+				6C86B4401396B118009F6FE6 /* PSReachability.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1359,8 +1289,8 @@
 		6C86B5C91396B186009F6FE6 /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
-				6C86B5CA1396B186009F6FE6 /* SFHFKeychainUtils.h */,
-				6C86B5CB1396B186009F6FE6 /* SFHFKeychainUtils.m */,
+				6C86B5CA1396B186009F6FE6 /* PSKeychain.h */,
+				6C86B5CB1396B186009F6FE6 /* PSKeychain.m */,
 			);
 			path = Keychain;
 			sourceTree = "<group>";
@@ -1482,8 +1412,6 @@
 				6C86B8721396C744009F6FE6 /* NSData+CommonCrypto.m */,
 				6C86B8731396C744009F6FE6 /* NSData+MTAdditions.h */,
 				6C86B8741396C744009F6FE6 /* NSData+MTAdditions.m */,
-				6C86B8751396C744009F6FE6 /* NSData+RSHexDump.h */,
-				6C86B8761396C744009F6FE6 /* NSData+RSHexDump.m */,
 			);
 			name = NSData;
 			sourceTree = "<group>";
@@ -1491,14 +1419,8 @@
 		6CED58EE1397399500E3F38D /* NSDate */ = {
 			isa = PBXGroup;
 			children = (
-				6C86B8771396C744009F6FE6 /* NSDate+Utilities.h */,
-				6C86B8781396C744009F6FE6 /* NSDate+Utilities.m */,
-				6C86B8791396C744009F6FE6 /* NSDate+MTAdditions.h */,
-				6C86B87A1396C744009F6FE6 /* NSDate+MTAdditions.m */,
 				6C86B87B1396C744009F6FE6 /* NSDate+PSFoundation.h */,
 				6C86B87C1396C744009F6FE6 /* NSDate+PSFoundation.m */,
-				6C86B8B71396C744009F6FE6 /* TimeFormatters.h */,
-				6C86B8B81396C744009F6FE6 /* TimeFormatters.m */,
 			);
 			name = NSDate;
 			sourceTree = "<group>";
@@ -1617,7 +1539,6 @@
 				6C5D6C5A13C64E8300CBDA8B /* UIAlertView+SCMethods.h in Headers */,
 				6C5D6C5C13C64E8300CBDA8B /* UIApplication+PSFoundation.h in Headers */,
 				6C5D6C5E13C64E8300CBDA8B /* UIButton+Glossy.h in Headers */,
-				6C5D6C6013C64E8300CBDA8B /* UIButton+Presets.h in Headers */,
 				6C5D6C6213C64E8300CBDA8B /* UIColor+PSFoundation.h in Headers */,
 				6C5D6C6413C64E8300CBDA8B /* UIDevice+PSFoundation.h in Headers */,
 				6C5D6C6613C64E8300CBDA8B /* UIImage+Alpha.h in Headers */,
@@ -1643,7 +1564,6 @@
 				6C5D6C8E13C64E8300CBDA8B /* UIView+PSAdditions.h in Headers */,
 				6C5D6C9013C64E8300CBDA8B /* UIView+Sizes.h in Headers */,
 				6C5D6C9213C64E8300CBDA8B /* UIViewController+MTUIAdditions.h in Headers */,
-				6C5D6C9413C64E8300CBDA8B /* UIViewControllerHelper.h in Headers */,
 				6C5D6C9713C64E8300CBDA8B /* UIViewHelper.h in Headers */,
 				6C5D6C9D13C64E8300CBDA8B /* DSActivityView.h in Headers */,
 				6C5D6CA313C64E8300CBDA8B /* EGOImageButton.h in Headers */,
@@ -1669,17 +1589,15 @@
 				6C5D6CDA13C64E8300CBDA8B /* CoreGraphics+RoundedRect.h in Headers */,
 				6C5D6CDC13C64E8300CBDA8B /* BSUIViewRearranger.h in Headers */,
 				6C5D6CDE13C64E8300CBDA8B /* UIView+CWNibLocalizations.h in Headers */,
-				6C5D6CE013C64E8300CBDA8B /* IKNetworkActivityManager.h in Headers */,
 				6C5D6CE213C64E8300CBDA8B /* SoundEffect.h in Headers */,
 				6C5D6CE413C64E8300CBDA8B /* DTCustomColoredAccessory.h in Headers */,
-				6C5D6CE613C64E8300CBDA8B /* GradientView.h in Headers */,
+				6C5D6CE613C64E8300CBDA8B /* PSGradientView.h in Headers */,
 				6C5D6CE813C64E8300CBDA8B /* PSGenericCell.h in Headers */,
 				6C5D6CEA13C64E8300CBDA8B /* PSGenericView.h in Headers */,
 				6C5D6CEC13C64E8300CBDA8B /* PSShadowView.h in Headers */,
 				6C5D6CEE13C64E8300CBDA8B /* PSTableViewController.h in Headers */,
 				6C5D6CF013C64E8300CBDA8B /* ShadowedTableView.h in Headers */,
 				6C5D6CF213C64E8300CBDA8B /* UACellBackgroundView.h in Headers */,
-				6C5D6CF413C64E8300CBDA8B /* MTUniversalHelper.h in Headers */,
 				6C5D6CF613C64E8300CBDA8B /* GradientButton.h in Headers */,
 				6C5D6CF813C64E8300CBDA8B /* LRPopoverManager.h in Headers */,
 				6C5D6CFA13C64E8300CBDA8B /* MTSplashScreen.h in Headers */,
@@ -1706,11 +1624,7 @@
 				6C5D68D413C62D9B00CBDA8B /* GTMNSData+zlib.h in Headers */,
 				6C5D68D513C62D9B00CBDA8B /* NSData+CommonCrypto.h in Headers */,
 				6C5D68D613C62D9B00CBDA8B /* NSData+MTAdditions.h in Headers */,
-				6C5D68D713C62D9B00CBDA8B /* NSData+RSHexDump.h in Headers */,
-				6C5D68D813C62D9B00CBDA8B /* NSDate+Utilities.h in Headers */,
-				6C5D68D913C62D9B00CBDA8B /* NSDate+MTAdditions.h in Headers */,
 				6C5D68DA13C62D9B00CBDA8B /* NSDate+PSFoundation.h in Headers */,
-				6C5D68DB13C62D9B00CBDA8B /* TimeFormatters.h in Headers */,
 				6C5D68DC13C62D9B00CBDA8B /* NSError+SCMethods.h in Headers */,
 				6C5D68DD13C62D9B00CBDA8B /* NSFileManager+PSFoundation.h in Headers */,
 				6C5D68DE13C62D9B00CBDA8B /* NSNotification+PSFoundation.h in Headers */,
@@ -1773,7 +1687,7 @@
 				6C5D691713C62D9B00CBDA8B /* DDInvocationGrabber.h in Headers */,
 				6C5D691813C62D9B00CBDA8B /* NSObject+DDExtensions.h in Headers */,
 				6C5D691913C62D9B00CBDA8B /* NSObject+Proxy.h in Headers */,
-				6C5D691A13C62D9B00CBDA8B /* SFHFKeychainUtils.h in Headers */,
+				6C5D691A13C62D9B00CBDA8B /* PSKeychain.h in Headers */,
 				6C5D691B13C62D9B00CBDA8B /* ColorLog.h in Headers */,
 				6C5D691C13C62D9B00CBDA8B /* DDNSLoggerLogger.h in Headers */,
 				6C5D691D13C62D9B00CBDA8B /* PSDDFormatter.h in Headers */,
@@ -1781,8 +1695,7 @@
 				6C5D691F13C62D9B00CBDA8B /* SynthesizeSingleton.h in Headers */,
 				6C5D692013C62D9B00CBDA8B /* PSMacros+Collections.h in Headers */,
 				6C5D692113C62D9B00CBDA8B /* PSMacros+Compatibility.h in Headers */,
-				6C5D692213C62D9B00CBDA8B /* PSReachability.h in Headers */,
-				6C5D692313C62D9B00CBDA8B /* Reachability.h in Headers */,
+				6C5D692313C62D9B00CBDA8B /* PSReachability.h in Headers */,
 				6C5D692413C62D9B00CBDA8B /* PSFoundation+Categories.h in Headers */,
 				6C5D692613C62D9B00CBDA8B /* PSFoundation.h in Headers */,
 				6C5D685713C62AA600CBDA8B /* PSFoundation+Logging.h in Headers */,
@@ -1909,11 +1822,7 @@
 				6CC3D3A413C7956000FB15E6 /* GTMNSData+zlib.m in Sources */,
 				6CC3D3A513C7956000FB15E6 /* NSData+CommonCrypto.m in Sources */,
 				6CC3D3A613C7956000FB15E6 /* NSData+MTAdditions.m in Sources */,
-				6CC3D3A713C7956000FB15E6 /* NSData+RSHexDump.m in Sources */,
-				6CC3D3A813C7956000FB15E6 /* NSDate+Utilities.m in Sources */,
-				6CC3D3A913C7956000FB15E6 /* NSDate+MTAdditions.m in Sources */,
 				6CC3D3AA13C7956000FB15E6 /* NSDate+PSFoundation.m in Sources */,
-				6CC3D3AB13C7956000FB15E6 /* TimeFormatters.m in Sources */,
 				6CC3D3AC13C7956000FB15E6 /* NSError+SCMethods.m in Sources */,
 				6CC3D3AD13C7956000FB15E6 /* NSFileManager+PSFoundation.m in Sources */,
 				6CC3D3AE13C7956000FB15E6 /* NSNotification+PSFoundation.m in Sources */,
@@ -1964,19 +1873,17 @@
 				6CC3D3DB13C7956000FB15E6 /* DDInvocationGrabber.m in Sources */,
 				6CC3D3DC13C7956000FB15E6 /* NSObject+DDExtensions.m in Sources */,
 				6CC3D3DD13C7956000FB15E6 /* NSObject+Proxy.m in Sources */,
-				6CC3D3DE13C7956000FB15E6 /* SFHFKeychainUtils.m in Sources */,
+				6CC3D3DE13C7956000FB15E6 /* PSKeychain.m in Sources */,
 				6CC3D3DF13C7956000FB15E6 /* PSFoundation+Logging.m in Sources */,
 				6CC3D3E013C7956000FB15E6 /* ColorLog.m in Sources */,
 				6CC3D3E113C7956000FB15E6 /* DDNSLoggerLogger.m in Sources */,
 				6CC3D3E213C7956000FB15E6 /* PSDDFormatter.m in Sources */,
-				6CC3D3E313C7956000FB15E6 /* PSReachability.m in Sources */,
-				6CC3D3E413C7956000FB15E6 /* Reachability.m in Sources */,
+				6CC3D3E413C7956000FB15E6 /* PSReachability.m in Sources */,
 				6C5D6C5713C64E8300CBDA8B /* SKProduct+LocalizedPrice.m in Sources */,
 				6C5D6C5913C64E8300CBDA8B /* UIActionSheet+SCMethods.m in Sources */,
 				6C5D6C5B13C64E8300CBDA8B /* UIAlertView+SCMethods.m in Sources */,
 				6C5D6C5D13C64E8300CBDA8B /* UIApplication+PSFoundation.m in Sources */,
 				6C5D6C5F13C64E8300CBDA8B /* UIButton+Glossy.m in Sources */,
-				6C5D6C6113C64E8300CBDA8B /* UIButton+Presets.m in Sources */,
 				6C5D6C6313C64E8300CBDA8B /* UIColor+PSFoundation.m in Sources */,
 				6C5D6C6513C64E8300CBDA8B /* UIDevice+PSFoundation.m in Sources */,
 				6C5D6C6713C64E8300CBDA8B /* UIImage+Alpha.m in Sources */,
@@ -2002,8 +1909,6 @@
 				6C5D6C8F13C64E8300CBDA8B /* UIView+PSAdditions.m in Sources */,
 				6C5D6C9113C64E8300CBDA8B /* UIView+Sizes.m in Sources */,
 				6C5D6C9313C64E8300CBDA8B /* UIViewController+MTUIAdditions.m in Sources */,
-				6C5D6C9513C64E8300CBDA8B /* UIViewControllerHelper.m in Sources */,
-				6C5D6C9613C64E8300CBDA8B /* UIViewExtras.m in Sources */,
 				6C5D6C9813C64E8300CBDA8B /* UIViewHelper.m in Sources */,
 				6C5D6C9E13C64E8300CBDA8B /* DSActivityView.m in Sources */,
 				6C5D6CA413C64E8300CBDA8B /* EGOImageButton.m in Sources */,
@@ -2026,17 +1931,15 @@
 				6C5D6CDB13C64E8300CBDA8B /* CoreGraphics+RoundedRect.m in Sources */,
 				6C5D6CDD13C64E8300CBDA8B /* BSUIViewRearranger.m in Sources */,
 				6C5D6CDF13C64E8300CBDA8B /* UIView+CWNibLocalizations.m in Sources */,
-				6C5D6CE113C64E8300CBDA8B /* IKNetworkActivityManager.m in Sources */,
 				6C5D6CE313C64E8300CBDA8B /* SoundEffect.m in Sources */,
 				6C5D6CE513C64E8300CBDA8B /* DTCustomColoredAccessory.m in Sources */,
-				6C5D6CE713C64E8300CBDA8B /* GradientView.m in Sources */,
+				6C5D6CE713C64E8300CBDA8B /* PSGradientView.m in Sources */,
 				6C5D6CE913C64E8300CBDA8B /* PSGenericCell.m in Sources */,
 				6C5D6CEB13C64E8300CBDA8B /* PSGenericView.m in Sources */,
 				6C5D6CED13C64E8300CBDA8B /* PSShadowView.m in Sources */,
 				6C5D6CEF13C64E8300CBDA8B /* PSTableViewController.m in Sources */,
 				6C5D6CF113C64E8300CBDA8B /* ShadowedTableView.m in Sources */,
 				6C5D6CF313C64E8300CBDA8B /* UACellBackgroundView.m in Sources */,
-				6C5D6CF513C64E8300CBDA8B /* MTUniversalHelper.m in Sources */,
 				6C5D6CF713C64E8300CBDA8B /* GradientButton.m in Sources */,
 				6C5D6CF913C64E8300CBDA8B /* LRPopoverManager.m in Sources */,
 				6C5D6CFB13C64E8300CBDA8B /* MTSplashScreen.m in Sources */,
@@ -2063,11 +1966,7 @@
 				6C5D692F13C62DC400CBDA8B /* GTMNSData+zlib.m in Sources */,
 				6C5D693013C62DC400CBDA8B /* NSData+CommonCrypto.m in Sources */,
 				6C5D693113C62DC400CBDA8B /* NSData+MTAdditions.m in Sources */,
-				6C5D693213C62DC400CBDA8B /* NSData+RSHexDump.m in Sources */,
-				6C5D693313C62DC400CBDA8B /* NSDate+Utilities.m in Sources */,
-				6C5D693413C62DC400CBDA8B /* NSDate+MTAdditions.m in Sources */,
 				6C5D693513C62DC400CBDA8B /* NSDate+PSFoundation.m in Sources */,
-				6C5D693613C62DC400CBDA8B /* TimeFormatters.m in Sources */,
 				6C5D693713C62DC400CBDA8B /* NSError+SCMethods.m in Sources */,
 				6C5D693813C62DC400CBDA8B /* NSFileManager+PSFoundation.m in Sources */,
 				6C5D693913C62DC400CBDA8B /* NSNotification+PSFoundation.m in Sources */,
@@ -2125,13 +2024,12 @@
 				6C5D696D13C62DC400CBDA8B /* DDInvocationGrabber.m in Sources */,
 				6C5D696E13C62DC400CBDA8B /* NSObject+DDExtensions.m in Sources */,
 				6C5D696F13C62DC400CBDA8B /* NSObject+Proxy.m in Sources */,
-				6C5D697013C62DC500CBDA8B /* SFHFKeychainUtils.m in Sources */,
+				6C5D697013C62DC500CBDA8B /* PSKeychain.m in Sources */,
 				6C5D697113C62DC500CBDA8B /* PSFoundation+Logging.m in Sources */,
 				6C5D697213C62DC500CBDA8B /* ColorLog.m in Sources */,
 				6C5D697313C62DC500CBDA8B /* DDNSLoggerLogger.m in Sources */,
 				6C5D697413C62DC500CBDA8B /* PSDDFormatter.m in Sources */,
-				6C5D697513C62DC500CBDA8B /* PSReachability.m in Sources */,
-				6C5D697613C62DC500CBDA8B /* Reachability.m in Sources */,
+				6C5D697613C62DC500CBDA8B /* PSReachability.m in Sources */,
 				6C5D6A6113C62E2200CBDA8B /* SMModelObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
