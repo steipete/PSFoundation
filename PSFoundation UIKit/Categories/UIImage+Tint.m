@@ -23,21 +23,9 @@
 	if (color) {
 		// Construct new image the same size as this one.
 		UIImage *image;
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
-		IF_IOS4_OR_GREATER
-        (
-			UIGraphicsBeginImageContextWithOptions([self size], NO, 0.0); // 0.0 for scale means "scale for device's main screen".
-		)
-#else
-    IF_PRE_IOS4
-    (
-		if ([[[UIDevice currentDevice] systemVersion] floatValue] < 4.0) {
-			UIGraphicsBeginImageContext([self size]);
-        }
-    )
-#endif
-		CGRect rect = CGRectZero;
-		rect.size = [self size];
+        
+        UIGraphicsBeginImageContextWithOptions([self size], NO, 0.0);
+		CGRect rect = (CGRect){{0, 0}, [self size]};
 
 		// Composite tint color at its own opacity.
 		[color set];

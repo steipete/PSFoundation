@@ -5,7 +5,7 @@
 
 // Helper methods for adding an alpha layer to an image
 @interface UIImage (Alpha)
-- (BOOL)hasAlpha;
+@property (nonatomic, readonly) BOOL hasAlpha;
 - (UIImage *)imageWithAlpha;
 - (UIImage *)transparentBorderImage:(NSUInteger)borderSize;
 @end

@@ -7,53 +7,23 @@
 //
 
 #import "UIImage+MTUniversalAdditions.h"
-#import "MTUniversalHelper.h"
-
 
 @implementation UIImage (MTUniversalAdditions)
 
-+ (UIImage *)deviceSpecificImageNamed:(NSString *)imageName {
-    UIImage *image = [UIImage imageNamed:MTDeviceSpecificImageName(imageName)];
++ (UIImage *)imageNamed:(NSString *)name forOrientation:(UIInterfaceOrientation)orientation {
+    NSString *newName = name;
+    NSArray *parts = [name componentsSeparatedByString:@"."];
+	NSString *orientationAppendix = UIInterfaceOrientationIsLandscape(orientation) ? @"-L" : @"";
     
-	// fallback: no iPad-specific image? -> use iPhone-image without iPad-Appendix
-	if (image == nil) {
-		image = [UIImage imageNamed:imageName];
-	}
+	if (parts.count == 2)
+		newName = [NSString stringWithFormat:@"%@%@.%@", [parts objectAtIndex:0], orientationAppendix, [parts objectAtIndex:1]];
+	else if (parts.count == 1)
+		newName = [NSString stringWithFormat:@"%@%@.png", [parts objectAtIndex:0], orientationAppendix];
     
-	return image;
-}
-
-+ (UIImage *)deviceSpecificImageNamed:(NSString *)imageName appendix:(NSString *)appendix {
-    UIImage *image = [UIImage imageNamed:MTDeviceSpecificImageNameWithAppendix(imageName,appendix)];
-    
-	// fallback: no iPad-specific image? -> use iPhone-image without iPad-Appendix
-	if (image == nil) {
-		image = [UIImage imageNamed:imageName];
-	}
-    
-	return image;
-}
-
-+ (UIImage *)deviceSpecificImageNamed:(NSString *)imageName forOrientation:(UIInterfaceOrientation)orientation {
-	UIImage *image = [UIImage imageNamed:MTDeviceSpecificImageNameForOrientation(imageName,orientation)];
-
-	// fallback: no specific image for orientation? -> use normal one
-	if (image == nil) {
-		image = [UIImage deviceSpecificImageNamed:imageName];
-	}
-
-	return image;
-}
-
-+ (UIImage *)deviceSpecificImageNamed:(NSString *)imageName forOrientation:(UIInterfaceOrientation)orientation appendix:(NSString *)appendix {
-    UIImage *image = [UIImage imageNamed:MTDeviceSpecificImageNameForOrientationWithAppendix(imageName,orientation,appendix)];
-    
-	// fallback: no specific image for orientation? -> use normal one
-	if (image == nil) {
-		image = [UIImage deviceSpecificImageNamed:imageName appendix:appendix];
-	}
-    
-	return image;
+    UIImage *image = [UIImage imageNamed:newName];
+	if (!image)
+		image = [UIImage imageNamed:name];    
+	return image;    
 }
 
 @end

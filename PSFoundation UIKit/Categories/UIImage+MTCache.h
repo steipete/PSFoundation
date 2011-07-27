@@ -8,7 +8,6 @@
 
 @interface UIImage (MTCache)
 
-+ (UIImage *)JPEGWithContentsOfFilename:(NSString *)filename;
 - (BOOL)writeJPEGToFilename:(NSString *)filename quality:(double)quality;
 
 @end

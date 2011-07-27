@@ -11,16 +11,10 @@
 
 @implementation UIImage (MTCache)
 
-+ (UIImage *)JPEGWithContentsOfFilename:(NSString *)filename {
-	NSString *path = [NSLibraryFolder() stringByAppendingPathComponent:filename];
-
-	return [UIImage imageWithContentsOfFile:path];
-}
-
 - (BOOL)writeJPEGToFilename:(NSString *)filename quality:(double)quality {
-	NSString *path = [NSLibraryFolder() stringByAppendingPathComponent:filename];
-
-	return [UIImageJPEGRepresentation(self, quality) writeToFile:path options:NSAtomicWrite error:nil];
+	NSString *path = [[NSFileManager libraryFolder] stringByAppendingPathComponent:filename];
+    NSData *jpegRep = UIImageJPEGRepresentation(self, quality);
+	return [jpegRep writeToFile:path options:NSAtomicWrite error:nil];
 }
 
 @end

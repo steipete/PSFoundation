@@ -2,11 +2,9 @@
 //  UIImage+MTTiling.m
 //  PSFoundation
 //
-//  Created by Matthias Tretter on 15.03.11.
-//  Copyright 2011 Peter Steinberger. All rights reserved.
+//  Created by Matthias Tretter.
+//  Licensed under MIT.  All rights reserved.
 //
-//  Taken from:
-//  http://www.cimgf.com/2011/03/01/subduing-catiledlayer/
 
 #import "UIImage+MTTiling.h"
 

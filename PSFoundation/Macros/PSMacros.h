@@ -13,6 +13,7 @@
 
 #include "PSMacros+Compatibility.h"
 #include "PSMacros+Collections.h"
+#import "NSFileManager+PSFoundation.h"
 
 // compiler help
 #define PS_INVALID(t)  [t invalidate]; t = nil
@@ -95,10 +96,10 @@ __VA_ARGS__;                            \
 #define XAPPVERSION() [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
 
 // filepaths
-#define XFILPATH4DOCUMENT(_value) [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:_value]
-#define XFILEPATH4BUNDLE(_value) [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:_value]
-#define XURL4FILEPATH(_value) [NSURL fileURLWithPath:_value]
-#define XURL4DOCUMENT(_value) [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:_value]]
+#define XDOCUMENTFILEPATH(_value) [[NSFileManager documentsFolder] stringByAppendingPathComponent:_value]
+#define XBUNDLEFILEPATH(_value) [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:_value]
+#define XFILEPATHURL(_value) [NSURL fileURLWithPath:_value]
+#define XDOCUMENTURL(_value) [NSURL fileURLWithPath:[[NSFileManager documentsFolder] stringByAppendingPathComponent:_value]]
 #define XURL4BUNDLE(_value) [NSURL fileURLWithPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:_value]]
 
 // array sorting & fetching
@@ -107,21 +108,20 @@ __VA_ARGS__;                            \
 #define XRX(v) ([v isKindOfClass:[NSPredicate class]] ? v : [NSPredicate predicateWithFormat:@"SELF MATCHES %@", v])
 
 // value shortcuts
-#define xfloat(val)     [NSNumber numberWithFloat:(val)]
-#define xint(val)       [NSNumber numberWithInt:(val)]
-#define xbool(val)      [NSNumber numberWithBool:(val)]
-#define xstr(...)       [NSString stringWithFormat:__VA_ARGS__]
-#define xnull           [NSNull null]
-#define xfalse          [NSNumber numberWithBool:NO]
-#define xtrue           [NSNumber numberWithBool:YES]
-
-#define XMCOPY(_obj)    [[_obj mutableCopy] autorelease]
-#define XCOPY(_obj)     [[_obj copy] autorelease]
+#define xfloat(val) [NSNumber numberWithFloat:(val)]
+#define xint(val)   [NSNumber numberWithInt:(val)]
+#define xbool(val)  [NSNumber numberWithBool:(val)]
+#define xstr(...)   [NSString stringWithFormat:__VA_ARGS__]
+#define xnull       [NSNull null]
+#define xfalse      [NSNumber numberWithBool:NO]
+#define xtrue       [NSNumber numberWithBool:YES]
+#define xcopy(obj)  [[_obj copy] autorelease]
+#define xmcopy(obj) [[obj mutableCopy] autorelease]
 
 // sorting
-#define XLT(a,b) ([a compare:b] == NSOrderedAscending)
-#define XGT(a,b) ([a compare:b] == NSOrderedDescending)
-#define XEQ(a,b) ([a compare:b] == NSOrderedSame)
+#define XLT(a,b)    ([a compare:b] == NSOrderedAscending)
+#define XGT(a,b)    ([a compare:b] == NSOrderedDescending)
+#define XEQ(a,b)    ([a compare:b] == NSOrderedSame)
 
 // notification center
 #define XNC             [NSNotificationCenter defaultCenter]
