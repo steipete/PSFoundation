@@ -56,7 +56,7 @@
 	self.shadowColor = [UIColor whiteColor];
 	self.shadowOffset = CGSizeMake(0, 1);
 	self.textAlignment = UITextAlignmentCenter;
-	self.textColor = RGBColor(77, 87, 107);
+	self.textColor = PSColor(77, 87, 107);
 }
 
 - (CGFloat)heightForCurrentText {

@@ -12,8 +12,7 @@
 #import "DDLog.h"
 
 // for function pass entering
-#define DDLogFunction() DDLogInfo(@"-- logged --");
-#define HOLogPing NSLog(@"%s", __PRETTY_FUNCTION__);
+#define HOLogPing() NSLog(@"%s", __PRETTY_FUNCTION__);
 
 // block asserts for non-debug builds ("the ugly tree")
 #ifndef DEBUG

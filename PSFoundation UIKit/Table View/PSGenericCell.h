@@ -8,9 +8,7 @@
 
 @class PSGenericView;
 
-@interface PSGenericCell : UITableViewCell {
-  PSGenericView *_cellView;
-}
+@interface PSGenericCell : UITableViewCell
 
 @property (nonatomic, retain) PSGenericView *cellView;
 @property (nonatomic, getter=isDisplayInOverlay) BOOL displayInOverlay;

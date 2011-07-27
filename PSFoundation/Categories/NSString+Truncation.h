@@ -16,12 +16,9 @@ enum {
 
 @interface NSString (Truncation)
 
-- (NSString*)stringByTruncatingToWidth:(CGFloat)width withFont:(UIFont *)font;
-
+- (NSString *)stringByTruncatingToWidth:(CGFloat)width withFont:(UIFont *)font;
 - (NSString *)stringByTruncatingToLength:(NSUInteger)length;
 - (NSString *)stringByTruncatingToLength:(NSUInteger)length direction:(NSTruncateStringPosition)truncateFrom;
 - (NSString *)stringByTruncatingToLength:(NSUInteger)length direction:(NSTruncateStringPosition)truncateFrom withEllipsisString:(NSString *)ellipsis;
-
-- (NSString *)stringWithMaxLength:(NSUInteger)maxLen;
 
 @end

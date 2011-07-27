@@ -9,34 +9,6 @@
 //   - http://blancer.com/tutorials/i-phone/72236/tips-tricks-for-conditional-ios3-ios3-2-and-ios4-code/
 //
 
-#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_2_0
-#define kCFCoreFoundationVersionNumber_iPhoneOS_2_0 478.23
-#endif
-
-#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_2_1
-#define kCFCoreFoundationVersionNumber_iPhoneOS_2_1 478.26
-#endif
-
-#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_2_2
-#define kCFCoreFoundationVersionNumber_iPhoneOS_2_2 478.29
-#endif
-
-#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_3_0
-#define kCFCoreFoundationVersionNumber_iPhoneOS_3_0 478.47
-#endif
-
-#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_3_1
-#define kCFCoreFoundationVersionNumber_iPhoneOS_3_1 478.52
-#endif
-
-#ifndef kCFCoreFoundationVersionNumber_iPhoneOS_3_2
-#define kCFCoreFoundationVersionNumber_iPhoneOS_3_2 478.61
-#endif
-
-#ifndef kCFCoreFoundationVersionNumber_iOS_4_0
-#define kCFCoreFoundationVersionNumber_iOS_4_0 550.32
-#endif
-
 #ifndef kCFCoreFoundationVersionNumber_iOS_4_1
 #define kCFCoreFoundationVersionNumber_iOS_4_1 550.38
 #endif
@@ -78,12 +50,6 @@ __VA_ARGS__ \
 #define IS_GTE_IOS42 0
 #define IS_GT_IOS42 0
 #endif
-
-#define IF_IOS4_OR_GREATER(...) \
-if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_4_0) { \
-__VA_ARGS__ \
-}
-#define IS_GTE_IOS4 (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_4_0)
 
 // special addition for Chameleon support: http://chameleonproject.org/
 #if TARGET_IPHONE_SIMULATOR

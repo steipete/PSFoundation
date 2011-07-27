@@ -8,6 +8,7 @@
 
 #import "SoundEffect.h"
 #import "NSObject+BlocksKit.h"
+#import "NSObject+Utilities.h"
 
 @implementation SoundEffect
 

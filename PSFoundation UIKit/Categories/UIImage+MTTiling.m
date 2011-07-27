@@ -42,9 +42,7 @@
 				tileSize.height = remainderHeight;
 			}
 
-			CGImageRef tileImage = CGImageCreateWithImageInRect(fullImage,
-																(CGRect){{x*size.width, y*size.height},
-																	tileSize});
+			CGImageRef tileImage = CGImageCreateWithImageInRect(fullImage, (CGRect){{x*size.width, y*size.height}, tileSize});
             
 			NSData *imageData = UIImagePNGRepresentation([UIImage imageWithCGImage:tileImage]);
             

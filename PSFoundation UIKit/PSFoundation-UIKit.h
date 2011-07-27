@@ -78,8 +78,7 @@
 // roundedCornerImage
 #import "UIImage+RoundedCorner.h"
 
-// imageWithContentsOfURL, scaleToSize (...), colorizeImage
-#import "UIImageHelper.h"
+#import "UIImage+PSFoundation.h"
 
 // cachedImageWithContentsOfFile, initWithContentsOfResolutionIndependentFile
 #import "UIImage+Cache.h"

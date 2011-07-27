@@ -58,7 +58,6 @@
  */
 
 #import "DDInvocationGrabber.h"
-#import "NSObject+Utilities.h"
 
 @implementation DDInvocationGrabber
 

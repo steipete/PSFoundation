@@ -11,8 +11,6 @@
 //
 
 #import "MTSplashScreen.h"
-#import "MTUniversalHelper.h"
-#import "UIViewControllerHelper.h"
 
 @implementation MTSplashScreen
 
@@ -80,7 +78,7 @@
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    return kRotateOnIPad(toInterfaceOrientation);
+    return kRotateOniPad(toInterfaceOrientation);
 }
 
 #pragma mark -
@@ -90,17 +88,19 @@
     if (!splashImage) {
         if (isIPad()) {
             // first try orientation-specific launch images
-            if (PSAppStatusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+            UIInterfaceOrientation orientation = PSAppStatusBarOrientation();
+            
+            if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
                 self.splashImage = [UIImage imageNamed:@"Default-PortraitUpsideDown.png"];
-            } else if (PSAppStatusBarOrientation == UIInterfaceOrientationLandscapeLeft) {
+            } else if (orientation == UIInterfaceOrientationLandscapeLeft) {
                 self.splashImage = [UIImage imageNamed:@"Default-LandscapeLeft.png"];
-            } else if (PSAppStatusBarOrientation == UIInterfaceOrientationLandscapeRight) {
+            } else if (orientation == UIInterfaceOrientationLandscapeRight) {
                 self.splashImage = [UIImage imageNamed:@"Default-LandscapeRight.png"];
             }
             
             // if there wasn't found a orientation-specific launch-image
             // try the ones for only Portrait/Landscape
-            if (UIInterfaceOrientationIsPortrait(PSAppStatusBarOrientation)) {
+            if (UIInterfaceOrientationIsPortrait(orientation)) {
                 self.splashImage = [UIImage imageNamed:@"Default-Portrait.png"];
             } else {
                 self.splashImage = [UIImage imageNamed:@"Default-Landscape.png"];

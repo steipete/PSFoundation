@@ -24,9 +24,6 @@
 //  THE SOFTWARE.
 //
 
-#if TARGET_OS_IPHONE
-#import <UIKit/UIKit.h>
-
 @interface UIView (EGOHelper)
 
 /*
@@ -37,5 +34,3 @@
 - (UIView*)superviewWithClass:(Class)svClass; // strict:NO
 - (UIView*)superviewWithClass:(Class)svClass strict:(BOOL)strict;
 @end
-
-#endif

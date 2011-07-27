@@ -9,7 +9,7 @@
 //
 
 #import "NSManagedObjectContext+FetchedObjectFromURI.h"
-#import "NSObject+Utilities.h"
+#import "NSArray+PSFoundation.h"
 
 @implementation NSManagedObjectContext (FetchedObjectFromURI)
 

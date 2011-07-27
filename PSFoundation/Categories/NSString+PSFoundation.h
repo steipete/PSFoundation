@@ -9,14 +9,16 @@
 //   - Matthias Tretter.   2011.  MIT.
 //
 
+#import "NSObject+Utilities.h"
+
 @interface NSString (PSFoundation)
 
-+ (NSString*) stringWithUUID;
++ (NSString *)stringWithUUID;
++ (NSString *)stringWithData:(NSData *)data;
 
 - (BOOL)containsString:(NSString *)string;
 - (BOOL)containsString:(NSString *)string options:(NSStringCompareOptions)options;
-- (BOOL)hasSubstring:(NSString*)substring;
-- (NSString*)substringAfterSubstring:(NSString*)substring;
+- (NSString *)stringAfterSubstring:(NSString *)substring;
 
 - (NSComparisonResult)compareToVersionString:(NSString *)version;
 - (BOOL)isEqualToStringIgnoringCase:(NSString*)otherString;

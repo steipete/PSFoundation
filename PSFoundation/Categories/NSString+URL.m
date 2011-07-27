@@ -66,27 +66,11 @@
 }
 
 - (NSString *)urlWithoutParameters {
-    NSRange r;
-    NSString *newUrl = nil;
+    NSRange r = [self rangeOfString:@"?" options: NSBackwardsSearch];
+    if (r.length)
+        return self;
     
-    r = [self rangeOfString:@"?" options: NSBackwardsSearch];
-    if (r.length > 0)
-        newUrl = [self substringToIndex: NSMaxRange (r) - 1];
-    else
-        newUrl = self;
-    
-    return newUrl;
-}
-
-- (NSURL *)ps_URL; {
-    NSURL *url = nil;
-    if ([self hasPrefix:@"http"]) {
-        url = [NSURL URLWithString:self];
-    }else if([self length] > 0) {
-        url = [NSURL fileURLWithPath:self];
-    }
-    
-    return url;
+    return [self substringToIndex: NSMaxRange (r) - 1];
 }
 
 - (NSString *)removeQuotes {

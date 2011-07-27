@@ -7,11 +7,13 @@
 //   - Peter Steinberger.  2010.  MIT.
 //   - Zachary Waldowski.  2011.  MIT.
 //
+
 #import "NSString+Replacement.h"
+#import "NSString+PSFoundation.h"
 
 @implementation NSString (PSStringReplacement)
 
-- (NSString *)stringByReplacingRange:(NSRange)aRange with:(NSString *)aString {
+- (NSString *)stringByReplacingRange:(NSRange)aRange withString:(NSString *)aString {
   unsigned int bufferSize;
   unsigned int selfLen = [self length];
   unsigned int aStringLen = [aString length];
@@ -52,27 +54,30 @@
     return [NSString stringWithString:mutable];
 }
 
-- (NSString *)gsub:(NSDictionary *)keyValues {
-	
-	NSMutableString *subbed = [NSMutableString stringWithString:self];
-	
+- (NSString *)stringByReplacingKeysWithValues:(NSDictionary *)keyValues {
+	NSMutableString *subbed = [self mutableCopy];
 	for (NSString *key in keyValues) {
-		NSString *value = [NSString stringWithFormat:@"%@", [keyValues objectForKey:key]];
-		NSArray *splits = [subbed componentsSeparatedByString:key];
-		[subbed setString:[splits componentsJoinedByString:value]];
+        NSString *replacement = [keyValues objectForKey:key];
+        if (!key.empty && !replacement.empty)
+            [subbed replaceOccurrencesOfString:key withString:replacement];
 	}
 	return subbed;
-}
-
-- (BOOL)isLongerThan:(NSUInteger)length {
-	return [self length] > length;
 }
 
 @end
 
 @implementation NSMutableString (PSStringReplacement)
+
 - (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement {
     return [self replaceOccurrencesOfString:target withString:replacement options:NSCaseInsensitiveSearch range:NSMakeRange(0, self.length)];
+}
+
+- (void)replaceKeysWithValues:(NSDictionary *)keyValues {
+	for (NSString *key in keyValues) {
+        NSString *replacement = [keyValues objectForKey:key];
+        if (!key.empty && !replacement.empty)
+            [self replaceOccurrencesOfString:key withString:replacement];
+	}
 }
 
 @end

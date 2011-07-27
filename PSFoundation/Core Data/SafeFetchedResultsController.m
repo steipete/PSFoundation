@@ -167,8 +167,7 @@
 	__block NSUInteger numChangedSections = numInsertedSections + numDeletedSections;
 	__block NSUInteger numChangedObjects = numInsertedObjects + numDeletedObjects;
 
-	if (numChangedSections > 0 || numChangedObjects > 0)
-	{
+	if (numChangedSections > 0 || numChangedObjects > 0) {
 		// First we create index sets for the inserted and deleted sections.
 		// This will allow us to see if a section change could have created a problem.
 

@@ -20,7 +20,6 @@
 - (NSString*) stringByReplacingPercentEscapesOnce;
 
 - (NSString *)urlWithoutParameters;
-- (NSURL *)ps_URL;
 - (NSString *)removeQuotes;
 
 @end

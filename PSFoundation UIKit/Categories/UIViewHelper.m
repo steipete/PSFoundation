@@ -24,8 +24,6 @@
 //  THE SOFTWARE.
 //
 
-#if TARGET_OS_IPHONE
-
 #import "UIViewHelper.h"
 
 @implementation UIView (EGOHelper)
@@ -51,5 +49,3 @@
 }
 
 @end
-
-#endif

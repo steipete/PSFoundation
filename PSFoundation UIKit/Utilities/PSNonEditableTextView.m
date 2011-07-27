@@ -16,7 +16,7 @@
 @implementation PSNonEditableTextView
 
 + (id)textViewForText:(NSString *)text {
-  PSNonEditableTextView *textView = [self make];
+  PSNonEditableTextView *textView = [PSNonEditableTextView new];
   textView.textColor = RGBCOLOR(76,86,108);
   textView.layer.shadowColor = [[UIColor whiteColor] CGColor];
   textView.layer.shadowOffset = CGSizeMake(1, 1);
@@ -34,7 +34,7 @@
   CGSize size1 = [textView.text sizeWithFont:textView.font constrainedToSize:CGSizeMake(300.0f, 9999.0f) lineBreakMode:UILineBreakModeWordWrap];
   textView.height = size1.height + 10;
 
-  return textView;
+  return [textView autorelease];
 }
 
 - (BOOL)canBecomeFirstResponder {

@@ -10,16 +10,15 @@
 //
 
 #import "NSString+PSFoundation.h"
-#import "NSData+CommonCrypto.h"
-#import "GTMBase64.h"
-#import <CommonCrypto/CommonDigest.h>
+#import "NSData+PSCommonCrypto.h"
+#import "NSData+PSBase64.h"
 
 int const GGCharacterIsNotADigit = 10;
 
 @implementation NSString (PSFoundation)
 
 - (BOOL)isEmpty {
-    return !self.length || ![self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length;
+    return (!self.length || ![self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]].length);
 }
 
 + (NSString *)stringWithUUID {
@@ -27,6 +26,10 @@ int const GGCharacterIsNotADigit = 10;
     NSString *value = (NSString *)CFUUIDCreateString(nil, uuid);
     CFRelease(uuid);
     return [value autorelease];
+}
+
++ (NSString *)stringWithData:(NSData *)data {
+    return [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 }
 
 - (BOOL)containsString:(NSString *)string {
@@ -37,11 +40,7 @@ int const GGCharacterIsNotADigit = 10;
 	return [self rangeOfString:string options:options].location == NSNotFound ? NO : YES;
 }
 
-- (BOOL)hasSubstring:(NSString *)substring {
-    return [self containsString:substring];
-}
-
-- (NSString*) substringAfterSubstring:(NSString*)substring {
+- (NSString *)stringAfterSubstring:(NSString*)substring {
     return ([self containsString:substring]) ? [self substringFromIndex:NSMaxRange([self rangeOfString:substring])] : nil; 
 }
 
@@ -88,7 +87,7 @@ int const GGCharacterIsNotADigit = 10;
 }
 
 - (NSString *)base64 {
-    return [GTMBase64 stringByEncodingData:[self dataUsingEncoding:NSUTF8StringEncoding]];
+    return [NSData stringByEncodingData:[self dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 @end

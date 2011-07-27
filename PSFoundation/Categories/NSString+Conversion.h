@@ -9,7 +9,6 @@
 
 @interface NSString (Conversion)
 
-+ (NSString *)stringForBool:(BOOL)aBool string:(NSString *)aString charPtr:(char *)aCharPtr aFloat:(float)aFloat aDouble:(double)aDouble;
 + (NSString *)stringForBool:(BOOL)value;
 + (NSString *)stringForInt:(int)value;
 + (NSString *)stringForFloat:(float)value;
@@ -26,16 +25,11 @@
 + (NSString *)stringForULong:(unsigned long)value;
 + (NSString *)stringForULongLong:(unsigned long long)value;
 + (NSString *)stringForCharPtr:(long long)value;
-+ (NSString *)stringForObject:(id)value;
-+ (NSString *)stringForClass:(Class)value;
 + (NSString *)stringForInteger:(NSInteger)value;
 + (NSString *)stringForUnsignedInteger:(NSUInteger)value;
 + (NSString *)stringForCGFloat:(CGFloat)value;
 + (NSString *)stringForPointer:(void *)value;
 
-/*
- * Returns the long value of the string
- */
 - (long)longValue;
 - (long long)longLongValue;
 - (unsigned long long)unsignedLongLongValue;

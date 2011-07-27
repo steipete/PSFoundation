@@ -1,5 +1,5 @@
 //
-//  NSString+FlattenHTML.h
+//  NSString+HTML.h
 //  PSFoundation
 //
 //  Includes code by the following:
@@ -13,21 +13,10 @@
 
 @interface NSString(PSStringHTML)
 
-- (NSString *)ps_flattenHTML;
-
 - (NSString *)trimWhitespace;
-- (NSString *)removeWhitespace; // an alias for trimWhitespace
-- (NSString *)removeAllWhitespace;
-- (NSString *)replaceAllWhitespaceWithSpace;
+- (NSString *)trimWhitespaceWithSpace;
 
-- (NSString *)escapeHTML; // aliases for below
+- (NSString *)escapeHTML;
 - (NSString *)unescapeHTML;
-
-@end
-
-@interface NSString (GTMNSStringHTMLAdditions)
-
-- (NSString *)gtm_stringByEscapingForHTML;
-- (NSString *)gtm_stringByUnescapingFromHTML;
 
 @end

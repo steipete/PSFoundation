@@ -11,7 +11,7 @@
 
 @implementation PSGenericCell
 
-@synthesize cellView = _cellView;
+@synthesize cellView;
 
 // @override
 - (void)updateOverlaySettings {
@@ -31,8 +31,8 @@
 }
 
 - (void)dealloc {
-    [_cellView release];
-    [_cellView removeFromSuperview];
+    [cellView removeFromSuperview];
+    self.cellView = nil;
     [super dealloc];
 }
 
@@ -61,13 +61,13 @@
 }
 
 - (PSGenericView *)cellView {
-  if (!_cellView) {
-      _cellView = (PSGenericView *)[self initCellView];
+  if (!cellView) {
+      cellView = (PSGenericView *)[self initCellView];
       
-      if (!_cellView)
-          _cellView = [PSGenericView new];
+      if (!cellView)
+          cellView = [PSGenericView new];
   }
-  return _cellView;
+  return cellView;
 }
 
 @end

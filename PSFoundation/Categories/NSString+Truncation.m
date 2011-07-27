@@ -78,8 +78,4 @@
     return immutableResult;
 }
 
-- (NSString *)stringWithMaxLength:(NSUInteger)maxLen {
-    return [self stringByTruncatingToLength:maxLen];
-}
-
 @end

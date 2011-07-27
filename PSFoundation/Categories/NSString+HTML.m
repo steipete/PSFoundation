@@ -2,51 +2,9 @@
 //  NSString+FlattenHTML.m
 //  PSFoundation
 //
-//  Includes code by the following:
-//   - Google.             2009.  Apache.
-//   - Shaun Harrison.     2009.  BSD.
-//   - Peter Steinberger.  2010.  MIT.
-//
 
 #import "NSString+HTML.h"
-
-@implementation NSString (PSStringHTML)
-
-- (NSString *)ps_flattenHTML {
-    NSMutableString *mutableString = [[NSMutableString alloc] initWithString:self];
-    NSRange r;
-    while ((r = [mutableString rangeOfString:@"<[^>]+>" options:NSRegularExpressionSearch]).location != NSNotFound)
-        [mutableString replaceCharactersInRange:r withString:@" "];
-    
-    return [mutableString autorelease];
-}
-
-- (NSString *)trimWhitespace {
-	return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-}
-
-- (NSString *)removeWhitespace {
-    return [self trimWhitespace];
-}
-
-// even in the middle, like strange whitespace due &nbsp;
-- (NSString *)removeAllWhitespace {
-  return [[self componentsSeparatedByCharactersInSet: [NSCharacterSet whitespaceCharacterSet]] componentsJoinedByString: @""];
-}
-
-- (NSString *)replaceAllWhitespaceWithSpace {
-  return [[self componentsSeparatedByCharactersInSet: [NSCharacterSet whitespaceCharacterSet]] componentsJoinedByString: @" "];
-}
-
-- (NSString *)escapeHTML {
-    return [self gtm_stringByEscapingForHTML];
-}
-
-- (NSString *)unescapeHTML {
-    return [self gtm_stringByUnescapingFromHTML];
-}
-
-@end
+#import "NSString+PSFoundation.h"
 
 typedef struct {
     char *escapeSequence;
@@ -397,13 +355,21 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
     return val;
 }
 
-@implementation NSString (GTMNSStringHTMLAdditions)
 
-- (NSString *)gtm_stringByEscapingForHTML {
+@implementation NSString (PSStringHTML)
+
+- (NSString *)trimWhitespace {
+	return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+- (NSString *)trimWhitespaceWithSpace {
+  return [[self componentsSeparatedByCharactersInSet: [NSCharacterSet whitespaceCharacterSet]] componentsJoinedByString: @" "];
+}
+
+- (NSString *)escapeHTML {
     if (self.empty)
         return self;
     
-    NSMutableString *finalString = [NSMutableString new];
     NSMutableData *data2 = [NSMutableData dataWithCapacity:sizeof(unichar) * self.length];
     
     // this block is common between GTMNSString+HTML and GTMNSString+XML but
@@ -415,7 +381,6 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
         if (!data) {
             // COV_NF_START  - Memory fail case
             NSLog(@"couldn't alloc buffer");
-            [finalString release];
             return nil;
             // COV_NF_END
         }
@@ -426,12 +391,12 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
     if (!buffer || !data2) {
         // COV_NF_START
         NSLog(@"Unable to allocate buffer or data2");
-        [finalString release];
         return nil;
         // COV_NF_END
     }
     
     unichar *buffer2 = (unichar *)[data2 mutableBytes];
+    CFMutableStringRef finalString = CFStringCreateMutable(kCFAllocatorDefault, data2.length);
     
     NSUInteger buffer2Length = 0;
     
@@ -441,32 +406,29 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
                                      sizeof(HTMLEscapeMap), EscapeMapCompare);
         if (val) {
             if (buffer2Length) {
-                CFStringAppendCharacters((CFMutableStringRef)finalString,
-                                         buffer2,
-                                         buffer2Length);
+                CFStringAppendCharacters(finalString, buffer2, buffer2Length);
                 buffer2Length = 0;
             }
             
             if (val)
-                [finalString appendFormat:@"%s", val->escapeSequence];
+                CFStringAppendFormat(finalString, NULL, (CFStringRef)@"%s", val->escapeSequence);
             else
-                [finalString appendFormat:@"&#%d;", buffer[i]];
+                CFStringAppendFormat(finalString, NULL, (CFStringRef)@"&#%d;", buffer[i]);
         } else {
             buffer2[buffer2Length] = buffer[i];
             buffer2Length += 1;
         }
     }
     
-    if (buffer2Length) {
-        CFStringAppendCharacters((CFMutableStringRef)finalString,
-                                 buffer2,
-                                 buffer2Length);
-    }
+    if (buffer2Length)
+        CFStringAppendCharacters(finalString, buffer2, buffer2Length);
     
-    return [finalString autorelease];
+    NSString *ret = [NSString stringWithString:(NSString *)finalString];
+    CFRelease(finalString);
+    return ret;
 }
 
-- (NSString *)gtm_stringByUnescapingFromHTML {
+- (NSString *)unescapeHTML {
     NSRange range = NSMakeRange(0, [self length]);
     NSRange subrange = [self rangeOfString:@"&" options:NSBackwardsSearch range:range];
     
@@ -527,7 +489,7 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
                 }
             }
         }
-    } while ((subrange = [self rangeOfString:@"&" options:NSBackwardsSearch range:range]).length != 0);
+    } while ((subrange = [self rangeOfString:@"&" options:NSBackwardsSearch range:range]).length);
     return finalString;
 }
 

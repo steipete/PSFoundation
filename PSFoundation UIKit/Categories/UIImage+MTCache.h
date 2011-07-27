@@ -3,7 +3,7 @@
 //  PSFoundation
 //
 //  Created by Matthias Tretter on 04.03.11.
-//  Copyright 2011 Peter Steinberger. All rights reserved.
+//  Licensed under MIT. All rights reserved.
 //
 
 @interface UIImage (MTCache)

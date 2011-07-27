@@ -81,9 +81,13 @@
             break;
                 
             case GradientButtonAlertStyle: {
-                normalColors =    CFARRAY( RGBCGColor(72, 82, 106), RGBCGColor(209, 213, 222), RGBCGColor(47, 57, 83) );
-                highlightColors = CFARRAY( RGBCGColor(0, 0, 0), RGBCGColor(167, 174, 182),
-                                           RGBCGColor(35, 40, 53), RGBCGColor(60, 66, 78) );
+                normalColors =    CFARRAY(PSCGColor(72, 82, 106),
+                                          PSCGColor(209, 213, 222),
+                                          PSCGColor(47, 57, 83) );
+                highlightColors = CFARRAY(PSCGColor(0, 0, 0),
+                                          PSCGColor(167, 174, 182),
+                                          PSCGColor(35, 40, 53),
+                                          PSCGColor(60, 66, 78) );
                 
                 self.normalGradientLocations =    ARRAY([NSNumber numberWithFloat:0], [NSNumber numberWithFloat:1], [NSNumber numberWithFloat:0.483]);
                 self.highlightGradientLocations = ARRAY([NSNumber numberWithFloat:0], [NSNumber numberWithFloat:1],

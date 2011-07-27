@@ -2,14 +2,9 @@
 //  NSFileManager+PSFoundation.m
 //  PSFoundation
 //
-//  Includes code by the following:
-//   - Erica Sadun.        2009.  BSD.
-//   - Peter Steinberger.  2010.  MIT.
-//   - Steve Streza.       2010.
-//
 
 #import "NSFileManager+PSFoundation.h"
-#import "NSArray+Structures.h"
+#import "NSArray+PSFoundation.h"
 
 @implementation NSFileManager (PSFoundation)
 
@@ -17,9 +12,10 @@
     NSError *error = nil;
     NSArray *list = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:&error];
     if (!error) {
-        return [path stringByAppendingPathComponent:[list match:^BOOL(id obj) {
+        NSString *path = [list match:^BOOL(id obj) {
             return ([[obj lastPathComponent] isEqualToString:fname]);
-        }]];
+        }];
+        return [path stringByAppendingPathComponent:path];
     }
     return nil;
 }
@@ -28,7 +24,7 @@
     return [NSFileManager pathForItemNamed:fname inFolder:[NSFileManager documentsFolder]];
 }
 
-+ (NSString *) pathForBundleDocumentNamed: (NSString *) fname {
++ (NSString *) pathForBundleItemNamed: (NSString *) fname {
     return [NSFileManager pathForItemNamed:fname inFolder:[NSFileManager bundleFolder]];
 }
 
@@ -62,8 +58,8 @@
 }
 
 // Case insensitive compare
-+ (NSArray *)pathsForBundleDocumentsMatchingExtension:(NSString *)ext {
-    return [NSFileManager pathsForItemsMatchingExtension:ext inFolder:NSBundleFolder()];
++ (NSArray *)pathsForBundleItemsMatchingExtension:(NSString *)ext {
+    return [NSFileManager pathsForItemsMatchingExtension:ext inFolder:[NSFileManager bundleFolder]];
 }
 
 + (NSString *)documentsFolder {
@@ -76,40 +72,6 @@
 
 + (NSString *)bundleFolder {
     return [[NSBundle mainBundle] bundlePath];
-}
-
-- (void)getContentsAtPath:(NSString *)path handler:(void (^)(NSData *data, NSError *error))handler {
-	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-	dispatch_async(queue, ^{
-		NSFileHandle *fh = [NSFileHandle fileHandleForReadingAtPath:path];
-		NSError *error = nil;
-		NSMutableData *data = [NSMutableData data];
-		
-		// create a GCD source using the file descriptor, which will respond whenever the descriptor fires
-		dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, [fh fileDescriptor], 0, queue);
-		dispatch_source_set_event_handler(source, ^{
-			BOOL eof = NO;
-			
-			// if we get less than this much, we hit end of file, so we can file the callback
-			NSUInteger max = 65536;
-			NSData *newData = [fh readDataOfLength:max];
-			if(!newData || newData.length < max){
-				eof = YES;
-			}
-			[data appendData:newData];
-			
-			if(eof){
-				dispatch_async(dispatch_get_main_queue(), ^{
-					handler(data, error);
-                    [data release];
-				});
-				
-				dispatch_source_cancel(source);
-                [fh release];
-			}
-		});
-		dispatch_resume(source);
-	});
 }
 
 @end

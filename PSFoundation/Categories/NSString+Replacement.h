@@ -11,9 +11,9 @@
 
 @interface NSString (PSStringReplacement)
 
-- (NSString *)stringByReplacingRange:(NSRange)aRange with:(NSString *)aString;
+- (NSString *)stringByReplacingRange:(NSRange)aRange withString:(NSString *)aString;
 - (NSString *)stringByReplacingString:(NSString *)searchString withString:(NSString *)newString;
-
+- (NSString *)stringByReplacingKeysWithValues:(NSDictionary *)dictionary;
 /**
  * Perform basic substitution of given key -> value pairs
  * within this string.
@@ -21,15 +21,13 @@
  *   [@"test string substitution" gsub:[NSDictionary withObjectsAndKeys:@"substitution", @"sub"]];
  *     //> @"test string sub"
  */
-- (NSString *)gsub:(NSDictionary *)keyValues;
-
-
-- (BOOL)isLongerThan:(NSUInteger)length;
+- (NSString *)stringByReplacingKeysWithValues:(NSDictionary *)dictionary;
 
 @end
 
 @interface NSMutableString (PSStringReplacement)
 
 - (NSUInteger)replaceOccurrencesOfString:(NSString *)target withString:(NSString *)replacement;
+- (void)replaceKeysWithValues:(NSDictionary *)keyValues;
 
 @end

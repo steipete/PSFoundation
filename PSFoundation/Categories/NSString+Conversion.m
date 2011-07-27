@@ -11,10 +11,6 @@
 
 @implementation NSString (Conversion)
 
-+ (NSString *)stringForBool:(BOOL)aBool string:(NSString *)aString charPtr:(char *)aCharPtr aFloat:(float)aFloat aDouble:(double)aDouble {
-    return [NSString stringWithFormat:@"%d %@ %s %f %f", aBool, aString, aCharPtr, aFloat, aDouble];
-}
-
 + (NSString *)stringForBool:(BOOL)value {
     return [NSString stringWithFormat:@"%d", value];
 }
@@ -77,14 +73,6 @@
 
 + (NSString *)stringForCharPtr:(long long)value {
     return [NSString stringWithFormat:@"%s", value];
-}
-
-+ (NSString *)stringForObject:(id)value {
-    return [value description];
-}
-
-+ (NSString *)stringForClass:(Class)value {
-    return NSStringFromClass(value);
 }
 
 + (NSString *)stringForInteger:(NSInteger)value {

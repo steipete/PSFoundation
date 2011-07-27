@@ -2,15 +2,11 @@
 //  PSKeychain.m
 //  PSFoundation
 //
-//  Includes code by the following:
-//   - Buzz Andersen.     2008. MIT.
-//   - Sam Soffes.        2011. Public domain.
-//   - Zachary Waldowski. 2011. MIT.
-//
 
 #import "PSKeychain.h"
 #import <Security/Security.h>
 #import "NSError+SCMethods.h"
+#import "NSString+PSFoundation.h"
 
 static NSString *kPSKeychainErrorDomain = @"PSKeychainErrorDomain";
 

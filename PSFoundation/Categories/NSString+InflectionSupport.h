@@ -1,13 +1,15 @@
 //
 //  NSString+InflectionSupport.h
-//  
+//  PSFoundation
 //
 //  Created by Ryan Daigle on 7/31/08.
 //  Copyright 2008 yFactorial, LLC. All rights reserved.
 //
+//  References:
+//   - https://github.com/yfactorial/objectivesupport
+//
 
-// https://github.com/yfactorial/objectivesupport
-@interface NSString (InflectionSupport)
+@interface NSString (PSStringInflection)
 
 /**
  * Return the dashed form af this camelCase string:

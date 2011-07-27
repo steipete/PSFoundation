@@ -1,22 +1,17 @@
 //
 //  UIImage+Tint.m
+//  PSFoundation
 //
-//  Created by Matt Gemmell on 04/07/2010.
-//  Copyright 2010 Instinctive Code.
-//
-// http://mattgemmell.com/2010/07/05/mgimageutilities
+
 #import "UIImage+Tint.h"
 
-
 @implementation UIImage (MGTint)
-
 
 - (UIImage *)imageTintedWithColor:(UIColor *)color
 {
 	// This method is designed for use with template images, i.e. solid-coloured mask-like images.
 	return [self imageTintedWithColor:color fraction:0.0]; // default to a fully tinted mask of the image.
 }
-
 
 - (UIImage *)imageTintedWithColor:(UIColor *)color fraction:(CGFloat)fraction
 {
