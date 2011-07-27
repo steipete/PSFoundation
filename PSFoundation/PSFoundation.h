@@ -1,35 +1,99 @@
 //
 //  PSFoundation.h
-//
-//  Created by Peter Steinberger on 03.05.10.
+//  PSFoundation
 //
 
-// Prefix header
 #import <Foundation/Foundation.h>
 
 #import "PSMacros.h"
 #import "PSFoundation+Logging.h"
 #import "SynthesizeSingleton.h"
-#import "PSFoundation+Categories.h"
 
-// External projects
+// Collections ////////////////////////////////////////////////////////////////////////////////////
+
+#import "NSArray+PSFoundation.h"
+#import "NSArray+Structures.h"
+#import "NSArray+Filtering.h"
+
+#import "NSDictionary+PSFoundation.h"
+#import "NSDictionary+CGStructs.h"
+
+#import "NSSet+PSFoundation.h"
+
+// NSData /////////////////////////////////////////////////////////////////////////////////////////
+
+#import "GTMBase64.h"
+#import "GTMNSData+zlib.h"
+#import "NSData+CommonCrypto.h"
+#import "NSData+MTAdditions.h"
+
+// NSDate /////////////////////////////////////////////////////////////////////////////////////////
+
+#import "NSDate+PSFoundation.h"
+
+// NSError ///////////////////////////////////////////////////////////////////////////////////////
+
+#import "NSError+SCMethods.h"
+
+// NSFileManager //////////////////////////////////////////////////////////////////////////////////
+
+#import "NSFileManager+PSFoundation.h"
+
+// NSNotifications ////////////////////////////////////////////////////////////////////////////////
+
+#import "NSNotification+PSFoundation.h"
+
+// NSNumber ///////////////////////////////////////////////////////////////////////////////////////
+
+#import "NSNumber+PSFoundation.h"
+
+// NSObject ///////////////////////////////////////////////////////////////////////////////////////
+
+#import "NSObject+DDExtensions.h"
+#import "NSObject+Utilities.h"
+#import "NSObject+AutoDescription.h"
+#import "NSObject+AssociatedObjects.h" // incl. BlocksKit
+#import "NSObject+Swizzle.h"
+
+// NSOperationQueue ///////////////////////////////////////////////////////////////////////////////
+
+#import "NSOperationQueue+CWSharedQueue.h"
+
+// NSString ///////////////////////////////////////////////////////////////////////////////////////
+
+#import "NSString+URL.h"
+#import "NSString+Conversion.h"
+#import "NSString+Truncation.h"
+#import "NSString+HTML.h"
+#import "NSString+PSFoundation.h"
+#import "NSString+Replacement.h"
+#import "NSString+InflectionSupport.h"
+
+// NSURL ///////////////////////////////////////////////////////////////////////////////////////
+
+#import "NSURL+PSFoundation.h"
+
+// External projects ///////////////////////////////////////////////////////////////////////////
+
 #import "BlocksKit.h"
 #import "MAZeroingWeakRef.h"
 #import "EGOCache.h"
 #import "EGOCache+MTCollections.h"
 #import "SMModelObject.h"
 
-// Our projects/forks
+// Our projects/forks //////////////////////////////////////////////////////////////////////////
+
 #import "PSReachability.h"
 #import "PSKeychain.h"
 #import "TPAutoArchiver.h"
 
-// invocations & proxies
+// Proxy and invocations ///////////////////////////////////////////////////////////////////////
+
 #import "DDInvocationGrabber.h"
 #import "NSObject+DDExtensions.h"
 #import "NSObject+Proxy.h"
 
-// more logging stuff
+// Logging /////////////////////////////////////////////////////////////////////////////////////
 #import "DDTTYLogger.h"
 #import "DDFileLogger.h"
 #import "DDNSLoggerLogger.h" // network logging!

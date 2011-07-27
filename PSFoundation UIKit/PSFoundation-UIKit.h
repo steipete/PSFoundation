@@ -24,6 +24,7 @@
 #import "PSGenericCell.h"
 #import "PSGenericView.h"
 #import "PSShadowView.h"
+#import "PSGradientView.h"
 #import "PSTableViewController.h"
 #import "DTCustomColoredAccessory.h"
 
@@ -46,14 +47,9 @@
 // Splash Screen
 #import "MTSplashScreen.h"
 
-// Universal
-#import "MTUniversalHelper.h"
-
 // Core Graphics
 #import "CoreGraphics+PSFoundation.h"
 #import "CoreGraphics+RoundedRect.h"
-
-#import "IKNetworkActivityManager.h"
 
 #import "SKProduct+LocalizedPrice.h"
 
@@ -69,7 +65,6 @@
 #if IS_IOS // not all of the CG stuff is available in Chameleon yet.
 // setPathToRoundedRect, drawGlossyRect, setBackgroundToGlossyRectOfColor
 #import "UIButton+Glossy.h"
-#import "UIButton+Presets.h"
 #endif
 
 #import "UIColor+PSFoundation.h"
@@ -117,5 +112,4 @@
 #import "UIView+Hierarchy.h"
 #import "UIViewHelper.h"
 
-#import "UIViewControllerHelper.h"
 #import "UIViewController+MTUIAdditions.h"

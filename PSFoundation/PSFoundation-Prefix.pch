@@ -8,5 +8,4 @@
 #import "PSMacros.h"
 #import "PSFoundation+Logging.h"
 #import "SynthesizeSingleton.h"
-#import "PSFoundation+Categories.h"
 #endif

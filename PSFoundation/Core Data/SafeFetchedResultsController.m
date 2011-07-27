@@ -7,7 +7,7 @@
 
 #import "SafeFetchedResultsController.h"
 #import <CoreData/CoreData.h>
-#import <UIKit/UIKit.h>
+#import "NSObject+Utilities.h"
 
 #define kSafeFetchDebug YES
 
