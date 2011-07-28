@@ -1,16 +1,11 @@
 //
-//  NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m
-//  PSFoundation
+//  NSManagedObject+PSSafeSetValues.m
+//  PSFoundation (CoreData)
 //
-//  Created by Matthias Tretter on 02.06.11.
-//  Copyright 2011 Peter Steinberger. All rights reserved.
-//
-//  Taken from: http://www.cimgf.com/2011/06/02/saving-json-to-core-data/
 
-#import "NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h"
+#import "NSManagedObject+PSSafeSetValues.h"
 
-
-@implementation NSManagedObject (MTSafeSetValuesForKeysWithDictionary)
+@implementation NSManagedObject (PSSafeSetValues)
 
 - (void)safeSetValuesForKeysWithDictionary:(NSDictionary *)keyedValues {
     NSDictionary *attributes = [[self entity] attributesByName];

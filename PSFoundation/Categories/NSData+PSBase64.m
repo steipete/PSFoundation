@@ -2,9 +2,6 @@
 //  NSData+PSBase64.m
 //  PSFoundation
 //
-//  Copyright 2006-2008 Google Inc.
-//  Licensed under Apache 2.0; found in LICENSES/Apache
-//
 
 #import "NSData+PSBase64.h"
 #import "NSString+PSFoundation.h"

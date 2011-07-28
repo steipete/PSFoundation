@@ -19,10 +19,10 @@
  
  Includes code by the following:
  
- - [Erica Sadun](https://github.com/erica). 2008. BSD.
- - [Peter Steinberger](https://github.com/steipete). 2009. MIT.
- - [Matthias Tretter](https://github.com/myell0w). 2010. MIT.
- - [Zach Waldowski](https://github.com/zwaldowski). 2011. MIT.
+ - [Erica Sadun](https://github.com/erica) - 2008. BSD.
+ - [Peter Steinberger](https://github.com/steipete) - 2009. MIT.
+ - [Matthias Tretter](https://github.com/myell0w) - 2010. MIT.
+ - [Zach Waldowski](https://github.com/zwaldowski) - 2011. MIT.
  
  */
 

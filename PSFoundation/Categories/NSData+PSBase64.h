@@ -2,11 +2,15 @@
 //  NSData+PSBase64.h
 //  PSFoundation
 //
-//  Copyright 2006-2008 Google Inc.
-//  Licensed under Apache 2.0.  All rights reserved.
-//
 
-/** Helper for handling Base64 encodings within NSData. */
+/** A helper for handling Base64 encodings within NSData.
+ 
+ Includes code by the following:
+
+ - [Ben Copesly](https://github.com/pokeb) - 2011. BSD.
+ - [Google, Inc](http://code.google.com/p/google-toolbox-for-mac/) - 2008. Apache.
+
+ */
 @interface NSData (PSDataBase64)
 
 /** Base64 encodes contents of the NSData object.

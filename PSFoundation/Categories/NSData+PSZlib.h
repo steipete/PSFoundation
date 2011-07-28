@@ -2,11 +2,17 @@
 //  NSData+PSZlib.h
 //  PSFoundation
 //
-//  Includes code by the following:
-//   - Google.     2008. Apache.
-//   - Ben Copsey. 2011. BSD.
-//
 
+/** Convenience methods for gzipping and deflating NSData instances.
+ 
+ Includes code by the following:
+ 
+ - [Ben Copesly](https://github.com/pokeb) - 2011. BSD.
+ - [Google, Inc](http://code.google.com/p/google-toolbox-for-mac/) - 2008. Apache.
+ 
+ @warning Documentation on this class/category is incomplete.
+ 
+ */
 @interface NSData (PSDataZlib)
 
 /// Return an autoreleased NSData w/ the result of gzipping the payload of |data|.

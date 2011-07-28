@@ -2,9 +2,14 @@
 //  NSData+PSCommonCrypto.h
 //  PSFoundation
 //
-//  Created by Jim Dovey on 31 Aug. 2008.
-//  Licensed under BSD.  All rights reserved.
-//
+
+/** Convenience methods for gzipping and deflating NSData instances.
+ 
+ Created by [Jim Dovey](https://github.com/AlanQuatermain) on 31 Aug. 2008.  Licensed under BSD.  All rights reserved.
+ 
+ @warning Documentation on this class/category is incomplete.
+ 
+ */
 
 #import <CommonCrypto/CommonCryptor.h>
 #import <CommonCrypto/CommonHMAC.h>

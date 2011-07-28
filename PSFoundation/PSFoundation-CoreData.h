@@ -1,15 +1,13 @@
 //
-//  PSFoundation_CoreData.h
-//  PSFoundation
+//  PSFoundation-CoreData.h
+//  PSFoundation (CoreData)
 //
 
 #import <CoreData/CoreData.h>
 
 #import "CoreData+MagicalRecord.h"
 
+#import "NSManagedObject+PSAutoDescription.h"
+#import "NSManagedObject+PSSafeSetValues.h"
+#import "NSManagedObjectContext+PSURIFetch.h"
 #import "SafeFetchedResultsController.h"
-
-#import "NSManagedObjectContext+FetchedObjectFromURI.h"
-
-#import "NSManagedObject+AutoDescription.h"
-#import "NSManagedObject+MTSafeSetValuesForKeysWithDictionary.h"
