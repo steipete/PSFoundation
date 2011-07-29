@@ -11,8 +11,8 @@
 //   - http://www.dribin.org/dave/blog/archives/2008/09/22/convert_to_nsstring/
 //
 
-#include "PSMacros+Compatibility.h"
-#include "PSMacros+Collections.h"
+#import "PSMacros+Compatibility.h"
+#import "PSMacros+Collections.h"
 #import "NSFileManager+PSFoundation.h"
 
 // compiler help

@@ -1,20 +1,15 @@
 //
-// SoundEffect.m
-// PSFoundation
-//
-// Copyright 2008 Apple Inc. All rights reserved.
-// Licensed under the Apple Sample License.
+//  PSSoundEffect.m
+//  PSFoundation
 //
 
-#import "SoundEffect.h"
+#import "PSSoundEffect.h"
+#import <AudioToolbox/AudioToolbox.h>
 #import "NSObject+BlocksKit.h"
-#import "NSObject+Utilities.h"
+#import "NSString+PSFoundation.h"
+#import "NSURL+PSFoundation.h"
 
-@implementation SoundEffect
-
-+ (id)soundEffectWithContentsOfFile:(NSString *)aPath {
-    return [[[SoundEffect alloc] initWithContentsOfFile:aPath] autorelease];
-}
+@implementation PSSoundEffect
 
 - (id)initWithContentsOfFile:(NSString *)path {
     if (path.empty)
@@ -22,8 +17,17 @@
     
     NSURL *aFileURL = [NSURL fileURLWithPath:path isDirectory:NO];
     
-    if (aFileURL.empty)
+    AudioFileID fileID;
+    AudioFileOpenURL((CFURLRef)aFileURL, kAudioFileReadPermission, 0, &fileID);
+    NSTimeInterval seconds;
+    UInt32 propertySize = sizeof(seconds);
+    AudioFileGetProperty(fileID, kAudioFilePropertyEstimatedDuration, &propertySize, &seconds);
+    AudioFileClose(fileID);
+    
+    if (seconds > 30) {
+        DDLogError(@"Sound too long at path: %@", path);
         return nil;
+    }
     
     SystemSoundID aSoundID;
     OSStatus error = AudioServicesCreateSystemSoundID((CFURLRef)aFileURL, &aSoundID);
@@ -32,13 +36,6 @@
         DDLogError(@"Error %d loading sound at path: %@", error, path);
         return nil;
     }
-    
-    AudioFileID fileID;
-    AudioFileOpenURL((CFURLRef)aFileURL, kAudioFileReadPermission, 0, &fileID);
-    NSTimeInterval seconds;
-    UInt32 propertySize = sizeof(seconds);
-    AudioFileGetProperty(fileID, kAudioFilePropertyEstimatedDuration, &propertySize, &seconds);
-    AudioFileClose(fileID);
     
     if ((self = [super init])) {
         soundID = aSoundID;
@@ -58,17 +55,13 @@
     AudioServicesPlaySystemSound(soundID);
 }
 
-static void SoundEffectAutoDestruction(SystemSoundID soundID, void *userInfo) {
-    AudioServicesDisposeSystemSoundID(soundID);
-}
-
 + (void)playSoundEffectWithContentsOfFile:(NSString *)path {
     if (path.empty)
         return;
 
-    SoundEffect *instance = [SoundEffect soundEffectWithContentsOfFile:path];
-    AudioServicesAddSystemSoundCompletion(instance->soundID, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode, SoundEffectAutoDestruction, NULL);
+    PSSoundEffect *instance = [[PSSoundEffect alloc] initWithContentsOfFile:path];
     [instance play];
+    [instance release];
 }
 
 + (void)vibrate {

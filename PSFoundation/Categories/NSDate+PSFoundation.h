@@ -3,8 +3,6 @@
 //  PSFoundation
 //
 
-@interface NSDate (PSFoundation)
-
 /** A suite of creators and comparators for NSDate.
  
  This category introduces all manner of date initializers,
@@ -25,6 +23,7 @@
  - [Zach Waldowski](https://github.com/zwaldowski) - 2011. MIT.
  
  */
+@interface NSDate (PSFoundation)
 
 /** Creates and raturns an NSDate object with the date and time
  values specified by the given date components.

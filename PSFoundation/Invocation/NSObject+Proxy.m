@@ -98,11 +98,11 @@
 @implementation NSObject (SDStuff)
 
 - (id) nextRunloopProxy {
-	return [[[SDNextRunloopProxy alloc] initWithTarget:self] autorelease];
+	return [[SDNextRunloopProxy alloc] initWithTarget:self];
 }
 
 - (id) proxyWithDelay:(float)time {
-	return [[[FJSDelayProxy alloc] initWithTarget:self delay:time] autorelease];
+	return [[FJSDelayProxy alloc] initWithTarget:self delay:time];
 }
 
 @end

@@ -370,8 +370,8 @@
 		6C5D6CDD13C64E8300CBDA8B /* BSUIViewRearranger.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C1813C64E8200CBDA8B /* BSUIViewRearranger.m */; };
 		6C5D6CDE13C64E8300CBDA8B /* UIView+CWNibLocalizations.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C1913C64E8200CBDA8B /* UIView+CWNibLocalizations.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6CDF13C64E8300CBDA8B /* UIView+CWNibLocalizations.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C1A13C64E8200CBDA8B /* UIView+CWNibLocalizations.m */; };
-		6C5D6CE213C64E8300CBDA8B /* SoundEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C1F13C64E8200CBDA8B /* SoundEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D6CE313C64E8300CBDA8B /* SoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2013C64E8200CBDA8B /* SoundEffect.m */; };
+		6C5D6CE213C64E8300CBDA8B /* PSSoundEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C1F13C64E8200CBDA8B /* PSSoundEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C5D6CE313C64E8300CBDA8B /* PSSoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2013C64E8200CBDA8B /* PSSoundEffect.m */; };
 		6C5D6CE413C64E8300CBDA8B /* DTCustomColoredAccessory.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C2213C64E8200CBDA8B /* DTCustomColoredAccessory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6CE513C64E8300CBDA8B /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2313C64E8200CBDA8B /* DTCustomColoredAccessory.m */; };
 		6C5D6CE613C64E8300CBDA8B /* PSGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C2413C64E8200CBDA8B /* PSGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -384,8 +384,8 @@
 		6C5D6CED13C64E8300CBDA8B /* PSShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2B13C64E8200CBDA8B /* PSShadowView.m */; };
 		6C5D6CEE13C64E8300CBDA8B /* PSTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C2C13C64E8200CBDA8B /* PSTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6CEF13C64E8300CBDA8B /* PSTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2D13C64E8200CBDA8B /* PSTableViewController.m */; };
-		6C5D6CF013C64E8300CBDA8B /* ShadowedTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C2E13C64E8200CBDA8B /* ShadowedTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C5D6CF113C64E8300CBDA8B /* ShadowedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2F13C64E8200CBDA8B /* ShadowedTableView.m */; };
+		6C5D6CF013C64E8300CBDA8B /* PSShadowedTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C2E13C64E8200CBDA8B /* PSShadowedTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C5D6CF113C64E8300CBDA8B /* PSShadowedTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C2F13C64E8200CBDA8B /* PSShadowedTableView.m */; };
 		6C5D6CF213C64E8300CBDA8B /* UACellBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C3013C64E8200CBDA8B /* UACellBackgroundView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6C5D6CF313C64E8300CBDA8B /* UACellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D6C3113C64E8200CBDA8B /* UACellBackgroundView.m */; };
 		6C5D6CF613C64E8300CBDA8B /* GradientButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C5D6C3613C64E8200CBDA8B /* GradientButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -629,8 +629,8 @@
 		6C5D6C1813C64E8200CBDA8B /* BSUIViewRearranger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSUIViewRearranger.m; sourceTree = "<group>"; };
 		6C5D6C1913C64E8200CBDA8B /* UIView+CWNibLocalizations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CWNibLocalizations.h"; sourceTree = "<group>"; };
 		6C5D6C1A13C64E8200CBDA8B /* UIView+CWNibLocalizations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CWNibLocalizations.m"; sourceTree = "<group>"; };
-		6C5D6C1F13C64E8200CBDA8B /* SoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffect.h; sourceTree = "<group>"; };
-		6C5D6C2013C64E8200CBDA8B /* SoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffect.m; sourceTree = "<group>"; };
+		6C5D6C1F13C64E8200CBDA8B /* PSSoundEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSoundEffect.h; sourceTree = "<group>"; };
+		6C5D6C2013C64E8200CBDA8B /* PSSoundEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSoundEffect.m; sourceTree = "<group>"; };
 		6C5D6C2213C64E8200CBDA8B /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
 		6C5D6C2313C64E8200CBDA8B /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
 		6C5D6C2413C64E8200CBDA8B /* PSGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGradientView.h; sourceTree = "<group>"; };
@@ -643,8 +643,8 @@
 		6C5D6C2B13C64E8200CBDA8B /* PSShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSShadowView.m; sourceTree = "<group>"; };
 		6C5D6C2C13C64E8200CBDA8B /* PSTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTableViewController.h; sourceTree = "<group>"; };
 		6C5D6C2D13C64E8200CBDA8B /* PSTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTableViewController.m; sourceTree = "<group>"; };
-		6C5D6C2E13C64E8200CBDA8B /* ShadowedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowedTableView.h; sourceTree = "<group>"; };
-		6C5D6C2F13C64E8200CBDA8B /* ShadowedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShadowedTableView.m; sourceTree = "<group>"; };
+		6C5D6C2E13C64E8200CBDA8B /* PSShadowedTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSShadowedTableView.h; sourceTree = "<group>"; };
+		6C5D6C2F13C64E8200CBDA8B /* PSShadowedTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSShadowedTableView.m; sourceTree = "<group>"; };
 		6C5D6C3013C64E8200CBDA8B /* UACellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UACellBackgroundView.h; sourceTree = "<group>"; };
 		6C5D6C3113C64E8200CBDA8B /* UACellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UACellBackgroundView.m; sourceTree = "<group>"; };
 		6C5D6C3613C64E8200CBDA8B /* GradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
@@ -1146,8 +1146,8 @@
 		6C5D6C1E13C64E8200CBDA8B /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				6C5D6C1F13C64E8200CBDA8B /* SoundEffect.h */,
-				6C5D6C2013C64E8200CBDA8B /* SoundEffect.m */,
+				6C5D6C1F13C64E8200CBDA8B /* PSSoundEffect.h */,
+				6C5D6C2013C64E8200CBDA8B /* PSSoundEffect.m */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
@@ -1167,8 +1167,8 @@
 				6C5D6C2B13C64E8200CBDA8B /* PSShadowView.m */,
 				6C5D6C2C13C64E8200CBDA8B /* PSTableViewController.h */,
 				6C5D6C2D13C64E8200CBDA8B /* PSTableViewController.m */,
-				6C5D6C2E13C64E8200CBDA8B /* ShadowedTableView.h */,
-				6C5D6C2F13C64E8200CBDA8B /* ShadowedTableView.m */,
+				6C5D6C2E13C64E8200CBDA8B /* PSShadowedTableView.h */,
+				6C5D6C2F13C64E8200CBDA8B /* PSShadowedTableView.m */,
 				6C5D6C3013C64E8200CBDA8B /* UACellBackgroundView.h */,
 				6C5D6C3113C64E8200CBDA8B /* UACellBackgroundView.m */,
 			);
@@ -1665,14 +1665,14 @@
 				6C5D6CDA13C64E8300CBDA8B /* CoreGraphics+RoundedRect.h in Headers */,
 				6C5D6CDC13C64E8300CBDA8B /* BSUIViewRearranger.h in Headers */,
 				6C5D6CDE13C64E8300CBDA8B /* UIView+CWNibLocalizations.h in Headers */,
-				6C5D6CE213C64E8300CBDA8B /* SoundEffect.h in Headers */,
+				6C5D6CE213C64E8300CBDA8B /* PSSoundEffect.h in Headers */,
 				6C5D6CE413C64E8300CBDA8B /* DTCustomColoredAccessory.h in Headers */,
 				6C5D6CE613C64E8300CBDA8B /* PSGradientView.h in Headers */,
 				6C5D6CE813C64E8300CBDA8B /* PSGenericCell.h in Headers */,
 				6C5D6CEA13C64E8300CBDA8B /* PSGenericView.h in Headers */,
 				6C5D6CEC13C64E8300CBDA8B /* PSShadowView.h in Headers */,
 				6C5D6CEE13C64E8300CBDA8B /* PSTableViewController.h in Headers */,
-				6C5D6CF013C64E8300CBDA8B /* ShadowedTableView.h in Headers */,
+				6C5D6CF013C64E8300CBDA8B /* PSShadowedTableView.h in Headers */,
 				6C5D6CF213C64E8300CBDA8B /* UACellBackgroundView.h in Headers */,
 				6C5D6CF613C64E8300CBDA8B /* GradientButton.h in Headers */,
 				6C5D6CF813C64E8300CBDA8B /* LRPopoverManager.h in Headers */,
@@ -2071,14 +2071,14 @@
 				6C5D6CDB13C64E8300CBDA8B /* CoreGraphics+RoundedRect.m in Sources */,
 				6C5D6CDD13C64E8300CBDA8B /* BSUIViewRearranger.m in Sources */,
 				6C5D6CDF13C64E8300CBDA8B /* UIView+CWNibLocalizations.m in Sources */,
-				6C5D6CE313C64E8300CBDA8B /* SoundEffect.m in Sources */,
+				6C5D6CE313C64E8300CBDA8B /* PSSoundEffect.m in Sources */,
 				6C5D6CE513C64E8300CBDA8B /* DTCustomColoredAccessory.m in Sources */,
 				6C5D6CE713C64E8300CBDA8B /* PSGradientView.m in Sources */,
 				6C5D6CE913C64E8300CBDA8B /* PSGenericCell.m in Sources */,
 				6C5D6CEB13C64E8300CBDA8B /* PSGenericView.m in Sources */,
 				6C5D6CED13C64E8300CBDA8B /* PSShadowView.m in Sources */,
 				6C5D6CEF13C64E8300CBDA8B /* PSTableViewController.m in Sources */,
-				6C5D6CF113C64E8300CBDA8B /* ShadowedTableView.m in Sources */,
+				6C5D6CF113C64E8300CBDA8B /* PSShadowedTableView.m in Sources */,
 				6C5D6CF313C64E8300CBDA8B /* UACellBackgroundView.m in Sources */,
 				6C5D6CF713C64E8300CBDA8B /* GradientButton.m in Sources */,
 				6C5D6CF913C64E8300CBDA8B /* LRPopoverManager.m in Sources */,

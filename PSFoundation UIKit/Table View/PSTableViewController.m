@@ -10,7 +10,7 @@
 //
 
 #import "PSTableViewController.h"
-#import "ShadowedTableView.h"
+#import "PSShadowedTableView.h"
 
 @interface PSTableViewController ()
 - (void)keyboardChanged:(NSNotification *)notification up:(BOOL)up;
@@ -109,7 +109,7 @@
     UITableView *newTableView = nil;
     
     if (useShadows)
-        newTableView = [[ShadowedTableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
+        newTableView = [[PSShadowedTableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
     else
         newTableView = [[UITableView alloc] initWithFrame:CGRectZero style:self.tableViewStyle];
     

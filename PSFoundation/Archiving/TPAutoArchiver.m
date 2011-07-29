@@ -33,8 +33,7 @@ NSString * const TPAutoArchiverValuesBlobKey = @"TPAutoArchiverValuesBlobKey";
 	return keys;
 }
 
-+ (void)archiveObject:(id)anObject
-			withCoder:(NSCoder *)aCoder {
++ (void)archiveObject:(id)anObject withCoder:(NSCoder *)aCoder {
 	NSParameterAssert( anObject );
 	NSParameterAssert( aCoder );
 	if (!anObject || !aCoder) return; // assertions should be off in debug builds

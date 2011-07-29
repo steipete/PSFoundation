@@ -1,21 +1,23 @@
 //
-//  ShadowedTableView.m
-//  ShadowedTableView
-//
-//  Created by Matt Gallagher on 2009/08/21.
-//  Copyright 2009 Matt Gallagher. All rights reserved.
-//
-// http://cocoawithlove.com/2009/08/adding-shadow-effects-to-uitableview.html
+//  PSShadowedTableView.m
+//  PSFoundation
 //
 
-#import "ShadowedTableView.h"
+#import "PSShadowedTableView.h"
+#import <QuartzCore/QuartzCore.h>
 #import "PSShadowView.h"
 
 #define SHADOW_HEIGHT 20.0
 #define SHADOW_INVERSE_HEIGHT 10.0
 #define SHADOW_RATIO (SHADOW_INVERSE_HEIGHT / SHADOW_HEIGHT)
 
-@implementation ShadowedTableView
+@interface PSShadowedTableView ()
+@property (nonatomic, retain) CAGradientLayer *originShadow;
+@property (nonatomic, retain) CAGradientLayer *topShadow;
+@property (nonatomic, retain) CAGradientLayer *bottomShadow;
+@end
+
+@implementation PSShadowedTableView
 
 @synthesize originShadow, topShadow, bottomShadow;
 

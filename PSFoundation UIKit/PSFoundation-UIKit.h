@@ -24,6 +24,7 @@
 #import "PSGenericCell.h"
 #import "PSGenericView.h"
 #import "PSShadowView.h"
+#import "PSShadowedTableView.h"
 #import "PSGradientView.h"
 #import "PSTableViewController.h"
 #import "DTCustomColoredAccessory.h"
@@ -35,7 +36,7 @@
 #import "PSSettingsUtil.h"
 #import "PSStatusBarSaver.h"
 
-#import "SoundEffect.h"
+#import "PSSoundEffect.h"
 
 // InterfaceBuilder
 #import "BSUIViewRearranger.h"
