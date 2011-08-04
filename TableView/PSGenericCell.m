@@ -62,7 +62,7 @@
 
 - (PSGenericView *)cellView {
   if (!_cellView) {
-    _cellView = [self customCellView];
+    _cellView = [[self customCellView] retain];
   }
   return _cellView;
 }
