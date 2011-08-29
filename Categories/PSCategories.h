@@ -140,7 +140,7 @@
 
 #import "UIView+Sizes.h"
 #import "UIView+Animation.h"
-#import "UIView+PSAdditions.m"
+#import "UIView+PSAdditions.h"
 #import "UIView+MTUIAdditions.h"
 #import "UIView+MTRotation.h"
 #import "UIView+Hierarchy.h"

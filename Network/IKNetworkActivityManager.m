@@ -7,6 +7,8 @@
 
 #import "IKNetworkActivityManager.h"
 
+CFStringRef _NetworkUserDescription(const void *value);
+
 
 CFStringRef _NetworkUserDescription(const void *value) {
   return (CFStringRef)NSStringFromClass([(id)value class]);

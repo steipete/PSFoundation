@@ -146,7 +146,7 @@
 	
 	*/
 
-BOOL IsXcodeColorsEnabled();
+BOOL IsXcodeColorsEnabled(void);
 
 NSString* StripXcodeColors(NSString* str,...) __attribute__((format(__NSString__, 1, 2)));// format checking is enabled
 NSString* AllowXcodeColors(NSString* str,...) __attribute__((format(__NSString__, 1, 2)));// just returns the same string, it needs for format chacking

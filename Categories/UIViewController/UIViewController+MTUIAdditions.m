@@ -9,12 +9,17 @@
 #import "UIViewController+MTUIAdditions.h"
 #import <objc/runtime.h>
 
+
+#define kMTActivityFadeDuration  0.3
+#define kMTMaxActivityFrameWidth 37
+
 ////////////////////////////////////////////////////////////////////////
 #pragma mark -
 #pragma mark Keys for associated objects
 ////////////////////////////////////////////////////////////////////////
 
 static char oldBarButtonItemKey;
+static char cellKey;
 
 
 @implementation UIViewController (MTUIAdditions)
@@ -24,7 +29,7 @@ static char oldBarButtonItemKey;
     UIActivityIndicatorView *activityView = nil;
     
     if (oldActivityView == nil) { 
-        UIActivityIndicatorView *activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+        activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
         
         activityView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
         
@@ -47,17 +52,68 @@ static char oldBarButtonItemKey;
         }
     }
     
+    activityView.hidden = NO;
+    activityView.alpha = 0.0f;
     [self.view bringSubviewToFront:activityView];
     [activityView startAnimating];
+    
+    [UIView animateWithDuration:kMTActivityFadeDuration animations:^(void) {
+        activityView.alpha = 1.0f;
+    }];
+}
+
+- (void)showLoadingIndicatorInsteadOfView:(UIView *)view {
+    id oldActivityView = [self.view viewWithTag:kMTActivityViewTag];
+    UIActivityIndicatorView *activityView = nil;
+    CGRect activityFrame = view.frame;
+    
+    // make activityView a circle (same width+height, only use integral coordinates to prohibit blurry activityView)
+    if (activityFrame.size.width < activityFrame.size.height) {
+        activityFrame = CGRectIntegral(CGRectInset(activityFrame, 0, (activityFrame.size.height - activityFrame.size.width)/2));
+    } else {
+        activityFrame = CGRectIntegral(CGRectInset(activityFrame, (activityFrame.size.width - activityFrame.size.height)/2, 0));
+    }
+    
+    // limit size of activityView
+    if (activityFrame.size.width > kMTMaxActivityFrameWidth) {
+        activityFrame = CGRectIntegral(CGRectInset(activityFrame, (activityFrame.size.width-kMTMaxActivityFrameWidth)/2,(activityFrame.size.height - kMTMaxActivityFrameWidth)/2));
+    }
+    
+    if (oldActivityView == nil) { 
+        activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
+        
+        activityView.tag = kMTActivityViewTag;
+    } 
+    // there is already a loading indicator showing
+    else {
+        if ([oldActivityView isKindOfClass:[UIActivityIndicatorView class]]) {
+            activityView = (UIActivityIndicatorView *)oldActivityView;
+        }
+    }
+    
+    activityView.frame = activityFrame;
+    [view.superview addSubview:activityView];
+    activityView.autoresizingMask = view.autoresizingMask;
+    
+    view.alpha = 0.f;
+    activityView.hidden = NO;
+    activityView.alpha = 0.0f;
+    [activityView startAnimating];
+    
+    [UIView animateWithDuration:kMTActivityFadeDuration animations:^(void) {
+        activityView.alpha = 1.0f;
+    }];
 }
 
 - (void)hideLoadingIndicator {
     id activityView = [self.view viewWithTag:kMTActivityViewTag];
     
-    if ([activityView isKindOfClass:[UIActivityIndicatorView class]]) {
-        [activityView stopAnimating];
-    }
+    [activityView setAlpha:0.0f];
     
+    if ([activityView isKindOfClass:[UIActivityIndicatorView class]]) {
+         [activityView stopAnimating];
+    }
+        
     [activityView removeFromSuperview];
 }
 
@@ -70,7 +126,7 @@ static char oldBarButtonItemKey;
     [backgroundView addSubview:activityView];
     [activityView startAnimating];
     
-    if (self.navigationItem.rightBarButtonItem != nil) {
+    if (self.navigationItem.rightBarButtonItem != nil && ![self.navigationItem.rightBarButtonItem isKindOfClass:[UIActivityIndicatorView class]]) {
         objc_setAssociatedObject(self, &oldBarButtonItemKey, self.navigationItem.rightBarButtonItem, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 
@@ -80,6 +136,20 @@ static char oldBarButtonItemKey;
 - (void)hideLoadingIndicatorInNavigationBar {
     UIBarButtonItem *oldItem = (UIBarButtonItem *)objc_getAssociatedObject(self, &oldBarButtonItemKey);
     self.navigationItem.rightBarButtonItem = oldItem;
+}
+
+- (void)showLoadingIndicatorInTableViewCell:(UITableViewCell *)cell {
+    UIActivityIndicatorView *activityIndicator = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
+    [activityIndicator startAnimating];
+    cell.accessoryView = activityIndicator;
+    
+    objc_setAssociatedObject(self, &cellKey, cell, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)hideLoadingIndicatorInTableViewCell {
+    UITableViewCell *cell = (UITableViewCell *)objc_getAssociatedObject(self, &cellKey);
+    
+    cell.accessoryView = nil;
 }
 
 @end

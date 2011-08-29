@@ -8,7 +8,7 @@
 
 #import "PSCompatibility.h"
 
-BOOL isIPad()
+BOOL isIPad(void)
 {
   IF_3_2_OR_GREATER
   (

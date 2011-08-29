@@ -27,8 +27,17 @@
 #import "EGOImageView.h"
 #import "EGOImageLoader.h"
 
+@interface EGOImageView ()
+
+@property (nonatomic, retain) UIImageView *placeholderView;
+
+- (void)showPlaceholderView;
+- (void)hidePlaceholderView;
+
+@end
+
 @implementation EGOImageView
-@synthesize imageURL, placeholderImage, delegate;
+@synthesize imageURL, placeholderImage, delegate, placeholderView;
 
 - (id)initWithPlaceholderImage:(UIImage*)anImage {
 	return [self initWithPlaceholderImage:anImage delegate:nil];	
@@ -53,6 +62,7 @@
 	if(!aURL) {
 		self.image = self.placeholderImage;
 		imageURL = nil;
+		[self showPlaceholderView];
 		return;
 	} else {
 		imageURL = [aURL retain];
@@ -63,8 +73,10 @@
 	
 	if(anImage) {
 		self.image = anImage;
+		[self hidePlaceholderView];
 	} else {
 		self.image = self.placeholderImage;
+		[self showPlaceholderView];
 	}
 }
 
@@ -74,6 +86,8 @@
 - (void)cancelImageLoad {
 	[[EGOImageLoader sharedImageLoader] cancelLoadForURL:self.imageURL];
 	[[EGOImageLoader sharedImageLoader] removeObserver:self forURL:self.imageURL];
+	
+	[self hidePlaceholderView];
 }
 
 - (void)imageLoaderDidLoad:(NSNotification*)notification {
@@ -81,6 +95,7 @@
 
 	UIImage* anImage = [[notification userInfo] objectForKey:@"image"];
 	self.image = anImage;
+	[self hidePlaceholderView];
 	[self setNeedsDisplay];
 	
 	if([self.delegate respondsToSelector:@selector(imageViewLoadedImage:)]) {
@@ -101,7 +116,32 @@
 	[[EGOImageLoader sharedImageLoader] removeObserver:self];
 	self.imageURL = nil;
 	self.placeholderImage = nil;
+	self.placeholderView = nil;
+	
     [super dealloc];
+}
+
+- (void)showPlaceholderView {
+	if (self.placeholderView == nil) {
+		self.placeholderView = [[[UIImageView alloc] initWithFrame:self.bounds] autorelease];
+	}
+	
+	self.placeholderView.frame = self.bounds;
+	self.placeholderView.autoresizingMask = self.autoresizingMask;
+	self.placeholderView.image = self.placeholderImage;
+
+	if (self.placeholderView.superview == nil) {
+		[self addSubview:self.placeholderView];
+	}
+}
+
+- (void)hidePlaceholderView {
+	[UIView animateWithDuration:0.4 animations:^(void) {
+	            self.placeholderView.alpha = 0.0f;
+	        } completion:^(BOOL finished) {
+	            [self.placeholderView removeFromSuperview];
+				self.placeholderView = nil;
+	        }];
 }
 
 @end

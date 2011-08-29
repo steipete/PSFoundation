@@ -16,7 +16,7 @@
 
 void (*__ColorLog_NSLog)(NSString * fmt,...) = NSLog;// to prevent false warning about format string
 
-BOOL IsXcodeColorsEnabled()
+BOOL IsXcodeColorsEnabled(void)
 {
 	char* xcEnv = getenv("XcodeColors");
 	return (xcEnv && !strcmp(xcEnv, "YES"));

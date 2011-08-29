@@ -8,19 +8,19 @@
 #import <UIKit/UIKit.h>
 
 // Path utilities
-NSString *NSDocumentsFolder();
-NSString *NSLibraryFolder();
-NSString *NSBundleFolder();
+NSString *NSDocumentsFolder(void);
+NSString *NSLibraryFolder(void);
+NSString *NSBundleFolder(void);
 
 @interface NSFileManager (Utilities)
-+ (NSString *) pathForItemNamed: (NSString *) fname inFolder: (NSString *) path;
-+ (NSString *) pathForDocumentNamed: (NSString *) fname;
-+ (NSString *) pathForBundleDocumentNamed: (NSString *) fname;
++ (NSString *)pathForItemNamed:(NSString *)fname inFolder:(NSString *)path;
++ (NSString *)pathForDocumentNamed:(NSString *)fname;
++ (NSString *)pathForBundleDocumentNamed:(NSString *)fname;
 
-+ (NSArray *) pathsForItemsMatchingExtension: (NSString *) ext inFolder: (NSString *) path;
-+ (NSArray *) pathsForDocumentsMatchingExtension: (NSString *) ext;
-+ (NSArray *) pathsForBundleDocumentsMatchingExtension: (NSString *) ext;
++ (NSArray *)pathsForItemsMatchingExtension:(NSString *)ext inFolder:(NSString *)path;
++ (NSArray *)pathsForDocumentsMatchingExtension:(NSString *)ext;
++ (NSArray *)pathsForBundleDocumentsMatchingExtension:(NSString *)ext;
 
-+ (NSArray *) filesInFolder: (NSString *) path;
++ (NSArray *)filesInFolder:(NSString *)path;
 @end
 

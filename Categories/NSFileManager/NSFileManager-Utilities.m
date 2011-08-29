@@ -7,15 +7,15 @@
 #import "NSArray-Utilities.h"
 #import "NSFileManager-Utilities.h"
 
-NSString *NSDocumentsFolder() {
+NSString *NSDocumentsFolder(void) {
   return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
 }
 
-NSString *NSLibraryFolder() {
+NSString *NSLibraryFolder(void) {
   return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) firstObject];
 }
 
-NSString *NSBundleFolder() {
+NSString *NSBundleFolder(void) {
   return [[NSBundle mainBundle] bundlePath];
 }
 

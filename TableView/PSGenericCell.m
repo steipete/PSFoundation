@@ -18,7 +18,7 @@
 }
 
 /// @override
-- (PSGenericView *)initCellView {
+- (PSGenericView *)customCellView {
   //[self doesNotRecognizeSelector:_cmd];
   return nil;
 }
@@ -62,7 +62,7 @@
 
 - (PSGenericView *)cellView {
   if (!_cellView) {
-    _cellView = [self initCellView];
+    _cellView = [[self customCellView] retain];
   }
   return _cellView;
 }
