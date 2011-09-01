@@ -25,7 +25,7 @@ static char landscapeFrameKey;
 #pragma mark UIView+MTRotation
 ////////////////////////////////////////////////////////////////////////
 
-+ (UIView *)viewWithPortraitFrame:(CGRect)portraitFrame landscapeFrame:(CGRect)landscapeFrame {
++ (id)viewWithPortraitFrame:(CGRect)portraitFrame landscapeFrame:(CGRect)landscapeFrame {
     UIView *view = [[[[self class] alloc] initWithFrame:portraitFrame] autorelease];
     
     view.portraitFrame = portraitFrame;
