@@ -19,6 +19,8 @@
 @property (nonatomic, readonly) BOOL hasPortraitAndLandscapeFrames;
 
 
++ (UIView *)viewWithPortraitFrame:(CGRect)portraitFrame landscapeFrame:(CGRect)landscapeFrame;
+
 /**
  * Returns the frame set for the given interface orientation
  * 
