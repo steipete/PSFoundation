@@ -38,6 +38,11 @@
 - (void)animateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
 
 /**
+ * Sets the frame of the UIView to the frame for the current statusBarOrientation
+ */
+- (void)layoutView;
+
+/**
  * Sets the frame of the UIView to the frame for the given interface orientation
  *
  * @param interfaceOrientation the interface orientation that specifies the frame used

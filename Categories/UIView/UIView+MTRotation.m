@@ -85,6 +85,10 @@ static char landscapeFrameKey;
     }];
 }
 
+- (void)layoutView {
+    [self setFrameForInterfaceOrientation:[UIApplication sharedApplication].statusBarOrientation];
+}
+
 - (void)setFrameForInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
         if (!CGRectIsEmpty(self.portraitFrame)) {
