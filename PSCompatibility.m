@@ -8,15 +8,6 @@
 
 #import "PSCompatibility.h"
 
-BOOL isIPad(void)
-{
-  IF_3_2_OR_GREATER
-  (
-   if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-   {
-     return YES;
-   }
-   );
-
-  return NO;
+BOOL isIPad(void) {
+    return [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad;
 }
