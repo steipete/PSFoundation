@@ -222,7 +222,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 		retVal = ReachableViaWiFi;
 	}
 
-	IF_3_2_OR_GREATER(
 	if ((((flags & kSCNetworkReachabilityFlagsConnectionOnDemand ) != 0) ||
 		(flags & kSCNetworkReachabilityFlagsConnectionOnTraffic) != 0))
 	{
@@ -235,7 +234,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 				retVal = ReachableViaWiFi;
 			}
 		}
-                    )
 
   IF_IOS(
          if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN)
