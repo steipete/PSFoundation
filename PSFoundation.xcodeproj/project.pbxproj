@@ -12,14 +12,18 @@
 		390BAB3212C943D000C39661 /* NSData+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 390BAB3012C943D000C39661 /* NSData+MTAdditions.m */; };
 		390BAB3A12C9448500C39661 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 390BAB3912C9448500C39661 /* CoreLocation.framework */; };
 		390BAB8512C9EF7F00C39661 /* PSFoundation_CoreLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 390BAB8412C9EF7F00C39661 /* PSFoundation_CoreLocation.h */; };
+		3931207C1428B8BA0095D5ED /* UITableView+FKLoading.h in Headers */ = {isa = PBXBuildFile; fileRef = 393120761428B8BA0095D5ED /* UITableView+FKLoading.h */; };
+		3931207D1428B8BA0095D5ED /* UITableView+FKLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 393120771428B8BA0095D5ED /* UITableView+FKLoading.m */; };
+		3931207E1428B8BA0095D5ED /* UITableViewCell+FKLoading.h in Headers */ = {isa = PBXBuildFile; fileRef = 393120781428B8BA0095D5ED /* UITableViewCell+FKLoading.h */; };
+		3931207F1428B8BA0095D5ED /* UITableViewCell+FKLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 393120791428B8BA0095D5ED /* UITableViewCell+FKLoading.m */; };
+		393120801428B8BA0095D5ED /* UIViewController+FKLoading.h in Headers */ = {isa = PBXBuildFile; fileRef = 3931207A1428B8BA0095D5ED /* UIViewController+FKLoading.h */; };
+		393120811428B8BA0095D5ED /* UIViewController+FKLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 3931207B1428B8BA0095D5ED /* UIViewController+FKLoading.m */; };
 		3934261A1328CCE5001427E1 /* DTCustomColoredAccessory.h in Headers */ = {isa = PBXBuildFile; fileRef = 393426181328CCE5001427E1 /* DTCustomColoredAccessory.h */; };
 		3934261B1328CCE5001427E1 /* DTCustomColoredAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 393426191328CCE5001427E1 /* DTCustomColoredAccessory.m */; };
 		3936595A12C7F3AE001D4D53 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595912C7F3AE001D4D53 /* AudioToolbox.framework */; };
 		3936595C12C7F3AE001D4D53 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3936595B12C7F3AE001D4D53 /* QuartzCore.framework */; };
 		3948221012C8AA9700763012 /* TDBadgedCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3948220E12C8AA9700763012 /* TDBadgedCell.h */; };
 		3948221112C8AA9700763012 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948220F12C8AA9700763012 /* TDBadgedCell.m */; };
-		39483F141396488A00AA4C4E /* UIViewController+MTUIAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 39483F121396488900AA4C4E /* UIViewController+MTUIAdditions.h */; };
-		39483F151396488A00AA4C4E /* UIViewController+MTUIAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 39483F131396488A00AA4C4E /* UIViewController+MTUIAdditions.m */; };
 		3975C0841317BFC400F1D336 /* NSDate+MTAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */; };
 		3975C0851317BFC400F1D336 /* NSDate+MTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */; };
 		3994624812C9241A005574A6 /* NSArrayHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3994624612C9241A005574A6 /* NSArrayHelper.h */; };
@@ -591,14 +595,18 @@
 		390BAB3012C943D000C39661 /* NSData+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+MTAdditions.m"; path = "Categories/NSData/NSData+MTAdditions.m"; sourceTree = SOURCE_ROOT; };
 		390BAB3912C9448500C39661 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		390BAB8412C9EF7F00C39661 /* PSFoundation_CoreLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSFoundation_CoreLocation.h; sourceTree = SOURCE_ROOT; };
+		393120761428B8BA0095D5ED /* UITableView+FKLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FKLoading.h"; sourceTree = "<group>"; };
+		393120771428B8BA0095D5ED /* UITableView+FKLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FKLoading.m"; sourceTree = "<group>"; };
+		393120781428B8BA0095D5ED /* UITableViewCell+FKLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+FKLoading.h"; sourceTree = "<group>"; };
+		393120791428B8BA0095D5ED /* UITableViewCell+FKLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FKLoading.m"; sourceTree = "<group>"; };
+		3931207A1428B8BA0095D5ED /* UIViewController+FKLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FKLoading.h"; sourceTree = "<group>"; };
+		3931207B1428B8BA0095D5ED /* UIViewController+FKLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FKLoading.m"; sourceTree = "<group>"; };
 		393426181328CCE5001427E1 /* DTCustomColoredAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTCustomColoredAccessory.h; sourceTree = "<group>"; };
 		393426191328CCE5001427E1 /* DTCustomColoredAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTCustomColoredAccessory.m; sourceTree = "<group>"; };
 		3936595912C7F3AE001D4D53 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3936595B12C7F3AE001D4D53 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3948220E12C8AA9700763012 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDBadgedCell.h; path = TableView/TDBadgedCell.h; sourceTree = SOURCE_ROOT; };
 		3948220F12C8AA9700763012 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDBadgedCell.m; path = TableView/TDBadgedCell.m; sourceTree = SOURCE_ROOT; };
-		39483F121396488900AA4C4E /* UIViewController+MTUIAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MTUIAdditions.h"; sourceTree = "<group>"; };
-		39483F131396488A00AA4C4E /* UIViewController+MTUIAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MTUIAdditions.m"; sourceTree = "<group>"; };
 		3975C0821317BFC400F1D336 /* NSDate+MTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+MTAdditions.h"; path = "Categories/NSDate/NSDate+MTAdditions.h"; sourceTree = SOURCE_ROOT; };
 		3975C0831317BFC400F1D336 /* NSDate+MTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+MTAdditions.m"; path = "Categories/NSDate/NSDate+MTAdditions.m"; sourceTree = SOURCE_ROOT; };
 		3994624612C9241A005574A6 /* NSArrayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSArrayHelper.h; path = Categories/NSArray/NSArrayHelper.h; sourceTree = SOURCE_ROOT; };
@@ -990,14 +998,21 @@
 				78DF3BD2126CC484008F05B9 /* ActiveRecord-CoreData */,
 				78692098126B4195000259AC /* Archiving */,
 				78E53161126E03EB00A89047 /* Categories */,
-				7869211E126B4195000259AC /* HUD */,
-				78E531E4126E03EB00A89047 /* Invocation */,
-				39EE94FC12C3ADC800AD953B /* InterfaceBuilder */,
 				3900165D130C2872006F7477 /* Graphics */,
+				7869211E126B4195000259AC /* HUD */,
+				39EE94FC12C3ADC800AD953B /* InterfaceBuilder */,
+				78E531E4126E03EB00A89047 /* Invocation */,
 				78692128126B4195000259AC /* Keychain */,
+				393120751428B8A40095D5ED /* Loading */,
 				78692131126B4195000259AC /* Logging */,
 				7869213E126B4195000259AC /* Macros */,
 				78692140126B4195000259AC /* Network */,
+				786921A4126B4195000259AC /* PSCompatibility.h */,
+				786921A5126B4195000259AC /* PSCompatibility.m */,
+				7856A32712B43AAB0025424F /* PSFoundation.h */,
+				7856A32512B43AA30025424F /* PSFoundation_CoreData.h */,
+				390BAB8412C9EF7F00C39661 /* PSFoundation_CoreLocation.h */,
+				786921A7126B4195000259AC /* PSMacros.h */,
 				78692143126B4195000259AC /* Reachability */,
 				39DDF4D1139FE7B6000B76BD /* ScrollView */,
 				78692146126B4195000259AC /* Sound */,
@@ -1006,12 +1021,6 @@
 				39EE957A12C3B44200AD953B /* Universal */,
 				78E531EB126E03EB00A89047 /* Utils */,
 				782AC0AF1281864800806121 /* ZeroWeakReferences */,
-				786921A4126B4195000259AC /* PSCompatibility.h */,
-				786921A5126B4195000259AC /* PSCompatibility.m */,
-				786921A7126B4195000259AC /* PSMacros.h */,
-				7856A32712B43AAB0025424F /* PSFoundation.h */,
-				7856A32512B43AA30025424F /* PSFoundation_CoreData.h */,
-				390BAB8412C9EF7F00C39661 /* PSFoundation_CoreLocation.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1056,6 +1065,19 @@
 			name = XcodeColors;
 			sourceTree = "<group>";
 		};
+		393120751428B8A40095D5ED /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				393120761428B8BA0095D5ED /* UITableView+FKLoading.h */,
+				393120771428B8BA0095D5ED /* UITableView+FKLoading.m */,
+				393120781428B8BA0095D5ED /* UITableViewCell+FKLoading.h */,
+				393120791428B8BA0095D5ED /* UITableViewCell+FKLoading.m */,
+				3931207A1428B8BA0095D5ED /* UIViewController+FKLoading.h */,
+				3931207B1428B8BA0095D5ED /* UIViewController+FKLoading.m */,
+			);
+			name = Loading;
+			sourceTree = "<group>";
+		};
 		3994625D12C925F5005574A6 /* UIViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1063,8 +1085,6 @@
 				3994625F12C925F5005574A6 /* UIViewControllerHelper.m */,
 				39EBAAAF13508EE100BBFB4B /* UIViewController+MTAnimatedFetch.h */,
 				39EBAAB013508EE100BBFB4B /* UIViewController+MTAnimatedFetch.m */,
-				39483F121396488900AA4C4E /* UIViewController+MTUIAdditions.h */,
-				39483F131396488A00AA4C4E /* UIViewController+MTUIAdditions.m */,
 			);
 			name = UIViewController;
 			path = Categories/UIViewController;
@@ -2086,12 +2106,14 @@
 				3934261A1328CCE5001427E1 /* DTCustomColoredAccessory.h in Headers */,
 				39FAFC87132FA7D100F039C4 /* UIImage+MTTiling.h in Headers */,
 				39EE4117136ABFE300ABE900 /* UIView+WhenTappedBlocks.h in Headers */,
-				39483F141396488A00AA4C4E /* UIViewController+MTUIAdditions.h in Headers */,
 				39C918171398D7580045489C /* MTSplashScreen.h in Headers */,
 				39C9181A1398D7AC0045489C /* MTSplashScreenDelegate.h in Headers */,
 				39F258B31399587C0084A471 /* UIView+MTRotation.h in Headers */,
 				39DDF4D4139FE7CB000B76BD /* PSScrollContentView.h in Headers */,
 				39C7950D13B5F445000AAB01 /* PSReachability.h in Headers */,
+				3931207C1428B8BA0095D5ED /* UITableView+FKLoading.h in Headers */,
+				3931207E1428B8BA0095D5ED /* UITableViewCell+FKLoading.h in Headers */,
+				393120801428B8BA0095D5ED /* UIViewController+FKLoading.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2519,11 +2541,13 @@
 				3934261B1328CCE5001427E1 /* DTCustomColoredAccessory.m in Sources */,
 				39FAFC88132FA7D100F039C4 /* UIImage+MTTiling.m in Sources */,
 				39EE4118136ABFE300ABE900 /* UIView+WhenTappedBlocks.m in Sources */,
-				39483F151396488A00AA4C4E /* UIViewController+MTUIAdditions.m in Sources */,
 				39C918181398D7580045489C /* MTSplashScreen.m in Sources */,
 				39F258B41399587C0084A471 /* UIView+MTRotation.m in Sources */,
 				39DDF4D5139FE7CB000B76BD /* PSScrollContentView.m in Sources */,
 				39C7950E13B5F445000AAB01 /* PSReachability.m in Sources */,
+				3931207D1428B8BA0095D5ED /* UITableView+FKLoading.m in Sources */,
+				3931207F1428B8BA0095D5ED /* UITableViewCell+FKLoading.m in Sources */,
+				393120811428B8BA0095D5ED /* UIViewController+FKLoading.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

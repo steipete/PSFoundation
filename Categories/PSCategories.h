@@ -148,7 +148,9 @@
 #import "UIView+WhenTappedBlocks.h"
 
 #import "UIViewControllerHelper.h"
-#import "UIViewController+MTUIAdditions.h"
+#import "UITableViewCell+FKLoading.h"
+#import "UITableView+FKLoading.h"
+#import "UIViewController+FKLoading.h"
 
 #import "UIScreen+PSAdditions.h"
 
