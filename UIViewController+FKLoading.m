@@ -11,8 +11,8 @@ static CGRect FKCenteredSquareInRectConstrainedToSize(CGRect rect, CGFloat size)
 
 @interface UIViewController ()
 
-@property (nonatomic, strong, readwrite) UIActivityIndicatorView *activityView;
-@property (nonatomic, strong) id replacedObject;
+@property (nonatomic, retain, readwrite) UIActivityIndicatorView *activityView;
+@property (nonatomic, retain) id replacedObject;
 
 @end
 
@@ -27,7 +27,7 @@ static CGRect FKCenteredSquareInRectConstrainedToSize(CGRect rect, CGFloat size)
     
     // create activityView when it is first read
     if (activityView == nil) {
-        activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge] autorelease];
         self.activityView = activityView;
     }
     
@@ -83,7 +83,7 @@ static CGRect FKCenteredSquareInRectConstrainedToSize(CGRect rect, CGFloat size)
     
     // initing the loading view
     UIActivityIndicatorView *activityView = self.activityView;
-    UIView *backgroundView = [[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, 24.f, 26.f)];
+    UIView *backgroundView = [[[UIView alloc] initWithFrame:CGRectMake(0.f, 0.f, 24.f, 26.f)] autorelease];
     UIBarButtonItem *barButtonItemToReplace = self.navigationItem.rightBarButtonItem;
     
     activityView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
@@ -92,7 +92,7 @@ static CGRect FKCenteredSquareInRectConstrainedToSize(CGRect rect, CGFloat size)
     [backgroundView addSubview:activityView];
     
     self.replacedObject = barButtonItemToReplace;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backgroundView];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:backgroundView] autorelease];
     
     [activityView startAnimating];
 }

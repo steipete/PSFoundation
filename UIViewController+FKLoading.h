@@ -4,7 +4,7 @@
 
 @interface UIViewController (FKLoading)
 
-@property (nonatomic, strong, readonly) UIActivityIndicatorView *activityView;
+@property (nonatomic, retain, readonly) UIActivityIndicatorView *activityView;
 
 - (void)showCenteredLoadingIndicator;
 - (void)showLoadingIndicatorInsteadOfView:(UIView *)viewToReplace;

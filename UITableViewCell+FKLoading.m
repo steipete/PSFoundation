@@ -7,8 +7,8 @@ static char previousAccessoryKey;
 @interface UITableViewCell ()
 
 // re-define as read/write
-@property (nonatomic, strong, readwrite) UIActivityIndicatorView *activityView;
-@property (nonatomic, strong) UIView *previousAccessory;
+@property (nonatomic, retain, readwrite) UIActivityIndicatorView *activityView;
+@property (nonatomic, retain) UIView *previousAccessory;
 
 @end
 
@@ -23,10 +23,12 @@ static char previousAccessoryKey;
     self.previousAccessory = self.accessoryView;
     
     // set activityIndicator as new accessoryView
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    self.activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
     [self.activityView startAnimating];
     
+    self.accessoryType = UITableViewCellAccessoryNone;
     self.accessoryView = self.activityView;
+    [self setNeedsDisplay];
 }
 
 - (void)hideLoadingIndicator {

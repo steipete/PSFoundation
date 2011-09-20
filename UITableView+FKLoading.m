@@ -14,7 +14,7 @@ static char cellsShowingIndicatorKey;
 @implementation UITableView (FKLoading)
 
 - (void)showLoadingIndicatorAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.dataSource tableView:self cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
     
     if (!self.allowsMultipleLoadingIndicators) {
         [self hideLoadingIndicators];
@@ -25,7 +25,7 @@ static char cellsShowingIndicatorKey;
 }
 
 - (void)hideLoadingIndicatorAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.dataSource tableView:self cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
     
     [cell hideLoadingIndicator];
     [self.cellsShowingLoadingIndicator removeObject:indexPath];
