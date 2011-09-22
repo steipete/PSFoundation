@@ -74,7 +74,7 @@ static CGRect FKCenteredSquareInRectConstrainedToSize(CGRect rect, CGFloat size)
     viewToReplace.alpha = 0.f;
     self.replacedObject = viewToReplace;
     
-    [self.view addSubview:activityView];
+    [viewToReplace.superview addSubview:activityView];
     [activityView startAnimating];
 }
 
