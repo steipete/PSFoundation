@@ -584,6 +584,10 @@
 		78E53273126E03EB00A89047 /* PSGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E531F9126E03EB00A89047 /* PSGlobal.m */; };
 		78E5327A126E042100A89047 /* SafeFetchedResultsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 78E53278126E042100A89047 /* SafeFetchedResultsController.h */; };
 		78E5327B126E042100A89047 /* SafeFetchedResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78E53279126E042100A89047 /* SafeFetchedResultsController.m */; };
+		9B04E2EB1431F32600974B96 /* NSObject+FKObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B04E2E91431F32600974B96 /* NSObject+FKObserver.h */; };
+		9B04E2EC1431F32600974B96 /* NSObject+FKObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B04E2E91431F32600974B96 /* NSObject+FKObserver.h */; };
+		9B04E2ED1431F32600974B96 /* NSObject+FKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B04E2EA1431F32600974B96 /* NSObject+FKObserver.m */; };
+		9B04E2EE1431F32600974B96 /* NSObject+FKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B04E2EA1431F32600974B96 /* NSObject+FKObserver.m */; };
 		DC3E94B8129F14F600022ED8 /* UIButton+Presets.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3E94B6129F14F600022ED8 /* UIButton+Presets.h */; };
 		DC3E94B9129F14F600022ED8 /* UIButton+Presets.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3E94B7129F14F600022ED8 /* UIButton+Presets.m */; };
 /* End PBXBuildFile section */
@@ -898,6 +902,8 @@
 		78E531F9126E03EB00A89047 /* PSGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PSGlobal.m; path = Utils/PSGlobal.m; sourceTree = SOURCE_ROOT; };
 		78E53278126E042100A89047 /* SafeFetchedResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SafeFetchedResultsController.h; path = Utils/SafeFetchedResultsController.h; sourceTree = SOURCE_ROOT; };
 		78E53279126E042100A89047 /* SafeFetchedResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SafeFetchedResultsController.m; path = Utils/SafeFetchedResultsController.m; sourceTree = SOURCE_ROOT; };
+		9B04E2E91431F32600974B96 /* NSObject+FKObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FKObserver.h"; sourceTree = "<group>"; };
+		9B04E2EA1431F32600974B96 /* NSObject+FKObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FKObserver.m"; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC3E94B6129F14F600022ED8 /* UIButton+Presets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Presets.h"; path = "Categories/UIButton/UIButton+Presets.h"; sourceTree = SOURCE_ROOT; };
 		DC3E94B7129F14F600022ED8 /* UIButton+Presets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Presets.m"; path = "Categories/UIButton/UIButton+Presets.m"; sourceTree = SOURCE_ROOT; };
@@ -1512,6 +1518,8 @@
 		78E53190126E03EB00A89047 /* NSObject */ = {
 			isa = PBXGroup;
 			children = (
+				9B04E2E91431F32600974B96 /* NSObject+FKObserver.h */,
+				9B04E2EA1431F32600974B96 /* NSObject+FKObserver.m */,
 				78552DD112B6547500EFDE10 /* JRSwizzle.h */,
 				78552DD212B6547500EFDE10 /* JRSwizzle.m */,
 				7837D42E12DA749D00BE3C22 /* NSObject+AssociatedObjects.h */,
@@ -1952,6 +1960,7 @@
 				7885880B133B39E700797FF0 /* NSData+RSHexDump.h in Headers */,
 				7885880C133B39E700797FF0 /* DTCustomColoredAccessory.h in Headers */,
 				7885880D133B39E700797FF0 /* UIImage+MTTiling.h in Headers */,
+				9B04E2EC1431F32600974B96 /* NSObject+FKObserver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2114,6 +2123,7 @@
 				3931207C1428B8BA0095D5ED /* UITableView+FKLoading.h in Headers */,
 				3931207E1428B8BA0095D5ED /* UITableViewCell+FKLoading.h in Headers */,
 				393120801428B8BA0095D5ED /* UIViewController+FKLoading.h in Headers */,
+				9B04E2EB1431F32600974B96 /* NSObject+FKObserver.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2394,6 +2404,7 @@
 				78858888133B39E700797FF0 /* NSData+RSHexDump.m in Sources */,
 				78858889133B39E700797FF0 /* DTCustomColoredAccessory.m in Sources */,
 				7885888A133B39E700797FF0 /* UIImage+MTTiling.m in Sources */,
+				9B04E2EE1431F32600974B96 /* NSObject+FKObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2548,6 +2559,7 @@
 				3931207D1428B8BA0095D5ED /* UITableView+FKLoading.m in Sources */,
 				3931207F1428B8BA0095D5ED /* UITableViewCell+FKLoading.m in Sources */,
 				393120811428B8BA0095D5ED /* UIViewController+FKLoading.m in Sources */,
+				9B04E2ED1431F32600974B96 /* NSObject+FKObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
