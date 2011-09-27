@@ -28,6 +28,7 @@
     NetworkStatus currentNetworkStatus_;
     
     NSString *hostAddress_;
+    NSDate *lastReachabilityChange_;
 }
 
 @property (nonatomic, retain, readonly) Reachability *reachability;
@@ -39,6 +40,7 @@
 - (void)startCheckingHostAddress:(NSString *)hostAddress;
 
 - (void)setupReachabilityFor:(id)object;
+- (void)setupReachabilityFor:(id)object sendInitialNotification:(BOOL)sendInitialNotification;
 - (void)shutdownReachabilityFor:(id)object;
 
 @end

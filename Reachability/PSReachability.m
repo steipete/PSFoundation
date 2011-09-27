@@ -9,11 +9,15 @@
 #import "PSReachability.h"
 #import "PSFoundation.h"
 
+#define kPSReachabilityMinTimeBetweenNotifications  0.15
+
 @interface PSReachability ()
 
 @property (nonatomic, retain, readwrite) Reachability *reachability;
 @property (nonatomic, assign, readwrite) NetworkStatus currentNetworkStatus;
 @property (nonatomic, copy, readwrite) NSString *hostAddress;
+// timestamp of last reachability change
+@property (nonatomic, retain) NSDate *lastReachabilityChange;
 
 - (void)reachabilityChanged:(NSNotification *)note;
 
@@ -26,6 +30,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSReachability);
 @synthesize reachability = reachability_;
 @synthesize currentNetworkStatus = currentNetworkStatus_;
 @synthesize hostAddress = hostAddress_;
+@synthesize lastReachabilityChange = lastReachabilityChange_;
 
 ////////////////////////////////////////////////////////////////////////
 #pragma mark -
@@ -37,6 +42,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSReachability);
     [reachability_ stopNotifier];
     MCRelease(reachability_);
     MCRelease(hostAddress_);
+    MCRelease(lastReachabilityChange_);
     
     [super dealloc];
 }
@@ -55,13 +61,19 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSReachability);
                                                  name:kReachabilityChangedNotification object:nil];
     
     self.reachability = [Reachability reachabilityWithHostName:hostAddress];
-    self.currentNetworkStatus = self.reachability.currentReachabilityStatus; 
+    // we initially assume that we are reachable, a synchronous check of the 
+    // current network status can take quite some time and can freeze the App
+    self.currentNetworkStatus = ReachableViaWWAN;
     
     // start continous updates
     [self.reachability startNotifier];
 }
 
 - (void)setupReachabilityFor:(id)object {
+    [self setupReachabilityFor:object sendInitialNotification:YES];
+}
+
+- (void)setupReachabilityFor:(id)object sendInitialNotification:(BOOL)sendInitialNotification {
     if ([object respondsToSelector:@selector(configureForNetworkStatus:)]) {
         // listen for PSReachability Notifications
         [[NSNotificationCenter defaultCenter] addObserver:object
@@ -70,10 +82,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSReachability);
                                                    object:self];
         
         // perform initial setup
-        NSNotification *notification = [NSNotification notificationWithName:kPSReachabilityChangedNotification 
-                                                                     object:self 
-                                                                   userInfo:XDICT($I(self.currentNetworkStatus),kPSNetworkStatusKey)];
-        [object performSelector:@selector(configureForNetworkStatus:) withObject:notification];
+        if (sendInitialNotification) {
+            NSNotification *notification = [NSNotification notificationWithName:kPSReachabilityChangedNotification 
+                                                                         object:self 
+                                                                       userInfo:XDICT($I(self.currentNetworkStatus),kPSNetworkStatusKey)];
+            [object performSelector:@selector(configureForNetworkStatus:) withObject:notification];
+        }
         
         DDLogVerbose(@"Object %@ was setup to use PSReachability", object);
     } else {
@@ -90,7 +104,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSReachability);
 - (void)reachabilityChanged:(NSNotification *)note {
     // get Reachability instance from notification
 	Reachability* reachability = [note object];
-    
 	// get current status
 	NetworkStatus newNetworkStatus = [reachability currentReachabilityStatus];
     
@@ -98,10 +111,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSReachability);
     if (newNetworkStatus != self.currentNetworkStatus) {
         self.currentNetworkStatus = newNetworkStatus;
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:kPSReachabilityChangedNotification
-                                                            object:self
-                                                          userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:newNetworkStatus] 
-                                                                                               forKey:kPSNetworkStatusKey]];
+        // we only send new notifications if a minimum amount of time is already bygone
+		@synchronized(self.lastReachabilityChange) {
+            if (ABS([self.lastReachabilityChange timeIntervalSinceNow]) > kPSReachabilityMinTimeBetweenNotifications) {
+                self.lastReachabilityChange = [NSDate date];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kPSReachabilityChangedNotification
+                                                                    object:self
+                                                                  userInfo:XDICT($I(newNetworkStatus),kPSNetworkStatusKey)];
+            }
+        }
     }
 }
 
