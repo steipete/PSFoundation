@@ -83,6 +83,7 @@
 
 // make
 #import "NSObject+Utilities.h"
+#import "NSObject+FKObserver.h"
 
 // helper for automatic description!
 #import "NSObject+AutoDescription.h"
@@ -160,6 +161,7 @@
 // setPathToRoundedRect, drawGlossyRect, setBackgroundToGlossyRectOfColor
 #import "UIButton+Glossy.h"                                 // 3-clause BSD
 #import "UIButton+Presets.h"
+#import "UIButton+FKConcise.h"
 
 // showWithMessage fromTabBar|fromToolbar|inView
 #import "UIActionSheet+SCMethods.h"                         // 4-clause BSD

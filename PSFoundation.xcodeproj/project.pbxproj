@@ -588,6 +588,8 @@
 		9B04E2EC1431F32600974B96 /* NSObject+FKObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B04E2E91431F32600974B96 /* NSObject+FKObserver.h */; };
 		9B04E2ED1431F32600974B96 /* NSObject+FKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B04E2EA1431F32600974B96 /* NSObject+FKObserver.m */; };
 		9B04E2EE1431F32600974B96 /* NSObject+FKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B04E2EA1431F32600974B96 /* NSObject+FKObserver.m */; };
+		9BBBF408143AF1B300071ABD /* UIButton+FKConcise.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBF406143AF1B300071ABD /* UIButton+FKConcise.m */; };
+		9BBBF409143AF1B300071ABD /* UIButton+FKConcise.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BBBF407143AF1B300071ABD /* UIButton+FKConcise.h */; };
 		DC3E94B8129F14F600022ED8 /* UIButton+Presets.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3E94B6129F14F600022ED8 /* UIButton+Presets.h */; };
 		DC3E94B9129F14F600022ED8 /* UIButton+Presets.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3E94B7129F14F600022ED8 /* UIButton+Presets.m */; };
 /* End PBXBuildFile section */
@@ -904,6 +906,8 @@
 		78E53279126E042100A89047 /* SafeFetchedResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SafeFetchedResultsController.m; path = Utils/SafeFetchedResultsController.m; sourceTree = SOURCE_ROOT; };
 		9B04E2E91431F32600974B96 /* NSObject+FKObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+FKObserver.h"; sourceTree = "<group>"; };
 		9B04E2EA1431F32600974B96 /* NSObject+FKObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+FKObserver.m"; sourceTree = "<group>"; };
+		9BBBF406143AF1B300071ABD /* UIButton+FKConcise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+FKConcise.m"; sourceTree = "<group>"; };
+		9BBBF407143AF1B300071ABD /* UIButton+FKConcise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+FKConcise.h"; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC3E94B6129F14F600022ED8 /* UIButton+Presets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Presets.h"; path = "Categories/UIButton/UIButton+Presets.h"; sourceTree = SOURCE_ROOT; };
 		DC3E94B7129F14F600022ED8 /* UIButton+Presets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Presets.m"; path = "Categories/UIButton/UIButton+Presets.m"; sourceTree = SOURCE_ROOT; };
@@ -1630,6 +1634,8 @@
 				78E531BE126E03EB00A89047 /* UIButton+Glossy.m */,
 				DC3E94B6129F14F600022ED8 /* UIButton+Presets.h */,
 				DC3E94B7129F14F600022ED8 /* UIButton+Presets.m */,
+				9BBBF406143AF1B300071ABD /* UIButton+FKConcise.m */,
+				9BBBF407143AF1B300071ABD /* UIButton+FKConcise.h */,
 			);
 			name = UIButton;
 			path = Categories/UIButton;
@@ -2124,6 +2130,7 @@
 				3931207E1428B8BA0095D5ED /* UITableViewCell+FKLoading.h in Headers */,
 				393120801428B8BA0095D5ED /* UIViewController+FKLoading.h in Headers */,
 				9B04E2EB1431F32600974B96 /* NSObject+FKObserver.h in Headers */,
+				9BBBF409143AF1B300071ABD /* UIButton+FKConcise.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2560,6 +2567,7 @@
 				3931207F1428B8BA0095D5ED /* UITableViewCell+FKLoading.m in Sources */,
 				393120811428B8BA0095D5ED /* UIViewController+FKLoading.m in Sources */,
 				9B04E2ED1431F32600974B96 /* NSObject+FKObserver.m in Sources */,
+				9BBBF408143AF1B300071ABD /* UIButton+FKConcise.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
