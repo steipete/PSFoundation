@@ -14,8 +14,8 @@
 
 @interface UIViewController (MTAnimatedFetch)
 
-- (void)handleControllerWillChangeContentForTableView:(UITableView *)tableView;
-- (void)handleControllerDidChangeContentForTableView:(UITableView *)tableView;
+- (void)handleController:(NSFetchedResultsController *)controller willChangeContentForTableView:(UITableView *)tableView;
+- (void)handleController:(NSFetchedResultsController *)controller didChangeContentForTableView:(UITableView *)tableView;
 
 - (void)handleController:(NSFetchedResultsController *)controller
 		 didChangeObject:(id)anObject
