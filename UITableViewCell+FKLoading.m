@@ -26,7 +26,6 @@ static char previousAccessoryKey;
     self.activityView = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
     [self.activityView startAnimating];
     
-    self.accessoryType = UITableViewCellAccessoryNone;
     self.accessoryView = self.activityView;
     [self setNeedsDisplay];
 }
