@@ -109,10 +109,10 @@ static char landscapeFrameKey;
     for (UIView *view in self.subviews) {
         if (view.hasPortraitAndLandscapeFrames) {
             [view setFrameForInterfaceOrientation:toInterfaceOrientation];
-            
-            if (recursive) {
-                [view setSubviewFramesForInterfaceOrientation:toInterfaceOrientation recursive:recursive];
-            }
+        }
+        
+        if (recursive) {
+            [view setSubviewFramesForInterfaceOrientation:toInterfaceOrientation recursive:recursive];
         }
     } 
 }
