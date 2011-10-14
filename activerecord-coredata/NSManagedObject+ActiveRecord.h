@@ -32,6 +32,7 @@
 + (BOOL) truncateAll;
 + (BOOL) truncateAllMatchingPredicate:(NSPredicate *)searchTerm;
 + (BOOL) truncateAllInContext:(NSManagedObjectContext *)context;
++ (BOOL) truncateAllMatchingPredicate:(NSPredicate *)searchTerm inContext:(NSManagedObjectContext *)context;
 
 + (NSArray *) ascendingSortDescriptors:(id)attributesToSortBy, ...;
 + (NSArray *) descendingSortDescriptors:(id)attributesToSortyBy, ...;

@@ -700,20 +700,23 @@ static NSUInteger defaultBatchSize = kActiveRecordDefaultBatchSize;
     return YES;
 }
 
-+ (BOOL) truncateAllMatchingPredicate:(NSPredicate *)searchTerm
-{
-	NSFetchRequest *request = [self requestAll];
++ (BOOL) truncateAllMatchingPredicate:(NSPredicate *)searchTerm {
+	return [self truncateAllMatchingPredicate:searchTerm inContext:[NSManagedObjectContext contextForCurrentThread]];
+}
+
++ (BOOL) truncateAllMatchingPredicate:(NSPredicate *)searchTerm inContext:(NSManagedObjectContext *)context {
+    NSFetchRequest *request = [self requestAllInContext:context];
 	[request setPredicate:searchTerm];
 	[request setIncludesSubentities:NO];
 	[request setIncludesPropertyValues:NO];
 	[request setFetchBatchSize:[self defaultBatchSize]];
-
+    
 	NSArray *objectsToTruncate = [self executeFetchRequest:request];
-
+    
 	for (id objectToTruncate in objectsToTruncate) {
 		[objectToTruncate deleteEntity];
 	}
-
+    
 	return YES;
 }
 
