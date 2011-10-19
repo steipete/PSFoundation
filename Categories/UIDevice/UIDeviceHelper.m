@@ -122,7 +122,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         BOOL isSimulator = NO;
-        BOOL isIPad2 = (PSIsIpad() && [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]);
+        BOOL isIPad2 = (isIPad() && [UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera]);
         BOOL hasRetina = [[UIScreen mainScreen] scale] > 1.f;
         
 #if TARGET_IPHONE_SIMULATOR
