@@ -9,6 +9,7 @@
 //  Chapter 2: The Anatomy of Core Data, Page 29ff
 
 #import "UIViewController+MTAnimatedFetch.h"
+#import "NSObject+AssociatedObjects.h"
 
 static char sectionCountKey;
 

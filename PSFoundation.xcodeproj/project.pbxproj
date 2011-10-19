@@ -588,6 +588,7 @@
 		9B04E2EC1431F32600974B96 /* NSObject+FKObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B04E2E91431F32600974B96 /* NSObject+FKObserver.h */; };
 		9B04E2ED1431F32600974B96 /* NSObject+FKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B04E2EA1431F32600974B96 /* NSObject+FKObserver.m */; };
 		9B04E2EE1431F32600974B96 /* NSObject+FKObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B04E2EA1431F32600974B96 /* NSObject+FKObserver.m */; };
+		9B97F655144EF853005B9DD6 /* UIViewController+MTAnimatedFetch.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EBAAB013508EE100BBFB4B /* UIViewController+MTAnimatedFetch.m */; };
 		9BBBF408143AF1B300071ABD /* UIButton+FKConcise.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BBBF406143AF1B300071ABD /* UIButton+FKConcise.m */; };
 		9BBBF409143AF1B300071ABD /* UIButton+FKConcise.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BBBF407143AF1B300071ABD /* UIButton+FKConcise.h */; };
 		DC3E94B8129F14F600022ED8 /* UIButton+Presets.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3E94B6129F14F600022ED8 /* UIButton+Presets.h */; };
@@ -2280,6 +2281,7 @@
 				7837DCDD12A09381005CC81B /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				7816DC6A135C4A17000AA9EF /* NSFetchedResultsController+ActiveRecord.m in Sources */,
 				39C917A5139832D10045489C /* NSManagedObject+MTSafeSetValuesForKeysWithDictionary.m in Sources */,
+				9B97F655144EF853005B9DD6 /* UIViewController+MTAnimatedFetch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
