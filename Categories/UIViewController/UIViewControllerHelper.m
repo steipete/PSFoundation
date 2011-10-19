@@ -100,5 +100,18 @@
 	[viewController release];
 }
 
+
+- (id)currentVisibleViewController {
+    if ([self isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabBarController = (UITabBarController *)self;
+        return [tabBarController.selectedViewController currentVisibleViewController];
+    } else if ([self isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navigationController = (UINavigationController *)self;
+        return [[navigationController visibleViewController] currentVisibleViewController];
+    }
+    
+    return self;
+}
+
 @end
 #endif

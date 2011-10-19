@@ -44,5 +44,15 @@
 - (void)dismissPopUpViewController; // Calls the method below on poppedUpFromViewController
 - (void)dismissPopUpViewController:(UIViewController<PopUpViewControllerDelegate>*)viewController;
 
+/**
+ Returns the currently visible viewController. If the viewController this method gets called on is
+ a UITabBarController it returns the currently selected viewController, if the viewController is a
+ UINavigationController is returns the topmost viewController in the navigation-stack. If the viewController
+ is no Container-ViewController, it just returns self.
+ 
+ @return the currently visible viewcontroller
+ */
+- (id)currentVisibleViewController;
+
 @end
 #endif
