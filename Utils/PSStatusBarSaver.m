@@ -20,7 +20,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(PSStatusBarSaver);
 //
 - (id)init {
   if ((self = [super init])) {
-    [[self class] captureStatusBar];
+      // capture
+      self.savedStatusBarStyle = [UIApplication sharedApplication].statusBarStyle;
   }
   return self;
 }
