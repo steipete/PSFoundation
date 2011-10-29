@@ -113,5 +113,9 @@
     return self;
 }
 
+- (BOOL)isViewVisible {
+    return [self isViewLoaded] && self.view.window != nil;
+}
+
 @end
 #endif

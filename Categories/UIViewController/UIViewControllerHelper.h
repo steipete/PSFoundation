@@ -35,6 +35,8 @@
 
 @interface UIViewController (Helper)
 
+@property (nonatomic, readonly, getter = isViewVisible) BOOL viewVisible;
+
 // A "Pop Up" is intended to only take up a portion of the screen, similar to a UIAlertView
 
 // Adds a "Pop Up" view to the current view controller
