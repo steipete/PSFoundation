@@ -113,7 +113,7 @@ static inline id MAEachHelper(NSArray *array, CFMutableDictionaryRef *eachTableP
     if(!enumerator)
     {
         enumerator = [array objectEnumerator];
-        CFDictionarySetValue(*eachTablePtr, (__bridge CFArrayRef)array, (__bridge void *)enumerator);
+        CFDictionarySetValue(*eachTablePtr, (__bridge CFArrayRef)array, (__bridge CFArrayRef)enumerator);
     }
     return [enumerator nextObject];
 }

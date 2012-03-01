@@ -2580,6 +2580,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
+					i386,
 					armv7,
 					armv6,
 				);
@@ -2604,6 +2605,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
+					i386,
 					armv7,
 					armv6,
 				);
@@ -2664,6 +2666,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
+					i386,
 					armv7,
 					armv6,
 				);
@@ -2971,6 +2974,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
+					i386,
 					armv7,
 					armv6,
 				);
