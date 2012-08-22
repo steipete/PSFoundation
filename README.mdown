@@ -1,38 +1,5 @@
-I'm releasing my dearest framework, PSFoundation, as a christmas gift. It's more or less a second Foundation, with great tools aiding development of iOS apps. This framework is fast-moving, so expect some stuff to break.
-Best thing: it's AppStore-safe, no private API in there. All my own apps use this framework, so it's proved.
+I'll keep this repo for historical reasons, and maybe there even are some categories you might need. But generally, it's not used anymore, not supported, not converted to ARC, and if you ship that you have to be careful to include all open source licenses. 
 
-Okay, what's in the box?
+Generally, big repos of categories are a BAD idea, and I see many developers doing this. Better be selective, just pick what you need for a project and don't carry around dead code and pullute the namespace with 10.000 categories. This will just slow your app down for many reasons (e.g. every Framework you link has a small startup time penalty.)
 
-* Categories that extend most Foundation and UIKit classes, with function you always wished you had, really.
-* Helper for automatic archiving/unarchiving (TPAutoArchiver)
-* HUD classes (MBProgressHUD, DSActivityView, AtomHUD)
-* Invocation Helper (DDInvocationGrabber, NSInvocation+blocks)
-* Keychain Helper (SFHFKeychainUtils)
-* Logger (a fork of cocoa-lumberjack + NSLogger-Integration, HOLog, Log (for easy printing))
-* SynthesizeSingleton-Macro
-* IKNetworkActivityManager
-* Apple Reachability 2.2
-* Apple SoundEffect 1.7
-* GradientButtons
-* Block-Based AlertView, ActionSheet
-* A StatusBar-Saver
-* XPathQuery-Tools
-* Color-Macros & Utilities (like HexToFloats, RGBColor(), HEXCOLOR()...)
-* MAZeroWeakReferences for safe delegates
-* EGOCache & EGOImageLoader (for dead easy html image loading)
-* Appirater (for more AppStore ratings)
-* PSCompatibility (fast macros for IOS4/3.2/3.1)
-* MCRelease, MCReleaseNil, custom assert macros, IsEmpty...
-
-TableView-Helper:
-
-* PSTableViewController (like UITableViewController, just with subview support)
-* PSGenericView/PSGenericView - for super fast drawRect-cells
-* GradientView / ShadowedTableView / UACellBackgroundView - more visual awesomeness!
-
-Core Data:
-
-* activerecord-for-coredata (a fork of https://github.com/magicalpanda/activerecord-fetching-for-core-data)
-* SafeFetchedResultsController (the NSFetchedResultsController subclass you wished you found earlier!)
-
-License is mostly MIT, BSD, Apache; see source for details.
+Also, while I am not a fan of prefixing categories, it definitely is needed if you're working on a 3rd party framework like http://PSPDFKit.com. So keep that in mind, category clashes are super hard to debug.
