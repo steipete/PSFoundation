@@ -2,11 +2,8 @@
 //  DTCustomColoredAccessory.h
 //  MW
 //
-//  Created by Matthias Tretter on 09.03.11.
-//  Copyright 2011 @myell0w. All rights reserved.
-//
-//  Found on cocoanetics.com
-//  http://www.cocoanetics.com/2011/03/expandingcollapsing-tableview-sections/
+//  Created by Oliver Drobnik on 2/10/12.
+//  Copyright (c) 2012 Cocoanetics. All rights reserved.
 
 #import <Foundation/Foundation.h>
 
