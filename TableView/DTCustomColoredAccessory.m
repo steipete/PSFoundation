@@ -2,10 +2,9 @@
 //  DTCustomColoredAccessory.m
 //  MW
 //
-//  Created by Matthias Tretter on 09.03.11.
-//  Copyright 2011 myell0w. All rights reserved.
+//  Created by Oliver Drobnik on 2/10/12.
+//  Copyright (c) 2012 Cocoanetics. All rights reserved.
 //
-//  Found on Cocoanetics.com
 
 #import "DTCustomColoredAccessory.h"
 
