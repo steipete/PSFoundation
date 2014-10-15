@@ -823,8 +823,9 @@ static DSActivityView *dsActivityView = nil;
 	{
 		for (UIView *view in [window subviews])
 		{
-            // UIPeripheralHostView is used from iOS 4.0, UIKeyboard was used in previous versions:
-			if (!strcmp(object_getClassName(view), "UIPeripheralHostView") || !strcmp(object_getClassName(view), "UIKeyboard"))
+			if (!strcmp(object_getClassName(view), "UIPeripheralHostView") || // iOS 4.0
+			!strcmp(object_getClassName(view), "UIKeyboard") || // iOS ~7.0
+			!strcmp(object_getClassName(view), "UIInputSetContainerView")) // iOS 8.0
 			{
 				return view;
 			}
